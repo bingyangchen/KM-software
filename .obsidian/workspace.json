@@ -4,7 +4,7 @@
     "type": "split",
     "children": [
       {
-        "id": "8d518b5e38615cb5",
+        "id": "c3512be0981c815b",
         "type": "split",
         "children": [
           {
@@ -51,11 +51,11 @@
             "currentTab": 2
           },
           {
-            "id": "af181b6eb2977c16",
+            "id": "22c4594ca060bf0f",
             "type": "tabs",
             "children": [
               {
-                "id": "4d8e36ebc091c85f",
+                "id": "ba9abc70c462bc50",
                 "type": "leaf",
                 "state": {
                   "type": "terminal:terminal",
@@ -65,7 +65,7 @@
                       "profile": {
                         "args": [],
                         "executable": "/bin/zsh",
-                        "name": "",
+                        "name": "zsh",
                         "platforms": {
                           "darwin": true
                         },
@@ -75,7 +75,7 @@
                       },
                       "serial": {
                         "columns": 109,
-                        "data": "jamison@sysfeat301deMBP Obsidian % git ad",
+                        "data": "jamison@sysfeat301deMBP Obsidian % git remote remove origin\r\njamison@sysfeat301deMBP Obsidian % git br -a\r\n* \u001b[32mmaster\r\n\u001b[0mjamison@sysfeat301deMBP Obsidian % git remote add origin git@github.com:Jamison-Chen/KM-software.git\r\njamison@sysfeat301deMBP Obsidian % git add ",
                         "rows": 16
                       }
                     }
@@ -207,11 +207,10 @@
       "command-palette:開啟命令面板": false,
       "markdown-importer:開啟 Markdown 格式轉換器": false,
       "random-note:開始漫遊筆記": false,
-      "terminal:Open terminal": false,
-      "publish:發佈變動內容": false
+      "terminal:Open terminal": false
     }
   },
-  "active": "4d8e36ebc091c85f",
+  "active": "ba9abc70c462bc50",
   "lastOpenFiles": [
     "軟體開發工具/Git/push, pull, fetch.md",
     "未命名.canvas",
