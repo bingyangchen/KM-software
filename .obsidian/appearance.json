@@ -1,0 +1,13 @@
+{
+  "accentColor": "#bda8ff",
+  "interfaceFontFamily": "",
+  "monospaceFontFamily": "Monaco",
+  "translucency": true,
+  "baseFontSize": 17,
+  "baseFontSizeAction": true,
+  "theme": "moonstone",
+  "textFontFamily": "Georgia,Times New Roman",
+  "enabledCssSnippets": [
+    "custom"
+  ]
+}

@@ -1,0 +1,73 @@
+*,
+*::before,
+*::after {
+    text-align: justify;
+}
+
+h1 {
+    position: relative;
+    margin: 20px 0 !important;
+    padding: 100px 0 15px;
+    border-bottom: 2px solid #ddd;
+    border-radius: 2px;
+    letter-spacing: 0.1rem !important;
+}
+
+ul > li {
+    margin-bottom: 15px;
+}
+
+h1::before {
+    content: "．．．";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+    color: #ddd;
+}
+
+h3 {
+    margin: 40px 0 0 !important;
+}
+
+p {
+    line-height: 1.7rem;
+}
+
+img {
+    margin-bottom: 40px;
+}
+
+pre {
+    border-radius: 10px !important;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+    background-color: #0001 !important;
+}
+
+code {
+    background-color: #0001 !important;
+}
+
+pre > code {
+    background-color: initial !important;
+}
+
+blockquote {
+    position: relative;
+    border: none !important;
+    padding: 5px 0 5px 50px !important;
+    margin: 25px 0;
+    font-style: italic !important;
+}
+
+blockquote::before {
+    content: "“";
+    position: absolute;
+    left: 0;
+    top: -20px;
+    font-size: 5rem;
+    color: #ddd;
+}

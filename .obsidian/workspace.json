@@ -1,0 +1,216 @@
+{
+  "main": {
+    "id": "66b1c54638ef32d3",
+    "type": "split",
+    "children": [
+      {
+        "id": "8d21b81eab6485db",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4d33e3697844eb06",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "資料庫/PostgreSQL/Window Functions.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "d90c8fd8cb9e393f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "資料庫/PostgreSQL/零碎筆記.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "086ec194fc981939",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "軟體開發工具/Git/push, pull, fetch.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "7bbefc9f27239e5b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "程式語言理論/Currying & Partial Application.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2b284ab878c6b904",
+    "type": "split",
+    "children": [
+      {
+        "id": "f6ecab98157f6640",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a1bd1f7fdbf4fc65",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "byModifiedTime"
+              }
+            }
+          },
+          {
+            "id": "7ff5e6399a0b5da8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": true,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "6cb918ae06a765fc",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "f13142408b62142a",
+    "type": "split",
+    "children": [
+      {
+        "id": "2539af9153711b6b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "91a0836cdf5ba434",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "程式語言理論/Currying & Partial Application.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "a2426c6870b8fbfd",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "程式語言理論/Currying & Partial Application.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "6a477742a8c6f5ec",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "d0827529fb16ae81",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "程式語言理論/Currying & Partial Application.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "canvas:建立新畫布": false,
+      "switcher:開啟快速切換": false,
+      "graph:查看關聯圖": false,
+      "templates:插入模板": false,
+      "command-palette:開啟命令面板": false,
+      "markdown-importer:開啟 Markdown 格式轉換器": false,
+      "random-note:開始漫遊筆記": false
+    }
+  },
+  "active": "7bbefc9f27239e5b",
+  "lastOpenFiles": [
+    "程式語言理論/協變、逆變與不變 (Covariance, Contravariance and Invariance).md",
+    "程式語言理論/子型別 (Subtype).md",
+    "程式語言理論/Interface vs. Abstract Class in Java.md",
+    "程式語言理論/Imperative vs. Declarative.md",
+    "程式語言理論/OOP 四本柱.md",
+    "程式語言理論/閉包 (Closure).md",
+    "程式語言理論/Liskov Substitution Principle (LSP).md",
+    "程式語言理論/程式語言的分類.md",
+    "程式語言理論/Factory Function vs. Constructor.md",
+    "程式語言理論/FP 核心準則.md",
+    "程式語言理論/Function Composition.md",
+    "JavaScript, TypeScript/Event Loop.md",
+    "JavaScript, TypeScript/JavaScript 中的 OOP.md",
+    "JavaScript, TypeScript/JavaScript is a Prototype-based Language.md",
+    "JavaScript, TypeScript/接收 Server-Sent Event.md",
+    "JavaScript, TypeScript/Node.js/更新 Node.js 版本.md",
+    "Python/Python 中的 Closure 與 Captured Variable.md",
+    "Python/Iterable vs. Iterator.md",
+    "Python/List Comprehension.md",
+    "Python/Maximum Recursion Depth.md",
+    "Python/with.md",
+    "Python/Generator and the yield Statement.md",
+    "Python/assert.md",
+    "Python/String Concatenation.md",
+    "Python/Python 中的 Threading 與 Multi-processing.md",
+    "Python/__repr__ 與 __str__.md"
+  ]
+}
