@@ -75,7 +75,7 @@
                       },
                       "serial": {
                         "columns": 109,
-                        "data": "jamison@sysfeat301deMBP Obsidian % git remote remove origin\r\njamison@sysfeat301deMBP Obsidian % git br -a\r\n* \u001b[32mmaster\r\n\u001b[0mjamison@sysfeat301deMBP Obsidian % git remote add origin git@github.com:Jamison-Chen/KM-software.git\r\njamison@sysfeat301deMBP Obsidian % git add ",
+                        "data": "jamison@sysfeat301deMBP Obsidian % git remote remove origin\r\njamison@sysfeat301deMBP Obsidian % git br -a\r\n* \u001b[32mmaster\r\n\u001b[0mjamison@sysfeat301deMBP Obsidian % git remote add origin git@github.com:Jamison-Chen/KM-software.git\r\njamison@sysfeat301deMBP Obsidian % git add .\r\njamison@sysfeat301deMBP Obsidian % git commit -m \"20303032\"\r\n[master 4edd20b] 20303032\r\n 4 files changed, 9 insertions(+), 66 deletions(-)\r\njamison@sysfeat301deMBP Obsidian % git push -u origin master\r\nEnumerating objects: 17, done.\r\nCounting objects: 100% (17/17), done.\r\nDelta compression using up to 6 threads\r\nCompressing objects: 100% (8/8), done.\r\nWriting objects: 100% (9/9), 979 bytes | 979.00 KiB/s, done.\r\nTotal 9 (delta 6), reused 0 (delta 0), pack-reused 0\r\nremote: Resolving deltas: 100% (6/6), completed with 6 local objects.\r\nTo github.com:Jamison-Chen/KM-software.git\r\n   cf70362..4edd20b  master -> master\r\nbranch 'master' set up to track 'origin/master'.\r\njamison@sysfeat301deMBP Obsidian % ",
                         "rows": 16
                       }
                     }
@@ -212,6 +212,7 @@
   },
   "active": "ba9abc70c462bc50",
   "lastOpenFiles": [
+    "push.sh",
     "軟體開發工具/Git/push, pull, fetch.md",
     "未命名.canvas",
     "程式語言理論/Currying & Partial Application.md",
