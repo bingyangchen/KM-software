@@ -4,88 +4,34 @@
     "type": "split",
     "children": [
       {
-        "id": "c3512be0981c815b",
-        "type": "split",
+        "id": "8d21b81eab6485db",
+        "type": "tabs",
         "children": [
           {
-            "id": "8d21b81eab6485db",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "4d33e3697844eb06",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "資料庫/PostgreSQL/Window Functions.md",
-                    "mode": "preview",
-                    "source": true
-                  }
-                }
-              },
-              {
-                "id": "d90c8fd8cb9e393f",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "資料庫/PostgreSQL/零碎筆記.md",
-                    "mode": "preview",
-                    "source": true
-                  }
-                }
-              },
-              {
-                "id": "086ec194fc981939",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "軟體開發工具/Git/push, pull, fetch.md",
-                    "mode": "preview",
-                    "source": true
-                  }
-                }
+            "id": "14d599d61a10bbb1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Python/Useful Tricks.md",
+                "mode": "preview",
+                "source": true
               }
-            ],
-            "currentTab": 2
+            }
           },
           {
-            "id": "22c4594ca060bf0f",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "ba9abc70c462bc50",
-                "type": "leaf",
-                "state": {
-                  "type": "terminal:terminal",
-                  "state": {
-                    "terminal:terminal": {
-                      "cwd": "/Users/jamison/Library/CloudStorage/GoogleDrive-106208004@g.nccu.edu.tw/My Drive/Obsidian",
-                      "profile": {
-                        "args": [],
-                        "executable": "/bin/zsh",
-                        "name": "zsh",
-                        "platforms": {
-                          "darwin": true
-                        },
-                        "pythonExecutable": "python3",
-                        "type": "integrated",
-                        "useWin32Conhost": true
-                      },
-                      "serial": {
-                        "columns": 109,
-                        "data": "jamison@sysfeat301deMBP Obsidian % git remote remove origin\r\njamison@sysfeat301deMBP Obsidian % git br -a\r\n* \u001b[32mmaster\r\n\u001b[0mjamison@sysfeat301deMBP Obsidian % git remote add origin git@github.com:Jamison-Chen/KM-software.git\r\njamison@sysfeat301deMBP Obsidian % git add .\r\njamison@sysfeat301deMBP Obsidian % git commit -m \"20303032\"\r\n[master 4edd20b] 20303032\r\n 4 files changed, 9 insertions(+), 66 deletions(-)\r\njamison@sysfeat301deMBP Obsidian % git push -u origin master\r\nEnumerating objects: 17, done.\r\nCounting objects: 100% (17/17), done.\r\nDelta compression using up to 6 threads\r\nCompressing objects: 100% (8/8), done.\r\nWriting objects: 100% (9/9), 979 bytes | 979.00 KiB/s, done.\r\nTotal 9 (delta 6), reused 0 (delta 0), pack-reused 0\r\nremote: Resolving deltas: 100% (6/6), completed with 6 local objects.\r\nTo github.com:Jamison-Chen/KM-software.git\r\n   cf70362..4edd20b  master -> master\r\nbranch 'master' set up to track 'origin/master'.\r\njamison@sysfeat301deMBP Obsidian % ",
-                        "rows": 16
-                      }
-                    }
-                  }
-                }
+            "id": "c73d52b720c42aba",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Python/Lazy evaluation.md",
+                "mode": "source",
+                "source": true
               }
-            ]
+            }
           }
-        ],
-        "direction": "horizontal"
+        ]
       }
     ],
     "direction": "vertical"
@@ -151,6 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Python/Useful Tricks.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -167,6 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Python/Useful Tricks.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -188,7 +136,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Python/Useful Tricks.md"
+              }
             }
           }
         ]
@@ -210,10 +160,19 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "ba9abc70c462bc50",
+  "active": "14d599d61a10bbb1",
   "lastOpenFiles": [
-    "push.sh",
+    "Python/Lazy evaluation.md",
+    "Python/List Comprehension.md",
+    "Python/Useful Tricks.md",
+    "程式語言理論/Expression vs. Statement.md",
+    "Python/pipenv.md",
+    "資料庫/PostgreSQL/Window Functions.md",
+    "Side Projects/Uber's Problem - Simulate and Solve.md",
+    "Side Projects/Chess Machine Learning.md",
     "軟體開發工具/Git/push, pull, fetch.md",
+    "資料庫/PostgreSQL/零碎筆記.md",
+    "push.sh",
     "未命名.canvas",
     "程式語言理論/Currying & Partial Application.md",
     "程式語言理論/協變、逆變與不變 (Covariance, Contravariance and Invariance).md",
@@ -230,14 +189,6 @@
     "JavaScript, TypeScript/Event Loop.md",
     "JavaScript, TypeScript/JavaScript 中的 OOP.md",
     "JavaScript, TypeScript/JavaScript is a Prototype-based Language.md",
-    "JavaScript, TypeScript/接收 Server-Sent Event.md",
-    "JavaScript, TypeScript/Node.js/更新 Node.js 版本.md",
-    "Python/Python 中的 Closure 與 Captured Variable.md",
-    "Python/Iterable vs. Iterator.md",
-    "Python/List Comprehension.md",
-    "Python/Maximum Recursion Depth.md",
-    "Python/with.md",
-    "Python/Generator and the yield Statement.md",
-    "Python/assert.md"
+    "JavaScript, TypeScript/接收 Server-Sent Event.md"
   ]
 }
