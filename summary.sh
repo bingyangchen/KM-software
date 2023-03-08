@@ -21,7 +21,7 @@ generate_summary() {
         generate_summary "$file" "$indent  "
       fi
     elif [[ -f "$file" && $(basename "$file") == *.md ]]; then
-      echo "${indent}  - [$(basename "$file")](<./$file>)" >> SUMMARY.md
+      echo "${indent}  - [$(basename "$file" .md)](<./$file>)" >> SUMMARY.md
     fi
   done
 }
