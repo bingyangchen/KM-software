@@ -222,6 +222,8 @@
   },
   "active": "6e185d0aedf434fb",
   "lastOpenFiles": [
+    "SUMMARYs.md",
+    "summary.sh",
     "SUMMARY.md",
     "JavaScript, TypeScript/Node.js/更新 Node.js 版本.md",
     "DEV.md",
@@ -240,7 +242,6 @@
     "node_modules/cheerio/node_modules/lodash/package.json",
     "node_modules/cheerio/node_modules/lodash/zipWith.js",
     "node_modules/cheerio/node_modules/lodash/fp/zipWith.js",
-    "node_modules/cheerio/node_modules/lodash/zipObjectDeep.js",
     "node_modules/ajv/README.md",
     "node_modules/ajv/lib/dotjs/README.md",
     "node_modules/gitbook-summary/test/books/config-json/second/tt.md",
@@ -259,7 +260,6 @@
     "node_modules/gitbook-summary/doc/img/test.md.jpg",
     "node_modules/qs/LICENSE.md",
     "node_modules/request/README.md",
-    "node_modules/front-matter/notes.md",
     "未命名.canvas"
   ]
 }

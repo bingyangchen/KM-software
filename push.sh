@@ -1,5 +1,5 @@
 #!/bin/bash
-npx book sm
+sh summary.sh
 
 git config user.name "Jamison Chen"
 git config user.email "106208004@g.nccu.edu.tw"
