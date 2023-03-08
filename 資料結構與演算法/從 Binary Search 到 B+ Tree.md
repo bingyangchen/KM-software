@@ -134,4 +134,4 @@ B+ Tree 可以說是針對 B Tree 的這兩個缺點而來，之所以能克服�
 
 # 參考資料
 
-https://ithelp.ithome.com.tw/articles/10221111
+<https://ithelp.ithome.com.tw/articles/10221111>

@@ -8,12 +8,10 @@ Cookies 是 browser 儲存文字資料的其中一個地方（其他 browser 資
 
 # 如何設置 Cookies
 
----
-
 1. 由 Server 設置
-	
+
 	Cookie 可以由 server 透過 response 的 HTTP `Set-Cookie` Header 傳遞給 browser， browser 收到後會將 `Set-Cookie` 的 value 存進 Cookies，browser 會在之後與相同 server 溝通時，**自動** 將這些 cookies 放在 request 的 `Cookie` header。
-	
+
 	```mermaid
 	sequenceDiagram
 		participant Client
@@ -50,8 +48,6 @@ Cookies 是 browser 儲存文字資料的其中一個地方（其他 browser 資
 	注意，上面的語法只會新增或修改 `my_cookie` 這個 cookie 的值，並不會把其它已存在的 cookie 清除。
 
 # Cookie Attributes
-
----
 
 設置 cookie 時，除了指定 name 與 value 外，還可以設定其他關於這個 cookie 的屬性，設置屬性的方法是直接寫在 `name=value` 後，並使用 `;` 區隔各個 attributes，舉例如下：
 
@@ -112,15 +108,15 @@ cookie attributes 包含：
 `SameSite` 有三種值可選，分別是：Strict、Lax 與 None。
 
 1. Strict
-	
+
 	當 cookie 的 `SameSite=Strict` 時，這個 cookie 只有在「request url 的 domain 等於 origin（也就是 client side 自己）的 domain」時可以被挾帶在 request 中，換句話說，`SameSite=Strict` 的 cookies 一定是[[Cookies (3)：從第一方到第三方#^abcf2b|第一方 cookie]]。
 
 2. Lax
-	
+
 	相較於 Strict，Lax 相對寬鬆，若在 A 網域對 B 網域發 GET request，`SameSite=Lax` 的 cookies 是可以被攜帶的，其他 HTTP method 的 request 則不會攜帶這些 cookies。
 
 3. None
-	
+
 	在 A 網域對 B 網域的 server 發任何 HTTP method 的 request，browser 都會自動帶上 `domain=B; SameSite=None` 的所有 cookies。
 
 ==**Cross-origin 的 response 無法設置 Strict 或 Lax 的 cookie 於 client 身上**==。
@@ -186,12 +182,10 @@ delete_cookie(name: string): void {
 
 # 參考資料
 
----
+<https://shubo.io/cookies/#cookie-%E6%98%AF%E4%BB%80%E9%BA%BC>
 
-https://shubo.io/cookies/#cookie-%E6%98%AF%E4%BB%80%E9%BA%BC
+<https://en.wikipedia.org/wiki/HTTP_cookie>
 
-https://en.wikipedia.org/wiki/HTTP_cookie
+<https://www.w3schools.com/js/js_cookies.asp>
 
-https://www.w3schools.com/js/js_cookies.asp
-
-https://stackoverflow.com/questions/61555100/cookie-in-set-cookie-header-not-being-set
+<https://stackoverflow.com/questions/61555100/cookie-in-set-cookie-header-not-being-set>

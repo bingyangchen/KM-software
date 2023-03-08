@@ -1,4 +1,4 @@
-#FP 
+#FP
 
 Function composition 與 OOP 中的 [[Object Composition]] 是不同領域的東西，請勿搞混。
 
@@ -58,6 +58,6 @@ function compose(...funcs) {
 
 # 參考資料
 
-https://ithelp.ithome.com.tw/articles/10237503
+<https://ithelp.ithome.com.tw/articles/10237503>
 
-https://en.wikipedia.org/wiki/Function_composition_(computer_science)
+<https://en.wikipedia.org/wiki/Function_composition_(computer_science)>

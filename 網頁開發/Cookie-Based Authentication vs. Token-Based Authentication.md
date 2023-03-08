@@ -4,8 +4,6 @@
 
 ^71972f
 
----
-
 Cookie-Based Authentication 最原始的意思是「將使用者的資訊（狀態）直接塞進 Cookie Header」，但由於以下兩個原因：
 
 1. Cookie 有大小上限（4 KB）
@@ -83,18 +81,16 @@ sequenceDiagram
 
 ^1ef2e6
 
----
-
 在條列 Cookie-Based Authentication 的缺點時，我們最後一點提到：
 
 >如果有些每次溝通都必須夾帶的基本資料，但又不想直接存在 Cookie，就等於每次都要進 Session 所使用的資料庫查詢該基本資料，這顯得有點蠢
 
 其實 Token-Based Authentication 可以說正是針對這個痛點而生，這裡的 token 通常需具備下列三個特點：
 
-1. 夾帶部分使用者資訊 
-3. 具唯一性
-4. 具時效性
-5. 看起來像亂碼（經過加密）
+1. 夾帶部分使用者資訊
+2. 具唯一性
+3. 具時效性
+4. 看起來像亂碼（經過加密）
 
 ```mermaid
 sequenceDiagram
@@ -133,16 +129,14 @@ sequenceDiagram
 
 # Token/Session ID 存哪比較好？
 
----
-
 假如你已經讀過 [[瀏覽器中的儲存空間]] 一文，你應該對各種儲存位置的特性已經相當了解，以下我們一一分析將 token 存在不同位置的特色或優缺點：
 
 ### Session Storage
 
 - 特色
-	
+
 	因為 session storage 在 browser 關閉後便會被清空，所以再次打開 browser 時必須重新登入。
-	
+
 - 缺點
 
 	由於分頁間無法共享 session storage，所以新分頁中的服務必須再登入一次。
@@ -150,29 +144,27 @@ sequenceDiagram
 ### Local Storage
 
 - 特色
-	
+
 	因為 local storage 在 browser 關閉後 **不會** 被清空，所以再次打開 browser 時 **不須** 重新登入服務。
-	
+
 - 優點
-	
+
 	同一個 domain 的分頁間共享 local storage
 
 ### Cookies
 
 - 特色
-	
+
 	Cookie 會因為有無設置 `max-age` 或者 `expires` attributes 而在 browser 關閉後被刪除或者不被刪除（詳見 [[Cookies (1)：設置與存取#^2a253c|此文此段]]）。
-	
+
 - 優點
-	
+
 	同一個 domain 的分頁間共享 Cookies
 
 # 參考資料
 
----
+<https://stackoverflow.com/questions/17000835/token-authentication-vs-cookies>
 
-https://stackoverflow.com/questions/17000835/token-authentication-vs-cookies
+<https://stackoverflow.com/questions/26340275/where-to-save-a-jwt-in-a-browser-based-application-and-how-to-use-it>
 
-https://stackoverflow.com/questions/26340275/where-to-save-a-jwt-in-a-browser-based-application-and-how-to-use-it
-
-https://blog.loginradius.com/engineering/cookie-based-vs-cookieless-authentication/
+<https://blog.loginradius.com/engineering/cookie-based-vs-cookieless-authentication/>

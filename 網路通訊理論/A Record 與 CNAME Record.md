@@ -6,8 +6,6 @@
 
 # A Record
 
----
-
 >A Record 的 A 指的是 "Address"。
 
 一個 domain name 可以指向一個或多個 IP address(es)，多個不同的 domain names 也可以指向同一個 IP address。
@@ -31,8 +29,6 @@
 承接上面的情境，若已經明確用 A Record 將 `dev.mydomain.com` 指向 `5.6.7.8`，則會因為 `dev.mydomain.com` 優先於 `*.mydomain.com`，所以向 DNS resolver 查詢 `dev.mydomain.com` 時得到的結果會是 `5.6.7.8`。
 
 # CNAME Record
-
----
 
 >CNAME Record 的 C 指的是 "Conanical"。
 
@@ -81,16 +77,14 @@ flowchart LR
 
 # 參考資料
 
----
+<https://www.youtube.com/watch?v=ZXCQwdVgDno>
 
-https://www.youtube.com/watch?v=ZXCQwdVgDno
+<https://support.dnsimple.com/articles/differences-a-cname-records/>
 
-https://support.dnsimple.com/articles/differences-a-cname-records/
+<https://kb.porkbun.com/article/94-what-is-a-wildcard-dns-record>
 
-https://kb.porkbun.com/article/94-what-is-a-wildcard-dns-record
+<https://www.quora.com/Why-can-one-domain-name-correspond-with-multiple-IP-addresses-How-does-it-work>
 
-https://www.quora.com/Why-can-one-domain-name-correspond-with-multiple-IP-addresses-How-does-it-work
+<https://en.wikipedia.org/wiki/Round-robin_DNS>
 
-https://en.wikipedia.org/wiki/Round-robin_DNS
-
-https://pala.tw/https-a-record-cname/
+<https://pala.tw/https-a-record-cname/>

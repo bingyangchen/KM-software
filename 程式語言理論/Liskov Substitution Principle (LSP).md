@@ -10,7 +10,7 @@
 
 ### Contravariance of arguments
 
-#TODO 
+#TODO
 
 ### Covariance of result
 

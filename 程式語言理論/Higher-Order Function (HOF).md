@@ -71,4 +71,4 @@ console.log(plus_six(7)) // 13
 
 # 參考資料
 
-https://ithelp.ithome.com.tw/articles/10235555
+<https://ithelp.ithome.com.tw/articles/10235555>

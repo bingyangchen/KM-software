@@ -1,4 +1,4 @@
-#Cryptograpy #Authentication 
+#Cryptograpy #Authentication
 
 閱讀本文前，你必須先了解什麼是 [[Cookie-Based Authentication vs. Token-Based Authentication#^1ef2e6|Token-Based Authentication]]。
 
@@ -23,16 +23,16 @@ JWT 分為三個部分：
 
 ### Header
 
-#TODO 
+#TODO
 
 ### Payload
 
-#TODO 
+#TODO
 
 ### Signature
 
-#TODO 
+#TODO
 
 # 參考資料
 
-https://jwt.io/introduction
+<https://jwt.io/introduction>

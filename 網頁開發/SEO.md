@@ -54,7 +54,7 @@ On-site SEO 關注的是網站本身的內容，包括：
 - 較詳細的內容可以寫在下面三種  `meta` tag：
 	- `<meta name="description" content="...">`
 		- 盡量不要超過 120 字，多的字不會顯示在搜尋結果中
-	- `<meta name="keywords" content="A, B, ..."> `
+	- `<meta name="keywords" content="A, B, ...">`
 	- `<meta name="author" content="...">`
 
 ### 內文
@@ -65,12 +65,12 @@ On-site SEO 關注的是網站本身的內容，包括：
 2. 當內文包含「某個問題的解答」時，更容易使排名上升
 3. 放在第一段的內容最重要，最好能夠描述整篇文章的概要
 4. 善用 `h1` ~ `h4` 描繪整篇文章的結構
-	
+
 	![[Help-Readers-by-Using-Visual-Hierarchy.webp]]
-	
+
 	不只對爬蟲來說，放在 `h1` ~ `h4` 代表其重要性較高，`h1` ~ `h4` 如果外觀較一般內文顯眼，也較容易抓住讀者的眼睛。
 5. 網頁的主結構盡量使用 **HTML 結構標籤**，不要都用 `div`
-	
+
 	![[web_structure.webp]]
 
 ### 圖文並茂
@@ -84,11 +84,11 @@ On-site SEO 關注的是網站本身的內容，包括：
 ### 連結
 
 - 內部連結
-	
+
 	內部連結的意思是在網頁內文中的「指向同一個網域的其他網頁的 `a` 標籤」，使用內部連結不僅可以幫助這些被提及的網頁也被搜尋引擎爬取到，也會促使 user 繼續留在目前的網站中。
 
 - 外部連結
-	
+
 	內文中適當地提供「可信度高的外部網站的連結」雖然不能直接影響排名，但可以讓 user 的搜尋體驗更好。
 
 ### 網頁載入速度
@@ -111,7 +111,7 @@ User 在一個網頁的停留時間是 Google 對網頁的評分項目，停留�
 
 ### 外部網站
 
-https://www.semrush.com/blog/on-page-seo/
+<https://www.semrush.com/blog/on-page-seo/>
 
 # Off-Site SEO
 
@@ -123,10 +123,9 @@ https://www.semrush.com/blog/on-page-seo/
 
 在其他具有公信力的網站上（比如社群平台）為自己的網站上建立反向連結。
 
-
 ### 外部網站
 
-https://www.semrush.com/blog/off-page-seo/
+<https://www.semrush.com/blog/off-page-seo/>
 
 # Technical SEO
 
@@ -136,13 +135,13 @@ https://www.semrush.com/blog/off-page-seo/
 
 Sitemap 的格式可以是 `.xml` 或者 `.txt`，將 sitemap 交給 Google 可以確保 sitemap 內的網頁都被 Google index
 
-**Google 官方文件:** https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap
+**Google 官方文件:** <https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap>
 
-**產生 Sitemap 的網頁工具:** https://www.mysitemapgenerator.com/
+**產生 Sitemap 的網頁工具:** <https://www.mysitemapgenerator.com/>
 
 ### 外部網站
 
-https://www.semrush.com/blog/learning-technical-seo/
+<https://www.semrush.com/blog/learning-technical-seo/>
 
 # Local SEO
 
@@ -152,10 +151,9 @@ Local SEO 主要關注當使用這搜尋與地理位置相關的關鍵字時，�
 
 ### Microdata (Schema)
 
-
 ### 外部網站
 
-https://www.semrush.com/blog/what-is-local-seo/
+<https://www.semrush.com/blog/what-is-local-seo/>
 
 # SEO 評量
 
@@ -169,12 +167,12 @@ https://www.semrush.com/blog/what-is-local-seo/
 
 ### 外部網站
 
-https://www.semrush.com/blog/seo-audit/
+<https://www.semrush.com/blog/seo-audit/>
 
 # 參考資料
 
-https://www.semrush.com/blog/learn-seo/
+<https://www.semrush.com/blog/learn-seo/>
 
-https://developers.google.com/search/docs
+<https://developers.google.com/search/docs>
 
-https://www.astralweb.com.tw/the-best-seo-practices-for-front-end-coding/
+<https://www.astralweb.com.tw/the-best-seo-practices-for-front-end-coding/>

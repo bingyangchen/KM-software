@@ -39,11 +39,11 @@ def preorder(root):
 
 ### 使用 Iteration + Stack
 
-#TODO 
+#TODO
 
 ### 使用 Morris Tree Traversal
 
-#TODO 
+#TODO
 
 # DFS: Postorder Traversal
 
@@ -69,11 +69,11 @@ def postorder(root):
 
 ### 使用 Iteration + Stack
 
-#TODO 
+#TODO
 
 ### 使用 Morris Tree Traversal
 
-#TODO 
+#TODO
 
 # DFS: Inorder Traversal
 
@@ -85,7 +85,7 @@ def postorder(root):
 
 ### 應用
 
-#TODO 
+#TODO
 
 ### 使用 Recursion
 
@@ -117,7 +117,7 @@ def inorder(root):
 
 ### 使用 Morris Tree Traversal
 
-#TODO 
+#TODO
 
 # BFS: Level-Order Traversal
 
@@ -129,7 +129,7 @@ def inorder(root):
 
 ### 應用
 
-#TODO 
+#TODO
 
 ### 使用 Recursion
 
@@ -137,10 +137,10 @@ Level-Order Traversal 無法使用 Recursion 做到。
 
 ### 使用 Iteration + Queue
 
-#TODO 
+#TODO
 
 ### 使用 Morris Tree Traversal
 
-#TODO 
+#TODO
 
-**參考資料｜**https://www.geeksforgeeks.org/level-order-traversal-of-binary-tree-using-morris-traversal/
+**參考資料｜**<https://www.geeksforgeeks.org/level-order-traversal-of-binary-tree-using-morris-traversal/>

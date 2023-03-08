@@ -1,7 +1,5 @@
 # Partitioning
 
----
-
 ### Horizontal Partitioning
 
 將一個有 n 筆資料的表拆分呈多個表 (partitions)，這些 partition 的資料筆數的總和為 n，每個 partition 的 schema 相同。
@@ -15,8 +13,6 @@
 # Sharding
 
 ^75f2dd
-
----
 
 Sharding 與 Horizontal Partitioning 的概念較為接近，差別在於 Horizontal Partitioning 的各個 partitions 被存在同一個 database nodes，但 Sharding 的各個 shards 會被分散存在不同的 database nodes，這些 nodes 各自獨立、不會共用資源，被歸類為 [[Horizontal Scaling 與 Vertical Scaling#^adeafe|Horizontal Scaling]] 在 Database 端的實現手段之一。
 
@@ -35,44 +31,44 @@ Sharding 與 Horizontal Partitioning 的概念較為接近，差別在於 Horizo
 ### Sharding Architecture
 
 - **Range-based Sharding**
-	
+
 	透過某欄位的值的大小來判斷該筆料應該被分配到哪個 shard。
-	
+
 	![[DB_image_3_cropped.png]]
-	
+
 	**缺點**
-	
+
 	無法保證資料被平均地分配到各個 shards。
 
 - **Directory-based Sharding**
-	
+
 	建一張對照表來紀錄每一個 shard key 應該對應到哪個 shard，分配的規則可以自己定義。
-	
+
 	![[DB_image_4_cropped.png]]
 		
 	**缺點**
-	
+
 	- 對照表會是 Single point of failure
 	- 由於對照表非常頻繁地被存取，因此可能成為整個服務的 bottlenect
-	
+
 	**優點**
-	
+
 	- 可以避免各個 shard 中資料量不平均的現象
 
 - **Key-based Sharding (Hash-based Sharding)**
-	
+
 	選定一張表的某個 column 做為 "Shard Key"，Shard Key 必須是靜態的，也就是說當資料被建立後，就不能再更動該資料的 Shard Key。
-	
+
 	選定一個 hash function，此 function 的 input 為 shard key，output 為 shard number，用來安排每一筆資料應被分發到哪個 shard。
-	
+
 	![[DB_image_2_cropped.png]]
-	
+
 	**缺點**
-	
+
 	若決定「新增一個 database node」，則必須重新選擇 hash function，並且將所有既存的 shards 中的資料做一次大風吹。
-	
+
 	**優點**
-	
+
 	- 各個 shard 中的資料量平均
 	- 無須另外用一張表紀錄每筆資料存在哪個 shard，因為只要知道 hash function 和 shard key 的值，就可以知道一筆資料會被分配到哪個 shard
 
@@ -86,21 +82,19 @@ Sharding 與 Horizontal Partitioning 的概念較為接近，差別在於 Horizo
 不過在 sharding 前，你還可以嘗試其他較簡單的手段，這些手段包括：
 
 - Replicas for Read
-	
+
 	Primary Database 負責處理「寫入」的 queries，然後將被寫入的資料複製到 Secondary Databases，Secondary Databases 負責處理「讀取」的 queries。（但這麼做會導致 consistency 降低）
 
 - Remote Database
-	
+
 	為 Database 配置一台專屬的機器，不要跟其他 app components 放在一起。（但這麼做會增加 app 與 database 的溝通時間）
 
 - [[Horizontal Scaling 與 Vertical Scaling#^21dd5e|Vertical Scaling (Scaling Up)]]
 
 - Database Caching
-	
+
 	將不久前 request 過的資料暫存在 memory（比如 Redis），以供短時間內再次存取。
 
 # 參考資料
 
----
-
-https://www.digitalocean.com/community/tutorials/understanding-database-sharding
+<https://www.digitalocean.com/community/tutorials/understanding-database-sharding>

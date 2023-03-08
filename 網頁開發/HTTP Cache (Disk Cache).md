@@ -1,4 +1,4 @@
-#Caching 
+#Caching
 
 之所以被叫做 Disk Cache 是因為這類的 Cache 是存在 Disk；之所以又叫做 HTTP Cache 是因為這類的 Cache 是 Server 透過某些 HTTP Response Headers 來控制 Client 發送 HTTP Request 的行為。
 
@@ -11,8 +11,6 @@
 
 # `Expires`
 
----
-
 ==不推薦使用==
 
 可以簡單理解成 data 的「有效日期」。Server 透過 `Expires: <day-of-week>, <day> <month> <year> <hour>:<minute>:<second> GMT`，使得 client 對某 endpoint 發起 request 並取得 response 後，會存一份在 client 自己的 disk，直到指定時間之前，若再次對同一個 endpoint 發起 request，都會直接使用 disk cache，不會送出 request。
@@ -21,13 +19,9 @@
 
 # `Cache-Control`
 
----
-
 可以簡單理解成 data 的「有效期限」。Server 透過 `Cache-Control: max-age=<n>`，使得 client 對某 endpoint 發起 request 並取得 response 後，會存一份在 client 自己的 disk，接下來的 n 秒內若對同一個 endpoint 再次發起 request，則直接使用 disk cache，不送出 request。
 
 # `Last-Modified`
-
----
 
 ==不推薦使用==
 
@@ -38,25 +32,23 @@ Server 透過 `Last-Modified: <day-of-week>, <day> <month> <year> <hour>:<minute
 1. 因為要讓此 Header 發揮效果，還須 client 在 request 中攜帶 `If-Modified-Since` 或 `If-Unmodified-Since` header（要自己實作）。
 
 2. 只能省下「下載」時間，無法省下「溝通」時間，server load 的下降幅度也有限
-	
+
 	Request 還是會被送往 server，當 server 收到 request 後也還是會進 database，只是這次進 database 是先查看指定資料的「可以表示 `Last-Modified` 的欄位值」是否小於 `If-Modified-Since`，如果小於就會直接回覆 `304 Not Modified`，不回傳資料，client 收到 `304` 後會到自己的 disk cache 拿資料。
 
 # `ETag`
 
----
-
 Server 透過 `ETag: <token>` 讓 client 下次對同一個 endpoint 發起 request 時也攜帶 `<token>` 在 `If-None-Match` header 上，當 server 看到 request 中有 `If-None-Match` 時，會檢查它的值與 server-side 的這個 endpoint 目前的 `ETag` 是否相同，若相同則直接回覆 `304 Not Modified`，不回傳資料。
 
 - 優缺點
-	
+
 	與 `Last-Modified` 的邏輯類似，但少一個缺點，client 會自動帶上 `If-None-Match` header，無需另外寫程式攜帶。
-	
+
 	`ETag` 也有「只能省下下載時間，無法省下溝通時間，server load 的下降幅度也有限」的缺點。
 
 - 關於 Etag 的值
-	
+
 	事實上並沒有人規定應該如何產生 Etag value (token)，只要該 token 在一定時間內具有唯一性可以代表某個 requested resource 即可。常見的產生 Etag value 的方法包括：
-	
+
 	- 將準備回傳的資料 hash
 	- 將資料的「可以表示 `Last-Modified` 的欄位值」hash
 	- 一個每次修改就會遞增的數字
@@ -69,8 +61,6 @@ Server 透過 `ETag: <token>` 讓 client 下次對同一個 endpoint 發起 requ
 
 # 只有部分 HTTP Methods 會被導向 Disk Cache
 
----
-
 理論上而言，client 要送出各種 HTTP method 的 request 前，皆可以到 disk cache 去看看有沒有還沒過期的資料可用，然而==大多數 browser 預設都只會讓 HEAD 與 GET 有機會使用 disk cache==。
 
 原因是其他 methods 通常都是用來做「新增」、「修改」、「刪除」等功能，使用者理應會期待這些操作的 requests 「送出了就要等真的執行成功，才會收到成功的 response」，如果 browser 沒有實際送出 request 而是直接拿之前的結果給使用者，使用者將會被誤導。再者，==browser 在決定是否使用 disk cache 時並不會檢查 request 的 payload 或者 body==，也就是說如果 browser 連 POST 這類的 request 都會試著去拿 disk cache 來用，那麼只要是同一個 endpoint，無論使用者 payload 放什麼值，都會符合 browser 使用 disk cache 的標準。
@@ -79,20 +69,16 @@ Server 透過 `ETag: <token>` 讓 client 下次對同一個 endpoint 發起 requ
 
 # 組合技：`Cache-Control` + `ETag`
 
----
-
 用 `Cache-Control: max-age=<n>` 可以控制 client 是否送出 request，但有時候雖然有效期限過了但資料其實沒有被更改，此時 server 可以比對 request 的 `If-None-Match` Header 與自己計算出來的 `ETag`，若相同就回覆 `304 Not Modified` 來通知 client：「可以繼續沿用 cache data，並請更新有效期限」。
 
 # 參考資料
 
----
+- <https://blog.huli.tw/2017/08/27/http-cache/>
 
-- https://blog.huli.tw/2017/08/27/http-cache/
+- <https://stellate.co/blog/deep-dive-into-caching-rest-apis>
 
-- https://stellate.co/blog/deep-dive-into-caching-rest-apis
+- <https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Headers/Cache-Control>
 
-- https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Headers/Cache-Control
+- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified>
 
-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified
-
-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag
+- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag>

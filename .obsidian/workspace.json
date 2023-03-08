@@ -25,8 +25,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python/pipenv.md",
-                "mode": "preview",
+                "file": "Python/String Concatenation.md",
+                "mode": "source",
                 "source": true
               }
             }
@@ -170,7 +170,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Python/pipenv.md",
+                "file": "Python/String Concatenation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -187,7 +187,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Python/pipenv.md",
+                "file": "Python/String Concatenation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -210,7 +210,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Python/pipenv.md"
+                "file": "Python/String Concatenation.md"
               }
             }
           }
@@ -235,8 +235,13 @@
   },
   "active": "fa159fc8edb4b0f9",
   "lastOpenFiles": [
-    "Python/pyenv.md",
+    "資料庫/正規化 (Normalization).md",
+    "網路通訊理論/CSRF Attack 與 XSS Attack.md",
+    "網路通訊理論/CORS & SOP.md",
+    "網頁開發/HTTP Cache (Disk Cache).md",
     "Python/pipenv.md",
+    "package.json",
+    "Python/pyenv.md",
     "軟體開發工具/Git/stash.md",
     "網頁開發/前端/React/create-react-app.md",
     "程式語言理論/Factory Function vs. Constructor.md",
@@ -260,17 +265,12 @@
     "node_modules/cheerio/node_modules/lodash/flake.lock",
     "node_modules/cheerio/node_modules/lodash/package.json",
     "node_modules/cheerio/node_modules/lodash/zipWith.js",
-    "node_modules/cheerio/node_modules/lodash/fp/zipWith.js",
     "node_modules/ajv/README.md",
     "node_modules/ajv/lib/dotjs/README.md",
     "node_modules/gitbook-summary/test/books/config-json/second/tt.md",
     "node_modules/gitbook-summary/README.md",
     "node_modules/js-yaml/README.md",
     "node_modules/js-yaml/CHANGELOG.md",
-    "node_modules/uri-js/README.md",
-    "node_modules/sshpk/README.md",
-    "node_modules/tweetnacl/CHANGELOG.md",
-    "node_modules/tweetnacl/AUTHORS.md",
     "node_modules/psl/browserstack-logo.svg",
     "node_modules/gitbook-summary/doc/img/test.md.jpg",
     "未命名.canvas"

@@ -2,20 +2,14 @@
 
 ^3e48bd
 
----
-
-#TODO 
+#TODO
 
 # Web 2.0
 
 ^07ac9b
 
----
-
-#TODO 
+#TODO
 
 # Web 3.0
 
----
-
-#TODO 
+#TODO

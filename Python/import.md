@@ -49,7 +49,7 @@ from datetime import datetime as dt
 
 比如當你的 project 結構如下時：
 
-```
+```plaintext
 └── project
     ├── package1
     │   ├── module1.py
@@ -119,7 +119,7 @@ def say_hello_and_no():
 
 此時若執行 `a.py`，就會造成 circular import problem，原因是因為當 `a.py` import `b.py` 時，`b.py` 內的程式碼就會開始編譯並執行，執行完才算 import 完畢，而 `b.py` 首先執行的就是 `import a`， 感覺就要掉入無窮迴圈了，不過其實問題不是出在這，Python Interpreter 有做基本的防呆，不會就此掉入迴圈，而是會「假裝」`a.py` 已經 import 好 `b.py`了，然後繼續執行 `a.py` 後續的程式碼。真正的錯誤是發生在 `a.py` 執行到 `say_hi_and_yes()` 時，因為剛剛「假裝 Import 好了」，其實 `b.py` 中的 `say_hi` function 根本還沒被編譯到，於是就會跳出以下 Error:
 
-```
+```plaintext
 AttributeError: partially initialized module 'b' has no attribute 'say_hi' (most likely due to a circular import)
 ```
 
@@ -195,4 +195,4 @@ from local_package import local_function
 
 # 參考資料
 
-https://realpython.com/absolute-vs-relative-python-imports/
+<https://realpython.com/absolute-vs-relative-python-imports/>

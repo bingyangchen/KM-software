@@ -3,7 +3,7 @@
 **student**
 
 | id | name | gender | date_of_birth |
-|----|----|----|----|
+|---|---|---|---|
 | 1 | Alice | Female | 1999-01-20 |
 | 2 | Bob | Male | 1998-12-12 |
 | 3 | Candice | Female | 1999-04-20 |
@@ -12,7 +12,7 @@
 **enrollment**
 
 | cid | sid | score |
-|----|----|----|
+|---|---|---|
 | 1 | 1 | 90.50 |
 | 1 | 2 | 79.00 |
 | 1 | 3 | 88.00 |
@@ -22,8 +22,6 @@
 | ... | ... | ... |
 
 # Inclusion Queries
-
----
 
 當要篩選出「包含某值」的資料時，這樣的 query 稱為 inclusion queries。
 
@@ -92,8 +90,6 @@ WHERE e.cid = 1;
 可是別高興得太早，我們接來看 exclusion queries。
 
 # Exclusion Queries
-
----
 
 當要篩選出「不包含某值」的資料時，這樣的 query 稱為 exclusion queries。
 
@@ -167,8 +163,6 @@ Output:
 (11 rows)
 ```
 
----
-
 ```PostgreSQL
 EXPLAIN ANALYZE SELECT * FROM student
 WHERE id <> ALL(
@@ -196,8 +190,6 @@ Output:
  Execution Time: 0.062 ms
 (12 rows)
 ```
-
----
 
 ```PostgreSQL
 EXPLAIN ANALYZE SELECT * FROM student AS s
@@ -264,6 +256,4 @@ Output:
 
 # 參考資料
 
----
-
-https://www.percona.com/blog/2020/04/16/sql-optimizations-in-postgresql-in-vs-exists-vs-any-all-vs-join/
+<https://www.percona.com/blog/2020/04/16/sql-optimizations-in-postgresql-in-vs-exists-vs-any-all-vs-join/>

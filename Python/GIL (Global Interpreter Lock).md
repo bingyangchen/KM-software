@@ -60,4 +60,4 @@ GIL 的誕生是為了避免 Race Condition，而之所以要避免 Race Conditi
 
 # 參考資料
 
-https://realpython.com/python-gil/
+<https://realpython.com/python-gil/>

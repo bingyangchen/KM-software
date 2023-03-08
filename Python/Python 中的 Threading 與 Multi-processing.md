@@ -42,6 +42,6 @@ Python 中有 [[GIL (Global Interpreter Lock)]] 機制，這使得 Python Interp
 
 # 參考資料
 
-https://www.youtube.com/watch?v=AZnGRKFUU0c
+<https://www.youtube.com/watch?v=AZnGRKFUU0c>
 
-https://www.youtube.com/watch?v=X7vBbelRXn0
+<https://www.youtube.com/watch?v=X7vBbelRXn0>

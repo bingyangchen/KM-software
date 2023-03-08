@@ -130,4 +130,4 @@ if __name__ == "__main__":
 
 # 參考資料
 
-https://www.tutorialspoint.com/class-method-vs-static-method-in-python#
+<https://www.tutorialspoint.com/class-method-vs-static-method-in-python#>

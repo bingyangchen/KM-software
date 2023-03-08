@@ -51,6 +51,7 @@ h3 {
 
 p {
     line-height: 1.8rem;
+    margin-block-end: 1em !important;
 }
 
 img {

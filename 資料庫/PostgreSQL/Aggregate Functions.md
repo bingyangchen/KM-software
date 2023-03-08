@@ -10,8 +10,6 @@ PostgreSQL 中的 aggregate functions 包括：
 
 # Aggregate Functions 與 `GROUP BY` 是好朋友
 
----
-
 當 Aggregate Functions 與「其他非 Aggregate Function 的欄位」共同出現在 `SELECT` 子句中時，「其他非 Aggregate Function 的欄位」扮演的角色為「分組依據」，必須要有 `GROUP BY` 子句來說明如何用這些「其他非 Aggregate Function 的欄位」來做分組。
 
 比如：
@@ -48,8 +46,6 @@ SELECT *, max(score) over (partition by cid) FROM enrollment;
 
 # Aggregate Functions 只能出現在 `SELECT` 及 `HAVING` 子句
 
----
-
 舉例而言：
 
 ```PostgreSQL
@@ -73,6 +69,4 @@ WHERE price = (
 
 # 參考資料
 
----
-
-https://www.postgresqltutorial.com/postgresql-aggregate-functions/
+<https://www.postgresqltutorial.com/postgresql-aggregate-functions/>

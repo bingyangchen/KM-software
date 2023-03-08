@@ -2,15 +2,11 @@ SoC 是一種系統設計的原則。SoC 的精髓，就是將系統拆分成多
 
 # 為什麽需要 SoC
 
----
-
 **Keyword:** ==高內聚，低耦合==
 
 以 SoC 為原則所設計的系統，使得開發上具有更高的自由度，因為當 concern unit（無論是 module 或是 layer）間的耦合性夠低時，你就可以專注在當前所開發的功能而不必知道其他功能的具體細節，進而使得個個功能具有更高的重複使用性。同時，維護或重構的難度也會隨著 concern unit 間的耦合性越低而越低。
 
 # 應用場景
-
----
 
 ### OOP
 
@@ -34,6 +30,4 @@ SoC 在 OOP 的世界裡叫做 Modularity。在 OOP 中，可以用 objects 將 
 
 # 參考資料
 
----
-
-https://en.wikipedia.org/wiki/Separation_of_concerns
+<https://en.wikipedia.org/wiki/Separation_of_concerns>

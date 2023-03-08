@@ -9,8 +9,6 @@ Canary Deployment 可以說正是為了實現這個流程而生。
 
 # Canary Deployment 的種類
 
----
-
 依照實現方式，大致可以把 Canary Deployment 分為以下兩種：
 
 ### Rolling Deployment
@@ -31,8 +29,6 @@ Canary Deployment 可以說正是為了實現這個流程而生。
 
 # 參考資料
 
----
-
 關於 Canary Deployment 的好處、逐步 Apply 的方法，以及其他 Canary Deployment 細節，請參考下方文章：
 
-https://semaphoreci.com/blog/what-is-canary-deployment
+<https://semaphoreci.com/blog/what-is-canary-deployment>

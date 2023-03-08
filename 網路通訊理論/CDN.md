@@ -1,4 +1,4 @@
-#Caching 
+#Caching
 
 CDN 為 Content Delivery/Distribution Network 的縮寫，是一種「可以根據當下網路狀況以及歷史數據來最佳化檔案於網際網路上的存放位置」的服務。針對靜態檔案，由於其內容不常改變，因此 CDN 可以將這些檔案 cache 住，以供下個 client 下個鄰近的 client 來取用。
 
@@ -48,12 +48,12 @@ CDN 有異地備援機制，當某個 CDN 伺服器故障時，系統將會調�
 
 # 如何將檔案透過 CDN 傳遞
 
-#TODO 
+#TODO
 
 # 參考資料
 
-https://en.wikipedia.org/wiki/Content_delivery_network
+<https://en.wikipedia.org/wiki/Content_delivery_network>
 
-https://www.imperva.com/learn/performance/what-is-cdn-how-it-works/
+<https://www.imperva.com/learn/performance/what-is-cdn-how-it-works/>
 
-https://www.youtube.com/watch?v=RI9np1LWzqw
+<https://www.youtube.com/watch?v=RI9np1LWzqw>

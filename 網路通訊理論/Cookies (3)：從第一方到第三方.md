@@ -6,15 +6,11 @@
 
 ^abcf2b
 
----
-
 若 Cookie 的 `domain` attribute 與 client 所處的網域（也就是網址列上顯示的網域）相同，那麼這個 cookie 就是 first-party cookies。
 
 # 第三方 (Third-Party) Cookies
 
 ^46d28e
-
----
 
 若一個 cookie 的 `domain` attribute 與 client 所處的網域不同，那麼這個 cookie 就是第三方 cookie，當 client 發出 Cross-Origin Request 時就會自動帶上目標網域的第三方 cookies。
 
@@ -46,8 +42,6 @@ sequenceDiagram
 
 # 參考資料
 
----
+<https://shubo.io/cookies/#cookie-%E6%98%AF%E4%BB%80%E9%BA%BC>
 
-https://shubo.io/cookies/#cookie-%E6%98%AF%E4%BB%80%E9%BA%BC
-
-https://en.wikipedia.org/wiki/HTTP_cookie
+<https://en.wikipedia.org/wiki/HTTP_cookie>

@@ -1,10 +1,8 @@
-#Caching #GraphQL 
+#Caching #GraphQL
 
 >在閱讀本文之前，我們預期你已經對 [[Caching Mechanism]] 有基本的了解。
 
 # HTTP Cache for GraphQL
-
----
 
 首先，我們要釐清一件事情，GraphQL 是否可以搭配 GET method 來要資料？
 
@@ -25,18 +23,12 @@
 
 >High Customization, Low Cacheability.
 
-# 
-
----
-
-#TODO 
+#TODO
 
 # 參考資料
 
----
+<https://stellate.co/blog/caching-rest-vs-graphql>
 
-https://stellate.co/blog/caching-rest-vs-graphql
+<https://www.apollographql.com/blog/backend/caching/graphql-caching-the-elephant-in-the-room/>
 
-https://www.apollographql.com/blog/backend/caching/graphql-caching-the-elephant-in-the-room/
-
-https://phil.tech/2017/a-happy-compromise-between-customization-and-cacheability/
+<https://phil.tech/2017/a-happy-compromise-between-customization-and-cacheability/>

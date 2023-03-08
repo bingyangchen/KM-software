@@ -99,6 +99,6 @@ Nested query 相對於 single-layer 的 query 的效率是較低的，因此建�
 
 # 參考資料
 
-https://www.tutorialspoint.com/postgresql/postgresql_sub_queries.htm
+<https://www.tutorialspoint.com/postgresql/postgresql_sub_queries.htm>
 
-https://www.w3resource.com/PostgreSQL/postgresql-subqueries.php
+<https://www.w3resource.com/PostgreSQL/postgresql-subqueries.php>

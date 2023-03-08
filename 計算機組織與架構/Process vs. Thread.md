@@ -16,4 +16,3 @@ Process 是正在執行並且佔用記憶體中的 Program。點開應用程式�
 
 -   同一個 Process 底下的 Threads 共享資源，如 RAM、變數等，不同的 Processes 間則否。
 -   進行 threading 時，多個 Threads 若同時存取全域變數，可能導致 Synchronization Problem。若 Thread 間互搶資源時，則可能產生 Deadlock，如何避免或預防上述兩種情況的發生也是 OS 所關注並改善的。
-

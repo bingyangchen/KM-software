@@ -97,6 +97,6 @@ Imperative `sum` 告訴我們：「加總就是把數字一個一個加起來，
 
 # 參考資料
 
-https://ithelp.ithome.com.tw/articles/10233761
+<https://ithelp.ithome.com.tw/articles/10233761>
 
-https://dev.to/ruizb/declarative-vs-imperative-4a7l
+<https://dev.to/ruizb/declarative-vs-imperative-4a7l>

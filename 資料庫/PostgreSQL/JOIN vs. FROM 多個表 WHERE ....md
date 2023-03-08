@@ -5,7 +5,7 @@
 **company**
 
 | id | name |
-|----|----|
+|---|---|
 | 0 | Apple |
 | 1 | Alphabet |
 | 2 | Meta |
@@ -14,7 +14,7 @@
 **team**
 
 | id | name | cid |
-|----|----|----|
+|---|---|---|
 | 0 | UX | 0 |
 | 1 | Backend | 0 |
 | 2 | QA | 0 |
@@ -24,7 +24,7 @@
 **employee**
 
 | id | name | tid |
-|----|----|----|
+|---|---|---|
 | 0 | Alex | 0 |
 | 1 | Bob | 2 |
 | 2 | Chris | 5 |
@@ -50,8 +50,6 @@ FROM company AS c JOIN (
 ```
 
 # 比較
-
----
 
 兩個做法可以得到一模一樣的結果，事實上，**FROM 多個表 WHERE ...** 就是比較老舊（或者說過時）的 join 方式，其中 `WHERE` 子句裡的 `=` 的意思是 inner join，`*=` 是 left join，`=*` 則是 right join。
 
@@ -118,12 +116,10 @@ WHERE c.id *= t.cid AND t.id = e.tid;
 
 # 參考資料
 
----
+<https://learnsql.com/blog/joins-vs-multiple-tables-in-from/>
 
-https://learnsql.com/blog/joins-vs-multiple-tables-in-from/
+<https://stackoverflow.com/questions/5118562/inner-join-vs-multiple-table-names-in-from>
 
-https://stackoverflow.com/questions/5118562/inner-join-vs-multiple-table-names-in-from
+<https://stackoverflow.com/questions/1018822/inner-join-on-vs-where-clause>
 
-https://stackoverflow.com/questions/1018822/inner-join-on-vs-where-clause
-
-https://stackoverflow.com/questions/894490/sql-left-join-vs-multiple-tables-on-from-line
+<https://stackoverflow.com/questions/894490/sql-left-join-vs-multiple-tables-on-from-line>

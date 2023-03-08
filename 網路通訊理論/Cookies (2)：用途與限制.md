@@ -46,4 +46,4 @@ Personalization 即「針對每個帳號提供專屬的資料與服務」，甚�
 
 # 參考資料
 
-https://en.wikipedia.org/wiki/HTTP_cookie
+<https://en.wikipedia.org/wiki/HTTP_cookie>

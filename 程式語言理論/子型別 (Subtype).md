@@ -20,6 +20,6 @@ Subtyping 對應到 OOP 的概念應該是「interfaces 間的 inheritance」以
 
 # 參考資料
 
-https://en.wikipedia.org/wiki/Subtyping#Function_types
+<https://en.wikipedia.org/wiki/Subtyping#Function_types>
 
-https://www.cmi.ac.in/~madhavan/courses/pl2009/lecturenotes/lecture-notes/node28.html
+<https://www.cmi.ac.in/~madhavan/courses/pl2009/lecturenotes/lecture-notes/node28.html>

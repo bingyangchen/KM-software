@@ -14,8 +14,8 @@ BIT 的強項是用來儲存具有「可累加」屬性的資料，尤其適合�
 
 # 參考資料
 
-https://cs.stackexchange.com/questions/10538/bit-what-is-the-intuition-behind-a-binary-indexed-tree-and-how-was-it-thought-a
+<https://cs.stackexchange.com/questions/10538/bit-what-is-the-intuition-behind-a-binary-indexed-tree-and-how-was-it-thought-a>
 
-https://brilliant.org/wiki/fenwick-tree/
+<https://brilliant.org/wiki/fenwick-tree/>
 
-https://www.topcoder.com/thrive/articles/Binary%20Indexed%20Trees
+<https://www.topcoder.com/thrive/articles/Binary%20Indexed%20Trees>

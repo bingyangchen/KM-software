@@ -150,8 +150,8 @@ function curry(
 
 # 參考資料
 
-https://en.wikipedia.org/wiki/Currying
+<https://en.wikipedia.org/wiki/Currying>
 
-https://en.wikipedia.org/wiki/Partial_application
+<https://en.wikipedia.org/wiki/Partial_application>
 
-https://mostly-adequate.gitbook.io/mostly-adequate-guide/ch04
+<https://mostly-adequate.gitbook.io/mostly-adequate-guide/ch04>
