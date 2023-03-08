@@ -1,0 +1,11 @@
+{
+  "title": "Table of contents",
+  "outputfile": "SUMMARY.md",
+  "catalog": "all",
+  "ignores": [
+    "DEV"
+  ],
+  "unchanged": [],
+  "sortedBy": "-",
+  "disableTitleFormatting": true
+}

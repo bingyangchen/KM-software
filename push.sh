@@ -2,7 +2,7 @@
 if [[ -z $1 ]]; then
     echo Please provide the commit message.
 else
-    npx book sm -t "Table of contents" -d
+    npx book sm
     
     git config user.name "Jamison Chen"
     git config user.email "106208004@g.nccu.edu.tw"

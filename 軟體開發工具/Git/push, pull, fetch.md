@@ -49,7 +49,7 @@ git branch -r
 若要直接 push 到指定的 remote repo，則無須 step3 與 step4，直接執行以下指令即可：
 
 ```sh
-git push <remote-branch-name>
+git push <remote-repo-url>
 ```
 
 這個做法適合在要推送到平常不常推送的 remote repo 時使用，因為沒有建立變數儲存 url，因此執行 `git branch -r` 時也不會有紀錄。
@@ -125,11 +125,11 @@ git pull
 ### Branch 間出現 Diverge
 
 ```plaintext
-	  A---B---C remote master
-	 /
+      A---B---C remote master
+     /
 D---E---F---G local master
-	^
-	origin/master
+    ^
+    origin/master
 ```
 
 若目前所在的 local branch 與準備 pull 的 remote branch 有 diverge 時（也就是 local 的 `origin/<remote-branch-name>` 與 remote 的 `<remote-branch-name>` 的 HEAD 不是同一個 commit），pull 會失敗，並且會出現警告。
@@ -153,8 +153,8 @@ git pull origin <remote-branch-name> --rebase
 採用 merge 的結果：
 
 ```plaintext
-	  A---B---C remote master|origin/master
-	 /         \
+   A---B---C remote master|origin/master
+  /         \
 D---E---F---G---H local master
 ```
 
@@ -163,16 +163,16 @@ D---E---F---G---H local master
 push 後：
 
 ```plaintext
-	  A---B---C
-	 /         \
+   A---B---C
+  /         \
 D---E---F---G---H local master|remote master|origin/master
 ```
 
 採用 rebase 的結果：
 
 ```plaintext
-				remote master|origin/master
-				ˇ
+    remote master|origin/master
+    ˇ
 D---E---A---B---C---F'---G'---H' local master
 ```
 
