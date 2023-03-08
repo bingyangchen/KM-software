@@ -2,12 +2,12 @@
 if [[ -z $1 ]]; then
     echo Please provide the commit message.
 else
+    npx book sm -t "Table of contents" -d
+    
     git config user.name "Jamison Chen"
     git config user.email "106208004@g.nccu.edu.tw"
     git add .
     git commit -m "$1"
-
-    npx book sm -t "Table of contents" -d
 
     ssh-add -D
     ssh-add ~/.ssh/id_rsa
