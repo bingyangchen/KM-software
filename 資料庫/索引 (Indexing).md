@@ -1,7 +1,5 @@
 # Introduction
 
----
-
 ### Indexing 的目的
 
 加快 `WHERE`, `GROUP BY`, `ORDER BY` 等子句中出現某 column 時的 query 速度。
@@ -11,11 +9,11 @@
 索引會被存在一種特殊的資料結構中（通常是 [[從 Binary Search 到 B+ Tree#^88367d|B+ Tree]] 或 [[從 Binary Search 到 B+ Tree#^7c9507|B Tree]]）。
 
 1. B+ Tree 使得進行查尋／新增／刪除資料時的時間複雜度皆為 O(log(n))，相比而言，Full Table Scan 為 O(n)
-	
+
 	- **以「沒有被 Index」的欄位搜尋：Full Table Scan**
 		
 		![[20089358AbjWkzPWEE.png]]
-	
+
 	- **以「有被 Index」的欄位搜尋**
 		
 		![[20089358vwxjbLWVnq.png]]
@@ -28,7 +26,7 @@
 
 針對單一欄位以倒序的方式建立索引：
 
-```postgresql
+```PostgreSQL
 CREATE INDEX index_name ON table_name (column_name DESC);
 ```
 
@@ -43,8 +41,6 @@ CREATE INDEX index_name ON table_name (column_name DESC);
 - 一張表有越多 indices，新增、刪除、修改資料就須要花越多的時間
 
 # 分類
-
----
 
 ### Clustered Index (叢集式索引)
 
@@ -84,20 +80,18 @@ flowchart TD
 
 除非！除非 `SELECT` 的欄位剛好只有被建立索引的那個欄位，比如若已經對 book 的 price 做了 index，則下面這個 query 就會在對 Secondary Index 的 B+ Tree 做完搜索後直接回傳結果：
 
-```postgresql
+```PostgreSQL
 SELECT price from book
 WHERE price > 300;
 ```
 
 # 一些特殊的 Index
 
----
-
 ### Covering Index (涵蓋索引)
 
 若希望 Secondary Index 的 B+ Tree 的 leaf nodes 還是可以存一些「常被 `SELECT` 的其他欄位」，來降低進行 Key Lookup 的需求，則可將那些欄位 `INCLUDE` 進來，下例中的 `y` 就是被涵蓋的欄位：
 
-```postgresql
+```PostgreSQL
 CREATE INDEX tab_x_y ON tab(x) INCLUDE (y);
 ```
 
@@ -107,7 +101,7 @@ CREATE INDEX tab_x_y ON tab(x) INCLUDE (y);
 
 若希望 Index 佔的空間不要太大，所以想讓 leaf nodes 只存某些特定資料的 Index，則可以使用 `WHERE` 來達到此效果，舉例如下：
 
-```postgresql
+```PostgreSQL
 CREATE INDEX access_log_client_ip_ix ON access_log (client_ip)
 WHERE NOT (client_ip > inet '192.168.100.0' AND
            client_ip < inet '192.168.100.255');
@@ -117,7 +111,7 @@ WHERE NOT (client_ip > inet '192.168.100.0' AND
 
 舉例：
 
-```postgresql
+```PostgreSQL
 CREATE INDEX idx_age_name ON user (age, name);
 ```
 
@@ -131,7 +125,7 @@ CREATE INDEX idx_age_name ON user (age, name);
 
 ==聯合索引中的第一個欄位若不在篩選／排序／分組的條件中，則聯合索引無法發揮效果==。以上例而言，若 age 不在條件中，就會變成 Full Table Scan：
 
-```postgresql
+```PostgreSQL
 select * FROM user
 WHERE name = 'Mark';
 ```
@@ -140,7 +134,7 @@ WHERE name = 'Mark';
 
 當索引對象的型別為 `VARCHAR`, `TEXT` 等「可以切分成更小單位」的欄位時，可以只針對該欄位值的「前面一小段資料」建立索引，比如只對每篇 article 的 description 的前 5 個字元建立索引：
 
-```postgresql
+```PostgreSQL
 CREATE INDEX idx_description ON article (LEFT(description, 5));
 ```
 
@@ -153,8 +147,6 @@ CREATE INDEX idx_description ON article (LEFT(description, 5));
 某些 DBMS（比如 PostgreSQL）會在 `CREATE TABLE` 時自動為 `PRIMARY KEY` 以及其他有 `UNIQUE` constraint 的 column 都建立 Unique Index，其實 Clustered Index 也是 Unique Index 的一種。
 
 # 注意事項
-
----
 
 ### 誰不適合當作 Index
 
@@ -176,7 +168,7 @@ CREATE INDEX idx_description ON article (LEFT(description, 5));
 
 比如 book 的 category 有 'A', 'B', 'C', 'D' 四種，現在想選取 category 'D' 以外的所有 books：
 
-```postgresql
+```PostgreSQL
 -- 較快
 SELECT * FROM book
 WHERE category IN ('A', 'B', 'C');
@@ -190,7 +182,7 @@ WHERE category != 'D';
 
 舉例：
 
-```postgresql
+```PostgreSQL
 -- index 無法發揮效果
 SELECT * FROM book_order
 WHERE YEAR(order_date) = 2022 AND MONTH(order_date) = 1;
@@ -204,7 +196,7 @@ WHERE order_date BETWEEN '2023-01-01' AND '2023-01-31';
 
 假設已對 book 的 cost 做了索引，則：
 
-```postgresql
+```PostgreSQL
 -- index 無法發揮效果
 SELECT * FROM book
 WHERE cost - price > 100;
@@ -215,8 +207,6 @@ WHERE cost > price + 100;
 ```
 
 # 重要觀念
-
----
 
 ### 索引不是越多越好
 
@@ -234,7 +224,7 @@ WHERE cost > price + 100;
 
 使用 sql 語法計算基數的方法如下：
 
-```postgresql
+```PostgreSQL
 SELECT COUNT(DISTINCT column_name)::float/COUNT(1) from table_name;
 ```
 
@@ -242,7 +232,7 @@ SELECT COUNT(DISTINCT column_name)::float/COUNT(1) from table_name;
 
 當資料從 table 中被刪除時，其實對應的索引並沒有被刪除，所以索引表的大小會隨著資料變多而變大，卻不會隨著資料被刪除而變小，要想讓已被刪除的資料的索引也從 DBMS 中消失，就需要手動重建索引表：
 
-```postgresql
+```PostgreSQL
 REINDEX INDEX index_name;
 ```
 
@@ -250,18 +240,16 @@ REINDEX INDEX index_name;
 
 # 參考資料
 
----
+<https://www.youtube.com/watch?v=BIwAEuT5jVs>
 
-https://www.youtube.com/watch?v=BIwAEuT5jVs
+<https://www.youtube.com/watch?v=-qNSXK7s7_w>
 
-https://www.youtube.com/watch?v=-qNSXK7s7_w
+<https://ithelp.ithome.com.tw/articles/10221572>
 
-https://ithelp.ithome.com.tw/articles/10221572
+<https://ithelp.ithome.com.tw/articles/10221971>
 
-https://ithelp.ithome.com.tw/articles/10221971
+<https://isdaniel.github.io/dbindex-1/>
 
-https://isdaniel.github.io/dbindex-1/
+<https://isdaniel.github.io/dbindex-2/>
 
-https://isdaniel.github.io/dbindex-2/
-
-https://medium.com/d-d-mag/postgresql-%E7%95%B6%E4%B8%AD%E7%9A%84-index-e7e1e8d9340c
+<https://medium.com/d-d-mag/PostgreSQL-%E7%95%B6%E4%B8%AD%E7%9A%84-index-e7e1e8d9340c>

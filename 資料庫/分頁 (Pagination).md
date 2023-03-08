@@ -8,7 +8,7 @@ Pagination 主要有兩種實現方式，分別為：
 
 舉例：
 
-```postgresql
+```PostgreSQL
 SELECT * FROM table_name
 ORDER BY column_name
 LIMIT 10
@@ -36,7 +36,7 @@ OFFSET 20;
 
 舉例：
 
-```postgresql
+```PostgreSQL
 SELECT * FROM table_name
 ORDER BY key
 WHERE key > 20
@@ -60,14 +60,13 @@ Keyset Pagination 不像 Offset Pagination 會把目標分頁「前」的所有�
 
 當 key 的值不可預測時，無法只能透過「上一頁」、「下一頁」的方式換頁。
 
-
 ### 含有其他排序規則的查詢
 
 舉例：
 
 （第一頁）
 
-```postgresql
+```PostgreSQL
 SELECT * FROM book
 ORDER BY price, id
 LIMIT 10;
@@ -75,7 +74,7 @@ LIMIT 10;
 
 假設第一頁選出的資料中，最高的價格為 410，最大的 id (key) 為 629，那麼查下一頁的 query 就會變成：
 
-```postgresql
+```PostgreSQL
 SELECT * FROM book
 WHERE (price = 410 AND id > 629) OR (price > 410)
 ORDER BY price, id
@@ -115,6 +114,6 @@ Cursor-Based Pagination 其實是 Keyset Pagination 的一種，只是 client si
 
 # 參考資料
 
-https://vladmihalcea.com/sql-seek-keyset-pagination/
+<https://vladmihalcea.com/sql-seek-keyset-pagination/>
 
-https://tec.xenby.com/36-%E9%BE%90%E5%A4%A7%E8%B3%87%E6%96%99%E5%BA%AB%E5%88%86%E9%A0%81%E6%96%B9%E6%A1%88-cursor-based-pagination
+<https://tec.xenby.com/36-%E9%BE%90%E5%A4%A7%E8%B3%87%E6%96%99%E5%BA%AB%E5%88%86%E9%A0%81%E6%96%B9%E6%A1%88-cursor-based-pagination>

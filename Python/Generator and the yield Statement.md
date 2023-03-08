@@ -72,7 +72,7 @@ if __name__ == "__main__":
 
 如果你懷疑上面的 `from` 到底有沒有存在的必要性，那麼你可以試試看去掉它們，然後執行看看，接著你就會看到下面這個錯誤訊息：
 
-```
+```plaintext
 Traceback (most recent call last):
   File "/Users/jamison/Documents/Practices/Python/generator_practice.py", line 41, in <module>
     print(node.value)
@@ -154,11 +154,11 @@ print(generator_obj.send(16)) # 256
 
 ### `throw`
 
-因為較少用，因此直接附上連結：https://realpython.com/introduction-to-python-generators/#how-to-use-throw
+因為較少用，因此直接附上連結：<https://realpython.com/introduction-to-python-generators/#how-to-use-throw>
 
 ### `close`
 
-因為較少用，因此直接附上連結：https://realpython.com/introduction-to-python-generators/#how-to-use-close
+因為較少用，因此直接附上連結：<https://realpython.com/introduction-to-python-generators/#how-to-use-close>
 
 # 專注現在，不在乎過去與未來
 
@@ -168,10 +168,10 @@ print(generator_obj.send(16)) # 256
 
 # 參考資料
 
-https://realpython.com/introduction-to-python-generators/
+<https://realpython.com/introduction-to-python-generators/>
 
-https://betterprogramming.pub/yield-in-python-76413d5e2a27
+<https://betterprogramming.pub/yield-in-python-76413d5e2a27>
 
-https://betterprogramming.pub/yield-in-python-76413d5e2a27
+<https://betterprogramming.pub/yield-in-python-76413d5e2a27>
 
-https://ithelp.ithome.com.tw/articles/10196328
+<https://ithelp.ithome.com.tw/articles/10196328>

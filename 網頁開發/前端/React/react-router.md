@@ -1,20 +1,14 @@
 # 官方文件
 
----
-
 [Docs Home v6.3.0](https://reactrouter.com/docs/en/v6)
 
 # Installation
 
----
-
-```sh
+```bash
 npm install react-router-dom@6
 ```
 
 # 基本導入方法
-
----
 
 **`index.tsx`**
 
@@ -55,11 +49,9 @@ export default function MyRouter() {
 
 # 其他筆記
 
----
-
 ### 在 Class Component 上使用 React-Router Hooks
 
-React-router hooks 只能在 function-based  components 中使用，無法直接在 class component 中使用，但可以將定義好的 class component 用 wrapper function 包住，並在 wrapper function 中利用 props 將 hooks 注入 component 中。詳見 https://reactrouter.com/docs/en/v6/getting-started/faq#what-happened-to-withrouter-i-need-it 。
+React-router hooks 只能在 function-based  components 中使用，無法直接在 class component 中使用，但可以將定義好的 class component 用 wrapper function 包住，並在 wrapper function 中利用 props 將 hooks 注入 component 中。詳見 <https://reactrouter.com/docs/en/v6/getting-started/faq#what-happened-to-withrouter-i-need-it> 。
 
 在 `router.tsx` 定義 interface 與 wrapper function：
 
@@ -139,7 +131,6 @@ export default function MyRouter() {
 ### `NavLink` 比 `Link` 更適合應用在 Navigation Bar
 
 原因：`NavLink` 的 `className` 可以依照現在的頁面更換
-
 
 ```tsx
 <NavLink

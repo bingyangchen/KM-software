@@ -2,7 +2,7 @@
 
 列出所有 containers，找到目標的 id
 
-```sh
+```bash
 docker ps
 ```
 
@@ -10,7 +10,7 @@ docker ps
 
 >其實這個步驟可以省略，因為在步驟三會直接使用這個指令當作取得路徑的方式。
 
-```sh
+```bash
 docker inspect --format='{{.LogPath}}' <CONTAINER_ID>
 ```
 
@@ -26,7 +26,7 @@ Output 應該會長得像這樣：
 
 這裡我們使用 `echo` 指令：
 
-```sh
+```bash
 sudo sh -c 'echo "" > $(docker inspect --format="{{.LogPath}}" CONTAINER_ID>)'
 ```
 
@@ -34,6 +34,4 @@ Done!
 
 # 參考資料
 
----
-
-https://www.howtogeek.com/devops/how-to-clear-logs-of-running-docker-containers/
+<https://www.howtogeek.com/devops/how-to-clear-logs-of-running-docker-containers/>

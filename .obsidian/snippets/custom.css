@@ -12,7 +12,7 @@
     --color-base-00: #000;
     --color-base-10: #070707;
     --color-base-20: #111;
-    --code-background: #ffffff20;
+    --code-background: #ffffff30;
     --background-secondary: var(--color-base-10);
     --background-secondary-alt: var(--color-base-20);
 }
@@ -50,7 +50,7 @@ h3 {
 }
 
 p {
-    line-height: 1.7rem;
+    line-height: 1.8rem;
 }
 
 img {
@@ -58,12 +58,13 @@ img {
 }
 
 .markdown-rendered pre {
-    border-radius: 10px;
+    border-radius: 0.7em;
     padding-top: 15px;
     padding-bottom: 15px;
 }
 
 .markdown-rendered code {
+    border-radius: 0.3em;
     padding: 0.1em 0.4em 0.17em;
 }
 

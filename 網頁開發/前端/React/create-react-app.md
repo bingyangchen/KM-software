@@ -4,7 +4,7 @@
 
 ### 初始化專案
 
-```sh
+```bash
 npx create-react-app my-app --template typescript
 
 # TypeScript + Redux
@@ -38,7 +38,7 @@ export default class HelloWorld extends React.Component<Props, State> {
 
 ### Step1
 
-```sh
+```bash
 npm install sass
 ```
 
@@ -66,11 +66,11 @@ npm install sass
 
 上述改檔名的方法也適用於 SCSS 檔案，也就是說 `a.scss` 只要改成 `a.module.scss` 就會有 Scoped Styling 效果。
 
-其實還有其他方法可以做到 Scoped Styling，請參考 https://www.upbeatcode.com/react/css-scoping-in-react-everything-you-need-to-know/
+其實還有其他方法可以做到 Scoped Styling，請參考 <https://www.upbeatcode.com/react/css-scoping-in-react-everything-you-need-to-know/>
 
 # 建議的專案結構
 
-```
+```plaintext
 ├── .git
 ├── build
 ├── node_modules

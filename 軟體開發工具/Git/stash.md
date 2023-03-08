@@ -20,7 +20,7 @@ Aborting
 
 ### Step1: 將進行到一半的工作暫存
 
-```sh
+```bash
 git stash push -u
 ```
 
@@ -30,7 +30,7 @@ git stash push -u
 
 ### Step2: 放心地到其他分支執行重要任務
 
-```sh
+```bash
 git ck <another-branch>
 
 # After completeing the urgent task...
@@ -40,12 +40,10 @@ git commit -m "Your message"
 
 ### Step3: 回到原分支將之前暫存的狀態拿回來
 
-```sh
+```bash
 git ck <original-branch>
 git stash pop
 ```
-
----
 
 # 情境二
 
@@ -53,13 +51,13 @@ git stash pop
 
 ### Step1: 將進行到一半的工作暫存
 
-```sh
+```bash
 git stash push -u
 ```
 
 ### Step2: 新增並切換到新分支
 
-```sh
+```bash
 git checkout -b <new-branch>
 ```
 
@@ -67,18 +65,16 @@ git checkout -b <new-branch>
 
 ### Step3: 將剛剛暫存的狀態套用在新分支上
 
-```sh
+```bash
 git stash pop
 ```
 
 > Stash 是所有 branches 共享的，也就是說「在 A branch 做的 stash，B branch 也可以拿來用」。
 
-### Step4: 記得要在新分支上 add, commit！
-
----
+### Step4: 記得要在新分支上 add, commit
 
 # 參考資料
 
-https://git-scm.com/docs/git-stash
+<https://git-scm.com/docs/git-stash>
 
-https://gitbook.tw/chapters/faq/stash
+<https://gitbook.tw/chapters/faq/stash>

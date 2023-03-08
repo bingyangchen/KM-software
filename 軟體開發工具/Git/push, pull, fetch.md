@@ -8,13 +8,13 @@
 
 **Step2: 在本機使用終端機切換至專案根目錄**
 
-```sh
+```bash
 cd <project-name>
 ```
 
 **Step3: 將 origin 設定為 step1 取得的 web URL**
 
-```sh
+```bash
 git remote add origin <remote-repo-url>
 ```
 
@@ -22,7 +22,7 @@ git remote add origin <remote-repo-url>
 
 **Step4: 將目前 local 所在的 branch 推送至 remote repo 中指定名稱的 branch**
 
-```sh
+```bash
 git push -u origin <remote-branch-name>
 ```
 
@@ -32,7 +32,7 @@ git push -u origin <remote-branch-name>
 
 ### 移除 `origin` 與 `<remote-repo-url>` 的對應關係
 
-```sh
+```bash
 git remote remove origin
 ```
 
@@ -40,7 +40,7 @@ git remote remove origin
 
 >其實是列出所有用來標記 remote branches 的 remote-tracking references。
 
-```sh
+```bash
 git branch -r
 ```
 
@@ -48,7 +48,7 @@ git branch -r
 
 若要直接 push 到指定的 remote repo，則無須 step3 與 step4，直接執行以下指令即可：
 
-```sh
+```bash
 git push <remote-repo-url>
 ```
 
@@ -56,7 +56,7 @@ git push <remote-repo-url>
 
 ### 一次推送所有 Local Branches 至 Remote Repo
 
-```sh
+```bash
 git push --all origin
 ```
 
@@ -78,7 +78,7 @@ git push --all origin
 
 先使用 `git branch -r` 列出 remote branches，這些 branches 會長得像 `remotes/origin/<branch-name>`，再針對要刪除的 branch 執行以下指令即可：
 
-```sh
+```bash
 git push -d <branch-name>
 ```
 
@@ -88,7 +88,7 @@ git push -d <branch-name>
 
 >將 remote repo 的最新狀態下載至 local。
 
-```sh
+```bash
 # fetch 指定的 remote branch
 git fetch origin <remote-brance-name>
 
@@ -111,7 +111,7 @@ fetch 前會先檢查所有 local 的 remote-tracking reference，若有 referen
 
 `git pull` 其實就是 `git fetch` + `git merge`。
 
-```sh
+```bash
 # fetch 指定的 remote branch 並 merge 至目前所在的 local branch
 git pull origin <remote-branch-name>
 
@@ -138,7 +138,7 @@ D---E---F---G local master
 
 **Step1: 加上 option 來聲明要維持用 merge 的方式來合併，還是改用 rebase**
 
-```sh
+```bash
 # 維持用 merge 的方式來合併 remote branch
 git pull origin <remote-branch-name> --no-rebase
 
@@ -190,7 +190,7 @@ D---E---A---B---C---F'---G'---H' local master|remote master|origin/master
 
 **簡單版**
 
-```sh
+```bash
 # Step1: Fetch the remote branch.
 git fetch origin <remote-branch-name>
 
@@ -200,7 +200,7 @@ git reset --hard origin/<remote-branch-name>
 
 **複雜版**
 
-```sh
+```bash
 # Step1: Fetch the remote branch.
 git fetch origin <remote-branch-name>
 

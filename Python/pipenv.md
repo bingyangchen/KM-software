@@ -40,7 +40,7 @@ pipenv --python <version>
 此時會發生兩件事：
 
 1. 在目前的 directory 下產生一個名為 `Pipfile` 的檔案，以 toml 格式呈現：
-	
+
 	```toml
 	[[source]]
 	url = "[https://pypi.org/simple](https://pypi.org/simple)"
@@ -56,9 +56,9 @@ pipenv --python <version>
 	```
 
 2. 在電腦中的某個**預設路徑**產生對應的虛擬環境資料夾，所有專案的虛擬環境資料夾都會在一個名為 `.virtualenvs` 或 `vertualenvs` 的資料夾底下。
-	
+
 	透過下方指令可以查詢**預設路徑**：
-	
+
 	```sh
 	pipenv --venv
 	```
@@ -97,4 +97,4 @@ source $(pipenv --venv)/bin/activate
 
 # 使用 pipenv 安裝套件
 
-#TODO 
+#TODO

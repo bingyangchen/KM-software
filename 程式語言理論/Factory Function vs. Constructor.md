@@ -1,4 +1,4 @@
-#FP 
+#FP
 
 # Factory Function
 
@@ -39,7 +39,7 @@ jeff.greet();  // Hello! My name is Jeff.
 
 實際嘗試過後你應該會得到下面這個 error message:
 
-```PlainText
+```plaintext
 <line 2>
 Uncaught TypeError: Cannot set property of undefined (reading 'name')
 ```
@@ -60,6 +60,6 @@ console.log(jeff.__proto___ === Person.prototype)  // true
 
 # 參考資料
 
-https://www.theodinproject.com/lessons/node-path-javascript-factory-functions-and-the-module-pattern
+<https://www.theodinproject.com/lessons/node-path-javascript-factory-functions-and-the-module-pattern>
 
-https://chamikakasun.medium.com/javascript-factory-functions-vs-constructor-functions-585919818afe
+<https://chamikakasun.medium.com/javascript-factory-functions-vs-constructor-functions-585919818afe>
