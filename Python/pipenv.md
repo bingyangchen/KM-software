@@ -15,7 +15,7 @@ pipenv 是一個結合 virtual enviroment 及套件管理的開發工具，同�
 
 建議使用系統內建的 pip 將 pipenv 全域安裝，這樣無論在什麼 directory 都可以使用 pipenv：
 
-```sh
+```bash
 pip install pipenv
 ```
 
@@ -23,7 +23,7 @@ pip install pipenv
 
 ### 確認 pipenv 版本
 
-```sh
+```bash
 pipenv --version
 ```
 
@@ -33,7 +33,7 @@ pipenv --version
 
 切換至專案根目錄後，輸入以下指令：
 
-```sh
+```bash
 pipenv --python <version>
 ```
 
@@ -59,25 +59,19 @@ pipenv --python <version>
 
 	透過下方指令可以查詢**預設路徑**：
 
-	```sh
+	```bash
 	pipenv --venv
 	```
 
 須注意，由於要被安裝在虛擬環境內的 Python 是基於本機全域的 Python 所建立的，所以 `<version>` 必須跟全域安裝的那個 Python version 一樣。
 
-然而，如果本機有安裝 **pyenv** 這個 package，則在建立虛擬環境的時候，若要求的 Python version 在目前主機上沒有，會自動提示要不要使用 pyenv 安裝。
-
->**安裝 pyenv**
->
->```sh
->brew install pyenv
->```
+然而，如果本機有安裝 [[pyenv]] 這個 package，則在建立虛擬環境的時候，若要求的 Python version 在目前主機上沒有，會自動提示要不要使用 pyenv 安裝。
 
 ### Step2: 安裝
 
 在專案根目錄執行以下指令，安裝 Pipfile 中所指定版本的 Python 以及基本的套件：
 
-```sh
+```bash
 pipenv install
 ```
 
@@ -91,7 +85,7 @@ pipenv install
 
 啟動 pipenv 虛擬環境的方式，即使用 CLI 到該專案所屬的虛擬環境資料夾中的 `/bin` 資料夾中，執行 `activate` 這個檔案。如須啟動目前專案的虛擬環境，可以結合前面介紹的「查詢虛擬環境資料夾路徑」的指令來完成：
 
-```sh
+```bash
 source $(pipenv --venv)/bin/activate
 ```
 
