@@ -27,13 +27,13 @@ a = f(1)
 print(a(2))  # 3
 ```
 
-#### Captured Variables
+### Captured Variables
 
 觀察上面的例子你可以發現，在執行完 `a = f(1)` 後，本來輸入 `f` 的引數 1 應該不再具有意義的，但這次卻被 function `g` 保護了起來，使得在 function `g` 中，`x` 仍然具有意義，其值為 1。
 
 同樣的道理，在 `f` 中可以存取的所有變數其實都可以放入 `g`，使得即使 `f` 執行完畢，`g` 也仍然記得那些變數的值，而這些被記住的變數們就叫做 **Captured Variables**。
 
-#### JavaScript 中無法被 Capture 的 Variables
+### JavaScript 中無法被 Capture 的 Variables
 
 在 JavaScript 中，以下兩個變數不會被 capture：
 
@@ -42,7 +42,7 @@ print(a(2))  # 3
 
 也就是說，inner function 中的 `this` 指的並不會是 outer function，而是 inner function 自己（除非 inner function 是一個 arrow function）；inner function 中的 `arguments` 指的也不是 outer function 的參數陣列，而是 inner function 自己的參數陣列。
 
-#### Function Scope (函式作用域)
+### Function Scope (函式作用域)
 
 作用域可以被簡單理解為：「哪些地方的變數對這個函式而言有意義（可被存取）」，一個函式的作用域至少包含以下兩個：
 

@@ -13,7 +13,7 @@ Canary Deployment 可以說正是為了實現這個流程而生。
 
 依照實現方式，大致可以把 Canary Deployment 分為以下兩種：
 
-#### Rolling Deployment
+### Rolling Deployment
 
 若 Production Environment 上平時有多個 Servers 分擔工作，此時可以只在少數幾個 Severs 上部署新的 Feature（程式碼）。
 
@@ -21,7 +21,7 @@ Canary Deployment 可以說正是為了實現這個流程而生。
 
 ![[Pasted image 20221229160533.png]]
 
-#### Side-by-Side Deployment
+### Side-by-Side Deployment
 
 建立另一個 Production Environment，部署上有新 Feature 的程式碼。
 

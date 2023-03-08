@@ -8,20 +8,20 @@
 
 # 里氏替換七大原則
 
-#### Contravariance of arguments
+### Contravariance of arguments
 
 #TODO 
 
-#### Covariance of result
+### Covariance of result
 
-#### Exception rule
+### Exception rule
 
-#### Pre-condition rule
+### Pre-condition rule
 
-#### Post-condition rule
+### Post-condition rule
 
-#### Invariant rule
+### Invariant rule
 
-#### Constraint rule
+### Constraint rule
 
 # 參考資料

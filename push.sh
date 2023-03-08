@@ -7,6 +7,8 @@ else
     git add .
     git commit -m "$1"
 
+    npx book sm -t "Table of contents" -d
+
     ssh-add -D
     ssh-add ~/.ssh/id_rsa
     git push -u origin master

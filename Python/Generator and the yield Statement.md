@@ -104,7 +104,7 @@ if __name__ == "__main__":
 
 >Generator function 純粹扮演「生成資料」的角色，使用者可以自由決定要「怎麼使用」這些被生成的資料，以及「何時」生成這些資料。
 
-#### 使用 generator 生成無窮長度的數列
+### 使用 generator 生成無窮長度的數列
 
 ```Python
 def infinite_values(start):  
@@ -134,7 +134,7 @@ for i in infinite_values(0):
 
 # `.send`, `.throw` 與 `.close`
 
-#### `send`
+### `send`
 
 `yield` 除了負責將資料從 generator function 中傳出去，也負責接收由外部傳進 generator object 的資料，而「從外部將資料傳進 generator object」的方法就是呼叫 generator object 的 `send` method，而 generator function 接收資料的方式，就是將 yield 的值賦予一個變數，舉例如下：
 
@@ -152,11 +152,11 @@ print(generator_obj.send(16)) # 256
 
 其實使用者使用 `next(generator_obj)` 就等同於 `generator_obj.send(None)` ，無論有沒有 `x = yield ...` 的語句，一個 generator object 「第一次」被取值時，都只能 send `None`（或 call `next(generator_obj)`）
 
-#### `throw`
+### `throw`
 
 因為較少用，因此直接附上連結：https://realpython.com/introduction-to-python-generators/#how-to-use-throw
 
-#### `close`
+### `close`
 
 因為較少用，因此直接附上連結：https://realpython.com/introduction-to-python-generators/#how-to-use-close
 

@@ -7,5 +7,110 @@
       ],
       "key": "W"
     }
-  ]
+  ],
+  "workspace:close-window": [],
+  "app:open-settings": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "S"
+    }
+  ],
+  "app:go-back": [],
+  "editor:follow-link": [],
+  "workspace:edit-file-title": [
+    {
+      "modifiers": [
+        "Shift"
+      ],
+      "key": "/"
+    }
+  ],
+  "file-explorer:new-file": [],
+  "editor:insert-link": [],
+  "switcher:open": [],
+  "slides:start": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "F"
+    }
+  ],
+  "global-search:open": [],
+  "editor:open-link-in-new-leaf": [],
+  "command-palette:open": [],
+  "app:go-forward": [],
+  "editor:delete-paragraph": [],
+  "workspace:goto-last-tab": [],
+  "workspace:next-tab": [],
+  "workspace:previous-tab": [],
+  "workspace:goto-tab-1": [],
+  "workspace:goto-tab-2": [],
+  "workspace:goto-tab-3": [],
+  "workspace:goto-tab-4": [],
+  "workspace:goto-tab-5": [],
+  "workspace:goto-tab-6": [],
+  "workspace:goto-tab-7": [],
+  "workspace:goto-tab-8": [],
+  "terminal:open-terminal.integrated.current": [
+    {
+      "modifiers": [
+        "Ctrl",
+        "Shift"
+      ],
+      "key": "`"
+    }
+  ],
+  "theme:use-light": [
+    {
+      "modifiers": [],
+      "key": "F6"
+    }
+  ],
+  "theme:use-dark": [
+    {
+      "modifiers": [],
+      "key": "F5"
+    }
+  ],
+  "editor:toggle-highlight": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "H"
+    }
+  ],
+  "markdown:toggle-preview": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "Q"
+    }
+  ],
+  "editor:cycle-list-checklist": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "P"
+    }
+  ],
+  "editor:toggle-checklist-status": [],
+  "editor:toggle-bullet-list": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "L"
+    }
+  ],
+  "file-explorer:new-file-in-new-pane": [],
+  "editor:open-link-in-new-split": [],
+  "editor:open-link-in-new-window": []
 }

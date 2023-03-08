@@ -133,9 +133,7 @@ cookie attributes 包含：
 
 # 在 Client-Side 存取 Cookies
 
----
-
-#### get
+### get
 
 ```TypeScript
 get_cookie(name: string): string | null {
@@ -172,7 +170,7 @@ fetch("<mybackend.endpoint>", options).then(
 );
 ```
 
-#### delete
+### delete
 
 ```TypeScript
 delete_cookie(name: string): void {

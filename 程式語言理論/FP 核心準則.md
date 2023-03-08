@@ -33,7 +33,7 @@ Mutable shared state 是造成 **Race Condition** 的元兇，有句話是這麼
 
 這種情況常出現在網路通訊中，當 client 以 AJAX 的方式發出多個 requests 後，並無法確定 responses 會以什麼順序回來（因為每次通訊的 network routing 路徑、通暢度不一定相同），如果 response handler 收到 resposnes 後會去更改 mutable shared state，那就有可能造成使用者看到的最終結果沒有對應到其所做的最後一個動作。
 
-#### Mutability
+### Mutability
 
 若一個資料結構的值在初始化後便無法更動，則可說其為 immutable data structure，反之則為 mutable data structure。
 

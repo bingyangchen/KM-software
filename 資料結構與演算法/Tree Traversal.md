@@ -1,12 +1,10 @@
-# Introduction
-
----
+# 概述
 
 Tree Traversal 依不同的造訪順序，可分為以下四種：
 
 - Preorder Traversal
 - Postorder Traversal
-- Inorder Traversal
+- Inorder Traversal ^08a367
 - Level-order Traversal
 
 其中前三種又叫做 Depth-First Search (DFS)；最後一種又叫做 Breadth-First Search (BFS)。
@@ -18,8 +16,6 @@ Tree Traversal 依不同的造訪順序，可分為以下四種：
 - Morris Tree Traversal
 
 # DFS: Preorder Traversal
-
----
 
 ### 概念
 
@@ -43,11 +39,13 @@ def preorder(root):
 
 ### 使用 Iteration + Stack
 
+#TODO 
+
 ### 使用 Morris Tree Traversal
 
-# DFS: Postorder Traversal
+#TODO 
 
----
+# DFS: Postorder Traversal
 
 ### 概念
 
@@ -55,7 +53,7 @@ def preorder(root):
 
 ![[Screen Shot 2023-01-27 at 2.07.59 PM.png]]
 
-### Postorder Traversal 的應用
+### 應用
 
 - 計算整個資料夾及其子資料夾之大小
 
@@ -71,19 +69,23 @@ def postorder(root):
 
 ### 使用 Iteration + Stack
 
+#TODO 
+
 ### 使用 Morris Tree Traversal
+
+#TODO 
 
 # DFS: Inorder Traversal
 
----
-
 ### 概念
 
->先處理左小孩，再處理自己，再處理右小孩（只有 Binary Tree 可以做 In-Order Traversal）。
+>先處理左小孩，再處理自己，最後處理右小孩（只有 Binary Tree 可以做 In-Order Traversal）。
 
 ![[Screen Shot 2023-01-27 at 2.11.57 PM.png]]
 
-### Inorder Traversal 的應用
+### 應用
+
+#TODO 
 
 ### 使用 Recursion
 
@@ -115,9 +117,9 @@ def inorder(root):
 
 ### 使用 Morris Tree Traversal
 
-# BFS: Level-Order Traversal
+#TODO 
 
----
+# BFS: Level-Order Traversal
 
 ### 概念
 
@@ -125,7 +127,9 @@ def inorder(root):
 
 ![[Screen Shot 2023-01-27 at 2.14.46 PM.png]]
 
-### Level-Order Traversal 的應用
+### 應用
+
+#TODO 
 
 ### 使用 Recursion
 
@@ -133,6 +137,10 @@ Level-Order Traversal 無法使用 Recursion 做到。
 
 ### 使用 Iteration + Queue
 
+#TODO 
+
 ### 使用 Morris Tree Traversal
+
+#TODO 
 
 **參考資料｜**https://www.geeksforgeeks.org/level-order-traversal-of-binary-tree-using-morris-traversal/

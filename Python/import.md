@@ -16,7 +16,7 @@ Python interpreter 處理 `import` statement 的流程則如下：
 
 # 各種 `import` 語法
 
-#### 一、`import XXX`
+### 一、`import XXX`
 
 ```Python
 import abc
@@ -26,7 +26,7 @@ import abc
 - 當 XXX 是 module name 時，那這個 module 一定與目前的檔案在同一個 directory 內。
 - 其實 `import` <*package-name*> 真正 import 的是 package 中的 `__init__.py` 檔案。
 
-#### 二、`from XXX import YYY`
+### 二、`from XXX import YYY`
 
 ```Python
 from datetime import time
@@ -35,7 +35,7 @@ from datetime import time
 - 有可能 XXX 是 package name 而 YYY 是 module name；或者 XXX 是 module name 而 YYY 是 objects name（object 可以是 funcion, class, variable 等）。
 - XXX 可以透過 `.` 來表示「路徑的下一層」，但 YYY 不可以有 `.`。
 
-#### 三、取別名
+### 三、取別名
 
 無論是 `import XXX` 或 `from XXX import YYY` 都可以在 `import` 的東西後面加上 `as 別名` 。
 

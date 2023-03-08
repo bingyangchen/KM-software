@@ -2,9 +2,7 @@
 
 # 在 React 中使用 TypeScript
 
----
-
-#### 初始化專案
+### 初始化專案
 
 ```sh
 npx create-react-app my-app --template typescript
@@ -13,7 +11,7 @@ npx create-react-app my-app --template typescript
 npx create-react-app my-app --template redux-typescript
 ```
 
-#### Class component 在繼承 `React.Component` 時，需要使用 generic 的方式注入定義好的 props 以及 state 的 interfaces
+### Class component 在繼承 `React.Component` 時，需要使用 generic 的方式注入定義好的 props 以及 state 的 interfaces
 
 ```tsx
 interface Props {
@@ -38,21 +36,17 @@ export default class HelloWorld extends React.Component<Props, State> {
 
 # 在 React 中使用 SCSS
 
----
-
-#### Step1
+### Step1
 
 ```sh
 npm install sass
 ```
 
-#### Step2
+### Step2
 
 將所有副檔名為 `.css` 的檔案改為 `.scss`
 
 # Scoped Styling
-
----
 
 在 React 中，一個 `.css` 檔案只要被任一個 component import，就會變成 global styling。
 
@@ -62,11 +56,11 @@ npm install sass
 
 需要注意的是，改完檔名後，component import CSS 的方式，以及設定元素的 `className` attribute 的方式也會有所改變：
 
-#### Importing
+### Importing
 
 從原本的 `import "./example.css";` 變成 `import styles from "./example.module.css";`。
 
-#### 設定 `className` Attribute
+### 設定 `className` Attribute
 
 從原本的 `className="button"` 變成 `className={styles.button}`，其中 `styles.button` 的型別為 `string`。
 
@@ -75,8 +69,6 @@ npm install sass
 其實還有其他方法可以做到 Scoped Styling，請參考 https://www.upbeatcode.com/react/css-scoping-in-react-everything-you-need-to-know/
 
 # 建議的專案結構
-
----
 
 ```
 ├── .git
@@ -133,12 +125,10 @@ npm install sass
 
 # 如何讀取 `.env` 檔案？
 
----
-
-#### 參考資料
+### 參考資料
 
 [Adding Custom Environment Variables | Create React App](https://create-react-app.dev/docs/adding-custom-environment-variables)
 
-#### 摘要
+### 摘要
 
 除非是 React 原本就定義好的 attributes，否則所有自定義的 environment variables 皆須以 `REACT_APP_` 開頭，在 component 內則以 `process.env.REACT_APP_XXX` 讀取之。

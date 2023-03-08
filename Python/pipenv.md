@@ -21,7 +21,7 @@ pip install pipenv
 
 其實安裝 pipenv 的方法有很多，例如也可以使用 brew 或 apt-get，此處略。
 
-#### 確認 pipenv 版本
+### 確認 pipenv 版本
 
 ```sh
 pipenv --version
@@ -29,7 +29,7 @@ pipenv --version
 
 # 為專案建置虛擬環境
 
-#### Step1: 建立
+### Step1: 建立
 
 切換至專案根目錄後，輸入以下指令：
 
@@ -73,7 +73,7 @@ pipenv --python <version>
 >brew install pyenv
 >```
 
-#### Step2: 安裝
+### Step2: 安裝
 
 在專案根目錄執行以下指令，安裝 Pipfile 中所指定版本的 Python 以及基本的套件：
 

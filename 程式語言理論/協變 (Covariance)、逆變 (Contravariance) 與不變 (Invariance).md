@@ -1,10 +1,10 @@
 假設 B 型別為 A 型別的 [[子型別 (Subtype)]]，若在某一種程式語言中，一個 `B[]` 可以被視為一個 `A[]`，則該程式語言中的 array 為「協變陣列」；若一個 `A[]` 可以被視為一個 `B[]`，則該程式語言中的 array 為「逆變陣列」；若以上皆不可行，則該程式語言中的 array 為「不變陣列」。若一個有參數且參數型別為 `A` 的 function $f$（簡記為 $f:A$）可以填入型別為 `B` 的引數，則該程式語言中的 function 為「協變函式」；若一個 $f:B$ 可以填入型別為 `A` 的引數，則該程式語言中的 function 為「逆變函式」，若都不行則稱為「不變函式」。
 
-#### Array
+### Array
 
 只有對於 immutable (read-only) array 而言，協變才是安全的，若 array 可寫入且協變，則當 `Dog` 與 `Cat` 皆為 `Animal` 的子型別時，是可以把 `Dog` 放入一個 `Cat[]` 的。因此，通常具有「協變陣列」的程式語言都會在 runtime 或 compile time 針對 array 的寫入做型別檢查，若試圖把 `Dog` 放入 `Cat[]` 就拋出錯誤。
 
-#### Function
+### Function
 
 在 function 被視為「一等公民」的程式語言中，function 具有型別，一個 function 的型別由它的輸入及輸出決定。比如當一個 function $f$ 接收型別為 `T` 的參數，return 型別為 `U` 的值，則可以將此 function 的型別記做 $f:T \to U$。
 
@@ -24,7 +24,7 @@ $$f:T1 \to U1 \leq g:T2 \to U2 \iff T2 \leq T1 \wedge U1 \leq U2$$
 
 $$某位置是協變的 \iff 某位置的右邊共有偶數個 \to 符號$$
 
-#### 物件導向中的繼承
+### 物件導向中的繼承
 
 （關於繼承的基本理論，詳見 [[繼承 (Inheritance)|此文]]。）
 

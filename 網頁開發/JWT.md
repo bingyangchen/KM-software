@@ -6,16 +6,12 @@ JWT 為 JSON Web Token 的縮寫，主要的功能是將 JSON 格式的資料**�
 
 # JWT 的種類
 
----
-
 依照加密方式，可以將 JWT 分為兩大類：
 
 1. 使用單一金鑰加密的 JWT，通常被應用在==身份驗證==。
 2. 使用公私鑰加密的 JWT，通常被應用在==資料交換==。
 
 # JWT 的結構
-
----
 
 JWT 分為三個部分：
 
@@ -25,20 +21,18 @@ JWT 分為三個部分：
 
 三個部分以 `.` 連接，因此一個 JWT 看起來會像：`xxxxxxx.yyyyyyy.zzzzzzz`
 
-#### Header
+### Header
 
 #TODO 
 
-#### Payload
+### Payload
 
 #TODO 
 
-#### Signature
+### Signature
 
 #TODO 
 
 # 參考資料
-
----
 
 https://jwt.io/introduction

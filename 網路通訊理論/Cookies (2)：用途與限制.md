@@ -10,15 +10,11 @@
 
 # Cookies 需要斟酌使用
 
----
-
 1. Cookies 其實不適合拿來儲存「機敏」資料，比如 user 的帳號密碼，因為 cookies 會被塞進 **每一個** requests 中，這樣太容易被有心人士竊聽。
 
 2. Cookies 也不適合拿來儲存大量資料，一樣是因為 cookies 會被塞進 **每一個** requests 中，太大或太多的 cookies 會使得溝通的過程變慢，進而影響使用者體驗。
 
 # Cookies 的三種用途
-
----
 
 基於上述兩個使用限制，現今的 cookies 逐漸演變成以下三種用途：
 
@@ -26,7 +22,7 @@
 2. Personalization
 3. Tracking
 
-#### Authentication
+### Authentication
 
 如果 server 可以在用戶登入成功後產生一個 Session 用來記錄「這個使用者已經登入成功」這件事，同時為這個 Session 產生「具有唯一性」的 ID，那麼將這個 Session ID 交給 client，往後就可以透過「來自 client 的 request 的 cookie header 的 Session ID」知道 client 背後的會員是誰，有需要時，再從資料庫撈取屬於該會員的必要資料，不須把會員的所有資料交給 client。
 
@@ -34,13 +30,13 @@
 
 關於使用 Session ID 實現身份驗證的更多資訊，詳見 [[Cookie-Based Authentication vs. Token-Based Authentication#^71972f|Cookie/Session Authentication]]。
 
-#### Personalization
+### Personalization
 
 Personalization 即「針對每個帳號提供專屬的資料與服務」，甚至是還沒有註冊帳號的 client，server 也可以透過 client 提供的 Cookie 來得知他的偏好設定，比如 Google 就曾經用 cookie 來紀錄一個 client 希望每一頁搜尋頁面要出現幾筆結果。
 
 不過，由於 cookies 是存在 browser 裡，所以「完全依靠 cookie 來記錄」的資料是沒有辦法跨 browser 或者跨裝置共享的。必須在資料庫也儲存一份資料，並且在 server-side 額外實作一些機制，比如說「若看到已登入的 client 沒有提供 Cookie，就到資料庫去查詢，然後設置新的 cookie 到這個新的 client 上」，才有辦法實現「跨裝置共享使用者偏好」這個目的。
 
-#### Tracking
+### Tracking
 
 關於 Tracking 的方式，可以直接以例子來了解：
 
@@ -49,7 +45,5 @@ Personalization 即「針對每個帳號提供專屬的資料與服務」，甚�
 現今，「追蹤使用者的瀏覽紀錄以進行精準的廣告投放」已經是一項有專門的廣告行銷公司在經營的專業工作，其中，廣告行銷公司可以透過「第三方 cookie」讓不同客戶的網站間可以共享這些追蹤的結果，關於第三方 cookie 的更多內容，請見 [[Cookies (3)：從第一方到第三方|此文]]。
 
 # 參考資料
-
----
 
 https://en.wikipedia.org/wiki/HTTP_cookie

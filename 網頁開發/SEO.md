@@ -6,8 +6,6 @@ SEO 就是一個讓網頁在搜尋結果中排名上升的過程。
 
 # SEO 的種類
 
----
-
 - [[#^5abda2|On-Site SEO]]
 - [[#^f35fff|Off-Site SEO]]
 - [[#^fce106|Technical SEO]]
@@ -19,8 +17,6 @@ SEO 就是一個讓網頁在搜尋結果中排名上升的過程。
 
 ^5abda2
 
----
-
 On-site SEO 關注的是網站本身的內容，包括：
 
 - URL path
@@ -30,7 +26,7 @@ On-site SEO 關注的是網站本身的內容，包括：
 - `title` 標籤要簡潔且明確
 - 圖片
 
-#### URL path
+### URL path
 
 細部建議如下：
 
@@ -39,7 +35,7 @@ On-site SEO 關注的是網站本身的內容，包括：
 3. 盡量使用英文
 4. 使用 "-" 來間隔一層 path 內的多個單字
 
-#### 關鍵字
+### 關鍵字
 
 關鍵字指的是 user 可能會在搜尋引擎輸入的關鍵字，建議如下：
 
@@ -47,7 +43,7 @@ On-site SEO 關注的是網站本身的內容，包括：
 2. 文章中應合理地出現關鍵字，不要為了提升排名而故意頻繁地提到關鍵字 (keyword stuffing)，或者甚至使用 CSS 將那些故意重複的關鍵字隱藏，這並不會提升排名
 3. 關鍵字出現在 `h1` ~ `h4` 標籤以及 `title` 標籤中，會比出現在段落內的效果更顯著
 
-#### `title` 標籤要簡潔且明確
+### `title` 標籤要簡潔且明確
 
 ![[GoogleSearchResult.png]]
 
@@ -61,7 +57,7 @@ On-site SEO 關注的是網站本身的內容，包括：
 	- `<meta name="keywords" content="A, B, ..."> `
 	- `<meta name="author" content="...">`
 
-#### 內文
+### 內文
 
 細部建議如下：
 
@@ -77,7 +73,7 @@ On-site SEO 關注的是網站本身的內容，包括：
 	
 	![[web_structure.webp]]
 
-#### 圖文並茂
+### 圖文並茂
 
 細部建議如下：
 
@@ -85,7 +81,7 @@ On-site SEO 關注的是網站本身的內容，包括：
 - `alt` 盡量不要超過 125 字
 - 除非有必要，否則圖片檔案大小不要太大，會使載入變慢進而影響使用者體驗
 
-#### 連結
+### 連結
 
 - 內部連結
 	
@@ -95,11 +91,11 @@ On-site SEO 關注的是網站本身的內容，包括：
 	
 	內文中適當地提供「可信度高的外部網站的連結」雖然不能直接影響排名，但可以讓 user 的搜尋體驗更好。
 
-#### 網頁載入速度
+### 網頁載入速度
 
 網頁載入速度是其中一個 Google 對網頁的評分項目，速度越快分數越高，Google 有提供一個官方的 [網頁載入速度檢驗工具](https://pagespeed.web.dev/)，不止會對多個面向進行評分，也會針對得分較低的項目提供改善建議。
 
-#### User 停留越久越好
+### User 停留越久越好
 
 User 在一個網頁的停留時間是 Google 對網頁的評分項目，停留越久分數越高，如果 Google 觀察到有很多使用者進入某個網站後馬上就跳出來，就會開始懷疑這個網站是否有問題，進而給予其較低的評分。
 
@@ -113,7 +109,7 @@ User 在一個網頁的停留時間是 Google 對網頁的評分項目，停留�
 
 ![[breadcrumbs-bestbuy-location-based.jpeg]]
 
-#### 外部網站
+### 外部網站
 
 https://www.semrush.com/blog/on-page-seo/
 
@@ -121,16 +117,14 @@ https://www.semrush.com/blog/on-page-seo/
 
 ^f35fff
 
----
-
 所有不更動網站本身內容的 SEO 都叫做 Off-site SEO。
 
-#### Link Building
+### Link Building
 
 在其他具有公信力的網站上（比如社群平台）為自己的網站上建立反向連結。
 
 
-#### 外部網站
+### 外部網站
 
 https://www.semrush.com/blog/off-page-seo/
 
@@ -138,9 +132,7 @@ https://www.semrush.com/blog/off-page-seo/
 
 ^fce106
 
----
-
-#### 網站地圖 (Sitemap)
+### 網站地圖 (Sitemap)
 
 Sitemap 的格式可以是 `.xml` 或者 `.txt`，將 sitemap 交給 Google 可以確保 sitemap 內的網頁都被 Google index
 
@@ -148,7 +140,7 @@ Sitemap 的格式可以是 `.xml` 或者 `.txt`，將 sitemap 交給 Google 可�
 
 **產生 Sitemap 的網頁工具:** https://www.mysitemapgenerator.com/
 
-#### 外部網站
+### 外部網站
 
 https://www.semrush.com/blog/learning-technical-seo/
 
@@ -156,22 +148,18 @@ https://www.semrush.com/blog/learning-technical-seo/
 
 ^61269c
 
----
-
 Local SEO 主要關注當使用這搜尋與地理位置相關的關鍵字時，網頁的曝光率。
 
-#### Microdata (Schema)
+### Microdata (Schema)
 
 
-#### 外部網站
+### 外部網站
 
 https://www.semrush.com/blog/what-is-local-seo/
 
 # SEO 評量
 
----
-
-#### 工具統整
+### 工具統整
 
 ![[Tools-You-Need-for-an-SEO-Audit.webp]]
 
@@ -179,13 +167,11 @@ https://www.semrush.com/blog/what-is-local-seo/
 - [Google PageSpeed Insight](https://pagespeed.web.dev/)
 - [Google Schema Markup Testing Tool](https://developers.google.com/search/docs/appearance/structured-data)
 
-#### 外部網站
+### 外部網站
 
 https://www.semrush.com/blog/seo-audit/
 
 # 參考資料
-
----
 
 https://www.semrush.com/blog/learn-seo/
 

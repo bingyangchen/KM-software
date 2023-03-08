@@ -6,8 +6,6 @@ Pagination 主要有兩種實現方式，分別為：
 
 # Offset Pagination
 
----
-
 舉例：
 
 ```postgresql
@@ -36,8 +34,6 @@ OFFSET 20;
 
 # Keyset Pagination
 
----
-
 舉例：
 
 ```postgresql
@@ -65,7 +61,7 @@ Keyset Pagination 不像 Offset Pagination 會把目標分頁「前」的所有�
 當 key 的值不可預測時，無法只能透過「上一頁」、「下一頁」的方式換頁。
 
 
-#### 含有其他排序規則的查詢
+### 含有其他排序規則的查詢
 
 舉例：
 
@@ -90,8 +86,6 @@ LIMIT 10;
 2. `ORDER BY` 子句中，key 一定還是要出現，只是順位一定在最後
 
 # Cursor-Based Pagination
-
----
 
 Cursor-Based Pagination 其實是 Keyset Pagination 的一種，只是 client side 不會知道 DBMS 具體用了哪個 column 作為分頁用的 key，原因是在 server side 會先將 key 進行編碼 (encode) 或加密 (encrypt)，才將它送給 client。
 
@@ -120,8 +114,6 @@ Cursor-Based Pagination 其實是 Keyset Pagination 的一種，只是 client si
 由於 cursor 經過編碼或加密，一定無法預測，所以一定只能透過「上一頁」、「下一頁」的方式換頁。
 
 # 參考資料
-
----
 
 https://vladmihalcea.com/sql-seek-keyset-pagination/
 

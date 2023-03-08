@@ -5,9 +5,10 @@
   "translucency": true,
   "baseFontSize": 17,
   "baseFontSizeAction": true,
-  "theme": "moonstone",
+  "theme": "obsidian",
   "textFontFamily": "Georgia,Times New Roman",
   "enabledCssSnippets": [
     "custom"
-  ]
+  ],
+  "cssTheme": ""
 }

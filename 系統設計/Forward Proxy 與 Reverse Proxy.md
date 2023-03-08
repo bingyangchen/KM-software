@@ -1,7 +1,5 @@
 # Forward Proxy (順向代理)
 
----
-
 ![[Pasted image 20221229145858.png]]
 
 ### 好處
@@ -20,11 +18,9 @@
 
 ^24b2f1
 
----
-
 ![[Pasted image 20221229145948.png]]
 
-#### 好處
+### 好處
 
 1. 隱藏 Server Cluster 存在的事實
 	
@@ -43,8 +39,6 @@
 5. 實現 [[Canary Deployment]]
 
 # 參考資料
-
----
 
 https://www.theserverside.com/feature/Forward-proxy-vs-reverse-proxy-Whats-the-difference
 

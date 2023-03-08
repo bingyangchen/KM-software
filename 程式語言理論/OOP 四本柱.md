@@ -33,7 +33,7 @@ Encapsulation 即「透過 `public`, `private`, `protected` 等關鍵字來限�
 
 Polymorphism 從字面上用中文的白話文來說就是「一體多面」或「一詞多義」，技術上可以分為 overriding 與 overloading 兩種技術。
 
-#### Override vs. Overload
+### Override vs. Overload
 
 當 class A 繼承 class B 時，在沒有其餘設計的情況下，一個 method M 在由 class A 所實例化的 object 呼叫，與由 class B 所實例化的 object 呼叫時，所達到的效果會相同。如果想要讓效果有所不同，就必須在 class A 中重新定義 method M，重新定義 method M 時，若 method M 所接收的參數數量與原本相同，則稱此行為為 Overriding；若參數數量不同，則此行為稱為 Overloadding。
 

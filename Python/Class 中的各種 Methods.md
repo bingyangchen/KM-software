@@ -2,17 +2,19 @@ Python 的 class 可以擁有 instance method, class method 以及 static method
 
 # Instance Method
 
+Instance method 專門給實例化後的 object 使用，範例程式碼如下：
+
 ```Python
 class Dog:
 	def __init__(self):
 		self.age = 0
 		self.weight = 10
 
-	def eat(self):
-		self.weight += 1
+	def eat(self, n):
+		self.weight += n
 
 	def grow(self):
-		self.eat()
+		self.eat(1)
 		self.age += 1
 
 if __name__ == "__main__":
@@ -20,9 +22,11 @@ if __name__ == "__main__":
 	d.grow()
 ```
 
-Instance method 是給實例化後的 object 使用的。定義 instance method 時，第一個參數必須用來代表 object 本身（通常命名為 `self`），擁有這個參數使得 instance method 可以 access 其他 instance attributes 與 instance methods，比如上例中的 `self.eat()` 與 `self.age += 1`。
+### `self`
 
-但要注意，在 class 外呼叫 instance method 時，並不需要在第一個參數位置填入引數，以上例而言，object `d` call `grow` method 時，其實不用填任何參數。
+定義 constructor method 與其他 instance methods 時，第一個參數用來代表 object 本身（通常命名為 `self`）。
+
+擁有 `self` 參數使得 instance method 可以 access 其他 instance attributes 與 instance methods，比如上例中的 `self.age = 0` 與 `self.eat(1)`。但要注意，呼叫 instance method 時，並不需要在第一個參數位置填入引數，以上例而言，在 `grow` method 裡呼叫 `eat` method 時只給了一個參數 1 給 `n`；object `d` 呼叫 `grow` method 時，則不用填任何參數。
 
 >在大部分其他 OOP 程式語言（如 Java, C#）中，定義 instance method 時並沒有在第一個參數寫 `self` 的規則。在 class 內，`this.x` 即表示 instance attribute `x`。
 
@@ -59,7 +63,7 @@ if __name__ == "__main__":
 	print(d1.max_age, d2.max_age, Dog.max_age) # 25 25 25
 ```
 
-Class method 是給 class 使用的 method，然而其實若你用實例化後的 object 呼叫 class method，Python Interpreter 也會給過（效果與用 class 呼叫是一樣的），你可以把這個特性視為一種防呆機制，因為在純正的 OOP 中，使用 class 呼叫 class method 才是正規的使用方式。
+Class method 是給 class 使用的 method，然而==其實用實例化後的 object 呼叫 class method，Python Interpreter 也會給過==（效果與用 class 呼叫是一樣的），你可以把這個特性視為一種防呆機制，但請記得在純正的 OOP 中，使用 class 呼叫 class method 才是正規的使用方式。
 
 每一個 class method 的開頭都必須使用 decorator `@classmethod` 裝飾之。
 
@@ -120,9 +124,9 @@ if __name__ == "__main__":
 
 # 後記
 
-如果你興趣做一些小實驗，可以試試看在 class 中以 `類別名稱.method_name()` 的方式 call 一個 class method，或者在一個 class method 中用 `cls.method_name()` 的方式 call 一個 static method。你會發現他們都可以運作！
+如果你有興趣做一些小實驗，可以試試看以 `A.method_name()` 呼叫一個 class A  的 class method，或者在一個 class method 中用 `cls.method_name()` 的方式呼叫一個 static method。你會發現他們都可以運作！
 
-我個人覺得這是一種很不好的設計，歸根結底而言，我覺得根本就不應該存在 class method 與 static method 這樣可以互相替代彼此的設計 method 的方式，這個現象是在其他主流 OOP 語言中都找不到的。如果是我，會選擇一律使用 static method 作為存取 class attributes 與單純進行運算所用。
+我個人覺得這是一種很不好的設計，歸根結底而言，Python 似乎根本不應該存在 class method 與 static method 這樣可以互相替代彼此的設計 method 的方式，這個現象是在其他主流 OOP 語言中都找不到的。作為使用這門程式語言的人，我們可以做的就是選擇一律使用 static method 或一律使用 class method 作為存取 class attributes 與單純進行運算所用。
 
 # 參考資料
 

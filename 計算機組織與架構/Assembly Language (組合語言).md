@@ -18,18 +18,18 @@ Most early microcomputers relied on hand-coded assembly language. This was becau
 
 # Typical applications
 
-#### System's [boot](https://en.wikipedia.org/wiki/Booting) code
+### System's [boot](https://en.wikipedia.org/wiki/Booting) code
 
 The low-level code that initializes and tests the system hardware prior to booting the operating system and is often stored in ROM
 
 e.g. [BIOS](https://en.wikipedia.org/wiki/BIOS)
 
-#### Low-level code
+### Low-level code
 
 Low-level code cannot rely on the availability of pre-existing system calls and must indeed implement them for the particular processor architecture on which the system will be running.
 
 e.g. [operating system kernels](https://en.wikipedia.org/wiki/Kernel_(operating_system))
 
-#### [Inline assembly](https://en.wikipedia.org/wiki/Inline_assembly)
+### [Inline assembly](https://en.wikipedia.org/wiki/Inline_assembly)
 
 Some compilers for relatively low-level languages, such as Pascal or C, allow the programmer to embed assembly language directly in the source code. Programs using such facilities can then construct abstractions using different assembly language on each hardware platform. The system's portable code can then use these processor-specific components through a uniform interface.

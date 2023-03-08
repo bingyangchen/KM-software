@@ -8,13 +8,73 @@
         "type": "tabs",
         "children": [
           {
-            "id": "14d599d61a10bbb1",
+            "id": "6e185d0aedf434fb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python/Useful Tricks.md",
+                "file": "資料結構與演算法/Binary-Indexd Tree (BIT).md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "15f08690fa8e2ac7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "資料結構與演算法/Tree Traversal.md",
                 "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "c2bff512723f8a93",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "資料結構與演算法/Segment Tree.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "6b943f675c7b52ec",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "資料結構與演算法/Hash Table.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "bd10af4b4a29ed26",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "資料結構與演算法/AVL Tree.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "beb2b9a0cbae35fb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "資料結構與演算法/Red-Black Tree.md",
+                "mode": "source",
                 "source": true
               }
             }
@@ -81,7 +141,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 313.5
   },
   "right": {
     "id": "f13142408b62142a",
@@ -97,7 +157,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Python/Useful Tricks.md",
+                "file": "資料結構與演算法/Binary-Indexd Tree (BIT).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +174,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Python/Useful Tricks.md",
+                "file": "資料結構與演算法/Binary-Indexd Tree (BIT).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +197,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Python/Useful Tricks.md"
+                "file": "資料結構與演算法/Binary-Indexd Tree (BIT).md"
               }
             }
           }
@@ -150,45 +210,56 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "canvas:建立新畫布": false,
-      "switcher:開啟快速切換": false,
+      "canvas:建立新畫布": true,
       "graph:查看關聯圖": false,
-      "templates:插入模板": false,
-      "command-palette:開啟命令面板": false,
+      "switcher:開啟快速切換": false,
+      "templates:插入模板": true,
       "markdown-importer:開啟 Markdown 格式轉換器": false,
       "random-note:開始漫遊筆記": false,
+      "command-palette:開啟命令面板": false,
       "terminal:Open terminal": false
     }
   },
-  "active": "14d599d61a10bbb1",
+  "active": "a1bd1f7fdbf4fc65",
   "lastOpenFiles": [
-    "Python/Lazy evaluation.md",
-    "Python/List Comprehension.md",
-    "Python/Useful Tricks.md",
-    "程式語言理論/Expression vs. Statement.md",
-    "Python/pipenv.md",
-    "資料庫/PostgreSQL/Window Functions.md",
-    "Side Projects/Uber's Problem - Simulate and Solve.md",
-    "Side Projects/Chess Machine Learning.md",
-    "軟體開發工具/Git/push, pull, fetch.md",
-    "資料庫/PostgreSQL/零碎筆記.md",
-    "push.sh",
-    "未命名.canvas",
-    "程式語言理論/Currying & Partial Application.md",
-    "程式語言理論/協變、逆變與不變 (Covariance, Contravariance and Invariance).md",
-    "程式語言理論/子型別 (Subtype).md",
-    "程式語言理論/Interface vs. Abstract Class in Java.md",
-    "程式語言理論/Imperative vs. Declarative.md",
-    "程式語言理論/OOP 四本柱.md",
-    "程式語言理論/閉包 (Closure).md",
-    "程式語言理論/Liskov Substitution Principle (LSP).md",
-    "程式語言理論/程式語言的分類.md",
-    "程式語言理論/Factory Function vs. Constructor.md",
-    "程式語言理論/FP 核心準則.md",
-    "程式語言理論/Function Composition.md",
-    "JavaScript, TypeScript/Event Loop.md",
-    "JavaScript, TypeScript/JavaScript 中的 OOP.md",
-    "JavaScript, TypeScript/JavaScript is a Prototype-based Language.md",
-    "JavaScript, TypeScript/接收 Server-Sent Event.md"
+    "SUMMARY.md",
+    "package-lock.json",
+    "node_modules/cheerio/node_modules/lodash/flake.nix",
+    "node_modules/cheerio/node_modules/lodash/release.md",
+    "node_modules/cheerio/node_modules/lodash/README.md",
+    "node_modules/cheerio/node_modules/lodash/flake.lock",
+    "node_modules/cheerio/node_modules/lodash/package.json",
+    "node_modules/cheerio/node_modules/lodash/zipWith.js",
+    "node_modules/cheerio/node_modules/lodash/fp/zipWith.js",
+    "node_modules/cheerio/node_modules/lodash/zipObjectDeep.js",
+    "node_modules/cheerio/node_modules/lodash/fp/zipObjectDeep.js",
+    "node_modules/cheerio/node_modules/lodash/zipObject.js",
+    "node_modules/cheerio/node_modules/lodash/fp/zipObject.js",
+    "node_modules/ajv/README.md",
+    "node_modules/ajv/lib/dotjs/README.md",
+    "node_modules/gitbook-summary/test/books/config-json/second/tt.md",
+    "node_modules/gitbook-summary/README.md",
+    "node_modules/js-yaml/README.md",
+    "node_modules/js-yaml/CHANGELOG.md",
+    "node_modules/uri-js/README.md",
+    "node_modules/sshpk/README.md",
+    "node_modules/tweetnacl/CHANGELOG.md",
+    "node_modules/tweetnacl/AUTHORS.md",
+    "node_modules/psl/browserstack-logo.svg",
+    "node_modules/psl/README.md",
+    "node_modules/tweetnacl/PULL_REQUEST_TEMPLATE.md",
+    "node_modules/qs/README.md",
+    "node_modules/dashdash/CHANGES.md",
+    "node_modules/gitbook-summary/doc/img/test.md.jpg",
+    "node_modules/qs/LICENSE.md",
+    "node_modules/request/README.md",
+    "node_modules/front-matter/notes.md",
+    "node_modules/gitbook-summary/test/books/config-json/first/hello.md",
+    "node_modules/gitbook-summary/test/books/config-json/first/README.md",
+    "node_modules/gitbook-summary/test/books/basic/test/tt.md",
+    "node_modules/gitbook-summary/test/books/config-json/README.md",
+    "node_modules/gitbook-summary/test/books/basic/README.md",
+    "node_modules/gitbook-summary/test/language/test.md",
+    "未命名.canvas"
   ]
 }
