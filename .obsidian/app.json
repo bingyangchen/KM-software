@@ -6,5 +6,7 @@
   "alwaysUpdateLinks": false,
   "attachmentFolderPath": "圖庫",
   "readableLineLength": true,
-  "userIgnoreFilters": []
+  "userIgnoreFilters": [],
+  "useMarkdownLinks": false,
+  "newLinkFormat": "shortest"
 }

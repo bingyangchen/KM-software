@@ -123,7 +123,7 @@ console.log(i(2, 4))  // 14
 
 Currying 與 Partial Application 皆利用了 [[閉包 (Closure)]] 的特性，將 HOF 中具有值的變數或參數交給自己 return 的 child function，使得這些變數或參數在 child function 中仍保有意義與值。
 
-# 好處
+# 優點
 
 將一個複雜的函式拆分成若干個基本函式的組合，可以提高這些基本函式的重複使用性。
 

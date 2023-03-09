@@ -17,7 +17,7 @@ OOP 的宗旨在：
 
 1. 將現實世界裡的問題抽象化為物件 (objects) 間的行為
 2. 將物件抽象化為類別 (classes)
-3. 將類別抽象化為 [[Interface vs. Abstract Class in Java|interfaces 以及 abstract classes]]。
+3. 將類別抽象化為 [[Interface vs. Abstract Class (in Java)|interfaces 以及 abstract classes]]。
 
 # Encapsulation
 

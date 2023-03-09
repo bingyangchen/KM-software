@@ -5,7 +5,8 @@
   - [JavaScript is a Prototype-based Language](<././JavaScript, TypeScript/JavaScript is a Prototype-based Language.md>)
   - [JavaScript 中的 OOP](<././JavaScript, TypeScript/JavaScript 中的 OOP.md>)
   - Node.js
-    - [更新 Node.js 版本](<././JavaScript, TypeScript/Node.js/更新 Node.js 版本.md>)
+    - [npx](<././JavaScript, TypeScript/Node.js/npx.md>)
+    - [如何更新 Node.js 版本](<././JavaScript, TypeScript/Node.js/如何更新 Node.js 版本.md>)
   - [接收 Server-Sent Event](<././JavaScript, TypeScript/接收 Server-Sent Event.md>)
 - Python
   - [Class 中的各種 Methods](<././Python/Class 中的各種 Methods.md>)
@@ -95,15 +96,13 @@
       - [如何開始一個專案](<././網頁開發/後端/Django (Python)/如何開始一個專案.md>)
     - Express (NodeJS)
 - 程式語言理論
-  - [Binary Method](<././程式語言理論/Binary Method.md>)
   - [Currying & Partial Application](<././程式語言理論/Currying & Partial Application.md>)
-  - [Expression vs. Statement](<././程式語言理論/Expression vs. Statement.md>)
   - [FP 核心準則](<././程式語言理論/FP 核心準則.md>)
   - [Factory Function vs. Constructor](<././程式語言理論/Factory Function vs. Constructor.md>)
   - [Function Composition](<././程式語言理論/Function Composition.md>)
   - [Higher-Order Function (HOF)](<././程式語言理論/Higher-Order Function (HOF).md>)
   - [Imperative vs. Declarative](<././程式語言理論/Imperative vs. Declarative.md>)
-  - [Interface vs. Abstract Class in Java](<././程式語言理論/Interface vs. Abstract Class in Java.md>)
+  - [Interface vs. Abstract Class (in Java)](<././程式語言理論/Interface vs. Abstract Class (in Java).md>)
   - [Liskov Substitution Principle (LSP)](<././程式語言理論/Liskov Substitution Principle (LSP).md>)
   - [OOP 四本柱](<././程式語言理論/OOP 四本柱.md>)
   - [Object Composition](<././程式語言理論/Object Composition.md>)
@@ -113,9 +112,8 @@
   - [繼承 (Inheritance)](<././程式語言理論/繼承 (Inheritance).md>)
   - [多型 (Polymorphism)](<././程式語言理論/多型 (Polymorphism).md>)
   - [子型別 (Subtype)](<././程式語言理論/子型別 (Subtype).md>)
-  - [各種語言中的 String 是否為 Immutable](<././程式語言理論/各種語言中的 String 是否為 Immutable.md>)
+  - [零碎筆記](<././程式語言理論/零碎筆記.md>)
   - [程式語言的分類](<././程式語言理論/程式語言的分類.md>)
-  - [程式語言的演進](<././程式語言理論/程式語言的演進.md>)
 - 網路通訊理論
   - [A Record 與 CNAME Record](<././網路通訊理論/A Record 與 CNAME Record.md>)
   - [CDN](<././網路通訊理論/CDN.md>)

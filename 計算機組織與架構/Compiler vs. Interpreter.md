@@ -1,6 +1,6 @@
 Interpretation (轉譯) 與 Compilation (編譯) 並非互斥的概念，很多 Interpreter 做的事情與 Compiler 有某些部分是很像的。
 
-簡言之，一旦 compiler 將 [[程式語言的演進#^2ea556|higher-level]] 的 source code 翻譯成 machine code 後，只要 source code 的內容沒有被更動，往後每次執行程式時就可以直接運行 machine code，而不需要再次編譯。
+簡言之，一旦 compiler 將 [[程式語言理論/零碎筆記#^2ea556|高階程式語言]] 翻譯成 machine code 後，只要 source code 的內容沒有被更動，往後每次執行程式時就可以直接運行 machine code，而不需要再次編譯。
 
 在 Interpreted language 的世界裡則是每次執行到一個 statement 或 function 時都要做翻譯的工作，也就是說若某個 function 被呼叫了 n 次，同樣一段程式碼就會被轉譯 n 次，即使這 n 次呼叫 function 所填入的參數是相同的。
 
