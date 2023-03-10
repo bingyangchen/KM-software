@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "資料結構與演算法/Binary-Indexd Tree (BIT).md",
+                "file": "Python/if __name__ ==  __main__  是什麼.md",
                 "mode": "preview",
                 "source": true
               }
@@ -158,7 +158,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "資料結構與演算法/Binary-Indexd Tree (BIT).md",
+                "file": "Python/if __name__ ==  __main__  是什麼.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -175,7 +175,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "資料結構與演算法/Binary-Indexd Tree (BIT).md",
+                "file": "Python/if __name__ ==  __main__  是什麼.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -198,7 +198,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "資料結構與演算法/Binary-Indexd Tree (BIT).md"
+                "file": "Python/if __name__ ==  __main__  是什麼.md"
               }
             }
           }
@@ -223,6 +223,7 @@
   },
   "active": "57847dde5f5c09b4",
   "lastOpenFiles": [
+    "資料結構與演算法/Binary-Indexd Tree (BIT).md",
     "test.css",
     "test.css.map",
     "sass.sh",
@@ -260,7 +261,6 @@
     "book.json",
     "markdownlint.config",
     "package-lock.json",
-    "node_modules/cheerio/node_modules/lodash/flake.nix",
     "node_modules/psl/browserstack-logo.svg",
     "node_modules/gitbook-summary/doc/img/test.md.jpg",
     "未命名.canvas"

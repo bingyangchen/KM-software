@@ -1,4 +1,5 @@
-# Summary\n
+# Summary
+
 - JavaScript, TypeScript
   - [Event Loop](<././JavaScript, TypeScript/Event Loop.md>)
   - [JavaScript is a Prototype-based Language](<././JavaScript, TypeScript/JavaScript is a Prototype-based Language.md>)
