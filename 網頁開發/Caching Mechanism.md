@@ -11,11 +11,11 @@
 
 - **Public Caching Mechanism**
 
-	由某個人觸發 caching mechanism，但那一份 cache data 會給很多人用。
+    由某個人觸發 caching mechanism，但那一份 cache data 會給很多人用。
 
 - **Private Caching Mechanism**
 
-	某人觸發 caching mechanism 後所產生的 cache data 就專屬於他。
+    某人觸發 caching mechanism 後所產生的 cache data 就專屬於他。
 
 ### 依照實作位置
 

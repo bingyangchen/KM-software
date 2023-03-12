@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python/零碎筆記.md",
+                "file": "Python/Generator and the yield Statement.md",
                 "mode": "source",
                 "source": true
               }
@@ -157,7 +157,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Python/零碎筆記.md",
+                "file": "Python/Generator and the yield Statement.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -174,7 +174,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Python/零碎筆記.md",
+                "file": "Python/Generator and the yield Statement.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -197,7 +197,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Python/零碎筆記.md"
+                "file": "Python/Generator and the yield Statement.md"
               }
             }
           }
@@ -222,9 +222,10 @@
   },
   "active": "df71bbe9f095bb02",
   "lastOpenFiles": [
+    "Python/pyenv.md",
     "Python/小技巧.md",
-    "資料結構與演算法/Binary-Indexd Tree (BIT).md",
     "Python/零碎筆記.md",
+    "資料結構與演算法/Binary-Indexd Tree (BIT).md",
     "SUMMARY.md",
     "資料結構與演算法/Tree Traversal.md",
     "Python/Iterable vs. Iterator.md",
@@ -252,7 +253,6 @@
     "程式語言理論/Liskov Substitution Principle (LSP).md",
     "程式語言理論/Object Composition.md",
     "程式語言理論/程式語言的分類.md",
-    "程式語言理論/Interface vs. Abstract Class (in Java).md",
     "圖庫/Screen Shot 2023-01-26 at 12.16.27 PM.png",
     "package.json",
     "summary.sh",

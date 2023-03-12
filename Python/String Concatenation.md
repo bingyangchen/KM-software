@@ -4,10 +4,10 @@
 
 ```Python
 def reverse_string(s_in: str) -> str:
-	s = ""
-	for i in range(len(s_in)-1, -1, -1):
-		s += s_in[i]
-	return s
+    s = ""
+    for i in range(len(s_in)-1, -1, -1):
+        s += s_in[i]
+    return s
 ```
 
 你覺得這個演算法的時間複雜度為何？$O(n)$ 嗎？還是 $O(n^2)$ 呢？
@@ -31,10 +31,10 @@ def reverse_string(s_in: str) -> str:
 
 ```Python
 def reverse_string(s_in: str) -> str:
-	l = []
-	for i in range(len(s_in)-1, -1, -1):
-		l.append(s_in[i])
-	return "".join(l)
+    l = []
+    for i in range(len(s_in)-1, -1, -1):
+        l.append(s_in[i])
+    return "".join(l)
 ```
 
 `"".join(l)` 的時間複雜度為 O(n)，n 為 `l` 的長度。
@@ -43,9 +43,9 @@ def reverse_string(s_in: str) -> str:
 
 ```Python
 def reverse_string(s_in: str) -> str:
-	l = s_in.split("")
-	l.reverse()
-	return "".join(l)
+    l = s_in.split("")
+    l.reverse()
+    return "".join(l)
 ```
 
 # 參考資料

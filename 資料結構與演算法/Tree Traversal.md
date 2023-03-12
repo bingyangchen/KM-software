@@ -31,10 +31,10 @@ Tree Traversal 依不同的造訪順序，可分為以下四種：
 
 ```Python
 def preorder(root):
-	if root:
-		visit(root)
-		for child in root.children:
-			preorder(child)
+    if root:
+        visit(root)
+        for child in root.children:
+            preorder(child)
 ```
 
 ### 使用 Iteration + Stack
@@ -61,10 +61,10 @@ def preorder(root):
 
 ```Python
 def postorder(root):
-	if root:
-		for child in root.children:
-			postorder(child)
-		visit(root)
+    if root:
+        for child in root.children:
+            postorder(child)
+        visit(root)
 ```
 
 ### 使用 Iteration + Stack
@@ -91,26 +91,26 @@ def postorder(root):
 
 ```Python
 def inorder(root):
-	if root:
-		inorder(root.left)
-		visit(root)
-		inorder(root.right)
+    if root:
+        inorder(root.left)
+        visit(root)
+        inorder(root.right)
 ```
 
 ### 使用 Iteration + Stack
 
 ```Python
 def inorder(root):
-	stack = []
-	while True:
-		while root:
-			stack.append(root)
-			root = root.left
-		if stack == []:
-			break
-		root = stack.pop()
-		visit(root)
-		root = root.right
+    stack = []
+    while True:
+        while root:
+            stack.append(root)
+            root = root.left
+        if stack == []:
+            break
+        root = stack.pop()
+        visit(root)
+        root = root.right
 ```
 
 （除非有必要，否則不推薦這個寫法，因為不直覺。）

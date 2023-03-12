@@ -28,8 +28,8 @@ GROUP BY cid;
 ```PostgreSQL
 SELECT e.*, sub.max_score FROM enrollment AS e
 JOIN (
-	SELECT max(score) AS max_score, cid FROM enrollment
-	GROUP BY cid
+    SELECT max(score) AS max_score, cid FROM enrollment
+    GROUP BY cid
 ) AS sub
 ON e.cid = sub.cid;
 ```
@@ -63,7 +63,7 @@ HAVING sum(quantity) > 0;
 ```PostgreSQL
 SELECT * FROM cars
 WHERE price = (
-	SELECT max(price) FROM cars
+    SELECT max(price) FROM cars
 );
 ```
 

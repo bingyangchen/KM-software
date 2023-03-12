@@ -133,18 +133,18 @@ Currying 與 Partial Application 皆利用了 [[閉包 (Closure)]] 的特性，�
 
 ```JavaScript
 function curry(
-	func,
-	original_func_args_len = func.length,
-	call_time = 1
+    func,
+    original_func_args_len = func.length,
+    call_time = 1
 ) {
-	if (original_func_args_len === call_time) return func;
-	
-	return (arg) =>
-		curry(
-			(...args) => func(arg, ...args),
-			original_func_args_len,
-			call_time + 1
-		);
+    if (original_func_args_len === call_time) return func;
+    
+    return (arg) =>
+        curry(
+            (...args) => func(arg, ...args),
+            original_func_args_len,
+            call_time + 1
+        );
 }
 ```
 

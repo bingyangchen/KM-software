@@ -38,20 +38,20 @@
 
 ```mermaid
 flowchart LR
-	id1(goodname.com)
-	id2(1.2.3.4)
-	id1--A Record-->id2
+    id1(goodname.com)
+    id2(1.2.3.4)
+    id1--A Record-->id2
 ```
 
 **CNAME Record**
 
 ```mermaid
 flowchart LR
-	id1(goodname.com)
-	id2(badname.com)
-	id3(1.2.3.4)
-	id1--CNAME-->id2
-	id2--A Record-->id3
+    id1(goodname.com)
+    id2(badname.com)
+    id3(1.2.3.4)
+    id1--CNAME-->id2
+    id2--A Record-->id3
 ```
 
 ### 優點
@@ -68,11 +68,11 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-	id1(goodname.com)
-	id2(badname.com)
-	id3(1.2.3.4)
-	id1--CNAME-->id2
-	id2--A Record-->id3
+    id1(goodname.com)
+    id2(badname.com)
+    id3(1.2.3.4)
+    id1--CNAME-->id2
+    id2--A Record-->id3
 ```
 
 # 參考資料

@@ -16,8 +16,8 @@ Message 可以是 string 或 object。
 
 ```JavaScript
 channel.postMessage({
-	name: "John",
-	age: 20
+    name: "John",
+    age: 20
 })
 ```
 

@@ -41,27 +41,27 @@ pipenv --python <version>
 
 1. 在目前的 directory 下產生一個名為 `Pipfile` 的檔案，以 toml 格式呈現：
 
-	```toml
-	[[source]]
-	url = "[https://pypi.org/simple](https://pypi.org/simple)"
-	verify_ssl = true
-	name = "pypi"
-	
-	[packages]
-	
-	[dev-packages]
-	
-	[requires]
-	python_version = "3.10"
-	```
+    ```toml
+    [[source]]
+    url = "[https://pypi.org/simple](https://pypi.org/simple)"
+    verify_ssl = true
+    name = "pypi"
+    
+    [packages]
+    
+    [dev-packages]
+    
+    [requires]
+    python_version = "3.10"
+    ```
 
 2. 在電腦中的某個**預設路徑**產生對應的虛擬環境資料夾，所有專案的虛擬環境資料夾都會在一個名為 `.virtualenvs` 或 `vertualenvs` 的資料夾底下。
 
-	透過下方指令可以查詢**預設路徑**：
+    透過下方指令可以查詢**預設路徑**：
 
-	```bash
-	pipenv --venv
-	```
+    ```bash
+    pipenv --venv
+    ```
 
 須注意，由於要被安裝在虛擬環境內的 Python 是基於本機全域的 Python 所建立的，所以 `<version>` 必須跟全域安裝的那個 Python version 一樣。
 

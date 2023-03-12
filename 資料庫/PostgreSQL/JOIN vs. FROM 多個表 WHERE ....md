@@ -45,7 +45,7 @@ WHERE c.id = t.cid AND t.id = e.tid;
 ```PostgreSQL
 SELECT c.name, t.name, e.name
 FROM company AS c JOIN (
-	team AS t JOIN employee AS e ON t.id = e.tid
+    team AS t JOIN employee AS e ON t.id = e.tid
 ) ON c.id = t.cid;
 ```
 
@@ -100,7 +100,7 @@ SELECT * FROM A RIGHT JOIN B ON A.a = B.b
 ```PostgreSQL
 SELECT c.name, t.name, e.name
 FROM company AS c LEFT JOIN (
-	team AS t JOIN employee AS e ON t.id = e.tid
+    team AS t JOIN employee AS e ON t.id = e.tid
 ) ON c.id = t.cid;
 ```
 

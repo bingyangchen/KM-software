@@ -26,32 +26,32 @@ Browser 之所以會那麼雞婆，是為了要遵循 Same-Origin Policy。
 flowchart TD
     id1([JavaScript attepts to make a cross-origin request])
     id1-->id2
-	id2{Is it a GET or HEAD?}
-	id3{Is it a POST?}
-	id4{Are there custom\nHTTP headers?}
-	id5{Is the content-type standard?}
-	id6(Make preflight/OPTIONS request to server)
-	id7(Make actual request)
-	id8{Are Access-Control-* in\nresponse appropriate?}
-	id9([CORS error])
-	id10{Did server allow the origin?}
-	id11(Server responds)
-	id12([OK])
-	id2--Yes-->id4
-	id2--No-->id3
-	id3--Yes-->id5
-	id5--Yes-->id4
-	id4--No-->id7
-	id6-->id8
-	id3--No-->id6
-	id5--No-->id6
-	id4--Yes-->id6
-	id8--Yes-->id7
-	id8--No-->id9
-	id7-->id11
-	id11-->id10
-	id10--No-->id9
-	id10--Yes-->id12
+    id2{Is it a GET or HEAD?}
+    id3{Is it a POST?}
+    id4{Are there custom\nHTTP headers?}
+    id5{Is the content-type standard?}
+    id6(Make preflight/OPTIONS request to server)
+    id7(Make actual request)
+    id8{Are Access-Control-* in\nresponse appropriate?}
+    id9([CORS error])
+    id10{Did server allow the origin?}
+    id11(Server responds)
+    id12([OK])
+    id2--Yes-->id4
+    id2--No-->id3
+    id3--Yes-->id5
+    id5--Yes-->id4
+    id4--No-->id7
+    id6-->id8
+    id3--No-->id6
+    id5--No-->id6
+    id4--Yes-->id6
+    id8--Yes-->id7
+    id8--No-->id9
+    id7-->id11
+    id11-->id10
+    id10--No-->id9
+    id10--Yes-->id12
 ```
 
 # CORS Errors
@@ -116,19 +116,19 @@ flowchart TD
 
 ```mermaid
 sequenceDiagram
-	participant Client
-	participant Proxy Server
-	participant Third Party Server
-	Note over Client: myfrontend.com
-	Note over Proxy Server: mybackend.com
-	Note over Third Party Server: www.google.com
-	Client->>Proxy Server: Send a request to <br/> mybackend.com
-	Note right of Client: {"uri": <br/> "https://www.google.com", <br/>"method": "get", ...}
-	Proxy Server->>Third Party Server: Send a request to <br/> www.google.com
-	Third Party Server->>Proxy Server: Response
-	Proxy Server->>Proxy Server: Configure headers
-	Note left of Proxy Server: Access-Control-Allow-Origin: * <br/> ...
-	Proxy Server->>Client: Response
+    participant Client
+    participant Proxy Server
+    participant Third Party Server
+    Note over Client: myfrontend.com
+    Note over Proxy Server: mybackend.com
+    Note over Third Party Server: www.google.com
+    Client->>Proxy Server: Send a request to <br/> mybackend.com
+    Note right of Client: {"uri": <br/> "https://www.google.com", <br/>"method": "get", ...}
+    Proxy Server->>Third Party Server: Send a request to <br/> www.google.com
+    Third Party Server->>Proxy Server: Response
+    Proxy Server->>Proxy Server: Configure headers
+    Note left of Proxy Server: Access-Control-Allow-Origin: * <br/> ...
+    Proxy Server->>Client: Response
 ```
 
 # 參考資料

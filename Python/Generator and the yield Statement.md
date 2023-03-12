@@ -5,37 +5,35 @@
 - 在 generator function 中遇到 `yield` statement 時，generator function 並不會真的結束，而是會「暫停」在 `yield` 那行。
 - 單純呼叫 generator function 並不會得到 yield 的值，只會得到一個 generator object。
 - 要想得到 yield 的值，有下列幾種方法：
-	1. 將 generator object 放入 `next` function
-	2. 直接 call generator object 的 `__next__` method
-	3. 讓 generator object 成為 for loop 迭代的對象（詳見 [[Iterable vs. Iterator]]）
+    1. 將 generator object 放入 `next` function
+    2. 直接 call generator object 的 `__next__` method
+    3. 讓 generator object 成為 for loop 迭代的對象（詳見 [[Iterable vs. Iterator]]）
 - 當 generator object 下次要「被取值」時，generator function 會從上次暫停的地方繼續執行，而不是從頭執行。
 
 ![[function-vs-generator.png]]
 
 # 節省記憶體
 
-最廣泛被使用的 generator function，大概就是 Python3 中的 `range` 了（Python2 中的 `range` 是直接 return 一個 list 的 function），這兩種 `range` 的最大差異，就在於前者的 Space Complexity 是 O(1)，後者則是 O(n)，也就是說：
+最廣泛被使用的 generator function，大概就是 Python3 中的 `range` 了（Python2 中的 `range` 是直接 return 一個 list 的 function），這兩種 `range` 的最大差異，就在於前者的 Space Complexity 是 O(1)，後者則是 O(n)，由此可見 Generator function 的優點之一就是節省記憶體。
 
->Generator function 的優點之一就是節省記憶體。
-
-其實打開檔案所用的 `open` function 也是一個 generator function，這使得打開檔案時不會因為檔案大於 RAM 的大小而報錯（檔案大小超過 RAM 這件事太常見了），因為 `open(XXX)` 並沒有把整份檔案讀進記憶體中。
+其實打開檔案所用的 `open` function 也是一個 generator function，這使得打開檔案時不會因為檔案大於設備的 RAM 的大小而報錯（檔案大小超過 RAM 這件事太常見了），因為 `open` 並沒有把整份檔案讀進記憶體中。
 
 一個簡單的 generator function 會長得像這樣子：
 
 ```Python
 # Define a generator function
 def square(numbers):
-	for n in numbers:
-		yield n ** 2
+    for n in numbers:
+        yield n ** 2
 
 # Use a generator function
 nums = [1, 2, 3, 4]
 for i in square(nums):
-	print(i)
+    print(i)
 
 # Or even less code...
 for i in (i ** 2 for i in [1, 2, 3, 4]):
-	print(i)
+    print(i)
 ```
 
 上例中的倒數第二行 `(i ** 2 for i in [1, 2, 3, 4])` 叫做 **generator expression**，注意，這與 [[List Comprehension]] 不同，前者生成的是一個 generator，`[i ** 2 for i in [1, 2, 3, 4]]` 則是生成一個 list。
@@ -46,28 +44,28 @@ for i in (i ** 2 for i in [1, 2, 3, 4]):
 
 ```Python
 #class Node:
-# 	def __init__(self, value):
-#		self.value = value
-#		self.left = None
-#		self.right = None
-# 	...
+#     def __init__(self, value):
+#        self.value = value
+#        self.left = None
+#        self.right = None
+#     ...
 
 def post_order_traverse(root: Node) -> Node:
-	yield root
-	
-	if root.left:
-		yield from post_order_traverse(root.left)
-	
-	if root.right:
-		yield from post_order_traverse(root.right)
+    yield root
+    
+    if root.left:
+        yield from post_order_traverse(root.left)
+    
+    if root.right:
+        yield from post_order_traverse(root.right)
 
 if __name__ == "__main__":
-	root = Node(0)
-	
-	# Build a binary tree...
-	
-	for node in post_order_traverse(root):
-		print(node.value)
+    root = Node(0)
+    
+    # Build a binary tree...
+    
+    for node in post_order_traverse(root):
+        print(node.value)
 ```
 
 如果你懷疑上面的 `from` 到底有沒有存在的必要性，那麼你可以試試看去掉它們，然後執行看看，接著你就會看到下面這個錯誤訊息：
@@ -87,17 +85,17 @@ AttributeError: 'generator' object has no attribute 'value'
 
 ```Python
 def print_in_post_order(root: Node):
-	print(root)
-	
-	if root.left:
-		print_in_post_order(root.left)
-	
-	if root.right:
-		print_in_post_order(root.right)
+    print(root)
+    
+    if root.left:
+        print_in_post_order(root.left)
+    
+    if root.right:
+        print_in_post_order(root.right)
 
 if __name__ == "__main__":
-	root = Node(0)
-	print_in_post_order(root)
+    root = Node(0)
+    print_in_post_order(root)
 ```
 
 只是你會發現，這樣一來 `print_in_post_order` 就只能做固定的事，如果有人一樣想 post-order traverse 一個 binary tree，但不是將 `value` 印出來而是做別的事情，那你就必須另外寫一個 function 來讓他做那件事。由此我們可以感受到 generator function 的另一個優點：
@@ -108,20 +106,20 @@ if __name__ == "__main__":
 
 ```Python
 def infinite_values(start):  
-	current = start  
-	while True:  
-		yield current  
-	current += 1
+    current = start  
+    while True:  
+        yield current  
+    current += 1
 ```
 
 雖然說是生成無窮長度的數列，不過其實使用者還是可以自己決定生成多少個：
 
 ```Python
 for i in infinite_values(0):
-	if i < 10:
-		print(i)
-	else:
-		break
+    if i < 10:
+        print(i)
+    else:
+        break
 ```
 
 # 什麼時候可以使用 generator？
@@ -140,9 +138,9 @@ for i in infinite_values(0):
 
 ```Python
 def square(start):
-	num = start
-	while True:
-		num = yield num ** 2
+    num = start
+    while True:
+        num = yield num ** 2
 
 generator_obj = square(0)
 print(next(generator_obj)) # 0

@@ -25,16 +25,16 @@ file.close()
 ```Python
 file = open("file_path", "w")
 try:
-	file.write("Hello")
+    file.write("Hello")
 finally:
-	file.close()
+    file.close()
 ```
 
 有了 `with` statement 後，會變成這樣：
 
 ```Python
 with open("file_path", "w") as file:
-	file.write("Hello")
+    file.write("Hello")
 ```
 
 # 當 raise Exception 時
@@ -77,33 +77,33 @@ finally:
 
 ```Python
 class MyContextManager:
-	def __init__(self, *args, **kwargs):
-		...
-		
-	def __enter(self):
-		...
-		
-	def __exit(self, exception_type, exception_val, traceback):
-		...
-		
+    def __init__(self, *args, **kwargs):
+        ...
+        
+    def __enter(self):
+        ...
+        
+    def __exit(self, exception_type, exception_val, traceback):
+        ...
+        
 ```
 
 假設你現在想要在準備執行一段程式碼前先印出 "start"，執行完該段程式碼後印出 "end"，那你可以這樣寫：
 
 ```Python
 class MyContextManager:
-	def __init__(self):
-		...
-		
-	def __enter__(self):
-		print("start")
-		
-	def __exit__(self, exception_type, exception_val, traceback):
-		print("end")
+    def __init__(self):
+        ...
+        
+    def __enter__(self):
+        print("start")
+        
+    def __exit__(self, exception_type, exception_val, traceback):
+        print("end")
 
 with MyContextManager():
-	for i in range(3):
-		print(i)
+    for i in range(3):
+        print(i)
 
 # Output:
 # start
@@ -117,37 +117,37 @@ with MyContextManager():
 
 ```Python
 class MyContextManager:
-	def __init__(self):
-		self.dog = None
-		
-	def __enter__(self):
-		self.dog = Dog("Lucky")
-		return self.dog
-		
-	def __exit__(self, exception_type, exception_val, traceback):
-		self.dog.sleep()
+    def __init__(self):
+        self.dog = None
+        
+    def __enter__(self):
+        self.dog = Dog("Lucky")
+        return self.dog
+        
+    def __exit__(self, exception_type, exception_val, traceback):
+        self.dog.sleep()
 
 with MyContextManager() as d:
-	d.bark()
+    d.bark()
 ```
 
 如果我還想在那隻狗誕生前先為他取好名字：
 
 ```Python
 class MyContextManager:
-	def __init__(self, name:str):
-		self.dog = None
-		self.name = name
-		
-	def __enter__(self):
-		self.dog = Dog(name=self.name)
-		return self.dog
-		
-	def __exit__(self, exception_type, exception_val, traceback):
-		self.dog.sleep()
+    def __init__(self, name:str):
+        self.dog = None
+        self.name = name
+        
+    def __enter__(self):
+        self.dog = Dog(name=self.name)
+        return self.dog
+        
+    def __exit__(self, exception_type, exception_val, traceback):
+        self.dog.sleep()
 
 with MyContextManager("Jasper") as d:
-	d.bark()
+    d.bark()
 ```
 
 但如果你回頭看前面讀寫檔案的例子，應該會發現：`with open("file_path")` 的 `open` 看命名方式感覺不像是一個 Class 的名稱，反而像是一個 function，難道是命名錯誤嗎？
@@ -161,14 +161,14 @@ from contextlib import contextmanager
 
 @contextmanager
 def my_context_manager(name:str):
-	try:
-		dog = Dog(name=name)
-		yield dog
-	finally:
-		dog.sleep()
+    try:
+        dog = Dog(name=name)
+        yield dog
+    finally:
+        dog.sleep()
 
 with my_context_manager("Jasper") as d:
-	d.bark()
+    d.bark()
 ```
 
 定義 function-based context manager 時，有以下幾點需要注意：

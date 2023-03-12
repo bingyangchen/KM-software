@@ -6,9 +6,9 @@
 SELECT column_name [, column_name, ... ]
 FROM table1 [, table2, ... ]
 WHERE column_name <operator> (
-	SELECT column_name [, column_name, ... ]
-	FROM table1 [, table2, ... ]
-	[WHERE <condition>]
+    SELECT column_name [, column_name, ... ]
+    FROM table1 [, table2, ... ]
+    [WHERE <condition>]
 )
 ```
 
@@ -31,8 +31,8 @@ WHERE column_name <operator> (
 ```PostgreSQL
 SELECT ... FROM ...
 WHERE EXISTS (
-	SELECT 1 FROM tbl
-	WHERE ...
+    SELECT 1 FROM tbl
+    WHERE ...
 );
 ```
 
@@ -47,7 +47,7 @@ WHERE EXISTS (
 ```PostgreSQL
 SELECT employee_id, salary FROM employees
 WHERE salary > (
-	SELECT AVG(SALARY) FROM employees
+    SELECT AVG(SALARY) FROM employees
 );
 ```
 
@@ -55,8 +55,8 @@ Scalar subquery 也可以出現在 `SELECT` clause 中：
 
 ```PostgreSQL
 SELECT name, (
-	SELECT max(pop) FROM cities
-	WHERE cities.state = states.name
+    SELECT max(pop) FROM cities
+    WHERE cities.state = states.name
 )
 FROM states;
 ```
@@ -70,8 +70,8 @@ FROM states;
 ```PostgreSQL
 SELECT first_name FROM employees
 WHERE ROW(department_id, manager_id) = (
-	SELECT department_id, manager_id FROM departments
-	WHERE location_id = 1800
+    SELECT department_id, manager_id FROM departments
+    WHERE location_id = 1800
 );
 ```
 
@@ -82,8 +82,8 @@ Subquery 裡可以 refer outer query 的變數 ，比如下例中的 `s`：
 ```PostgreSQL
 SELECT * FROM student AS s
 WHERE NOT EXISTS (
-	SELECT sid FROM enrollment AS e
-	WHERE e.cid = 1 AND e.sid = s.id
+    SELECT sid FROM enrollment AS e
+    WHERE e.cid = 1 AND e.sid = s.id
 );
 ```
 

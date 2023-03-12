@@ -8,13 +8,13 @@ Function Composition 的概念也是源自於數學，泛指「將兩個函式 $
 
 ```JavaScript
 function compose(...funcs) {
-	return (x) => {
-		let output = x;
-		for (let f of funcs) {
-			output = f(output)
-		}
-		return output
-	}
+    return (x) => {
+        let output = x;
+        for (let f of funcs) {
+            output = f(output)
+        }
+        return output
+    }
 }
 ```
 
@@ -22,7 +22,7 @@ function compose(...funcs) {
 
 ```JavaScript
 function compose(...funcs) {
-	return x => funcs.reduce((v, f) => f(v), x)
+    return x => funcs.reduce((v, f) => f(v), x)
 }
 ```
 
@@ -48,7 +48,7 @@ console.log(f(50))  // 10
 
 ```JavaScript
 function compose(...funcs) {
-	return (x) => funcs.reverse().reduce((v, f)=>f(v), x)
+    return (x) => funcs.reverse().reduce((v, f)=>f(v), x)
 }
 ```
 

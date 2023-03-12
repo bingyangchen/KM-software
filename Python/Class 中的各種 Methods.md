@@ -6,20 +6,20 @@ Instance method 專門給實例化後的 object 使用，範例程式碼如下�
 
 ```Python
 class Dog:
-	def __init__(self):
-		self.age = 0
-		self.weight = 10
+    def __init__(self):
+        self.age = 0
+        self.weight = 10
 
-	def eat(self, n):
-		self.weight += n
+    def eat(self, n):
+        self.weight += n
 
-	def grow(self):
-		self.eat(1)
-		self.age += 1
+    def grow(self):
+        self.eat(1)
+        self.age += 1
 
 if __name__ == "__main__":
-	d = Dog()
-	d.grow()
+    d = Dog()
+    d.grow()
 ```
 
 ### `self`
@@ -34,33 +34,33 @@ if __name__ == "__main__":
 
 ```Python
 class Dog:
-	max_age = 10
-	
-	def __init__(self):
-		self.age = 0
-		self.weight = 10
-	
-	@classmethod
-	def set_max_age(cls, max_age):
-		cls.max_age = max_age
-	
-	@classmethod
-	def another_set_max_age(cls, max_age):
-		cls.set_max_age(max_age)
+    max_age = 10
+
+    def __init__(self):
+        self.age = 0
+        self.weight = 10
+
+    @classmethod
+    def set_max_age(cls, max_age):
+        cls.max_age = max_age
+    
+    @classmethod
+    def another_set_max_age(cls, max_age):
+        cls.set_max_age(max_age)
 
 if __name__ == "__main__":
-	d1 = Dog()
-	d2 = Dog()
-	print(d1.max_age, d2.max_age, Dog.max_age) # 10 10 10
-	
-	d1.set_max_age(15)
-	print(d1.max_age, d2.max_age, Dog.max_age) # 15 15 15
+    d1 = Dog()
+    d2 = Dog()
+    print(d1.max_age, d2.max_age, Dog.max_age) # 10 10 10
+    
+    d1.set_max_age(15)
+    print(d1.max_age, d2.max_age, Dog.max_age) # 15 15 15
 
-	Dog.set_max_age(20)
-	print(d1.max_age, d2.max_age, Dog.max_age) # 20 20 20
+    Dog.set_max_age(20)
+    print(d1.max_age, d2.max_age, Dog.max_age) # 20 20 20
 
-	Dog.another_set_max_age(25)
-	print(d1.max_age, d2.max_age, Dog.max_age) # 25 25 25
+    Dog.another_set_max_age(25)
+    print(d1.max_age, d2.max_age, Dog.max_age) # 25 25 25
 ```
 
 Class method 是給 class 使用的 method，然而==其實用實例化後的 object 呼叫 class method，Python Interpreter 也會給過==（效果與用 class 呼叫是一樣的），你可以把這個特性視為一種防呆機制，但請記得在純正的 OOP 中，使用 class 呼叫 class method 才是正規的使用方式。
@@ -81,33 +81,33 @@ Static method 與 Class method 互為替代關係，也就是說你完全可以�
 
 ```Python
 class Dog:
-	max_age = 10
-	
-	def __init__(self):
-		self.age = 0
-		self.weight = 10
-	
-	@staticmethod
-	def set_max_age(max_age):
-		Dog.max_age = max_age
-	
-	@staticmethod
-	def another_set_max_age(max_age):
-		Dog.set_max_age(max_age)
+    max_age = 10
+    
+    def __init__(self):
+        self.age = 0
+        self.weight = 10
+    
+    @staticmethod
+    def set_max_age(max_age):
+        Dog.max_age = max_age
+    
+    @staticmethod
+    def another_set_max_age(max_age):
+        Dog.set_max_age(max_age)
 
 if __name__ == "__main__":
-	d1 = Dog()
-	d2 = Dog()
-	print(d1.max_age, d2.max_age, Dog.max_age) # 10 10 10
-	
-	d1.set_max_age(15)
-	print(d1.max_age, d2.max_age, Dog.max_age) # 15 15 15
+    d1 = Dog()
+    d2 = Dog()
+    print(d1.max_age, d2.max_age, Dog.max_age) # 10 10 10
+    
+    d1.set_max_age(15)
+    print(d1.max_age, d2.max_age, Dog.max_age) # 15 15 15
 
-	Dog.set_max_age(20)
-	print(d1.max_age, d2.max_age, Dog.max_age) # 20 20 20
+    Dog.set_max_age(20)
+    print(d1.max_age, d2.max_age, Dog.max_age) # 20 20 20
 
-	Dog.another_set_max_age(25)
-	print(d1.max_age, d2.max_age, Dog.max_age) # 25 25 25
+    Dog.another_set_max_age(25)
+    print(d1.max_age, d2.max_age, Dog.max_age) # 25 25 25
 ```
 
 與 Class method 類似，若你用實例化後的 object 呼叫 class method，Python Interpreter 也會給過（效果與用 class 呼叫是一樣的），你還是可以把它視為一種防呆機制。

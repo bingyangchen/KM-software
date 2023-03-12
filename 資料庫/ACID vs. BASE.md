@@ -42,12 +42,12 @@ Consistency 包括："Consistency in Data" 與 "Consistency in Read"
 
 - **Consistency in Data**
 
-	- [[Referential Integrity (參照完整性)]]
-	- 其他自定義的規則（比如：商品的售價一定要大於成本）
+    - [[Referential Integrity (參照完整性)]]
+    - 其他自定義的規則（比如：商品的售價一定要大於成本）
 
 - **Consistency in Read**
 
-	Transaction 讀到的資料永遠是最新的。在某些情境中，完美的 Consistency in Read 是很難達成的，比如當服務是由不止一個 database 在掌管資料時，由於 database 之間的 syncing 須要時間，須要給 databases 一點時間才能達到 Consistency in Read，這叫做 Eventual Consistency。
+    Transaction 讀到的資料永遠是最新的。在某些情境中，完美的 Consistency in Read 是很難達成的，比如當服務是由不止一個 database 在掌管資料時，由於 database 之間的 syncing 須要時間，須要給 databases 一點時間才能達到 Consistency in Read，這叫做 Eventual Consistency。
 
 ==Relational Database 相對於 NoSQL 最大的優勢即在於前者在單一 database 的情境下能提供 Consistency，但後者通常只能做到 Eventual Consistency==。
 
@@ -65,43 +65,43 @@ Consistency 包括："Consistency in Data" 與 "Consistency in Read"
 
 - **Lost-Update Anomaly**
 
-	舉例：
+    舉例：
 
-	兩個 transactions T1, T2 同時要讀取商品存貨數量，然後將商品存貨數量 -1，然後新增一筆訂單。假設原存貨數量為 100，T1, T2 都讀到 100，-1 後就都會是 99，所以商品存貨就會被更新為 99 兩次，然而，訂單卻多了兩筆，導致「商品存貨 + 訂單」的結果與原本不一致。
+    兩個 transactions T1, T2 同時要讀取商品存貨數量，然後將商品存貨數量 -1，然後新增一筆訂單。假設原存貨數量為 100，T1, T2 都讀到 100，-1 後就都會是 99，所以商品存貨就會被更新為 99 兩次，然而，訂單卻多了兩筆，導致「商品存貨 + 訂單」的結果與原本不一致。
  ^9c95ff
 - **Dirty-Write Anomaly**
 
-	舉例：
+    舉例：
 
-	兩個 transactions T1, T2 同時要讀取商品存貨數量，然後將商品存貨數量 -1，然後新增一筆訂單。假設原存貨數量為 100，T1 已經讀取且率先將其更新為 99，準備新增訂單，此時 T2 才讀取存貨數量 (99)，並且將其更新為 98，然後準備新增訂單。然而此時 T1 因為新增訂單失敗而 rollback 回「對它而言的初始狀態」，所以存貨數量被改回 100，然後 T2 成功新增訂單。最終的結果是存貨不變 (100)，訂單卻多了一筆。
+    兩個 transactions T1, T2 同時要讀取商品存貨數量，然後將商品存貨數量 -1，然後新增一筆訂單。假設原存貨數量為 100，T1 已經讀取且率先將其更新為 99，準備新增訂單，此時 T2 才讀取存貨數量 (99)，並且將其更新為 98，然後準備新增訂單。然而此時 T1 因為新增訂單失敗而 rollback 回「對它而言的初始狀態」，所以存貨數量被改回 100，然後 T2 成功新增訂單。最終的結果是存貨不變 (100)，訂單卻多了一筆。
 
 - **Dirty-Read Anomaly**
 
-	舉例：
+    舉例：
 
-	一個 transaction T1 要將商品存貨 -1，然後新增一筆訂單，但執行到一半時（只將商品存貨 -1）另一個 transaction T2 來讀取商品存貨與訂單，目的是檢查「商品存貨 + 訂單」的總和是否有誤，此時 T2 得到的結論就是「有誤」，因為它看到的狀態是訂單還沒被建立前的狀態，即使不久後 T1 就建立了訂單。
+    一個 transaction T1 要將商品存貨 -1，然後新增一筆訂單，但執行到一半時（只將商品存貨 -1）另一個 transaction T2 來讀取商品存貨與訂單，目的是檢查「商品存貨 + 訂單」的總和是否有誤，此時 T2 得到的結論就是「有誤」，因為它看到的狀態是訂單還沒被建立前的狀態，即使不久後 T1 就建立了訂單。
 
 - **Non-Repeatable Read Anomaly**
 
-	舉例：
+    舉例：
 
-	有一個 transaction T1 來讀取存貨數量兩次，同時有另一個 transaction T2 正在執行，T2 包含讀取商品存貨數量、將商品存貨數量 -1、新增一筆訂單。T1 第一次讀取時，T2 還沒 commit，但 T1 第二次讀取時，T2 已經 commit 了，此時 T1 讀取到的值就會不同。
+    有一個 transaction T1 來讀取存貨數量兩次，同時有另一個 transaction T2 正在執行，T2 包含讀取商品存貨數量、將商品存貨數量 -1、新增一筆訂單。T1 第一次讀取時，T2 還沒 commit，但 T1 第二次讀取時，T2 已經 commit 了，此時 T1 讀取到的值就會不同。
 
 - **Phantom Read Anomaly**
 
-	舉例：
+    舉例：
 
-	有一個 transaction T1 來讀取所有訂單並計算數量兩次，同時有另一個 transaction T2 正在執行，T2 包含讀取商品存貨數量、將商品存貨數量 -1、新增一筆訂單。T1 第一次讀取時，T2 還沒新增訂單，但 T1 第二次讀取時，T2 已經新增訂單，此時 T1 計算出來的數量就會不同。
+    有一個 transaction T1 來讀取所有訂單並計算數量兩次，同時有另一個 transaction T2 正在執行，T2 包含讀取商品存貨數量、將商品存貨數量 -1、新增一筆訂單。T1 第一次讀取時，T2 還沒新增訂單，但 T1 第二次讀取時，T2 已經新增訂單，此時 T1 計算出來的數量就會不同。
 
-	> Phantom Read Anomaly 與 Non-Repeatable Read Anomaly 的差別在於：後者是由「某些資料的某些欄位值被更改」所導致；前者則是由「新增或刪除某些資料」所導致。
+    > Phantom Read Anomaly 與 Non-Repeatable Read Anomaly 的差別在於：後者是由「某些資料的某些欄位值被更改」所導致；前者則是由「新增或刪除某些資料」所導致。
 
 - **Write Skew Anomaly**
 
-	舉例：
+    舉例：
 
-	假設資料庫中商品表有以下 constraint：「售價必須高於成本 」，並且存在一個商品的售價為 10 元，成本為 8 元。此時有一個 transaction T1 會先讀取售價與成本，若成本 +1 元後仍然符合 constraint，就將成本 +1；同時有另一個 transaction T2 會先讀取售價與成本，若售價 -1 元後仍然符合 constraint，就將售價 -1，假設 T1 與 T2 讀到售價與成本皆為 (10, 8)，因此他們都會判斷可以對成本／售價進行更改，假設 T1 率先將成本 +1，此時 T2 將售價 -1 就會報錯。
+    假設資料庫中商品表有以下 constraint：「售價必須高於成本 」，並且存在一個商品的售價為 10 元，成本為 8 元。此時有一個 transaction T1 會先讀取售價與成本，若成本 +1 元後仍然符合 constraint，就將成本 +1；同時有另一個 transaction T2 會先讀取售價與成本，若售價 -1 元後仍然符合 constraint，就將售價 -1，假設 T1 與 T2 讀到售價與成本皆為 (10, 8)，因此他們都會判斷可以對成本／售價進行更改，假設 T1 率先將成本 +1，此時 T2 將售價 -1 就會報錯。
 
-	>Write Skew Anomaly 與 Lost-Update Anomaly 的差別在於：後者是兩個 transaction 更改同一筆資料的不同欄位 (disjoint set of data)；前者則是更改同一筆資料的同一個欄位 (overlapping set of data)。
+    >Write Skew Anomaly 與 Lost-Update Anomaly 的差別在於：後者是兩個 transaction 更改同一筆資料的不同欄位 (disjoint set of data)；前者則是更改同一筆資料的同一個欄位 (overlapping set of data)。
 
 SQL Standard 將 Isolation 由寬鬆到嚴格分為四種等級：
 
@@ -116,27 +116,27 @@ SQL Standard 將 Isolation 由寬鬆到嚴格分為四種等級：
 
 - **Read Uncommitted** (No Isolation)
 
-	一個 transaction 可以讀到另一個「執行到一半」的 transaction 對資料庫所做的「所有更動」。
+    一個 transaction 可以讀到另一個「執行到一半」的 transaction 對資料庫所做的「所有更動」。
 
-	![[Screen Shot 2023-02-02 at 1.02.18 PM.png]]
+    ![[Screen Shot 2023-02-02 at 1.02.18 PM.png]]
 
 - **Read Committed**
 
-	一個 transaction 可以讀到另一個「執行完」的 transaction 對資料庫所做的「所有更動」。
+    一個 transaction 可以讀到另一個「執行完」的 transaction 對資料庫所做的「所有更動」。
 
-	![[Screen Shot 2023-02-02 at 1.02.33 PM.png]]
+    ![[Screen Shot 2023-02-02 at 1.02.33 PM.png]]
 
 - **Repeatable Read**
 
-	一個 transaction 可以讀到另一個「執行完」的 transaction 在資料庫「新增」的資料，但讀不到舊資料「被更改後的值」。
+    一個 transaction 可以讀到另一個「執行完」的 transaction 在資料庫「新增」的資料，但讀不到舊資料「被更改後的值」。
 
-	![[Screen Shot 2023-02-02 at 1.17.00 PM.png]]
+    ![[Screen Shot 2023-02-02 at 1.17.00 PM.png]]
 
 - **Serializable**
 
-	一個 transaction 讀不到所有在它開始之後，所有他以外的 transaction 對資料庫做的「所有更動」。
+    一個 transaction 讀不到所有在它開始之後，所有他以外的 transaction 對資料庫做的「所有更動」。
 
-	![[Screen Shot 2023-02-02 at 1.21.35 PM.png]]
+    ![[Screen Shot 2023-02-02 at 1.21.35 PM.png]]
 
 ### Durability
 

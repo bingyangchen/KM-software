@@ -92,11 +92,11 @@ Cursor-Based Pagination 其實是 Keyset Pagination 的一種，只是 client si
 
 ```json
 {
-	"data": [...],
-	"cursor": {
-		"previous": null,
-		"next": "eyJpZCI6IDI5fQ=="
-	}
+    "data": [...],
+    "cursor": {
+        "previous": null,
+        "next": "eyJpZCI6IDI5fQ=="
+    }
 }
 ```
 

@@ -17,9 +17,9 @@ Pure function 泛指符合以下兩個條件的 function:
 
 - 給定相同的 input，一定會輸出相同的 output
 
-	一個 pure function 就像一個數學函式，給定一個定義域 (domain) 內的 input，必定產生唯一且固定的 output。
+    一個 pure function 就像一個數學函式，給定一個定義域 (domain) 內的 input，必定產生唯一且固定的 output。
 
-	這個特性進一步使得 pure function 擁有 **Referential Transparency** 這個特性，意思就是在茫茫程式碼中，我可以把所有呼叫 function F 的地方替換成 function F（在給定 input 的情況下所產生）的 output，同時程式的運行結果與替換前相比不會有任何差異。
+    這個特性進一步使得 pure function 擁有 **Referential Transparency** 這個特性，意思就是在茫茫程式碼中，我可以把所有呼叫 function F 的地方替換成 function F（在給定 input 的情況下所產生）的 output，同時程式的運行結果與替換前相比不會有任何差異。
 
 - 不會產生 [[#^0ec816|Side Effects]]
 
@@ -41,27 +41,27 @@ Mutable shared state 是造成 **Race Condition** 的元兇，有句話是這麼
 
 - **變數的 property 還是可以放在 `=` 左側**
 
-	```JavaScript
-	const a = {a: 1, b: 2};
-	a.a = 2;
-	console.log(a)  // {a: 2, b: 2}
-	
-	const b = [0, 1];
-	b[0] = 1;
-	console.log(b)  // [1, 1]
-	```
+    ```JavaScript
+    const a = {a: 1, b: 2};
+    a.a = 2;
+    console.log(a)  // {a: 2, b: 2}
+    
+    const b = [0, 1];
+    b[0] = 1;
+    console.log(b)  // [1, 1]
+    ```
 
 - **變數本身在其他 scope 中會變成 mutable**
 
-	```JavaScript
-	const a = 0;
-	const func = num => num++; 
-	
-	func(a)
-	console.log(a)  // 0
-	```
+    ```JavaScript
+    const a = 0;
+    const func = num => num++; 
+    
+    func(a)
+    console.log(a)  // 0
+    ```
 
-	上例中，雖然最後 `a` 時還是 `0`，但是如果 `a` 真的是 immutable data，理想上應該在執行 `func(a)` 時就要報錯了。
+    上例中，雖然最後 `a` 時還是 `0`，但是如果 `a` 真的是 immutable data，理想上應該在執行 `func(a)` 時就要報錯了。
 
 # Side Effects
 

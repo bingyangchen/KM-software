@@ -96,11 +96,11 @@ from .. import m3
 import b
 
 def say_hi_and_yes():
-	b.say_hi()
-	print("yes")
+    b.say_hi()
+    print("yes")
 
 def say_no():
-	print("no")
+    print("no")
 
 say_hi_and_yes()
 ```
@@ -110,11 +110,11 @@ say_hi_and_yes()
 import a
 
 def say_hi():
-	print("hi")
+    print("hi")
 
 def say_hello_and_no():
-	print("hello")
-	a.say_no
+    print("hello")
+    a.say_no
 ```
 
 此時若執行 `a.py`，就會造成 circular import problem，原因是因為當 `a.py` import `b.py` 時，`b.py` 內的程式碼就會開始編譯並執行，執行完才算 import 完畢，而 `b.py` 首先執行的就是 `import a`， 感覺就要掉入無窮迴圈了，不過其實問題不是出在這，Python Interpreter 有做基本的防呆，不會就此掉入迴圈，而是會「假裝」`a.py` 已經 import 好 `b.py`了，然後繼續執行 `a.py` 後續的程式碼。真正的錯誤是發生在 `a.py` 執行到 `say_hi_and_yes()` 時，因為剛剛「假裝 Import 好了」，其實 `b.py` 中的 `say_hi` function 根本還沒被編譯到，於是就會跳出以下 Error:
@@ -130,14 +130,14 @@ AttributeError: partially initialized module 'b' has no attribute 'say_hi' (most
 import b
 
 def say_hi_and_yes():
-	b.say_hi()
-	print("yes")
+    b.say_hi()
+    print("yes")
 
 def say_no():
-	print("no")
+    print("no")
 
 if __name__ == "__main__":
-	say_hi_and_yes()
+    say_hi_and_yes()
 ```
 
 第二種方法，就是在 function 中再 import 必要的資源：
@@ -145,13 +145,13 @@ if __name__ == "__main__":
 ```Python
 # a.py
 def say_hi_and_yes():
-	import b
-	
-	b.say_hi()
-	print("yes")
+    import b
+    
+    b.say_hi()
+    print("yes")
 
 def say_no():
-	print("no")
+    print("no")
 
 say_hi_and_yes()
 ```
@@ -159,13 +159,13 @@ say_hi_and_yes()
 ```Python
 # b.py
 def say_hi():
-	print("hi")
+    print("hi")
 
 def say_hello_and_no():
-	import a
-	
-	print("hello")
-	a.say_no
+    import a
+    
+    print("hello")
+    a.say_no
 ```
 
 # PEP8 建議的 `import` 風格

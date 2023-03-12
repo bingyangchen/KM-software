@@ -141,11 +141,11 @@ Window functions 的執行順位甚至在 aggregate functions 之後，這意味
 
 ```PostgreSQL
 SELECT * FROM (
-	SELECT cid, sid, score,
-	rank() OVER (
-		PARTITION BY cid ORDER BY score DESC NULLS LAST
-	) AS rank
-	FROM enrollment
+    SELECT cid, sid, score,
+    rank() OVER (
+        PARTITION BY cid ORDER BY score DESC NULLS LAST
+    ) AS rank
+    FROM enrollment
 ) AS sub
 WHERE sub.rank <= 2 AND sub.score IS NOT NULL;
 ```

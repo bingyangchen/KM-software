@@ -10,16 +10,16 @@ Imperative (命令式) programming 與 declarative (宣告式) programming 是�
 
 ```TypeScript
 function transform(arr: string[]): string[] {
-	let step_one_result: string[] = [...arr];
-	step_one_result.reverse();
+    let step_one_result: string[] = [...arr];
+    step_one_result.reverse();
 
-	let step_two_result: string[] = [];
-	for (let each of step_one_result) {
-		if (each.length > 3) {
-			step_two_result.push(each.toUpperCase());
-		}
-	}
-	return step_two_result;
+    let step_two_result: string[] = [];
+    for (let each of step_one_result) {
+        if (each.length > 3) {
+            step_two_result.push(each.toUpperCase());
+        }
+    }
+    return step_two_result;
 }
 ```
 
@@ -29,11 +29,11 @@ function transform(arr: string[]): string[] {
 
 ```TypeScript
 function transform(arr: string[]): string[] {
-	let result: string[] = [...arr];
-	result.reverse();
-	result = filter_long_string(result, 3)
-	result = to_upper(result)
-	return result;
+    let result: string[] = [...arr];
+    result.reverse();
+    result = filter_long_string(result, 3)
+    result = to_upper(result)
+    return result;
 }
 ```
 
@@ -41,9 +41,9 @@ function transform(arr: string[]): string[] {
 
 ```TypeScript
 function transform(arr: string[]): string[] {
-	let result: string[] = [...arr];
-	result.reverse();
-	return to_upper(filter_long_string(result, 3))
+    let result: string[] = [...arr];
+    result.reverse();
+    return to_upper(filter_long_string(result, 3))
 }
 ```
 
@@ -53,9 +53,9 @@ function transform(arr: string[]): string[] {
 
 ```TypeScript
 const transform = compose(
-	reverse,
-	filter((el: string) => el.length > 3),
-	to_upper
+    reverse,
+    filter((el: string) => el.length > 3),
+    to_upper
 );
 ```
 
@@ -65,9 +65,9 @@ const transform = compose(
 
 ```TypeScript
 function sum(arr: number[]): number {
-	let result: number = 0;
-	for (let num of arr) result += num;
-	return result;
+    let result: number = 0;
+    for (let num of arr) result += num;
+    return result;
 }
 
 let arr: number[] = [1, 2, 3]
@@ -85,9 +85,9 @@ arr.reduce((a, b) => a + b)  // 6
 
 ```TypeScript
 function sum(arr: number[], n?: number): number {
-	if (n===undefined) n = arr.length
-	if (n <= 0): return 0
-	return arr[n-1] + sum(arr, n-1)
+    if (n===undefined) n = arr.length
+    if (n <= 0): return 0
+    return arr[n-1] + sum(arr, n-1)
 }
 ```
 

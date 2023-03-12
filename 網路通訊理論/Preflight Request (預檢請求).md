@@ -5,18 +5,18 @@
 當一個 request 的 method 符合下列所有條件時，我們稱這樣的 request 為一個**簡單的 request**：
 
 1. Method 為以下三者任一：
-	1. `GET`
-	2. `HEAD`
-	3. `POST`
+    1. `GET`
+    2. `HEAD`
+    3. `POST`
 2. 只包含以下四個 headers：
-	1. `Accept`
-	2. `Accept-Language`
-	3. `Content-Language`
-	4. `content-type`
+    1. `Accept`
+    2. `Accept-Language`
+    3. `Content-Language`
+    4. `content-type`
 3. `content-type` 為以下三者任一：
-	1. `application/x-www-form-urlencoded`
-	2. `multipart/form-data`
-	3. `text/plain`
+    1. `application/x-www-form-urlencoded`
+    2. `multipart/form-data`
+    3. `text/plain`
 
 簡單的 request 可以直接被 JavaScript 送出，相反地，其他 requests 要被送出前，都會先送出一個 preflight request，其目的為向 server 詢問他接受什麼樣規格的 requests，拿到規格後回來檢查準備送出的正式 request 是否有合規，若沒有則不會將該 request 送出，並且跳出 CORS error。
 

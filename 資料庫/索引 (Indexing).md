@@ -10,13 +10,13 @@
 
 1. B+ Tree 使得進行查尋／新增／刪除資料時的時間複雜度皆為 O(log(n))，相比而言，Full Table Scan 為 O(n)
 
-	- **以「沒有被 Index」的欄位搜尋：Full Table Scan**
-		
-		![[20089358AbjWkzPWEE.png]]
+    - **以「沒有被 Index」的欄位搜尋：Full Table Scan**
 
-	- **以「有被 Index」的欄位搜尋**
-		
-		![[20089358vwxjbLWVnq.png]]
+        ![[20089358AbjWkzPWEE.png]]
+
+    - **以「有被 Index」的欄位搜尋**
+
+        ![[20089358vwxjbLWVnq.png]]
 
 2. B+ Tree 中的所有 internal nodes 都只存 index 本身，不會存該 index 所對應到的整筆資料，所以在 B+ Tree 中 traverse 不會像 Full Table Scan 一樣須要讀入其他欄位的資料
 
@@ -50,9 +50,9 @@ CREATE INDEX index_name ON table_name (column_name DESC);
 
 ```mermaid
 flowchart LR
-	id1(Primary Key)
-	id2(NOT NULL 且 UNIQUE 的欄位)
-	id3(自建隱藏欄位)
+    id1(Primary Key)
+    id2(NOT NULL 且 UNIQUE 的欄位)
+    id3(自建隱藏欄位)
     id1-->id2
     id2-->id3
 ```
@@ -71,8 +71,8 @@ Secondary Index 又叫做 Non-Clustered Index (非叢集式索引)。
 
 ```mermaid
 flowchart TD
-	id1(先在 Secondary Index 的 B+ Tree 中找到符合條件的目標的 Clustered Index)
-	id2(在 Clustered Index 的 B+ Tree 中找到指定的 Clustered Index 所對應到的整筆資料)
+    id1(先在 Secondary Index 的 B+ Tree 中找到符合條件的目標的 Clustered Index)
+    id2(在 Clustered Index 的 B+ Tree 中找到指定的 Clustered Index 所對應到的整筆資料)
     id1-->id2
 ```
 

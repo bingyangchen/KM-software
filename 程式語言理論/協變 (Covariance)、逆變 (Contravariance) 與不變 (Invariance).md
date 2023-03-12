@@ -44,9 +44,9 @@ class AnimalShelter {
 }
 
 class CatShelter extends AnimalShelter {
-	void putAnimal(Cat animal) {
-	   ...
-	}
+    void putAnimal(Cat animal) {
+       ...
+    }
 }
 ```
 
@@ -70,9 +70,9 @@ class RationalNumber implements Comparable {
     public int compareTo(Object other) {
         RationalNumber otherNum = (RationalNumber)other;
         return Integer.compare(
-	        numerator * otherNum.denominator,
-	        otherNum.numerator * denominator
-	    );
+            numerator * otherNum.denominator,
+            otherNum.numerator * denominator
+        );
     }
 }
 ```
@@ -88,9 +88,9 @@ class RationalNumber implements Comparable {
     
     public int compareTo(RationalNumber other) {
         return Integer.compare(
-	        numerator * other.denominator,
-	        other.numerator * denominator
-	    );
+            numerator * other.denominator,
+            other.numerator * denominator
+        );
     }
 }
 ```
@@ -130,9 +130,9 @@ class RationalNumber implements Comparable<RationalNumber> {
      
     public int compareTo(RationalNumber otherNum) {
         return Integer.compare(
-	        numerator * otherNum.denominator,
-	        otherNum.numerator * denominator
-	    );
+            numerator * otherNum.denominator,
+            otherNum.numerator * denominator
+        );
     }
 }
 ```

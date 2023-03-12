@@ -18,11 +18,11 @@ import { BrowserRouter } from "react-router-dom";
 import MyRouter from "./router";
 
 root.render(
-	<React.StrictMode>
-		<BrowserRouter>
-			<MyRouter />
-		</BrowserRouter>
-	</React.StrictMode>
+    <React.StrictMode>
+        <BrowserRouter>
+            <MyRouter />
+        </BrowserRouter>
+    </React.StrictMode>
 );
 ```
 
@@ -35,15 +35,15 @@ import Home from "./page/Main/Home/Home.tsx"
 import About from "./page/Main/About/About.tsx"
 
 export default function MyRouter() {
-	return (
-		<Routes>
-			<Route path="home" element={<Home />}>
-			<Route path="about" element={<About />}></Route>
-				// ...
-			</Route>
-			// ...
-		</Routes>
-	);
+    return (
+        <Routes>
+            <Route path="home" element={<Home />}>
+            <Route path="about" element={<About />}></Route>
+                // ...
+            </Route>
+            // ...
+        </Routes>
+    );
 }
 ```
 
@@ -57,47 +57,47 @@ React-router hooks 只能在 function-based  components 中使用，無法直接
 
 ```tsx
 import {
-	Routes,
-	Route,
-	Navigate,
-	Location,
-	NavigateFunction,
-	Params,
-	useLocation,
-	useNavigate,
-	useParams,
-	useSearchParams,
+    Routes,
+    Route,
+    Navigate,
+    Location,
+    NavigateFunction,
+    Params,
+    useLocation,
+    useNavigate,
+    useParams,
+    useSearchParams,
 } from "react-router-dom";
 
 export interface RouterInterface {
-	router: {
-		location: Location;
-		navigate: NavigateFunction;
-		params: Params;
-		search_params: URLSearchParams;
-		set_search_params: ReturnType<typeof useSearchParams>[1];
-	};
+    router: {
+        location: Location;
+        navigate: NavigateFunction;
+        params: Params;
+        search_params: URLSearchParams;
+        set_search_params: ReturnType<typeof useSearchParams>[1];
+    };
 }
 
 export function withRouter(Component: any) {
-	return (props: any = {}) => {
-		let location = useLocation();
-		let navigate = useNavigate();
-		let params = useParams();
-		let [search_params, set_search_params] = useSearchParams();
-		return (
-			<Component
-				{...props}
-				router={{
-					location,
-					navigate,
-					params,
-					search_params,
-					set_search_params,
-				}}
-			/>
-		);
-	};
+    return (props: any = {}) => {
+        let location = useLocation();
+        let navigate = useNavigate();
+        let params = useParams();
+        let [search_params, set_search_params] = useSearchParams();
+        return (
+            <Component
+                {...props}
+                router={{
+                    location,
+                    navigate,
+                    params,
+                    search_params,
+                    set_search_params,
+                }}
+            />
+        );
+    };
 }
 ```
 
@@ -119,12 +119,12 @@ export default withRouter(ExampleComponent);
 import Home from "./page/Main/Home/Home.tsx";
 
 export default function MyRouter() {
-	return (
-		<Routes>
-			<Route path="home" element={<Home />} />
-			// ...
-		</Routes>
-	);
+    return (
+        <Routes>
+            <Route path="home" element={<Home />} />
+            // ...
+        </Routes>
+    );
 }
 ```
 
@@ -134,11 +134,11 @@ export default function MyRouter() {
 
 ```tsx
 <NavLink
-	to="/home"
-	className={
-		({ isActive }) => isActive ? "active" : ""
-	}
+    to="/home"
+    className={
+        ({ isActive }) => isActive ? "active" : ""
+    }
 >
-	首頁
+    首頁
 </NavLink>
 ```

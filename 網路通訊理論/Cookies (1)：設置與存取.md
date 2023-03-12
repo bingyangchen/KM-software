@@ -10,42 +10,42 @@ Cookies 是 browser 儲存文字資料的其中一個地方（其他 browser 資
 
 1. 由 Server 設置
 
-	Cookie 可以由 server 透過 response 的 HTTP `Set-Cookie` Header 傳遞給 browser， browser 收到後會將 `Set-Cookie` 的 value 存進 Cookies，browser 會在之後與相同 server 溝通時，**自動** 將這些 cookies 放在 request 的 `Cookie` header。
+    Cookie 可以由 server 透過 response 的 HTTP `Set-Cookie` Header 傳遞給 browser， browser 收到後會將 `Set-Cookie` 的 value 存進 Cookies，browser 會在之後與相同 server 溝通時，**自動** 將這些 cookies 放在 request 的 `Cookie` header。
 
-	```mermaid
-	sequenceDiagram
-		participant Client
-		participant Server
-		Note over Server: mybackend.com
-		Client->>Server: Send a request to mybackend.com.
-		Server->>Client: Add the Set-Cookie header to the response
-		Note left of Server: Set-Cookie: token=a1234
-		Client->>+Server: Send another request with the Cookie <br/> header to mybackend.com
-		Note right of Client: Cookie: token=a1234
-		Server->>-Client: Recognize the cookie, and respond data <br/> exclusive to a1234
-	```
+    ```mermaid
+    sequenceDiagram
+        participant Client
+        participant Server
+        Note over Server: mybackend.com
+        Client->>Server: Send a request to mybackend.com.
+        Server->>Client: Add the Set-Cookie header to the response
+        Note left of Server: Set-Cookie: token=a1234
+        Client->>+Server: Send another request with the Cookie <br/> header to mybackend.com
+        Note right of Client: Cookie: token=a1234
+        Server->>-Client: Recognize the cookie, and respond data <br/> exclusive to a1234
+    ```
 
-	如上圖所見，`Set-Cookie` header 長得像這樣：
+    如上圖所見，`Set-Cookie` header 長得像這樣：
 
-	```plaintext
-	Set-Cookie: <cookie-name>=<cookie-value>
-	```
+    ```plaintext
+    Set-Cookie: <cookie-name>=<cookie-value>
+    ```
 
-	而 `Cookie` header 則長得像這樣（多個 cookies 間以 `;` 隔開）：
+    而 `Cookie` header 則長得像這樣（多個 cookies 間以 `;` 隔開）：
 
-	```plaintext
-	Cookie: <cookie_1-name>=<cookie_1-value>;<cookie_2-name>=<cookie_2-value>
-	```
+    ```plaintext
+    Cookie: <cookie_1-name>=<cookie_1-value>;<cookie_2-name>=<cookie_2-value>
+    ```
 
 2. Client 自己設置
 
-	在 client-side JavaScript 中，使用 `document.cookie` API 可以對 browser 的 cookies  進行 "get" 與 "set"。其中，"set" cookie 的方式如下：
+    在 client-side JavaScript 中，使用 `document.cookie` API 可以對 browser 的 cookies  進行 "get" 與 "set"。其中，"set" cookie 的方式如下：
 
-	```JavaScript
-	document.cookie = "my_cookie=a1234"
-	```
+    ```JavaScript
+    document.cookie = "my_cookie=a1234"
+    ```
 
-	注意，上面的語法只會新增或修改 `my_cookie` 這個 cookie 的值，並不會把其它已存在的 cookie 清除。
+    注意，上面的語法只會新增或修改 `my_cookie` 這個 cookie 的值，並不會把其它已存在的 cookie 清除。
 
 # Cookie Attributes
 
@@ -109,15 +109,15 @@ cookie attributes 包含：
 
 1. Strict
 
-	當 cookie 的 `SameSite=Strict` 時，這個 cookie 只有在「request url 的 domain 等於 origin（也就是 client side 自己）的 domain」時可以被挾帶在 request 中，換句話說，`SameSite=Strict` 的 cookies 一定是[[Cookies (3)：從第一方到第三方#^abcf2b|第一方 cookie]]。
+    當 cookie 的 `SameSite=Strict` 時，這個 cookie 只有在「request url 的 domain 等於 origin（也就是 client side 自己）的 domain」時可以被挾帶在 request 中，換句話說，`SameSite=Strict` 的 cookies 一定是[[Cookies (3)：從第一方到第三方#^abcf2b|第一方 cookie]]。
 
 2. Lax
 
-	相較於 Strict，Lax 相對寬鬆，若在 A 網域對 B 網域發 GET request，`SameSite=Lax` 的 cookies 是可以被攜帶的，其他 HTTP method 的 request 則不會攜帶這些 cookies。
+    相較於 Strict，Lax 相對寬鬆，若在 A 網域對 B 網域發 GET request，`SameSite=Lax` 的 cookies 是可以被攜帶的，其他 HTTP method 的 request 則不會攜帶這些 cookies。
 
 3. None
 
-	在 A 網域對 B 網域的 server 發任何 HTTP method 的 request，browser 都會自動帶上 `domain=B; SameSite=None` 的所有 cookies。
+    在 A 網域對 B 網域的 server 發任何 HTTP method 的 request，browser 都會自動帶上 `domain=B; SameSite=None` 的所有 cookies。
 
 ==**Cross-origin 的 response 無法設置 Strict 或 Lax 的 cookie 於 client 身上**==。
 
@@ -133,19 +133,19 @@ cookie attributes 包含：
 
 ```TypeScript
 get_cookie(name: string): string | null {
-	let divider = name + "=";
-	let decodedCookie = decodeURIComponent(document.cookie);
-	let ca = decodedCookie.split(";");
-	
-	for (let i = 0; i < ca.length; i++) {
-		let c = ca[i];
-		while (c.charAt(0) === " ") c = c.substring(1);
-		if (c.indexOf(divider) === 0) {
-			return c.substring(divider.length, c.length);
-		}
-	}
-	
-	return null;
+    let divider = name + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(";");
+    
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === " ") c = c.substring(1);
+        if (c.indexOf(divider) === 0) {
+            return c.substring(divider.length, c.length);
+        }
+    }
+    
+    return null;
 }
 ```
 
@@ -156,13 +156,13 @@ let header = new Headers();
 header.append("My-header", get_cookie("my_cookie"));
 
 let options: RequestInit = {
-	method: "GET",
-	headers: header,
-	credentials: "include",
+    method: "GET",
+    headers: header,
+    credentials: "include",
 };
 
 fetch("<mybackend.endpoint>", options).then(
-	// ...
+    // ...
 );
 ```
 
@@ -170,13 +170,13 @@ fetch("<mybackend.endpoint>", options).then(
 
 ```TypeScript
 delete_cookie(name: string): void {
-	if (get_cookie(name)) {
-		let d = new Date();
-		d.setTime(d.getTime() - 10);
-		document.cookie = `${name}=;expires=${d.toUTCString()};path=/${
-			Env.tenant_id
-		}`;
-	}
+    if (get_cookie(name)) {
+        let d = new Date();
+        d.setTime(d.getTime() - 10);
+        document.cookie = `${name}=;expires=${d.toUTCString()};path=/${
+            Env.tenant_id
+        }`;
+    }
 }
 ```
 

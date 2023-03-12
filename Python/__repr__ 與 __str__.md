@@ -6,8 +6,8 @@ Python 原生的物件原則上都會 implement `__str__` 以及 `__repr__` 兩�
 
 ```Python
 class Dog:
-	def __init__(self, name):
-		self.name = name
+    def __init__(self, name):
+        self.name = name
 
 a = Dog("Jasper")
 
@@ -23,11 +23,11 @@ print(repr(a)) # <__main__.Dog object at 0x1062dbd00>
 
 ```Python
 class Dog:
-	def __init__(self, name):
-		self.name = name
+    def __init__(self, name):
+        self.name = name
 
-	def __str__(self):
-		return self.name
+    def __str__(self):
+        return self.name
 
 a = Dog("Jasper")
 

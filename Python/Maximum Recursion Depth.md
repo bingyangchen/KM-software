@@ -26,9 +26,9 @@ e.g.
 
 ```Python
 def fibonacci(n):
-	if n <= 1:
-		return n
-	return(fibonacci(n-1) + fibonacci(n-2))
+    if n <= 1:
+        return n
+    return(fibonacci(n-1) + fibonacci(n-2))
 
 print(fibonacci(1000))
 ```
@@ -45,18 +45,18 @@ Output:
 import sys
 
 class recursion_depth:
-	def __init__(self, limit):
-		self.limit = limit
-		self.default_limit = sys.getrecursionlimit()
-	
-	def __enter__(self):
-		sys.setrecursionlimit(self.limit)
-	
-	def __exit__(self, type, value, traceback):
-		sys.setrecursionlimit(self.default_limit)
+    def __init__(self, limit):
+        self.limit = limit
+        self.default_limit = sys.getrecursionlimit()
+    
+    def __enter__(self):
+        sys.setrecursionlimit(self.limit)
+    
+    def __exit__(self, type, value, traceback):
+        sys.setrecursionlimit(self.default_limit)
 
 with recursion_depth(2000):
-	print(fibonacci(1000))
+    print(fibonacci(1000))
 ```
 
 這個方法可以確保只有在 `with` block 內， recurision limit 才是指定的數量，脫離 `with` block 後，recurision 便會變回預設的 1000。

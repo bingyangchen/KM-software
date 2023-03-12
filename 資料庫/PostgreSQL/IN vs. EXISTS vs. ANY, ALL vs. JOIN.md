@@ -32,8 +32,8 @@
 ```PostgreSQL
 SELECT * FROM student
 WHERE id IN (
-	SELECT sid FROM enrollment
-	WHERE cid = 1
+    SELECT sid FROM enrollment
+    WHERE cid = 1
 );
 ```
 
@@ -42,8 +42,8 @@ WHERE id IN (
 ```PostgreSQL
 SELECT * FROM student
 WHERE id = ANY(
-	SELECT sid FROM enrollment
-	WHERE cid = 1
+    SELECT sid FROM enrollment
+    WHERE cid = 1
 );
 ```
 
@@ -52,8 +52,8 @@ WHERE id = ANY(
 ```PostgreSQL
 SELECT * FROM student AS s
 WHERE EXISTS (
-	SELECT sid FROM enrollment
-	WHERE cid = 1 AND sid = s.id
+    SELECT sid FROM enrollment
+    WHERE cid = 1 AND sid = s.id
 );
 ```
 
@@ -100,8 +100,8 @@ WHERE e.cid = 1;
 ```PostgreSQL
 SELECT * FROM student
 WHERE id NOT IN (
-	SELECT sid FROM enrollment
-	WHERE cid = 1
+    SELECT sid FROM enrollment
+    WHERE cid = 1
 );
 ```
 
@@ -110,8 +110,8 @@ WHERE id NOT IN (
 ```PostgreSQL
 SELECT * FROM student
 WHERE id <> ALL(
-	SELECT sid FROM enrollment
-	WHERE cid = 1
+    SELECT sid FROM enrollment
+    WHERE cid = 1
 );
 ```
 
@@ -120,8 +120,8 @@ WHERE id <> ALL(
 ```PostgreSQL
 SELECT * FROM student AS s
 WHERE NOT EXISTS (
-	SELECT sid FROM enrollment
-	WHERE cid = 1 AND sid = s.id
+    SELECT sid FROM enrollment
+    WHERE cid = 1 AND sid = s.id
 );
 ```
 
@@ -139,8 +139,8 @@ WHERE e.* IS NULL;
 ```PostgreSQL
 EXPLAIN ANALYZE SELECT * FROM student
 WHERE id NOT IN (
-	SELECT sid FROM enrollment
-	WHERE cid = 1
+    SELECT sid FROM enrollment
+    WHERE cid = 1
 );
 ```
 
@@ -166,8 +166,8 @@ Output:
 ```PostgreSQL
 EXPLAIN ANALYZE SELECT * FROM student
 WHERE id <> ALL(
-	SELECT sid FROM enrollment
-	WHERE cid = 1
+    SELECT sid FROM enrollment
+    WHERE cid = 1
 );
 ```
 
@@ -194,8 +194,8 @@ Output:
 ```PostgreSQL
 EXPLAIN ANALYZE SELECT * FROM student AS s
 WHERE NOT EXISTS (
-	SELECT sid FROM enrollment
-	WHERE cid = 1 AND sid = s.id
+    SELECT sid FROM enrollment
+    WHERE cid = 1 AND sid = s.id
 );
 ```
 

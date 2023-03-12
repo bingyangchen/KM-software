@@ -8,14 +8,14 @@
 
 ```Python
 def print_function_name(func):
-	def wrapper(*arg, **args):
-		print("Use" + func.__name__)
-		return func(*arg, **args)
-	return wrapper
+    def wrapper(*arg, **args):
+        print("Use" + func.__name__)
+        return func(*arg, **args)
+    return wrapper
 
 @print_function_name
 def function_a(s:str):
-	print(s)
+    print(s)
 
 function_a("ABC")
 
@@ -36,13 +36,13 @@ Decorator 中通常會有一個名為 wrapper 的 function，wrapper 會 return 
 
 ```Python
 def print_function_name(func):
-	def wrapper(*arg, **args):
-		print("Use" + func.__name__)
-		return func(*arg, **args)
-	return wrapper
+    def wrapper(*arg, **args):
+        print("Use" + func.__name__)
+        return func(*arg, **args)
+    return wrapper
 
 def function_a():
-	print("A")
+    print("A")
 
 print_function_name(function_a)()
 ```
@@ -57,7 +57,7 @@ e.g.
 @decorator_a
 @decorator_b
 def function_a():
-	...
+    ...
 ```
 
 在上例中，`function_a` 會先被 `decorator_b` 吃進去然後吐出來，再被 `decorator_a` 吃進去然後吐出來。
@@ -68,11 +68,11 @@ def function_a():
 
 ```Python
 def decorator_a(func):
-	def wrapper(*arg, **args):
-		...
-		return func(*arg, **args)
-	wrapper.__name__ = func.__name__
-	return wrapper
+    def wrapper(*arg, **args):
+        ...
+        return func(*arg, **args)
+    wrapper.__name__ = func.__name__
+    return wrapper
 ```
 
 # Decorator with parameters
@@ -85,19 +85,19 @@ def decorator_a(func):
 
 ```Python
 def print_function_name(capitalized:bool):
-	def decorator(func):
-		def wrapper(*arg, **args):
-			if capitalized:
-				print("Use" + func.__name__.upper())
-			else:
-				 print("Use" + func.__name__)
-			return func(*arg, **args)
-		return wrapper
-	return decorator
+    def decorator(func):
+        def wrapper(*arg, **args):
+            if capitalized:
+                print("Use" + func.__name__.upper())
+            else:
+                 print("Use" + func.__name__)
+            return func(*arg, **args)
+        return wrapper
+    return decorator
 
 @print_function_name(capitalized=True)
 def function_a(s:str):
-	print(s)
+    print(s)
 
 function_a("ABC")
 
@@ -118,30 +118,30 @@ e.g.
 
 ```Python
 def timer(func):
-	from time import time
-	
-	timer = 0
-	
-	def time_spent():
-		nonlocal timer
-		return timer
+    from time import time
+    
+    timer = 0
+    
+    def time_spent():
+        nonlocal timer
+        return timer
 
-	def wrapper(*arg, **args):
-		nonlocal timer
-		
-		start = time()
-		result = func(*arg, **args)
-		timer = time() - start
-		return result
+    def wrapper(*arg, **args):
+        nonlocal timer
+        
+        start = time()
+        result = func(*arg, **args)
+        timer = time() - start
+        return result
 
-	wrapper.time_spent = time_spent
-	wrapper.__name__ = func.__name__
+    wrapper.time_spent = time_spent
+    wrapper.__name__ = func.__name__
 
-	return wrapper
+    return wrapper
 
 @timer
 def function_a():
-	...
+    ...
 
 function_a()
 print(function_a.time_spent())
@@ -161,26 +161,26 @@ print(function_a.time_spent())
 
 ```Python
 def timer(func):
-	from time import time
-	
-	timer = 0
-	
-	def wrapper(*arg, **args):
-		nonlocal timer
-		
-		start = time()
-		result = func(*arg, **args)
-		timer = time() - start
-		return result
+    from time import time
+    
+    timer = 0
+    
+    def wrapper(*arg, **args):
+        nonlocal timer
+        
+        start = time()
+        result = func(*arg, **args)
+        timer = time() - start
+        return result
 
-	wrapper.timer = timer
-	wrapper.__name__ = func.__name__
+    wrapper.timer = timer
+    wrapper.__name__ = func.__name__
 
-	return wrapper
+    return wrapper
 
 @timer
 def function_a():
-	...
+    ...
 
 function_a()
 print(function_a.timer)
@@ -196,21 +196,21 @@ print(function_a.timer)
 
 ```Python
 class Timer:
-	from time import time
-	
-	def __init__(self, func):
-		self.time_spent = 0
-		self.original_func = func
-	
-	def __call__(self, *arg, **args):
-		start = time()
-		result = self.original_func(*arg, **args)
-		self.time_spent = time() - start
-		return result
+    from time import time
+    
+    def __init__(self, func):
+        self.time_spent = 0
+        self.original_func = func
+    
+    def __call__(self, *arg, **args):
+        start = time()
+        result = self.original_func(*arg, **args)
+        self.time_spent = time() - start
+        return result
 
 @Timer
 def function_a():
-	...
+    ...
 
 function_a()
 print(function_a.time_spent)

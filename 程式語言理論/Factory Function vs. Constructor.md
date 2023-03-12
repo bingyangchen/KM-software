@@ -6,8 +6,8 @@
 
 ```JavaScript
 function personFactory(name, age) {
-	const greet = () => console.log(`Hello! My name is ${name}.`);
-	return { name, age, greet };
+    const greet = () => console.log(`Hello! My name is ${name}.`);
+    return { name, age, greet };
 };
 
 let jeff = personFactory("Jeff", 27);
@@ -23,9 +23,9 @@ jeff.greet();  // Hello! My name is Jeff.
 
 ```JavaScript
 function Person (name, age) {
-	this.name = name;
-	this.age = age;
-	this.greet = () => console.log(`Hello! My name is ${this.name}.`)
+    this.name = name;
+    this.age = age;
+    this.greet = () => console.log(`Hello! My name is ${this.name}.`)
 }
 
 let jeff = new Person("Jeff", 27);

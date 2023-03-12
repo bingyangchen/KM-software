@@ -15,17 +15,17 @@ Cookie-Based Authentication 最原始的意思是「將使用者的資訊（狀�
 
 ```mermaid
 sequenceDiagram
-	participant Client
-	participant Server
-	Client->>Server: Login (with login credentials)
-	Server->>Server: Create a session (stored in memory) <br/> along with a session id.
-	Server->>Client: Add the Set-Cookie header to the response
-	Note left of Server: Set-Cookie: session_id=a1234
-	Client->>Client: Store the session_id <br/> in the Cookie storage.
-	Client->>+Server: Send requests with Session ID <br/> in the Cookie header.
-	Note right of Client: Cookie: session_id=a1234
-	Server->>Server: Recognize the cookie
-	Server->>-Client: Respond data exclusive to a1234
+    participant Client
+    participant Server
+    Client->>Server: Login (with login credentials)
+    Server->>Server: Create a session (stored in memory) <br/> along with a session id.
+    Server->>Client: Add the Set-Cookie header to the response
+    Note left of Server: Set-Cookie: session_id=a1234
+    Client->>Client: Store the session_id <br/> in the Cookie storage.
+    Client->>+Server: Send requests with Session ID <br/> in the Cookie header.
+    Note right of Client: Cookie: session_id=a1234
+    Server->>Server: Recognize the cookie
+    Server->>-Client: Respond data exclusive to a1234
 ```
 
 在 Server 端所建立的 Session，其功能是紀錄那些原本想塞進 Cookie 的使用者基本資訊。Session 通常會具有時效性，且通常是 key-value pair，因此常會使用 Redis 來實作。
@@ -44,9 +44,9 @@ sequenceDiagram
 
 2. 因為 cookies 會自動被 request 帶上，所以 cookie-based authentication 容易受到 [[CSRF Attack 與 XSS Attack#^5c3432|CSRF Attack]]，但其實還是有以下兩種方式可以預防：
 
-	1. 將 Session ID 這個 cookie 的 [[Cookies (1)：設置與存取#^5ed6f2|SameSite]] attribute 設為 `Lax`，搭配上 server-side 使用「GET method **以外**的 API」
-	2. 將 Session ID 這個 cookie 的 `SameSite` attribute 設為 `Strict`
-	3. CSRF token
+    1. 將 Session ID 這個 cookie 的 [[Cookies (1)：設置與存取#^5ed6f2|SameSite]] attribute 設為 `Lax`，搭配上 server-side 使用「GET method **以外**的 API」
+    2. 將 Session ID 這個 cookie 的 `SameSite` attribute 設為 `Strict`
+    3. CSRF token
 
 3. 如果有些每次溝通都必須夾帶的基本資料，但又不想直接存在 Cookie，就等於每次都要進 Session 所使用的資料庫查詢該基本資料，這顯得有點蠢。
 
@@ -94,17 +94,17 @@ sequenceDiagram
 
 ```mermaid
 sequenceDiagram
-	participant Client
-	participant Server
-	Client->>Server: Login (with login credentials)
-	Server->>Server: Generate a token with the private key.
-	Server->>Client: Send a response along with the token.
-	Note left of Server: {"token": a1234}
-	Client->>Client: Store the token in the browser.
-	Client->>+Server: Send requests along with the token.
-	Note right of Client: Authorization: Bearer a1234
-	Server->>Server: Decode the token with the private key.
-	Server->>-Client: Respond data exclusive to a1234
+    participant Client
+    participant Server
+    Client->>Server: Login (with login credentials)
+    Server->>Server: Generate a token with the private key.
+    Server->>Client: Send a response along with the token.
+    Note left of Server: {"token": a1234}
+    Client->>Client: Store the token in the browser.
+    Client->>+Server: Send requests along with the token.
+    Note right of Client: Authorization: Bearer a1234
+    Server->>Server: Decode the token with the private key.
+    Server->>-Client: Respond data exclusive to a1234
 ```
 
 與 Cookie-Based Authentication 相同的是，token 也可以存在 [[瀏覽器中的儲存空間|瀏覽器的任一種儲存空間]]，當 client 對 server 送出 request 時，再使用 JavaScript 將 token 塞進 request 的 [[#^b76908|任一部份]] 即可。
@@ -135,31 +135,31 @@ sequenceDiagram
 
 - 特色
 
-	因為 session storage 在 browser 關閉後便會被清空，所以再次打開 browser 時必須重新登入。
+    因為 session storage 在 browser 關閉後便會被清空，所以再次打開 browser 時必須重新登入。
 
 - 缺點
 
-	由於分頁間無法共享 session storage，所以新分頁中的服務必須再登入一次。
+    由於分頁間無法共享 session storage，所以新分頁中的服務必須再登入一次。
 
 ### Local Storage
 
 - 特色
 
-	因為 local storage 在 browser 關閉後 **不會** 被清空，所以再次打開 browser 時 **不須** 重新登入服務。
+    因為 local storage 在 browser 關閉後 **不會** 被清空，所以再次打開 browser 時 **不須** 重新登入服務。
 
 - 優點
 
-	同一個 domain 的分頁間共享 local storage
+    同一個 domain 的分頁間共享 local storage
 
 ### Cookies
 
 - 特色
 
-	Cookie 會因為有無設置 `max-age` 或者 `expires` attributes 而在 browser 關閉後被刪除或者不被刪除（詳見 [[Cookies (1)：設置與存取#^2a253c|此文此段]]）。
+    Cookie 會因為有無設置 `max-age` 或者 `expires` attributes 而在 browser 關閉後被刪除或者不被刪除（詳見 [[Cookies (1)：設置與存取#^2a253c|此文此段]]）。
 
 - 優點
 
-	同一個 domain 的分頁間共享 Cookies
+    同一個 domain 的分頁間共享 Cookies
 
 # 參考資料
 

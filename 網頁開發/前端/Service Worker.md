@@ -4,19 +4,19 @@
 
 ```mermaid
 stateDiagram-v2
-	[*] --> loading
-	loading --> registering
-	registering --> ERROR
-	ERROR --> [*]
-	registering --> installing
-	installing --> ERROR
-	ERROR --> [*]
-	installing --> waiting
-	waiting --> activated
-	installing --> activated
-	activated --> idle
-	idle --> terminated
-	terminated --> idle
+    [*] --> loading
+    loading --> registering
+    registering --> ERROR
+    ERROR --> [*]
+    registering --> installing
+    installing --> ERROR
+    ERROR --> [*]
+    installing --> waiting
+    waiting --> activated
+    installing --> activated
+    activated --> idle
+    idle --> terminated
+    terminated --> idle
 ```
 
 # Service-Worker Cache
@@ -29,19 +29,19 @@ stateDiagram-v2
 
 - **On Install - As a Dependency**
 
-	![[On Install - As a Dependency.png]]
+    ![[On Install - As a Dependency.png]]
 
 - **On Install - Not As a Dependency**
 
-	![[On Install - Not As a Dependency.png]]
+    ![[On Install - Not As a Dependency.png]]
 
 - **On Activate**
 
-	![[On Activate.png]]
+    ![[On Activate.png]]
 
 - **On User Interaction**
 
-	![[On User Interaction.png]]
+    ![[On User Interaction.png]]
 
 ### Caching Strategies
 
@@ -49,11 +49,11 @@ Caching Strategies 即「使用 Cache 的策略」，白話一點就是「要不
 
 - **Cache Only**
 
-	![[Cache Only.png]]
+    ![[Cache Only.png]]
 
 - **Network Only**
 
-	![[Network Only.png]]
+    ![[Network Only.png]]
 
 >從 network 取來的資料也可以存進 cache 中，如下圖：
 >
@@ -61,7 +61,7 @@ Caching Strategies 即「使用 Cache 的策略」，白話一點就是「要不
 
 - **Cache Falling Back to Network**
 
-	![[Cache Falling Back to Network.png]]
+    ![[Cache Falling Back to Network.png]]
 
 >如果 network 也沒有回應，那可以顯示預設畫面，下圖的步驟 4 指的就是顯示預設畫面，比如 404 頁面或 offline 提示。
 >
@@ -69,19 +69,19 @@ Caching Strategies 即「使用 Cache 的策略」，白話一點就是「要不
 
 - **Network Falling Back to Cache**
 
-	![[Network Falling Back to Cache.png]]
+    ![[Network Falling Back to Cache.png]]
 
 - **Stale-While-Revalidate**
 
-	Revalidate 指的就是下圖中第 4 步「向 network 索取真實資料」的動作。
+    Revalidate 指的就是下圖中第 4 步「向 network 索取真實資料」的動作。
 
-	在 [[SSR vs. CSR#^2937c3|CSR]] 的架構中，從 network 取得真實資料後，必須重新渲染畫面才能讓使用者看到最新的資料，否則就算新資料來了，也只是更新 cache 而已，user 要等到下次送出相同的 request 時才看得到（但那時很可能又有更新的資料）。
+    在 [[SSR vs. CSR#^2937c3|CSR]] 的架構中，從 network 取得真實資料後，必須重新渲染畫面才能讓使用者看到最新的資料，否則就算新資料來了，也只是更新 cache 而已，user 要等到下次送出相同的 request 時才看得到（但那時很可能又有更新的資料）。
 
-	![[Stale-While-Revalidate.png]]
+    ![[Stale-While-Revalidate.png]]
 
 - **Cache and Network Race**
 
-	![[Cache and Network Race.png]]
+    ![[Cache and Network Race.png]]
 
 # 使用 Message 與 DOM 溝通
 
@@ -95,23 +95,23 @@ Service Worker 無法直接控制 DOM，以 React 為例，Service Worker 無法
 const channel = new BroadcastChannel("some-name");
 
 self.addEventListener("fetch", (event) => {
-	event.respondWith(
-		caches.open("some-name").then((cache) => {
-			return cache.match(event.request).then((response) => {
-				const fetch_promise = fetch(event.request).then(
-					(network_response) => {
-						// ...
-						network_response.json().then((data) => {
-							// Post Message
-							channel.postMessage({data});
-						});
-						return network_response;
-					}
-				);
-				return response || fetch_promise;
-			});
-		})
-	);
+    event.respondWith(
+        caches.open("some-name").then((cache) => {
+            return cache.match(event.request).then((response) => {
+                const fetch_promise = fetch(event.request).then(
+                    (network_response) => {
+                        // ...
+                        network_response.json().then((data) => {
+                            // Post Message
+                            channel.postMessage({data});
+                        });
+                        return network_response;
+                    }
+                );
+                return response || fetch_promise;
+            });
+        })
+    );
 });
 ```
 
@@ -119,15 +119,15 @@ self.addEventListener("fetch", (event) => {
 
 ```typescript
 class Main extends React.Component<Props, State> {
-	private channel: BroadcastChannel;
-	// ...
-	this.channel = new BroadcastChannel("some-name");
-	this.channel.addEventListener(
-		"message",
-		(e: MessageEvent<{data:any}>) => {
-			// Do something when receive message
-		}
-	)
+    private channel: BroadcastChannel;
+    // ...
+    this.channel = new BroadcastChannel("some-name");
+    this.channel.addEventListener(
+        "message",
+        (e: MessageEvent<{data:any}>) => {
+            // Do something when receive message
+        }
+    )
 }
 ```
 

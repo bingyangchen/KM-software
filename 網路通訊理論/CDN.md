@@ -10,14 +10,14 @@ CDN 流程圖：
 
 ```mermaid
 flowchart TD
-	id1(Visitor)
-	id2(DNS Server)
-	id3(CDN)
-	id4(Origin Server)
-	id1--domain.com/index.html-->id2
-	id2--ns1.cdn.com-->id3
-	id3<-.->id4
-	id3--index.html-->id1
+    id1(Visitor)
+    id2(DNS Server)
+    id3(CDN)
+    id4(Origin Server)
+    id1--domain.com/index.html-->id2
+    id2--ns1.cdn.com-->id3
+    id3<-.->id4
+    id3--index.html-->id1
 ```
 
 CDN 是介於內容所有者 (Content Owner) 與 ISP (Internet Service Provider) 之間的一層服務，Content Owner 付錢給 CDN Vendor 以享有 CDN 的便利性，CDN Vendor 則須付錢給 ISP 以讓內容可以順利地傳遞給 end users。

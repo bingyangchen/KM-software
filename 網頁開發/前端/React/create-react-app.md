@@ -15,22 +15,22 @@ npx create-react-app my-app --template redux-typescript
 
 ```tsx
 interface Props {
-	// ...
+    // ...
 }
 
 interface State {
-	// ...
+    // ...
 }
 
 export default class HelloWorld extends React.Component<Props, State> {
-	public state: State;
-	public constructor(props: Props) {
-		super(props);
-		this.state = {};
-	}
-	public render(): React.ReactNode {
-		return <div></div>;
-	}
+    public state: State;
+    public constructor(props: Props) {
+        super(props);
+        this.state = {};
+    }
+    public render(): React.ReactNode {
+        return <div></div>;
+    }
 }
 ```
 

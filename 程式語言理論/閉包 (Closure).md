@@ -2,8 +2,8 @@
 
 ```Python
 def f(x):
-	y = 0
-	print(x, y)
+    y = 0
+    print(x, y)
 
 print(f(0))  # 0 0
 print(x, y)  # NameError: name 'x' is not defined
@@ -19,9 +19,9 @@ print(x, y)  # NameError: name 'x' is not defined
 
 ```Python
 def f(x):
-	def g(y):
-		return x + y
-	return g
+    def g(y):
+        return x + y
+    return g
 
 a = f(1)
 print(a(2))  # 3
@@ -57,12 +57,12 @@ print(a(2))  # 3
 
 ```Python
 def f():
-	l = [0, 0]
-	
-	def g():
-		return l
+    l = [0, 0]
+    
+    def g():
+        return l
 
-	return g
+    return g
 
 a = f()
 b = f()
@@ -82,14 +82,14 @@ print(a(), b())  # [1, 0] [0, 0]
 
 ```JavaScript
 function f(x) {
-	let arr = [1, x];
-	
-	function g() {
-		arr = [arr[1], arr[0]];
-		return arr;
-	}
-	
-	return g;
+    let arr = [1, x];
+    
+    function g() {
+        arr = [arr[1], arr[0]];
+        return arr;
+    }
+    
+    return g;
 }
 
 let h = f(0);
@@ -100,13 +100,13 @@ console.log(h())  // [0, 1]
 
 ```Python
 def f(x):
-	arr = [1, x]
+    arr = [1, x]
 
-	def g():
-		arr = [arr[1], arr[0]]
-		return arr
+    def g():
+        arr = [arr[1], arr[0]]
+        return arr
 
-	return g
+    return g
 
 h = f(0)
 print(h())
@@ -119,14 +119,14 @@ Why? 這是因為在任何 function 裡，當一個變數 `x` 「首次出現」
 
 ```Python
 def f(x):
-	arr = [1, x]
+    arr = [1, x]
 
-	def g():
-		nonlocal arr
-		arr = [arr[1], arr[0]]
-		return arr
+    def g():
+        nonlocal arr
+        arr = [arr[1], arr[0]]
+        return arr
 
-	return g
+    return g
 
 h = f(0)
 print(h())

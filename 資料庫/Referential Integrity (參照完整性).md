@@ -10,19 +10,19 @@ On-Delete Action 指的是當 referenced data 要被刪除時，referencing data
 
 - `CASCADE`
 
-	將 reverencing data 連同 referenced data 一起刪除。
+    將 reverencing data 連同 referenced data 一起刪除。
 
 - `NO ACTION`
 
-	不刪除 referenced data 也不刪除 referencing data。
+    不刪除 referenced data 也不刪除 referencing data。
 
 - `SET NULL`
 
-	將 reverencing data 的 Foreign Key 設為 `null`，然後將 referenced data 刪除。
+    將 reverencing data 的 Foreign Key 設為 `null`，然後將 referenced data 刪除。
 
 - `SET DEFAULT`
 
-	將 reverencing data 的 Foreign Key 設為預設值，然後將 referenced data 刪除。
+    將 reverencing data 的 Foreign Key 設為預設值，然後將 referenced data 刪除。
 
 # 參考資料
 

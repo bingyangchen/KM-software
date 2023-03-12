@@ -33,7 +33,7 @@ Server 透過 `Last-Modified: <day-of-week>, <day> <month> <year> <hour>:<minute
 
 2. 只能省下「下載」時間，無法省下「溝通」時間，server load 的下降幅度也有限
 
-	Request 還是會被送往 server，當 server 收到 request 後也還是會進 database，只是這次進 database 是先查看指定資料的「可以表示 `Last-Modified` 的欄位值」是否小於 `If-Modified-Since`，如果小於就會直接回覆 `304 Not Modified`，不回傳資料，client 收到 `304` 後會到自己的 disk cache 拿資料。
+    Request 還是會被送往 server，當 server 收到 request 後也還是會進 database，只是這次進 database 是先查看指定資料的「可以表示 `Last-Modified` 的欄位值」是否小於 `If-Modified-Since`，如果小於就會直接回覆 `304 Not Modified`，不回傳資料，client 收到 `304` 後會到自己的 disk cache 拿資料。
 
 # `ETag`
 
@@ -41,17 +41,17 @@ Server 透過 `ETag: <token>` 讓 client 下次對同一個 endpoint 發起 requ
 
 - 優缺點
 
-	與 `Last-Modified` 的邏輯類似，但少一個缺點，client 會自動帶上 `If-None-Match` header，無需另外寫程式攜帶。
+    與 `Last-Modified` 的邏輯類似，但少一個缺點，client 會自動帶上 `If-None-Match` header，無需另外寫程式攜帶。
 
-	`ETag` 也有「只能省下下載時間，無法省下溝通時間，server load 的下降幅度也有限」的缺點。
+    `ETag` 也有「只能省下下載時間，無法省下溝通時間，server load 的下降幅度也有限」的缺點。
 
 - 關於 Etag 的值
 
-	事實上並沒有人規定應該如何產生 Etag value (token)，只要該 token 在一定時間內具有唯一性可以代表某個 requested resource 即可。常見的產生 Etag value 的方法包括：
+    事實上並沒有人規定應該如何產生 Etag value (token)，只要該 token 在一定時間內具有唯一性可以代表某個 requested resource 即可。常見的產生 Etag value 的方法包括：
 
-	- 將準備回傳的資料 hash
-	- 將資料的「可以表示 `Last-Modified` 的欄位值」hash
-	- 一個每次修改就會遞增的數字
+    - 將準備回傳的資料 hash
+    - 將資料的「可以表示 `Last-Modified` 的欄位值」hash
+    - 一個每次修改就會遞增的數字
 
 `ETag` 也可以用來解決 Mid-air Collision，情境如下：
 

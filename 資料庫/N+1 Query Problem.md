@@ -6,7 +6,7 @@
 
 ```mermaid
 erDiagram
-	Author ||--o{ Book : writes
+    Author ||--o{ Book : writes
 ```
 
 若今天要依序列出每個 Author 所寫的所有書，用 ORM 可能會寫成這樣（以 Django 示範）：
@@ -14,10 +14,10 @@ erDiagram
 ```Python
 authors = Author.objects.all()
 for a in authors:
-	books_of_author = Book.objects.filter(author=a)
-	
-	# List all books along with author name in some way
-	# ...
+    books_of_author = Book.objects.filter(author=a)
+    
+    # List all books along with author name in some way
+    # ...
 ```
 
 上面這個寫法，就是標準的會造成 N+1 Query Problem 的寫法，實際上解析成 SQL 後大概等同於下面這樣（以 PostgreSQL 示範）：
@@ -46,10 +46,10 @@ N+1 Query 之所以會被稱為 "Problem"，是因為這麼做的缺點有二：
 authors_id_list = Author.objects.all().values_list("pk", flat=True)
 books = Book.objects.filter(author__pk__in=list(authors_id_list))
 for aid in authors_id_list:
-	for b in books:
-		if b.author.pk == aid:
-			# List all books along with author name in some way
-			# ...
+    for b in books:
+        if b.author.pk == aid:
+            # List all books along with author name in some way
+            # ...
 ```
 
 上面的程式碼中，只有前兩行有與資料庫溝通，我們改成一次將所有 authors 的著作拿出來，在 memory 中才進行分類。與資料庫溝通的那兩行解析成 SQL 後大致如下：
@@ -66,12 +66,12 @@ SELECT * FROM book WHERE aid IN (1, 2, ..., n);
 
 ```graphql
 query {
-	authors {
-		id,
-		books {
-			title
-		}
-	}
+    authors {
+        id,
+        books {
+            title
+        }
+    }
 }
 ```
 

@@ -31,11 +31,11 @@ console.log(biggerThanThree) // [5, 5, 7]
 
 ```TypeScript
 function filter<T>(iterable: T[], predicate: (e: T) => boolean): T[] {
-	let result: T[] = [];
-	for (let t of iterable) {
-		if (predicate(t)) result.push(t);
-	}
-	return result;
+    let result: T[] = [];
+    for (let t of iterable) {
+        if (predicate(t)) result.push(t);
+    }
+    return result;
 }
 
 let arr: number[] = [2, 5, 1, 5, 3, 7, 3]
