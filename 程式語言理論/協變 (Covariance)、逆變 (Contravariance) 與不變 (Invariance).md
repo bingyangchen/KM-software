@@ -26,7 +26,7 @@ $$某位置是協變的 \iff 某位置的右邊共有偶數個 \to 符號$$
 
 ### 物件導向中的繼承
 
-（關於繼承的基本理論，詳見 [[繼承 (Inheritance)|此文]]。）
+（關於繼承的基本理論，詳見 [[OOP 四本柱#^676c7a|此文]]。）
 
 在物件導向語言中，理論上必須規定：若 subclass overrides superclass 的 method，則 subclass 的 method 的型別要「與 superclass 的 method 的型別相同」或「為 superclass 的 method 的型別的 subtype」。
 

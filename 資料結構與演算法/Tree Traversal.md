@@ -3,7 +3,7 @@
 Tree Traversal 依不同的造訪順序，可分為以下四種：
 
 - Preorder Traversal
-- Postorder Traversal
+- Postorder Traversal ^055b44
 - Inorder Traversal ^08a367
 - Level-order Traversal
 

@@ -10,13 +10,13 @@
 
 # Subtype vs. Subclass
 
-你可能會覺得 subtype 就是 OOP 中的 subclass，但其實 subtyping 與 OOP 中的 classes [[繼承 (Inheritance)]] 是兩個分開的概念，而且兩個概念具有 orthogonality（正交性），也就是說 **沒有對應關係**。==Subtyping 是「兩個型別之間的關係」；Class inheritance 則是「實作時的重複利用」行為。==
+你可能會覺得 subtype 就是 OOP 中的 subclass，但其實 subtyping 與 OOP 中的 [[OOP 四本柱#^676c7a|繼承 (Inheritance)]] 是兩個分開的概念，而且兩個概念具有 orthogonality（正交性），也就是說 **沒有對應關係**。==Subtyping 是「兩個型別之間的關係」；Class inheritance 則是「實作時的重複利用」行為。==
 
 當然在很多例子中，當 class A inherits from class B 時，class A 的型別恰巧會是 class B 的型別的 subtype，但是也有反例，現在我將以資料結構中 deque, queue 與 stack 間的關係來舉一個反例：
 
 Queue 支援 `enqueue` 與 `dequeue` 兩個 methods，剛好對應到 deque 的 `insert_rear` 與 `delete_front` methods，所以 queue 可以 inherits from deque，這樣一來就不用重複實作相同的功能；stack 支援 `push` 與 `pop` 兩個 methods，分別對應到 deque 的 `insert_front` 與 `delete_front` methods，因此也可以 inherits from deque，由此可見，queue 與 stack 皆為 deque 的 subclass。但是根據 [[Liskov Substitution Principle (LSP)]]，queue 與 stack 皆不是 deque 的 subtype，因為若將 deque 替換成 queue，那麼在原本呼叫 `delete_front` 的地方就會出錯；同樣地，若將 deque 替換成 stack，那麼在原本呼叫 `insert_rear` 的地方就會出錯；反而是 queue 與 stack 都可以替換成 deque，因此 deque 是 queue 的 subtype，也是 stack 的 subtype。
 
-Subtyping 對應到 OOP 的概念應該是「interfaces 間的 inheritance」以及[[多型 (Polymorphism)]]。
+Subtyping 對應到 OOP 的概念應該是「interfaces 間的 inheritance」以及[[OOP 四本柱#^216ac6|多型 (Polymorphism)]]。
 
 # 參考資料
 

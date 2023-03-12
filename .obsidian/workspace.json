@@ -8,13 +8,25 @@
         "type": "tabs",
         "children": [
           {
-            "id": "df71bbe9f095bb02",
+            "id": "806eff678d66c9cb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python/Generator and the yield Statement.md",
+                "file": "Python/Python 中的 OOP.md",
                 "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "92cbfac95d2e52d4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Python/各種 Class 中的 Methods.md",
+                "mode": "preview",
                 "source": true
               }
             }
@@ -42,56 +54,9 @@
                 "source": true
               }
             }
-          },
-          {
-            "id": "6b943f675c7b52ec",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "資料結構與演算法/Hash Table.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "bd10af4b4a29ed26",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "資料結構與演算法/AVL Tree.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "beb2b9a0cbae35fb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "資料結構與演算法/Red-Black Tree.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "c73d52b720c42aba",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Python/Lazy evaluation.md",
-                "mode": "source",
-                "source": true
-              }
-            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -157,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Python/Generator and the yield Statement.md",
+                "file": "Python/各種 Class 中的 Methods.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -174,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Python/Generator and the yield Statement.md",
+                "file": "Python/各種 Class 中的 Methods.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -197,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Python/Generator and the yield Statement.md"
+                "file": "Python/各種 Class 中的 Methods.md"
               }
             }
           }
@@ -220,46 +185,47 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "df71bbe9f095bb02",
+  "active": "92cbfac95d2e52d4",
   "lastOpenFiles": [
-    "Python/pyenv.md",
-    "Python/小技巧.md",
+    "資料結構與演算法/Red-Black Tree.md",
+    "Python/Lazy evaluation.md",
+    "Python/各種 Class 中的 Methods.md",
+    "Python/Python 中的 OOP.md",
     "Python/零碎筆記.md",
+    "Python/if __name__ == __main__  是什麼.md",
     "資料結構與演算法/Binary-Indexd Tree (BIT).md",
-    "SUMMARY.md",
-    "資料結構與演算法/Tree Traversal.md",
+    "程式語言理論/OOP 四本柱.md",
+    "程式語言理論/Imperative vs. Declarative.md",
+    "程式語言理論/多型 (Polymorphism).md",
+    "程式語言理論/子型別 (Subtype).md",
+    "程式語言理論/繼承 (Inheritance).md",
+    "程式語言理論/協變 (Covariance)、逆變 (Contravariance) 與不變 (Invariance).md",
+    "程式語言理論/閉包 (Closure).md",
+    "Python/Python 中的 Closure 與 Captured Variable.md",
+    "Python/Python 中的字串串接.md",
+    "Python/Python 中的 import.md",
+    "資料庫/索引 (Indexing).md",
+    "Python/Python 中的 Threading 與 Multi-processing.md",
+    "Python/小技巧.md",
+    "網路通訊理論/零碎筆記.md",
+    "圖庫/url-structure-url-path.png",
+    "圖庫/url-structure-url-path.png.crdownload",
+    "網路通訊理論/CSRF Attack 與 XSS Attack.md",
+    "網路通訊理論/Preflight Request (預檢請求).md",
+    "Python/Generator and the yield Statement.md",
     "Python/Iterable vs. Iterator.md",
-    "Python/if __name__ ==  __main__  是什麼.md",
+    "程式語言理論/零碎筆記.md",
     "test.css",
     "test.css.map",
     "sass.sh",
     "test.scss",
-    "DEVNOTE.md",
-    "資料結構與演算法/Segment Tree.md",
-    "資料結構與演算法/Hash Table.md",
-    "JavaScript, TypeScript/Node.js/如何更新 Node.js 版本.md",
-    "JavaScript, TypeScript/Node.js/npx.md",
     "圖庫/Screenshot 2023-03-09 at 8.22.44 AM.png",
-    "程式語言理論/零碎筆記.md",
-    "Python/String Concatenation.md",
-    "程式語言理論/各種語言中的 String 是否為 Immutable.md",
-    "程式語言理論/Imperative vs. Declarative.md",
-    "程式語言理論/Higher-Order Function (HOF).md",
-    "程式語言理論/Function Composition.md",
-    "程式語言理論/FP 核心準則.md",
-    "程式語言理論/Factory Function vs. Constructor.md",
-    "程式語言理論/Expression vs. Statement.md",
-    "程式語言理論/Currying & Partial Application.md",
-    "程式語言理論/Liskov Substitution Principle (LSP).md",
-    "程式語言理論/Object Composition.md",
-    "程式語言理論/程式語言的分類.md",
     "圖庫/Screen Shot 2023-01-26 at 12.16.27 PM.png",
     "package.json",
     "summary.sh",
     "未命名",
     "book.json",
     "markdownlint.config",
-    "package-lock.json",
     "node_modules/psl/browserstack-logo.svg",
     "node_modules/gitbook-summary/doc/img/test.md.jpg",
     "未命名.canvas"

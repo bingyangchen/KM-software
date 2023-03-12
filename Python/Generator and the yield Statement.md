@@ -1,4 +1,6 @@
-簡言之， generator function 就是一個「含有 `yield` statement 的 function」。
+簡言之：
+
+>Generator function 就是一個「含有 `yield` [[程式語言理論/零碎筆記#^33c92b|statement]] 的 function」。
 
 # 與一般 function 的不同
 
@@ -36,7 +38,7 @@ for i in (i ** 2 for i in [1, 2, 3, 4]):
     print(i)
 ```
 
-上例中的倒數第二行 `(i ** 2 for i in [1, 2, 3, 4])` 叫做 **generator expression**，注意，這與 [[List Comprehension]] 不同，前者生成的是一個 generator，`[i ** 2 for i in [1, 2, 3, 4]]` 則是生成一個 list。
+上例中的倒數第二行 `(i ** 2 for i in [1, 2, 3, 4])` 叫做 **generator [[程式語言理論/零碎筆記#^33c92b|expression]]**，注意，這與 [[小技巧#^4c3cef|List Comprehension]] 不同，前者生成的是一個 generator object，後者則是生成一個 list。
 
 # `yield from`
 
@@ -68,7 +70,7 @@ if __name__ == "__main__":
         print(node.value)
 ```
 
-如果你懷疑上面的 `from` 到底有沒有存在的必要性，那麼你可以試試看去掉它們，然後執行看看，接著你就會看到下面這個錯誤訊息：
+如果你懷疑上面的 `from` 到底有沒有存在的必要性，那麼你可以先試著去掉它們然後執行看看，接著你就會看到下面這個錯誤訊息：
 
 ```plaintext
 Traceback (most recent call last):
@@ -77,7 +79,7 @@ Traceback (most recent call last):
 AttributeError: 'generator' object has no attribute 'value'
 ```
 
-會報錯的原因是，雖然 for loop 的每一個 loop 都等同於是在呼叫 generator object 的 `__next__` method，進而得到 yield 出來的東西，但在 recurive function 中如果沒有關鍵字 `from`，yield 出來的東西本身就還是一個 generator object。
+雖然 `for` loop 的每一個 loop 都等同於是在呼叫 generator object 的 `__next__` method，進而得到被 yield 出來的東西，但在 recurive function 中如果沒有關鍵字 `from`，yield 出來的東西本身就還是一個 generator object。這就是會報錯的原因。
 
 # 只負責生成資料
 
@@ -85,7 +87,7 @@ AttributeError: 'generator' object has no attribute 'value'
 
 ```Python
 def print_in_post_order(root: Node):
-    print(root)
+    print(root.value)
     
     if root.left:
         print_in_post_order(root.left)
@@ -98,17 +100,17 @@ if __name__ == "__main__":
     print_in_post_order(root)
 ```
 
-只是你會發現，這樣一來 `print_in_post_order` 就只能做固定的事，如果有人一樣想 post-order traverse 一個 binary tree，但不是將 `value` 印出來而是做別的事情，那你就必須另外寫一個 function 來讓他做那件事。由此我們可以感受到 generator function 的另一個優點：
+只是你會發現，這樣一來 `print_in_post_order` 就只能做固定的事，如果有人一樣想 [[Tree Traversal#^055b44|post-order traverse]] 一個 binary tree，但不是將 `node.value` 印在 console 上而是做別的事情，那就必須另外寫一個 function。由此我們可以感受到 generator function 的另一個優點：
 
 >Generator function 純粹扮演「生成資料」的角色，使用者可以自由決定要「怎麼使用」這些被生成的資料，以及「何時」生成這些資料。
 
 ### 使用 generator 生成無窮長度的數列
 
 ```Python
-def infinite_values(start):  
-    current = start  
-    while True:  
-        yield current  
+def infinite_values(start):
+    current = start
+    while True:
+        yield current
     current += 1
 ```
 
@@ -122,19 +124,17 @@ for i in infinite_values(0):
         break
 ```
 
-# 什麼時候可以使用 generator？
+# 什麼時候適合使用 generator？
 
-如果讀到這裡後你試著想把程式碼中的一些 list object 改成 generator object，卻不確定可不可以這麼做，那麼你只要思考：「我會不會需要同時使用到 list 裡的多個元素？」如果不會，那你就可以開始嘗試重構了。
+如果讀到這裡後你試著想把程式碼中的一些 list 改成 generator object，但不確定可不可以這麼做，那麼其實你只要思考：「我會不會需要同時使用到 list 裡的多個元素？」即可，如果不會，那你就可以開始嘗試重構了！
 
-然而，使用 generator object 取代 list object 其實某種程度上會導致你的程式運行速度變慢，因為每當你要從 generator object 中取值時就得呼叫一次 generator function，而 call function 所花的時間會略多於「以 index 對 list 取值」所花的時間，所以如果說相比於節省空間，節省時間是你更在乎的，那麼 generator 可能就不適合你了。
+然而，使用 generator object 取代 list 其實某種程度上會導致你的程式運行速度變慢，因為每當你要從 generator object 中取值時，就得呼叫一次 generator function。「一次 function call」所花的時間會略多於「以 index 對 list 取值一次」所花的時間，所以如果說相比於節省空間，你更在乎節省時間，那麼 generator 可能就不適合你了。*（兩種方法所花的時間差異為常數倍，但空間差異是 O(n) 倍）*
 
-對了，兩種方法所花的時間差異為常數倍，但空間差異是 O(n) 倍。
-
-# `.send`, `.throw` 與 `.close`
+# `send`, `throw` 與 `close` methods
 
 ### `send`
 
-`yield` 除了負責將資料從 generator function 中傳出去，也負責接收由外部傳進 generator object 的資料，而「從外部將資料傳進 generator object」的方法就是呼叫 generator object 的 `send` method，而 generator function 接收資料的方式，就是將 yield 的值賦予一個變數，舉例如下：
+`yield` 除了負責將資料從 generator function 中傳出去，也負責接收由外部傳進 generator object 的資料，而從外部將資料傳進 generator object 的方法就是呼叫 generator object 的 `send` method，而 generator function 接收資料的方式，就是將被 yield 的值賦予給一個變數，舉例如下：
 
 ```Python
 def square(start):
@@ -148,7 +148,7 @@ print(generator_obj.send(10)) # 100
 print(generator_obj.send(16)) # 256
 ```
 
-其實使用者使用 `next(generator_obj)` 就等同於 `generator_obj.send(None)` ，無論有沒有 `x = yield ...` 的語句，一個 generator object 「第一次」被取值時，都只能 send `None`（或 call `next(generator_obj)`）
+以上例來說，其實 `next(generator_obj)` 就等同於 `generator_obj.send(None)` ，無論有沒有 `num = yield num ** 2` 的語句，任何 generator object 「第一次」被取值時，都只能 send `None` 給它（或 call `next(generator_obj)`）。
 
 ### `throw`
 
@@ -160,9 +160,9 @@ print(generator_obj.send(16)) # 256
 
 # 專注現在，不在乎過去與未來
 
-前面說到 generator function 可以讓 Space Complexity 降到 O(1)、可以產生無窮長度的數列，是因為 generator function 不會留著之前所產出的東西，因為他的任務並不是去記住這些東西，而是單純地產出資料；generator function 也不會一次把所有未來「可能」要用到的東西一股腦地載入記憶體，因為未來會不會用、以及什麼時候要用是由使用者決定的。
+前面說到 generator function 可以讓 Space Complexity 降到 O(1)、可以產生無窮長度的數列，是因為 generator function 不會留著之前所產出的東西，因為它的任務並不是去記住這些東西，而是單純地產出資料；generator function 也不會一次把所有未來「可能」要用到的東西一股腦地載入記憶體，因為未來會不會用、以及什麼時候要用，都是由使用者決定的。
 
-筆記的最後突然有些感慨，人生中在面對某些場景時或許應該抱持著 generator 的精神（或者說心態），如果世界變動與轉彎的速度快到「預測未來」幾乎成為不可能，如果大環境的劇變使得過去無論是成功或失敗的經驗越來越不具備參考價值，那麼，專注於現在的生活、認真地感受每一天，或許也是一種自由。
+筆記的最後突然有些感慨，人生中在面對某些場景時或許應該抱持著 generator 的精神（或者說心態），如果世界變動與轉彎的速度快到「預測未來」幾乎成為不可能，如果大環境的劇變使得過去無論是成功或失敗的經驗越來越不具備參考價值，那麼，專注於現在的生活、認真地感受此時此刻，或許也是一種自由。
 
 # 參考資料
 
