@@ -8,5 +8,6 @@
   "readableLineLength": true,
   "userIgnoreFilters": [],
   "useMarkdownLinks": false,
-  "newLinkFormat": "shortest"
+  "newLinkFormat": "shortest",
+  "useTab": false
 }

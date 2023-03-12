@@ -1,5 +1,4 @@
-# Summary
-
+# Summary\n
 - JavaScript, TypeScript
   - [Event Loop](<././JavaScript, TypeScript/Event Loop.md>)
   - [JavaScript is a Prototype-based Language](<././JavaScript, TypeScript/JavaScript is a Prototype-based Language.md>)
@@ -26,8 +25,9 @@
   - [Python 中的 Closure 與 Captured Variable](<././Python/Python 中的 Closure 與 Captured Variable.md>)
   - [Python 中的 Threading 與 Multi-processing](<././Python/Python 中的 Threading 與 Multi-processing.md>)
   - [String Concatenation](<././Python/String Concatenation.md>)
-  - [Useful Tricks](<././Python/Useful Tricks.md>)
   - [with](<././Python/with.md>)
+  - [小技巧](<././Python/小技巧.md>)
+  - [零碎筆記](<././Python/零碎筆記.md>)
 - Side Projects
   - [Block Chain Visualize](<././Side Projects/Block Chain Visualize.md>)
   - [Let'sMeet](<././Side Projects/Let'sMeet.md>)

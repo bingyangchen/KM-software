@@ -58,8 +58,8 @@ img {
 
 .markdown-rendered pre {
   border-radius: 0.7em;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .markdown-rendered code {
   border-radius: 0.3em;
