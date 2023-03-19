@@ -37,6 +37,12 @@ pipenv --version
 pipenv --python <version>
 ```
 
+假設現在專案所需要的 Python 版本是 3.11.2：
+
+```bash
+pipenv --python 3.11.2
+```
+
 此時會發生兩件事：
 
 1. 在目前的 directory 下產生一個名為 `Pipfile` 的檔案，以 toml 格式呈現：
@@ -52,7 +58,7 @@ pipenv --python <version>
     [dev-packages]
     
     [requires]
-    python_version = "3.10"
+    python_version = "3.11.2"
     ```
 
 2. 在電腦中的某個**預設路徑**產生對應的虛擬環境資料夾，所有專案的虛擬環境資料夾都會在一個名為 `.virtualenvs` 或 `vertualenvs` 的資料夾底下。
@@ -63,13 +69,13 @@ pipenv --python <version>
     pipenv --venv
     ```
 
-須注意，由於要被安裝在虛擬環境內的 Python 是基於本機全域的 Python 所建立的，所以 `<version>` 必須跟全域安裝的那個 Python version 一樣。
+須注意，由於要被安裝在虛擬環境內的 Python 是基於本機 Global 的 Python 所建立的，所以 `pipenv --python <version>` 的 `<version>` 必須跟 Global 的 Python version 一樣。
 
-然而，如果本機有安裝 [[pyenv]] 這個 package，則在建立虛擬環境的時候，若要求的 Python version 在目前主機上沒有，會自動提示要不要使用 pyenv 安裝。
+然而，如果本機有安裝 [[pyenv]]，則在建立虛擬環境的時候，若 `<version>` 在目前主機上沒有，CLI 會自動提示要不要先使用 pyenv 全域安裝。
 
 ### Step2: 安裝
 
-在專案根目錄執行以下指令，安裝 Pipfile 中所指定版本的 Python 以及基本的套件：
+在專案根目錄執行以下指令，安裝 `Pipfile` 中所指定版本的 Python 以及基本的套件：
 
 ```bash
 pipenv install
@@ -91,4 +97,26 @@ source $(pipenv --venv)/bin/activate
 
 # 使用 pipenv 安裝套件
 
-#TODO
+- 安裝在 production environment
+
+    ```bash
+    pipenv install <package-name>[==<version>]
+    ```
+
+    以此方法安裝的 packages 會被列舉在 Pipfile 中的 `[packages]` 底下。
+
+- 安裝在 development environment
+
+    ```bash
+    pipenv install <package-name>==<version> -d
+    ```
+
+    以此方法安裝的 packages 會被列舉在 Pipfile 中的 `[dev-packages]` 底下。
+
+無論安裝在 production 或 development environment，要安裝的套件版本皆可以不用聲明，若沒有聲明，則在 `Pipfile` 中會以 `<package-name> = "*"` 呈現。
+
+安裝套件時皆會依序發生以下三件事：
+
+1. 找到本專案所屬的 virtualenv folder，並安裝指定的套件至該 folder
+2. 在 `Pipfile` 中的 `[packages]` 或 `[dev-packages]` 底下添加套件名稱以及版本
+3. 在 `Pipfile.lock` 檔案中添加套件及 dependencies

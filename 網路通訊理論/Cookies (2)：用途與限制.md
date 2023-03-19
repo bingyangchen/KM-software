@@ -1,8 +1,8 @@
 #Cookie
 
-由於 HTTP Protocal 是 stateless 的，在 client 不主動提供資訊的情況下，server 無法得知任何一個 request 的 origin (client) 之前的狀態。
+由於 HTTP Protocal 是 **stateless** 的，在 client 不主動提供資訊的情況下，server 無法得知任何發出 request 的 client 以前的狀態。
 
-在 [[從 Web 1.0 到 Web 3.0#^3e48bd|Web 1.0]] 的時代，人們可能沒想過上面這個問題，然而隨著 [[從 Web 1.0 到 Web 3.0#^07ac9b|Web 2.0]] 在 20 世紀末萌芽，*會員／帳號* 的概念逐漸普及，「針對每個帳號提供專屬的資料與服務」也變得理所當然，而 cookies 最初的目的就是「直接儲存目前瀏覽網頁的人的資訊」，然後將這些資訊放進 request 中的 `Cookie` header，以讓 server 知道發出 request 的 client 是哪個帳號。
+在 [[從 Web 1.0 到 Web 3.0#^3e48bd|Web 1.0]] 的時代，是否 stateless 並不重要，然而隨著 [[從 Web 1.0 到 Web 3.0#^07ac9b|Web 2.0]] 在 20 世紀末萌芽，**會員／帳號** 的概念逐漸普及，「針對每個帳號提供專屬的資料與服務」也變得理所當然。而 cookies **最初**的用途，就是「儲存登入者的資訊（狀態）」，然後將這些資訊放進 request 中的 `Cookie` header，以讓 server 知道發出 request 的 client 是哪個帳號。
 
 比如在一個網路商城中，未註冊會員的人的購物車內容就可以存在 Cookies（已註冊會員的人，其購物車商品通常已經被記錄在後端的資料庫）。
 

@@ -1,9 +1,14 @@
 * {
     --radius-s: 5px;
-    text-align: justify;
+    &:not(pre),
+    &:not(code) {
+        text-align: justify;
+        text-justify: inter-word;
+    }
     &::before,
     &::after {
         text-align: justify;
+        text-justify: inter-word;
     }
 }
 

@@ -1,10 +1,14 @@
 @charset "UTF-8";
 * {
   --radius-s: 5px;
+}
+*:not(pre), *:not(code) {
   text-align: justify;
+  text-justify: inter-word;
 }
 *::before, *::after {
   text-align: justify;
+  text-justify: inter-word;
 }
 
 .theme-dark {

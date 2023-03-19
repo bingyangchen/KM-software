@@ -20,14 +20,6 @@
   ],
   "app:go-back": [],
   "editor:follow-link": [],
-  "workspace:edit-file-title": [
-    {
-      "modifiers": [
-        "Shift"
-      ],
-      "key": "/"
-    }
-  ],
   "file-explorer:new-file": [],
   "editor:insert-link": [],
   "switcher:open": [],
@@ -112,5 +104,6 @@
   ],
   "file-explorer:new-file-in-new-pane": [],
   "editor:open-link-in-new-split": [],
-  "editor:open-link-in-new-window": []
+  "editor:open-link-in-new-window": [],
+  "workspace:edit-file-title": []
 }

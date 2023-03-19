@@ -1,8 +1,8 @@
 當我們安裝 npm 5.2 以上的版本時，npx 也會隨之被安裝。
 
-### 不用全域安裝 (`-g`) 第三方 npm 套件，也能使用套件的指令
+### 不用全域安裝 (`-g`) 第三方 Node 套件，也能使用套件的指令
 
-通常我們會希望第三方套件不要污染到電腦的 global Node.js environment，所以只安裝到 local environment，但這樣一來就不能「直接」在 terminal 使用第三方套件的指令（會出現類似 `zsh: command not found: <npm-package-command>` 的錯誤提示）這個問題可以使用 npx 解決：
+通常我們會希望第三方套件不要污染到電腦的 global Node.js environment，所以只會將套件安裝到 local environment，但這樣一來就不能「直接」在 terminal 使用第三方套件的指令（會出現類似 `zsh: command not found: <npm-package-command>` 的錯誤提示），這個問題可以使用 npx 解決：
 
 ```bash
 npx <package-name> <package-command> [args...]
