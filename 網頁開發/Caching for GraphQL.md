@@ -1,6 +1,6 @@
 #Caching #GraphQL
 
->在閱讀本文之前，我們預期你已經對 [[Caching Mechanism]] 有基本的了解。
+在閱讀本文之前，我們預期你已經對 [[Caching Mechanism]] 以及 [[GraphQL]] 有基本的了解。
 
 # HTTP Cache for GraphQL
 

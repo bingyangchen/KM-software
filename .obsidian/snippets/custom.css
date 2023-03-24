@@ -3,11 +3,11 @@
   --radius-s: 5px;
 }
 *:not(pre), *:not(code) {
-  text-align: justify;
+  text-align: left;
   text-justify: inter-word;
 }
 *::before, *::after {
-  text-align: justify;
+  text-align: left;
   text-justify: inter-word;
 }
 

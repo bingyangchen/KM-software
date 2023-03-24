@@ -1,4 +1,4 @@
-# 在 Mac 上安裝 pyenv
+# 在 MacOS 上安裝 pyenv
 
 ### Step1: 先確認 Mac 上有 homebrew
 
@@ -8,7 +8,7 @@
 brew --version
 ```
 
-若出現 `zsh: command not found: brew` 代表你的點腦中沒有沒有 homebrew，此時你需要安裝 homebrew：
+若出現 `zsh: command not found: brew` 代表你的電腦中沒有沒有 homebrew，此時你需要安裝 homebrew：
 
 **1-2: 安裝 homebrew 的 dependencies**
 
@@ -59,7 +59,7 @@ Output 會長的像下面這樣：
 
 打星號的代表本機 Global 目前所使用的版本。
 
-### 更改本機 Global 使用的 Python 版本
+### 切換本機 Global 使用的 Python 版本
 
 假設我要讓本機使用剛安裝好的 Python 3.11.2：
 

@@ -1,5 +1,4 @@
 #!/bin/bash
-npx sass ./.obsidian/snippets/custom.scss ./.obsidian/snippets/custom.css --no-source-map
 sh summary.sh
 
 # git config user.name "Jamison Chen"

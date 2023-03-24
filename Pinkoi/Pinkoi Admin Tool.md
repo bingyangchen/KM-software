@@ -8,4 +8,6 @@
 
 **Step2: 登入有 Admin 權限的帳號**
 
-**Step3: 網址列輸入 path `/admin/v-dash`**
+**Step3: 網址列輸入 path `/admin/v-dash` (新版) 或 `/admin` (舊版)**
+
+舊版 Admin Tool (`www.local.office.pinkoi.com/admin`) 會將你導向至 `https://sites.google.com/pinkoi.com/pinkoi-wiki?pli=1&authuser=1`，此時須點選左側選單中的 Tools，然後下滑至 Admin Tools 段落。

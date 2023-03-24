@@ -13,98 +13,29 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python/Python 中的 OOP.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "0ef458c6dd257294",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "資料結構與演算法/Binary-Indexd Tree (BIT).md",
+                "file": "JavaScript/Node.js/如何更新 Node.js 版本.md",
                 "mode": "preview",
                 "source": true
               }
             }
           },
           {
-            "id": "bdf09eec293db4df",
+            "id": "5e6e1c702038d5ef",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "Pinkoi/本機環境部署筆記.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "d92e38644a73cf2b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Pinkoi/Pinkoi Admin Tool.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "a5ea3d6b83f21c83",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "軟體開發工具/Git/push, pull, fetch.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "5923a0a8e63a7238",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Pinkoi/make 常用指令.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "7bd69a658e2c67b5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "JavaScript, TypeScript/Node.js/npx.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "05ed7d4ddee6bec1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "DEVNOTE.md",
-                "mode": "preview",
-                "source": true
+                "file": "Untitled.canvas",
+                "viewState": {
+                  "x": -406.0399999999997,
+                  "y": -366.30000000000024,
+                  "zoom": 0
+                }
               }
             }
           }
         ],
-        "currentTab": 7
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -170,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DEVNOTE.md",
+                "file": "Untitled.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -187,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DEVNOTE.md",
+                "file": "Untitled.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -210,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DEVNOTE.md"
+                "file": "Untitled.canvas"
               }
             }
           }
@@ -233,35 +164,43 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "05ed7d4ddee6bec1",
+  "active": "5e6e1c702038d5ef",
   "lastOpenFiles": [
-    "Untitled.canvas",
-    "JavaScript, TypeScript/Node.js/npx.md",
-    "Database/PostgreSQL/psql CLI.md",
-    "Pinkoi/make 常用指令.md",
-    "Database/MongoDB/Mongosh.md",
-    "Database/MongoDB/安裝與啟用.md",
-    "Database/PostgreSQL/安裝與啟用.md",
-    "Python/pip.md",
-    "Python/pipenv.md",
-    "Python/pyenv.md",
-    "JavaScript, TypeScript/Node.js/如何更新 Node.js 版本.md",
-    "軟體開發工具/Git/push, pull, fetch.md",
+    "JavaScript/Node.js/nvm.md",
+    "網頁開發/後端/Django (Python)/如何開始一個專案.md",
+    "網頁開發/後端/Django (Python)/自訂 HTTP Headers.md",
+    "網頁開發/Caching for GraphQL.md",
+    "網頁開發/GraphQL.md",
+    "網頁開發/SSR vs. CSR.md",
+    "網頁開發/Caching Mechanism.md",
+    "網頁開發/HTTP Cache (Disk Cache).md",
+    "系統設計/User, Group & Permission.md",
+    "JavaScript/Node.js/如何更新 Node.js 版本.md",
     "軟體開發工具/Git/stash.md",
-    "Pinkoi/本機環境部署筆記.md",
-    "Pinkoi/Pinkoi Admin Tool.md",
-    "資料結構與演算法/Binary-Indexd Tree (BIT).md",
-    "資料結構與演算法/Segment Tree.md",
+    "Pinkoi/新版本部署至正式環境.md",
+    "Pinkoi/上翻譯的流程.md",
+    "圖庫/188042472-77e432bd-6008-46d6-9d3f-a6d519fc61fd.png",
+    "圖庫/Screenshot 2023-03-23 at 2.15.01 PM.png",
+    "圖庫/Screenshot 2023-03-23 at 2.14.48 PM.png",
+    "Pinkoi/Code Review.md",
+    "Pinkoi/常用 `make` 指令.md",
+    "Python/pyenv.md",
     "Python/Python 中的 OOP.md",
+    "Network/Cookies (1)：設置與存取.md",
+    "Network/Cookies (3)：從第一方到第三方.md",
+    "Network/Cookies (2)：用途與限制.md",
+    "DEVNOTE.md",
+    "JavaScript/接收 SSE.md",
+    "Network/CORS & SOP.md",
+    "JavaScript/Node.js/npx.md",
+    "資料結構與演算法/從 Binary Search 到 B+ Tree.md",
+    "Python/Python 中的字串串接.md",
+    "Untitled.canvas",
+    "圖庫/Screenshot 2023-03-20 at 8.26.10 PM.png",
+    "圖庫/Screenshot 2023-03-19 at 1.45.14 PM.png",
+    "圖庫/Screenshot 2023-03-19 at 1.43.39 PM.png",
+    "圖庫/Screenshot 2023-03-19 at 1.38.52 PM.png",
     "Pinkoi",
-    "網路通訊理論/Cookies (2)：用途與限制.md",
-    "網路通訊理論/Cookies (3)：從第一方到第三方.md",
-    "Side Projects/Block Chain Visualize.md",
-    "Side Projects/Let'sMeet.md",
-    "Side Projects/Population Evolution.md",
-    "Side Projects/Simulate the evolution of aggression.md",
-    "Side Projects/Uber's Problem - Simulate and Solve.md",
-    "Python/各種 Class 中的 Methods.md",
     "圖庫/url-structure-url-path.png",
     "圖庫/url-structure-url-path.png.crdownload",
     "test.css",
@@ -274,8 +213,6 @@
     "summary.sh",
     "未命名",
     "book.json",
-    "node_modules/psl/browserstack-logo.svg",
-    "node_modules/gitbook-summary/doc/img/test.md.jpg",
     "未命名.canvas"
   ]
 }
