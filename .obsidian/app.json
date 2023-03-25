@@ -4,7 +4,7 @@
   "promptDelete": true,
   "livePreview": false,
   "alwaysUpdateLinks": false,
-  "attachmentFolderPath": "圖庫",
+  "attachmentFolderPath": "img",
   "readableLineLength": true,
   "userIgnoreFilters": [],
   "useMarkdownLinks": false,

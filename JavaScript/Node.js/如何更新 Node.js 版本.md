@@ -18,6 +18,10 @@ npm i -g n
 N_PREFIX=$HOME/.local n stable
 ```
 
+---
+
+你也可以選擇使用 [[nvm]] 在本機全域安裝多個不同 Node 版本，並進行切換。
+
 # 參考資料
 
 <https://guillermo.at/update-node-proper-way>

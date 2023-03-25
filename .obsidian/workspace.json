@@ -13,29 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JavaScript/Node.js/如何更新 Node.js 版本.md",
-                "mode": "preview",
+                "file": "JavaScript/Node.js/nvm.md",
+                "mode": "source",
                 "source": true
               }
             }
-          },
-          {
-            "id": "5e6e1c702038d5ef",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Untitled.canvas",
-                "viewState": {
-                  "x": -406.0399999999997,
-                  "y": -366.30000000000024,
-                  "zoom": 0
-                }
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -101,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Untitled.canvas",
+                "file": "JavaScript/Node.js/nvm.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Untitled.canvas",
+                "file": "JavaScript/Node.js/nvm.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Untitled.canvas"
+                "file": "JavaScript/Node.js/nvm.md"
               }
             }
           }
@@ -164,9 +148,28 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "5e6e1c702038d5ef",
+  "active": "806eff678d66c9cb",
   "lastOpenFiles": [
+    "img/Screenshot 2023-03-25 at 3.16.03 PM.png",
     "JavaScript/Node.js/nvm.md",
+    "img/web_structure.webp",
+    "img/url-structure-url-path.png",
+    "img/set-cookie.png",
+    "img/numeric-data-types-1.jpg",
+    "img/nav.png",
+    "img/import flow 2.jpg",
+    "img/horizontal-vs-vertical-scaling-diagram.png",
+    "img/function-vs-generator.png",
+    "img/cookie_localstorage_session.png",
+    "img",
+    "summary.py.bd03e25ef0f63f31f1af4d7a81f84768.tmp",
+    "TEST.md",
+    "summary.py",
+    "網頁開發/前端/React/create-react-app.md",
+    "Pinkoi/apiv3 指南.md",
+    "網頁開發/前端/React/react-router.md",
+    "JavaScript/Node.js/如何更新 Node.js 版本.md",
+    "Untitled.canvas",
     "網頁開發/後端/Django (Python)/如何開始一個專案.md",
     "網頁開發/後端/Django (Python)/自訂 HTTP Headers.md",
     "網頁開發/Caching for GraphQL.md",
@@ -175,13 +178,9 @@
     "網頁開發/Caching Mechanism.md",
     "網頁開發/HTTP Cache (Disk Cache).md",
     "系統設計/User, Group & Permission.md",
-    "JavaScript/Node.js/如何更新 Node.js 版本.md",
     "軟體開發工具/Git/stash.md",
     "Pinkoi/新版本部署至正式環境.md",
     "Pinkoi/上翻譯的流程.md",
-    "圖庫/188042472-77e432bd-6008-46d6-9d3f-a6d519fc61fd.png",
-    "圖庫/Screenshot 2023-03-23 at 2.15.01 PM.png",
-    "圖庫/Screenshot 2023-03-23 at 2.14.48 PM.png",
     "Pinkoi/Code Review.md",
     "Pinkoi/常用 `make` 指令.md",
     "Python/pyenv.md",
@@ -190,29 +189,13 @@
     "Network/Cookies (3)：從第一方到第三方.md",
     "Network/Cookies (2)：用途與限制.md",
     "DEVNOTE.md",
-    "JavaScript/接收 SSE.md",
-    "Network/CORS & SOP.md",
-    "JavaScript/Node.js/npx.md",
-    "資料結構與演算法/從 Binary Search 到 B+ Tree.md",
-    "Python/Python 中的字串串接.md",
-    "Untitled.canvas",
-    "圖庫/Screenshot 2023-03-20 at 8.26.10 PM.png",
-    "圖庫/Screenshot 2023-03-19 at 1.45.14 PM.png",
-    "圖庫/Screenshot 2023-03-19 at 1.43.39 PM.png",
-    "圖庫/Screenshot 2023-03-19 at 1.38.52 PM.png",
     "Pinkoi",
-    "圖庫/url-structure-url-path.png",
     "圖庫/url-structure-url-path.png.crdownload",
     "test.css",
     "test.css.map",
     "sass.sh",
     "test.scss",
-    "圖庫/Screenshot 2023-03-09 at 8.22.44 AM.png",
-    "圖庫/Screen Shot 2023-01-26 at 12.16.27 PM.png",
     "package.json",
-    "summary.sh",
-    "未命名",
-    "book.json",
     "未命名.canvas"
   ]
 }
