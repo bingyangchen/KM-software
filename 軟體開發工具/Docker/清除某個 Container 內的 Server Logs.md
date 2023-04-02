@@ -8,7 +8,7 @@ docker ps
 
 ### 步驟二：找到目標 container 的 logs 檔案存放路徑
 
->其實這個步驟可以省略，因為在步驟三會直接使用這個指令當作取得路徑的方式。
+其實這個步驟可以省略，因為在步驟三會直接使用這個指令當作取得路徑的方式。
 
 ```bash
 docker inspect --format='{{.LogPath}}' <CONTAINER_ID>

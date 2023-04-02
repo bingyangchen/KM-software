@@ -26,10 +26,30 @@ nvm install node
 
 ### 安裝指定版本的 Node
 
-舉例如下：
+範例：
 
 ```bash
 nvm install 14.7.0
+```
+
+### 切換為某個指定版本的 Node（須先安裝）
+
+範例：
+
+```bash
+nvm use 14.7.0
+```
+
+### 查看有哪些版本可以下載
+
+```bash
+nvm ls-remote
+```
+
+### 查看已經下載了哪些版本
+
+```bash
+nvm ls
 ```
 
 # 參考資料

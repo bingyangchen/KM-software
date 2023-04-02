@@ -1,6 +1,32 @@
 {
 	"nodes":[
-		{"id":"7aec4d02545ad063","x":-600,"y":-500,"width":440,"height":100,"type":"text","text":"`/middleware/session.py`\n\n(Line 83) `SessionMiddleware.process_request`"}
+		{"type":"text","text":"`views/Admin.py`","id":"47660425ea00b7a7","x":-301,"y":-885,"width":203,"height":60},
+		{"type":"text","text":"`models2/noti_mocks.py`","id":"897b4e9899add4bb","x":-326,"y":-755,"width":254,"height":60},
+		{"type":"text","text":"`templates/admin/noti_tester2.mako`","id":"641e29531cd450cc","x":-379,"y":-470,"width":360,"height":50},
+		{"type":"text","text":"`rabbitmq/consumers/templates/report_to_seller_private_trading_serious_violation.mako`","id":"85377c4a1df66707","x":-422,"y":-631,"width":446,"height":91},
+		{"type":"text","text":"`urls.py`","id":"c090ac37476c2eda","x":-264,"y":-987,"width":130,"height":60},
+		{"id":"efd98e6a3b111b8c","x":300,"y":-1014,"width":440,"height":54,"type":"text","text":"`apiv3/routes/admin/shop/seller_rating.py`"},
+		{"id":"fb621c8f22d3ddac","x":315,"y":-852,"width":411,"height":60,"type":"text","text":"`models2/seller_rating/seller_rating.py`"},
+		{"id":"2fd38705a993e740","x":390,"y":-340,"width":250,"height":60,"type":"text","text":"`base/notification.py`"},
+		{"id":"6b42b2dd01495cdd","x":46,"y":-631,"width":344,"height":60,"type":"text","text":"`models2/seller_rating/consts.py`"},
+		{"id":"5e3f8de8417e6e31","x":660,"y":-500,"width":250,"height":60,"type":"text","text":"`base/notification.py`"},
+		{"id":"db253de8d46bf3f3","x":-899,"y":-1060,"width":361,"height":60,"type":"text","text":"`fix_textpool` branch merge 進 `dev`"},
+		{"type":"text","text":"`rabbitmq/consumers/templates/report_to_seller_private_trading_serious_violation.mako`","id":"7b200d00fc448559","x":292,"y":-200,"width":446,"height":91},
+		{"type":"text","text":"#### 實際寄送 EMAIL","id":"6b89a267b44d7149","x":402,"y":-1080,"width":236,"height":50,"color":"6"},
+		{"id":"ab18bd87ded8d55c","x":-292,"y":-1080,"width":186,"height":50,"color":"6","type":"text","text":"#### 預覽 EMAIL"},
+		{"type":"text","text":"Run my script on 正式機\n`/scripts/jamisonchen/add_seller_rating_reason.py`","id":"7aec4d02545ad063","x":-899,"y":-950,"width":293,"height":95}
 	],
-	"edges":[]
+	"edges":[
+		{"id":"1cc894bce101a73c","fromNode":"47660425ea00b7a7","fromSide":"bottom","toNode":"897b4e9899add4bb","toSide":"top"},
+		{"id":"5c7beb723ea2dce2","fromNode":"897b4e9899add4bb","fromSide":"bottom","toNode":"85377c4a1df66707","toSide":"top"},
+		{"id":"811b210a7bdc4653","fromNode":"85377c4a1df66707","fromSide":"bottom","toNode":"641e29531cd450cc","toSide":"top"},
+		{"id":"ffdaf940f067290a","fromNode":"c090ac37476c2eda","fromSide":"bottom","toNode":"47660425ea00b7a7","toSide":"top"},
+		{"id":"88c8934860ec373b","fromNode":"efd98e6a3b111b8c","fromSide":"bottom","toNode":"fb621c8f22d3ddac","toSide":"top","label":"send_rating_notification"},
+		{"id":"f0b04432788de0c4","fromNode":"fb621c8f22d3ddac","fromSide":"bottom","toNode":"6b42b2dd01495cdd","toSide":"top","label":"MAIL_TEMPLATE_DICT"},
+		{"id":"38d0dea45afa46d4","fromNode":"fb621c8f22d3ddac","fromSide":"bottom","toNode":"5e3f8de8417e6e31","toSide":"top","label":"CONF（信件標題）"},
+		{"id":"287ae1af2fae2c35","fromNode":"6b42b2dd01495cdd","fromSide":"bottom","toNode":"2fd38705a993e740","toSide":"top"},
+		{"id":"030c26c2e3ad3574","fromNode":"fb621c8f22d3ddac","fromSide":"bottom","toNode":"2fd38705a993e740","toSide":"top","label":"send_notification"},
+		{"id":"474e3543d8c72020","fromNode":"5e3f8de8417e6e31","fromSide":"bottom","toNode":"2fd38705a993e740","toSide":"top"},
+		{"id":"4774bd5b169b8ae2","fromNode":"2fd38705a993e740","fromSide":"bottom","toNode":"7b200d00fc448559","toSide":"top"}
+	]
 }

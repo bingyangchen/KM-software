@@ -38,7 +38,11 @@ for i in (i ** 2 for i in [1, 2, 3, 4]):
     print(i)
 ```
 
-上例中的倒數第二行 `(i ** 2 for i in [1, 2, 3, 4])` 叫做 **generator [[程式語言理論/零碎筆記#^33c92b|expression]]**，注意，這與 [[小技巧#^4c3cef|List Comprehension]] 不同，前者生成的是一個 generator object，後者則是生成一個 list。
+### Generator Expression
+
+^210c1a
+
+上例中的倒數第二行：`(i ** 2 for i in [1, 2, 3, 4])` 叫做 generator [[程式語言理論/零碎筆記#^33c92b|expression]]。請注意，這與 [[Python 小技巧#^4c3cef|List Comprehension]] 不同，前者生成的是一個 generator object，後者則是生成一個 list。
 
 # `yield from`
 

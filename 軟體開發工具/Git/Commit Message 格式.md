@@ -1,0 +1,31 @@
+![[Screenshot 2023-03-28 at 10.41.50 PM.png]]
+
+### Type 的種類
+
+- `feat`: a new feature
+- `fix`: a bug fix
+- `docs`: documentation changes
+- `style`: formatting, missing semi-colons, etc.
+- `refactor`: code refactoring
+- `test`: adding missing tests
+- `chore`: maintenance tasks, such as updating dependencies
+
+### Scope 可以是受影響的功能名稱或 module 名稱
+
+### 範例
+
+```plaintext
+feat(login): Add password reset functionality
+
+fix(cart): Fix calculation bug in checkout process
+
+docs(readme): Update project description and usage instructions
+
+style(navbar): Change font size and color for better visibility
+
+refactor(api): Simplify API response handling code
+
+feat(login): Add password reset functionality
+
+chore(deps): Update dependencies to latest versions
+```

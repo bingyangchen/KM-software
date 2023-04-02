@@ -1,27 +1,22 @@
-# 定義
 
-若程式碼中 `T` 型別的物件都可以被 `S` 型別的物件取代，且程式碼仍能正常運作，則可說 `S` 是 `T` 的 [[子型別 (Subtype)]]，或者記做 `S ≦ T`。
-
-# Subtype vs. Subclass
-
-只要 S inherits T，S 就是 T 的 subclass；但只有當 S 正確地 inherits T（或 implements T）時，才能稱 S 為 T 的 subtype。
+在閱讀本篇之前，我們推薦你先閱讀 [[Subtype vs. Subclass|Subtype 以及 Subclass 分別是什麼]]。
 
 # 里氏替換七大原則
 
-### Contravariance of arguments
+### 1. Contravariance of Arguments
 
 #TODO
 
-### Covariance of result
+### 2. Covariance of Result
 
-### Exception rule
+### 3. Exception Rule
 
-### Pre-condition rule
+### 4. Pre-Condition Rule
 
-### Post-condition rule
+### 5. Post-Condition Rule
 
-### Invariant rule
+### 6. Invariant Rule
 
-### Constraint rule
+### 7. Constraint Rule
 
 # 參考資料

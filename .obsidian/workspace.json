@@ -4,22 +4,107 @@
     "type": "split",
     "children": [
       {
-        "id": "8d21b81eab6485db",
+        "id": "4f5bc153594964f5",
         "type": "tabs",
         "children": [
           {
-            "id": "806eff678d66c9cb",
+            "id": "5d69f42a9980b8ea",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JavaScript/Node.js/nvm.md",
+                "file": "Database/SELECT FOR UPDATE.md",
                 "mode": "source",
                 "source": true
               }
             }
+          },
+          {
+            "id": "b6fa89fde6b91e59",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Database/Concurrency.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "cf19fd7912fafb3a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "SUMMARY.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "58941f741b5ea518",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Database/MVCC vs. SS2PL.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "88eb11d35fb14091",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Python/各種 Class 中的 Methods.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "07036e4ae61d2e3f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Python/Python 中的 OOP.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "eb8b9a38e5937fd4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Python/pip.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "ce8e4427507072b7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Python/Python 中的 OOP.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -48,8 +133,8 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
-                "matchingCase": true,
+                "query": "Race Condition",
+                "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
@@ -85,7 +170,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JavaScript/Node.js/nvm.md",
+                "file": "SUMMARY.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +187,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JavaScript/Node.js/nvm.md",
+                "file": "SUMMARY.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +210,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/Node.js/nvm.md"
+                "file": "SUMMARY.md"
               }
             }
           }
@@ -148,54 +233,54 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "806eff678d66c9cb",
+  "active": "cf19fd7912fafb3a",
   "lastOpenFiles": [
+    "summary.py.bd03e25ef0f63f31f1af4d7a81f84768.tmp",
+    "Database/Concurrency.md",
+    "Database/MVCC vs. SS2PL.md",
+    "Python/各種 Class 中的 Methods.md",
+    "Database/SELECT FOR UPDATE.md",
+    "Database/ACID vs. BASE.md",
+    "Database/零碎筆記.md",
+    "Operating System/零碎筆記.md",
+    "Python/GIL (Global Interpreter Lock).md",
+    "程式語言理論/FP 核心準則.md",
+    "Operating System/Deadlocks (死結).md",
+    "Python/Python 中的 Threading 與 Multi-processing.md",
+    "Operating System/Process vs. Thread.md",
+    "Python/Type Hints.md",
+    "程式語言理論/程式語言的分類.md",
+    "Database/Integrity Constraint.md",
+    "img/Screenshot 2023-04-01 at 5.23.16 PM.png",
+    "img/Screenshot 2023-04-01 at 5.02.29 PM.png",
+    "img/Screenshot 2023-04-01 at 5.16.13 PM.png",
+    "軟體開發工具/Git/Commit Message 格式.md",
+    "Python/Python 中的 OOP.md",
+    "Untitled.canvas",
+    "Python/pip.md",
+    "img/Screenshot 2023-03-31 at 10.46.26 PM.png",
+    "img/Screen Shot 2022-11-10 at 11.38.07 PM.png",
+    "計算機組織與架構/Garbage Collection vs. Reference Counting.md",
+    "計算機組織與架構/Compiler vs. Interpreter.md",
+    "計算機組織與架構/如何表示浮點數.md",
+    "軟體開發工具/Git/stash.md",
+    "Operating System",
+    "Pinkoi/上翻譯的流程.md",
+    "Pinkoi/Code Review.md",
+    "程式語言理論/OOP 四本柱.md",
+    "img/Screenshot 2023-03-28 at 10.41.50 PM.png",
+    "軟體開發工具/Linux",
     "img/Screenshot 2023-03-25 at 3.16.03 PM.png",
-    "JavaScript/Node.js/nvm.md",
     "img/web_structure.webp",
     "img/url-structure-url-path.png",
     "img/set-cookie.png",
-    "img/numeric-data-types-1.jpg",
-    "img/nav.png",
-    "img/import flow 2.jpg",
-    "img/horizontal-vs-vertical-scaling-diagram.png",
-    "img/function-vs-generator.png",
-    "img/cookie_localstorage_session.png",
     "img",
-    "summary.py.bd03e25ef0f63f31f1af4d7a81f84768.tmp",
-    "TEST.md",
     "summary.py",
-    "網頁開發/前端/React/create-react-app.md",
-    "Pinkoi/apiv3 指南.md",
-    "網頁開發/前端/React/react-router.md",
-    "JavaScript/Node.js/如何更新 Node.js 版本.md",
-    "Untitled.canvas",
-    "網頁開發/後端/Django (Python)/如何開始一個專案.md",
-    "網頁開發/後端/Django (Python)/自訂 HTTP Headers.md",
-    "網頁開發/Caching for GraphQL.md",
-    "網頁開發/GraphQL.md",
-    "網頁開發/SSR vs. CSR.md",
-    "網頁開發/Caching Mechanism.md",
-    "網頁開發/HTTP Cache (Disk Cache).md",
-    "系統設計/User, Group & Permission.md",
-    "軟體開發工具/Git/stash.md",
-    "Pinkoi/新版本部署至正式環境.md",
-    "Pinkoi/上翻譯的流程.md",
-    "Pinkoi/Code Review.md",
-    "Pinkoi/常用 `make` 指令.md",
-    "Python/pyenv.md",
-    "Python/Python 中的 OOP.md",
-    "Network/Cookies (1)：設置與存取.md",
-    "Network/Cookies (3)：從第一方到第三方.md",
-    "Network/Cookies (2)：用途與限制.md",
-    "DEVNOTE.md",
     "Pinkoi",
     "圖庫/url-structure-url-path.png.crdownload",
     "test.css",
     "test.css.map",
     "sass.sh",
-    "test.scss",
-    "package.json",
     "未命名.canvas"
   ]
 }

@@ -1,8 +1,8 @@
-## Garbage Collection
+### Garbage Collection
 
 #TODO
 
-## Reference Counting
+### Reference Counting
 
 下面示範在 Python 中如何取得一個物件的 reference counting：
 

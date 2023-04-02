@@ -4,7 +4,7 @@
 
 ^c935e9
 
->將「一個接收多個參數的 function」轉換成「一連串只接收 **一個** 參數的 functions 連續呼叫」，這個動作就是 Currying。
+>Currying 就是將「一個接收多個參數的 function」轉換成「一連串只接收 **一個** 參數的 functions 連續呼叫」。
 
 假如現在要以 JavaScript 實作一個將兩數相加的 function，以 non-curried 的方法來寫，會長得像下面這樣：
 
@@ -62,7 +62,7 @@ const g = y => f(2, y)
 g(3)  // 13
 ```
 
-**注意，==partial application 與 currying 相關，但不完全相同==。**
+**注意，==Partial Application 與 Currying 相關，但不完全相同==。**
 
 以下分別示範將一個接收多個參數的 function `f` 進行 currying 以及 partial application 的過程：
 
@@ -150,8 +150,6 @@ function curry(
 
 # 參考資料
 
-<https://en.wikipedia.org/wiki/Currying>
-
-<https://en.wikipedia.org/wiki/Partial_application>
-
-<https://mostly-adequate.gitbook.io/mostly-adequate-guide/ch04>
+- <https://en.wikipedia.org/wiki/Currying>
+- <https://en.wikipedia.org/wiki/Partial_application>
+- <https://mostly-adequate.gitbook.io/mostly-adequate-guide/ch04>

@@ -33,7 +33,7 @@ def generate_summary(path: str, indent: str = ""):
         ):
             with open("SUMMARY.md", "a") as file_object:
                 file_object.write(
-                    f"{indent}{UNIT_INDENT}{BULLET_POINT}[{os.path.splitext(sub_directory)[0]}](<{full_path}>)\n"
+                    f"{indent}{UNIT_INDENT}{BULLET_POINT}[{os.path.splitext(sub_directory)[0]}](<./{full_path}>)\n"
                 )
 
 

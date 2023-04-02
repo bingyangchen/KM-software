@@ -26,12 +26,14 @@ print(l)  # [1, 2, 3, 4]
 
 ### Tuple Unpacking
 
+^d28f26
+
 Tuple Unpacking 指的是將一個 tuple 中的各個值一次 assign 給多個變數，舉例而言：
 
 ```python
 a, b, c = (1, 2, 3)
 
-# 其實也可以不用寫 `(` 與 `)`
+# 其實可以不用寫 `(` 與 `)`
 a, b, c = 1, 2, 3
 ```
 
@@ -61,6 +63,8 @@ l = []
 for i in range(10):
     l.append(i**2)
 ```
+
+請注意它與 [[Generator and the yield Statement#^210c1a|Generator  Expression]] 的差異。
 
 ---
 
@@ -104,7 +108,7 @@ for idx, char in enumerate(l):
 
 ---
 
-### 使用 `get` 處理 Dict 中找不到 key 的狀況
+### 使用 `get` 處理 dict 中找不到 key 的狀況
 
 ```python
 aDict[k] = aDict.get(k, 0) + 1
@@ -119,7 +123,7 @@ else:
 
 ---
 
-### 對 Dict 做字串格式化
+### 對 dict 做字串格式化
 
 ```Python
 info = {

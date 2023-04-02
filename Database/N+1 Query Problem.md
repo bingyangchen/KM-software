@@ -1,15 +1,15 @@
 # ORM 中的 N+1 Problem
 
-在 ORM 的世界中，開發者可能會因為忘記思考每一行程式碼是否牽涉與資料庫溝通，而寫出很沒有效率的程式碼，而 N+1 就是其中一種「很沒有效率」的例子。
+在 ORM 的盛行的時代裡，開發者可能會因為忘記思考每一行程式碼是否牽涉與資料庫溝通，而寫出沒有效率的程式碼，而 N+1 就是其中一種沒效率的例子。
 
-假設今天資料庫有 `Author` 與 `Book` 兩張表，兩者關係為「一對多」，如下圖：
+假設今天資料庫有 `Author` 與 `Book` 兩張表，兩者的關係為「一對多」：
 
 ```mermaid
 erDiagram
     Author ||--o{ Book : writes
 ```
 
-若今天要依序列出每個 Author 所寫的所有書，用 ORM 可能會寫成這樣（以 Django 示範）：
+若今天要依序列出每個 Author 所寫的所有書，有些人可能會用 ORM 寫成這樣（以 Django 示範）：
 
 ```Python
 authors = Author.objects.all()
@@ -35,12 +35,14 @@ SELECT * FROM book WHERE aid = n;
 
 你會發現寫成 SQL 後總共有 N+1 行，也就是說為了依序列出每個 Author 所寫的所有書，必須進出資料庫 N+1 次，其中 "1" 為列出所有 authors，"N" 則為依序找出 N 位 author 的著作。
 
-N+1 Query 之所以會被稱為 "Problem"，是因為這麼做的缺點有二：
+N+1 Query 之所以會被稱為 "Problem"，主要原因有二：
 
-1. 「進出資料庫」這件事本身耗時間
-2. 與資料庫溝通越頻繁，DBMS 的負擔越大
+- 進出資料庫這件事本身「耗時間」
+- 與資料庫溝通越頻繁，DBMS 的負擔越大
 
-那要怎麼優化呢？以上面這個例子來說，我們其實可以只進資料庫兩次，第一次要「所有 authors」，第二次要「所有步驟一要到的 authors 的著作」，以 Django 來寫大概會像這樣：
+讓我們循序漸進地來改良它吧～
+
+或許我們可以只進資料庫兩次，第一次取得「所有 authors」，第二次取得「所有剛剛要到的 authors 的著作」，以 Django 來寫大概會像這樣：
 
 ```Python
 authors_id_list = Author.objects.all().values_list("pk", flat=True)
@@ -52,13 +54,30 @@ for aid in authors_id_list:
             # ...
 ```
 
-上面的程式碼中，只有前兩行有與資料庫溝通，我們改成一次將所有 authors 的著作拿出來，在 memory 中才進行分類。與資料庫溝通的那兩行解析成 SQL 後大致如下：
+上面的程式碼中，只有前兩行在與資料庫溝通，我們改成在 memory 中才將 books 進行分類。與資料庫溝通的那兩行解析成 SQL 後也會是兩行：
 
 ```PostgreSQL
 SELECT * FROM author;
-
 SELECT * FROM book WHERE aid IN (1, 2, ..., n);
 ```
+
+這樣一來我們其實已經成功避免 N+1 Problem 了，不過這還不是最有效率的。
+
+如果使用 `JOIN`，其實我們可以只進資料庫一次就拿到所有書以及它的作者，對吧。SQL 如下：
+
+```PostgreSQL
+SELECT b.*, a.name FROM book AS b JOIN author AS a ON b.aid = a.id;
+```
+
+使用 Django ORM 的話就會變成這樣：
+
+```Python
+books = Book.objects.select_related('author').all()
+for book in books:
+    # ...
+```
+
+這個故事告訴我們，使用 ORM 時最好都先思考過每一行 code 被轉成 SQL 後會是什麼樣子，才不會寫出一些看起來很笨又很沒效率的東西。
 
 # GraphQL 中的 N+1 Problem
 
