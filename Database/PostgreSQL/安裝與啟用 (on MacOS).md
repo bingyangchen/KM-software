@@ -28,7 +28,7 @@ brew service postgresql start
 
 ---
 
-### [[CLI (psql)#^136bc7|進入 PostgreSQL CLI]]
+### [[psql (PostgreSQL CLI)#^136bc7|進入 PostgreSQL CLI]]
 
 ---
 

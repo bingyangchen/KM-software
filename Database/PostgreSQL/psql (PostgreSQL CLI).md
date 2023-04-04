@@ -25,7 +25,17 @@ export PGDATABASE=postgres
 
 ### `\c` 連線至指定 Database
 
+### `\df` 查看目前 Database 中有哪些可用的 Functions
+
 ### `\dt` 列出目前連線的 Database 的所有 Tables
+
+### `\du` 列出所有 Database Roles (Users)
+
+### `\i <path/to/sql/file>` 執行 `.sql` 檔案
+
+### `\x` 切換呈現結果的方式
+
+分為直式與橫式，預設為橫式，當 table 欄位過多時適合切換為直式。
 
 ### `\?` 查看所有 psql 指令
 

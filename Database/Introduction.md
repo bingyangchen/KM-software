@@ -32,7 +32,7 @@ Data Model 有很多不同流派，比如：
 - **Array/Matrix** *(for Machine Learning)*
 - ...
 
-一個 Relational Data Model 會定義下面三種東西：
+以 Relational Database 為例，Relational Data Model 會定義下面三種東西：
 
 - **Structure**：有哪些 Entity、Entity 有哪些 attribute(s)、Entity 間的關係...
 - **[[Integrity Constraint|Integrity]]**
@@ -42,12 +42,12 @@ Data Model 有很多不同流派，比如：
 
 Schema 用來實現 Data Model 的描述／定義，所以要給定一個 Data Model 才能進一步給出 Schema。
 
-Schema 包括：
+這裡同樣以 Relational Database 為例，一個 Relational Database Schema 會包括：
 
 - 有哪些 relations (tables)
 - 每個 relation 有哪些 attributes (columns)
-- 各 column 所接受的資料型態
-- 各個 relation 使用什麼資料結構來儲存 tuples (rows)
+- 各 column 接受什麼資料型態
+- 各 relation 要使用什麼資料結構來儲存 tuples (rows)
 - 哪些 column 要建立 [[Index (索引)]]
 - 要存在 disk 還是 memory
 - ...
@@ -58,7 +58,7 @@ Developer 透過 SQL 語法撰寫 Database Schema，交給 DBMS 執行過一次�
 
 在以前，Database Schema (Physical Layer) 是寫在 application codebase 裡的，也就是說，如果有一天你想要更改資料庫儲存資料的方式，你就必須去找到散佈在 application codebase 各處的與資料庫存取相關的片段（一堆 query plans），然後一一修改它們，application codebase 因此變得較難維護。*(使用 [[#Flat-File Database]] 的 application 至今都還是如此，這其實也算是它的缺點之一)*
 
-現今使用 Relational Database（甚至 NoSQL Database）時，我們幾乎不會直接在 application code 裡描述我們要「如何儲存」資料、或者「如何找到」我們想要的資料，而是使用[[程式語言理論/零碎筆記#^6b30b4|高階]]的 SQL 語法口語化地陳述我們想做的事情，DBMS 可以有效率地將這些 SQL 轉換成 query plans（通常這些 query plans 本身也是有效率的）。
+現今使用 Relational Database（甚至 NoSQL Database）時，我們幾乎不會直接在 application code 裡描述我們要「如何儲存」資料、或者「如何找到」我們想要的資料，而是使用[[程式語言理論/零碎筆記#^6b30b4|高階]]的 SQL 語法口語化地陳述我們想做的事情，DBMS 的 Query Optimizer 可以有效率地將這些 SQL 轉換成 query plans（通常這些 query plans 本身也是有效率的）。
 
 # Relational Database 的架構
 
@@ -108,3 +108,7 @@ COMMIT;
 ```
 
 其實就是在要打包的 queries 的開頭加上一行 `BEGIN;`，結尾加上一行 `COMMIT;` 而已，若 commit 失敗，則 DBMS 會自動執行 **rollback**。
+
+# 參考資料
+
+- <https://www.youtube.com/watch?v=oeYBdghaIjc&list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi&index=2>

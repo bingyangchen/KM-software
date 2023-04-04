@@ -40,6 +40,7 @@ h1 {
     border-bottom: 2px solid #aaa5;
     border-radius: 2px;
     letter-spacing: 0.07rem !important;
+    line-height: 2.8rem !important;
     &::before {
         content: "．．．";
         position: absolute;
@@ -63,6 +64,16 @@ h3 {
 p {
     line-height: 1.8rem;
     margin-block-end: 1em !important;
+    letter-spacing: 1px;
+}
+
+em {
+    opacity: 0.7;
+}
+
+mark {
+    padding: 1px 2px;
+    border-radius: 3px;
 }
 
 img {
@@ -72,8 +83,8 @@ img {
 .markdown-rendered {
     pre {
         border-radius: 0.7em;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 12px;
+        padding-bottom: 12px;
     }
     code {
         border-radius: 0.3em;

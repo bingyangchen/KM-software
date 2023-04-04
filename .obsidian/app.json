@@ -9,5 +9,6 @@
   "userIgnoreFilters": [],
   "useMarkdownLinks": false,
   "newLinkFormat": "shortest",
-  "useTab": false
+  "useTab": false,
+  "spellcheck": false
 }

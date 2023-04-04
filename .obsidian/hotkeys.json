@@ -22,7 +22,6 @@
   "editor:follow-link": [],
   "file-explorer:new-file": [],
   "editor:insert-link": [],
-  "switcher:open": [],
   "slides:start": [
     {
       "modifiers": [
@@ -85,14 +84,7 @@
       "key": "Q"
     }
   ],
-  "editor:cycle-list-checklist": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "P"
-    }
-  ],
+  "editor:cycle-list-checklist": [],
   "editor:toggle-checklist-status": [],
   "editor:toggle-bullet-list": [
     {
@@ -121,6 +113,24 @@
         "Mod"
       ],
       "key": "3"
+    }
+  ],
+  "app:toggle-left-sidebar": [],
+  "switcher:open": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "P"
+    }
+  ],
+  "editor:toggle-spellcheck": [
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
+      ],
+      "key": "F"
     }
   ]
 }

@@ -8,8 +8,8 @@
     - [零碎筆記](<././Database/PostgreSQL/零碎筆記.md>)
     - [SELECT ... FOR UPDATE](<././Database/PostgreSQL/SELECT ... FOR UPDATE.md>)
     - [NUMERIC vs. REAL vs. DOUBLE PRECISION](<././Database/PostgreSQL/NUMERIC vs. REAL vs. DOUBLE PRECISION.md>)
-    - [CLI (psql)](<././Database/PostgreSQL/CLI (psql).md>)
     - [Aggregate Functions](<././Database/PostgreSQL/Aggregate Functions.md>)
+    - [psql (PostgreSQL CLI)](<././Database/PostgreSQL/psql (PostgreSQL CLI).md>)
     - [Window Functions](<././Database/PostgreSQL/Window Functions.md>)
     - [JOIN](<././Database/PostgreSQL/JOIN.md>)
     - [安裝與啟用 (on MacOS)](<././Database/PostgreSQL/安裝與啟用 (on MacOS).md>)
@@ -17,8 +17,8 @@
   - [Sharding vs. Partitioning](<././Database/Sharding vs. Partitioning.md>)
   - [零碎筆記](<././Database/零碎筆記.md>)
   - Redis
-    - [CLI](<././Database/Redis/CLI.md>)
     - [Introduction](<././Database/Redis/Introduction.md>)
+    - [Redis CLI](<././Database/Redis/Redis CLI.md>)
     - [安裝與啟用 (on MacOS)](<././Database/Redis/安裝與啟用 (on MacOS).md>)
   - [ACID vs. BASE](<././Database/ACID vs. BASE.md>)
   - [Index (索引)](<././Database/Index (索引).md>)
@@ -31,6 +31,7 @@
     - [Mongosh](<././Database/MongoDB/Mongosh.md>)
     - [安裝與啟用](<././Database/MongoDB/安裝與啟用.md>)
   - [MVCC vs. SS2PL](<././Database/MVCC vs. SS2PL.md>)
+  - [淺談 SQL](<././Database/淺談 SQL.md>)
   - [Concurrency](<././Database/Concurrency.md>)
 - 計算機組織與架構
   - [Compiler vs. Interpreter](<././計算機組織與架構/Compiler vs. Interpreter.md>)

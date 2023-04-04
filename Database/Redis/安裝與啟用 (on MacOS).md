@@ -44,6 +44,6 @@ brew services stop redis
 
 ---
 
-### [[CLI#^44ae9b|進入 Redis CLI]]
+### [[Redis CLI#^44ae9b|進入 Redis CLI]]
 
 ---

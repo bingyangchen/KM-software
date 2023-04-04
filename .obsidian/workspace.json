@@ -61,50 +61,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Database/零碎筆記.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "eac89f7d5e52d87b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Database/Introduction.md",
+                "file": "Database/PostgreSQL/Aggregate Functions.md",
                 "mode": "preview",
                 "source": true
               }
             }
           },
           {
-            "id": "5fbc2e56085a34a2",
+            "id": "57072372f62fc1ec",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python/Python 中的 Closure 與 Captured Variable.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "a3af0e54b069f2f0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Database/Redis/Introduction.md",
+                "file": "Database/淺談 SQL.md",
                 "mode": "preview",
                 "source": true
               }
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -133,7 +109,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "homebrew",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -170,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Database/Introduction.md",
+                "file": "Database/PostgreSQL/Aggregate Functions.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -187,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Database/Introduction.md",
+                "file": "Database/PostgreSQL/Aggregate Functions.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -210,7 +186,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Database/Introduction.md"
+                "file": "Database/PostgreSQL/Aggregate Functions.md"
               }
             }
           }
@@ -233,18 +209,29 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "eac89f7d5e52d87b",
+  "active": "3d10f5a5b0228abc",
   "lastOpenFiles": [
-    "Python/Python 中的 Closure 與 Captured Variable.md",
+    "Database/淺談 SQL.md",
+    "Database/PostgreSQL/Aggregate Functions.md",
+    "Database/零碎筆記.md",
+    "Database/Redis/Introduction.md",
+    "Database/ACID vs. BASE.md",
     "Database/Introduction.md",
+    "Database/PostgreSQL/JOIN.md",
+    "Database/PostgreSQL/psql (PostgreSQL CLI).md",
+    "Database/Redis/Redis CLI.md",
+    "Database/PostgreSQL/安裝與啟用 (on MacOS).md",
+    "Database/PostgreSQL/零碎筆記.md",
+    "程式語言理論/Imperative vs. Declarative.md",
+    "Python/Python 中的 OOP.md",
+    "Python/Python 中的 Closure 與 Captured Variable.md",
+    "Python/pip.md",
+    "Python/底線 (_) 的用途.md",
+    "Python/各種 Class 中的 Methods.md",
     "Python/Generator and the yield Statement.md",
     "Python/Python 中的字串串接.md",
     "Python/GIL.md",
-    "Database/Redis/Introduction.md",
-    "Database/PostgreSQL/CLI (psql).md",
-    "Database/Redis/CLI.md",
     "Database/Redis/安裝與啟用 (on MacOS).md",
-    "Database/PostgreSQL/安裝與啟用 (on MacOS).md",
     "Python/pyenv.md",
     "Operating System/Linux/Linux Commands.md",
     "Operating System/MacOS/Homebrew.md",
@@ -252,17 +239,7 @@
     "Operating System/MacOS",
     "JavaScript/Node.js/如何更新 Node.js 版本.md",
     "JavaScript/Node.js/nvm.md",
-    "Database/零碎筆記.md",
-    "Database/Integrity Constraint.md",
-    "Python/Python 中的 OOP.md",
-    "Database/PostgreSQL/NUMERIC vs. REAL vs. DOUBLE PRECISION.md",
-    "Database/PostgreSQL/JOIN vs. FROM 多個表 WHERE ....md",
-    "Database/PostgreSQL/JOIN.md",
-    "Database/PostgreSQL/零碎筆記.md",
-    "程式語言理論/零碎筆記.md",
-    "System Design/Client-Server Architecture.md",
     "img/serializable.png",
-    "Database/ACID vs. BASE.md",
     "img/Screenshot 2023-03-20 at 8.26.10 PM.png",
     "img/cap_theorem.png",
     "img/DB_image_4_cropped.png",
@@ -272,7 +249,6 @@
     "img/Screenshot 2023-03-19 at 1.45.14 PM.png",
     "img/add_translation_workflow_crowdin.png",
     "img/update_traslation_workflow_crowdin.png",
-    "Database/Concurrency.md",
     "summary.py.bd03e25ef0f63f31f1af4d7a81f84768.tmp",
     "Untitled.canvas",
     "Operating System",
