@@ -1,4 +1,4 @@
-![[Screenshot 2023-03-28 at 10.41.50 PM.png]]
+![[commit_message_structure.png]]
 
 ### Type 的種類
 

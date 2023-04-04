@@ -8,54 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "5d69f42a9980b8ea",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Database/SELECT FOR UPDATE.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "b6fa89fde6b91e59",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Database/Concurrency.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "cf19fd7912fafb3a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "SUMMARY.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "58941f741b5ea518",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Database/MVCC vs. SS2PL.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
             "id": "88eb11d35fb14091",
             "type": "leaf",
             "state": {
@@ -68,13 +20,13 @@
             }
           },
           {
-            "id": "07036e4ae61d2e3f",
+            "id": "f063f8f7fb55a581",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python/Python 中的 OOP.md",
-                "mode": "source",
+                "file": "Python/底線 (_) 的用途.md",
+                "mode": "preview",
                 "source": true
               }
             }
@@ -92,7 +44,7 @@
             }
           },
           {
-            "id": "ce8e4427507072b7",
+            "id": "df486465ebed4682",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -102,9 +54,57 @@
                 "source": true
               }
             }
+          },
+          {
+            "id": "3d10f5a5b0228abc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Database/零碎筆記.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "eac89f7d5e52d87b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Database/Introduction.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "5fbc2e56085a34a2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Python/Python 中的 Closure 與 Captured Variable.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "a3af0e54b069f2f0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Database/Redis/Introduction.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -133,7 +133,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "Race Condition",
+                "query": "homebrew",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -154,7 +154,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 218.5
   },
   "right": {
     "id": "f13142408b62142a",
@@ -170,7 +170,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SUMMARY.md",
+                "file": "Database/Introduction.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -187,7 +187,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "SUMMARY.md",
+                "file": "Database/Introduction.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -210,7 +210,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SUMMARY.md"
+                "file": "Database/Introduction.md"
               }
             }
           }
@@ -233,54 +233,55 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "cf19fd7912fafb3a",
+  "active": "eac89f7d5e52d87b",
   "lastOpenFiles": [
-    "summary.py.bd03e25ef0f63f31f1af4d7a81f84768.tmp",
-    "Database/Concurrency.md",
-    "Database/MVCC vs. SS2PL.md",
-    "Python/各種 Class 中的 Methods.md",
-    "Database/SELECT FOR UPDATE.md",
-    "Database/ACID vs. BASE.md",
+    "Python/Python 中的 Closure 與 Captured Variable.md",
+    "Database/Introduction.md",
+    "Python/Generator and the yield Statement.md",
+    "Python/Python 中的字串串接.md",
+    "Python/GIL.md",
+    "Database/Redis/Introduction.md",
+    "Database/PostgreSQL/CLI (psql).md",
+    "Database/Redis/CLI.md",
+    "Database/Redis/安裝與啟用 (on MacOS).md",
+    "Database/PostgreSQL/安裝與啟用 (on MacOS).md",
+    "Python/pyenv.md",
+    "Operating System/Linux/Linux Commands.md",
+    "Operating System/MacOS/Homebrew.md",
+    "Operating System/Linux",
+    "Operating System/MacOS",
+    "JavaScript/Node.js/如何更新 Node.js 版本.md",
+    "JavaScript/Node.js/nvm.md",
     "Database/零碎筆記.md",
-    "Operating System/零碎筆記.md",
-    "Python/GIL (Global Interpreter Lock).md",
-    "程式語言理論/FP 核心準則.md",
-    "Operating System/Deadlocks (死結).md",
-    "Python/Python 中的 Threading 與 Multi-processing.md",
-    "Operating System/Process vs. Thread.md",
-    "Python/Type Hints.md",
-    "程式語言理論/程式語言的分類.md",
     "Database/Integrity Constraint.md",
-    "img/Screenshot 2023-04-01 at 5.23.16 PM.png",
-    "img/Screenshot 2023-04-01 at 5.02.29 PM.png",
-    "img/Screenshot 2023-04-01 at 5.16.13 PM.png",
-    "軟體開發工具/Git/Commit Message 格式.md",
     "Python/Python 中的 OOP.md",
-    "Untitled.canvas",
-    "Python/pip.md",
-    "img/Screenshot 2023-03-31 at 10.46.26 PM.png",
-    "img/Screen Shot 2022-11-10 at 11.38.07 PM.png",
-    "計算機組織與架構/Garbage Collection vs. Reference Counting.md",
-    "計算機組織與架構/Compiler vs. Interpreter.md",
-    "計算機組織與架構/如何表示浮點數.md",
-    "軟體開發工具/Git/stash.md",
-    "Operating System",
-    "Pinkoi/上翻譯的流程.md",
-    "Pinkoi/Code Review.md",
-    "程式語言理論/OOP 四本柱.md",
-    "img/Screenshot 2023-03-28 at 10.41.50 PM.png",
-    "軟體開發工具/Linux",
-    "img/Screenshot 2023-03-25 at 3.16.03 PM.png",
-    "img/web_structure.webp",
+    "Database/PostgreSQL/NUMERIC vs. REAL vs. DOUBLE PRECISION.md",
+    "Database/PostgreSQL/JOIN vs. FROM 多個表 WHERE ....md",
+    "Database/PostgreSQL/JOIN.md",
+    "Database/PostgreSQL/零碎筆記.md",
+    "程式語言理論/零碎筆記.md",
+    "System Design/Client-Server Architecture.md",
+    "img/serializable.png",
+    "Database/ACID vs. BASE.md",
+    "img/Screenshot 2023-03-20 at 8.26.10 PM.png",
+    "img/cap_theorem.png",
+    "img/DB_image_4_cropped.png",
     "img/url-structure-url-path.png",
-    "img/set-cookie.png",
+    "img/Screenshot 2023-03-19 at 1.38.52 PM.png",
+    "img/Screenshot 2023-03-19 at 1.43.39 PM.png",
+    "img/Screenshot 2023-03-19 at 1.45.14 PM.png",
+    "img/add_translation_workflow_crowdin.png",
+    "img/update_traslation_workflow_crowdin.png",
+    "Database/Concurrency.md",
+    "summary.py.bd03e25ef0f63f31f1af4d7a81f84768.tmp",
+    "Untitled.canvas",
+    "Operating System",
+    "軟體開發工具/Linux",
     "img",
     "summary.py",
     "Pinkoi",
     "圖庫/url-structure-url-path.png.crdownload",
     "test.css",
-    "test.css.map",
-    "sass.sh",
     "未命名.canvas"
   ]
 }

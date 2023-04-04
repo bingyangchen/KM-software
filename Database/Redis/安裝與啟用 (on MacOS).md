@@ -1,0 +1,49 @@
+[官方教學文件](https://redis.io/docs/getting-started/installation/install-redis-on-mac-os/)
+
+### 安裝
+
+**Step0: 先確認 Mac 上有 homebrew**
+
+```bash
+brew --version
+```
+
+若出現 `zsh: command not found: brew` 代表你的電腦中沒有沒有 homebrew，此時你需要先[[Homebrew#^afeaf9|安裝 homebrew]]。
+
+**Step1: 安裝 Redis**
+
+```bash
+brew install redis
+```
+
+---
+
+### 在 Terminal 執行 PostgreSQL Server
+
+```bash
+redis-server
+```
+
+使用 `control` + `C` 離開。
+
+---
+
+### 在背景執行 Redis Server
+
+```bash
+brew services start redis
+```
+
+---
+
+### 關閉背景執行的 Redis Server
+
+```bash
+brew services stop redis
+```
+
+---
+
+### [[CLI#^44ae9b|進入 Redis CLI]]
+
+---

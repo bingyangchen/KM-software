@@ -1,3 +1,5 @@
+GIL 是 Global Interpreter Lock 的縮寫。
+
 # 為何需要 GIL
 
 首先，Python 透過計算一塊記憶體空間的 [[Garbage Collection vs. Reference Counting|reference count]] 來判斷該空間是否應該被釋出，而計算 reference count 時，應避免 [[Operating System/零碎筆記#^a2259c|Race Condition]]（多個 threads 同時更改同一個變數的 reference count，而導致某些更改沒有成功）否則就會有「不該被釋出的空間被釋出，進而導致 bug」或「該被釋出的空間沒有被釋出 (Memory Leak)」等現象。

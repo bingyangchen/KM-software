@@ -1,34 +1,14 @@
 # 在 MacOS 上安裝 pyenv
 
-### Step1: 先確認 Mac 上有 homebrew
-
-**1-1: 確認 homebrew 版本**
+### Step0: 先確認 Mac 上有 homebrew
 
 ```bash
 brew --version
 ```
 
-若出現 `zsh: command not found: brew` 代表你的電腦中沒有沒有 homebrew，此時你需要安裝 homebrew：
+若出現 `zsh: command not found: brew` 代表你的電腦中沒有沒有 homebrew，此時你需要先[[Homebrew#^afeaf9|安裝 homebrew]]。
 
-**1-2: 安裝 homebrew 的 dependencies**
-
-```bash
-xcode-select --install
-```
-
-**1-3: 安裝 homebrew**
-
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-**1-4: 將 homebrew 加入 PATH**
-
-```bash
-echo "export PATH=/opt/homebrew/bin:$PATH" >> ~/.zshrc
-```
-
-### Step2: 安裝 pyenv
+### Step1: 安裝 pyenv
 
 ```bash
 brew install pyenv
@@ -44,17 +24,19 @@ pyenv install 3.11.2
 
 # 其他常用指令
 
-### 查看本機目前有哪些版本的 Python
+### `pyenv version`
 
-```bash
-pyenv versions
-```
+查看本機 Global 目前正在使用哪個版本的 Python。
+
+### `pyenv versions`
+
+查看本機目前有哪些版本的 Python。
 
 Output 會長的像下面這樣：
 
 ```plaintext
 * system
-  3.11.2 (set by /Users/pinkoi/.pyenv/version)
+  3.11.2 (set by /Users/<username>/.pyenv/version)
 ```
 
 打星號的代表本機 Global 目前所使用的版本。

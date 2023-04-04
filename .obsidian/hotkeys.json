@@ -105,5 +105,22 @@
   "file-explorer:new-file-in-new-pane": [],
   "editor:open-link-in-new-split": [],
   "editor:open-link-in-new-window": [],
-  "workspace:edit-file-title": []
+  "workspace:edit-file-title": [],
+  "editor:set-heading-1": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "1"
+    }
+  ],
+  "editor:set-heading-2": [],
+  "editor:set-heading-3": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "3"
+    }
+  ]
 }

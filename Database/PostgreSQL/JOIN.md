@@ -1,0 +1,15 @@
+### `CROSS JOIN`
+
+#TODO 
+
+### `NATURAL JOIN`
+
+#TODO 
+
+### `INNER JOIN`
+
+#TODO 
+
+### `LEFT JOIN`
+
+#TODO 

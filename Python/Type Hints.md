@@ -45,11 +45,17 @@ greet(n)
 
 - `Union[X, Y]`：型別可以是 `X` 或 `Y`，比如 `Union[int, float, None]`
 
-    須要先 `from typing import Union`，但在 Python 3.10 後可以用 `X | Y` 取代之。
+    須先 `from typing import Union`，但在 Python 3.10 後可以用 `X | Y` 取代之。
 
 - `Optional[X]`：型別可以是 `X` 或 `None`，比如 `Optional[int]`
 
-    須要先 `from typing import Optional`，但在 Python 3.10 後可以用 `X | None` 取代之。
+    須先 `from typing import Optional`，但在 Python 3.10 後可以用 `X | None` 取代之。
+
+- `Callable[[Arg1Type, Arg2Type], ReturnType]`：
+
+    若一個 function 的接收兩個型別分別為 `Arg1Type` 與 `Arg2Type` 的參數，且 return 的型別為 `ReturnType` 的值，則該 function 的型別可以定義如上。
+
+    若想要定義一個「不限制參數的數量與型別」的 function，則可以寫：`Callable[..., ReturnType]`。
 
 # After Python 3.8
 

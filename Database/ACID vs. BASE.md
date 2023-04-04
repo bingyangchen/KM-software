@@ -2,47 +2,21 @@
 
 CAP Theorem 指出，一個服務最多只能同時確保 Consistency, Availability 與 Partition Tolerance 三者的其中兩個：
 
-![[Screen Shot 2023-02-04 at 8.30.11 AM.png]]
+![[cap_theorem.png]]
 
 - Consistency: Clients 總是可以從資料庫讀取到最新的資料
 - Availability: 所有 Request 都會得到 non-error 的 Response
 - Partition Tolerance: 除了通訊問題以外，服務必須持續運作不間斷
 
-而 ACID Transaction Model 的宗旨即「在具備 Partition Tolerance 的條件下，提供具備 Consistency 的服務」(CP)，銀行業通常會需要這種 Model。
+而 ACID Model 的宗旨即「在具備 Partition Tolerance 的條件下，提供具備 Consistency 的服務」(CP)，銀行業通常會需要這種 Model。
 
-相對地，BASE Transaction Model 的宗旨為「在具備 Partition Tolerance 的條件下，提供具備 Availability 的服務」(AP)。
-
-# Database Transaction
-
-Transaction 字面上的意思：「交易」意味著一手交錢、一手交貨，一旦買方拿不出錢，或者賣方無法提供貨品，或者買方無法接收貨品，或者賣方無法接收錢，這個交易就不算成功。
-
-在資料庫的世界中，transaction 的定義衍變成「一個可以包含若干個 database queries 的工作」，所有 queries 都執行成功後，會進行 "**commit**" 來表示這個 transaction 執行成功。
-
-下面示範如何使用 PostgreSQL 寫一個 transaction：
-
-```PostgreSQL
-BEGIN;
-
--- Update the balance of a bank account.
-UPDATE accounts SET balance = balance - 100
-WHERE account_number = '123456';
-
--- Insert a new transaction record.
-INSERT INTO transactions (account_number, transaction_date, amount)
-VALUES ('123456', CURRENT_DATE, 100);
-
--- Commit the transaction if all statements have succeeded,
--- rollback otherwise.
-COMMIT;
-```
-
-其實就是在要打包的 queries 的開頭加上一行 `BIGIN;`，結尾加上一行 `COMMIT;` 而已。
+相對地，BASE Model 的宗旨為「在具備 Partition Tolerance 的條件下，提供具備 Availability 的服務」(AP)。
 
 # ACID
 
 ### Atomicity
 
-如果一個 transaction 「執行成功」的定義是「transaction 中的每個步驟都成功」，==若任一個步驟執行失敗，就要 **rollback** 到第一個步驟執行前的狀態，好像什麼事都沒發生一樣==，那我們就說這個 transaction 具備 atomicity，白話文就是「不可分割性」。
+一個 [[Database/Introduction#^f28c84|Transaction]] 「執行成功」的定義是「transaction 中的每個步驟都成功」，==若任一個步驟執行失敗，就要 **rollback** 到第一個步驟執行前的狀態，好像什麼事都沒發生一樣==。
 
 當一個 transaction 「執行成功」後，會進行一個叫 **commit** 的動作，換言之 transaction 的結局有兩種，分別對應到一個動作：
 
@@ -56,7 +30,19 @@ COMMIT;
 
 如果步驟一執行成功、步驟二執行失敗，但卻沒有 rollback，那 A 的 n 元就從這個世界上蒸發了，由此可見 rollback 的重要性。
 
-*注：「可以 rollback」這個性質叫做 "recoverability"。*
+**Recoverability**
+
+「可以 rollback」這個性質叫做 "recoverability"，有兩種作法可以達到 recoverability：
+
+- **Logging**
+
+    紀錄每一個對資料庫的操作紀錄，紀錄的資訊包括「在什麼時候」把「什麼資料」的值「從什麼改成什麼」，commit 失敗時依據 log 把資料庫回溯為原先的狀態。
+
+- **Shadow Paging**
+
+    把當前 transaction 預計要改動到的資料所在的 page 先複製一份出來，transaction 是對複製出來的資料做改動，commit 成功才將指向原本 page 的 pointer 改為指向複製出來的 page；反之，若 commit 失敗就直接把複製出來的 page 捨棄即可。
+
+    這個做法現在較少見，主要是因為效能問題。目前採用此做法的資料庫包括 CouchDB。
 
 ### Consistency
 
@@ -64,7 +50,7 @@ Consistency 包括："Consistency in Data" 與 "Consistency in Read"
 
 - **Consistency in Data**
 
-    a.k.a. [[Integrity Constraint]]
+    aka [[Integrity Constraint]]
 
 - **Consistency in Read**
 
@@ -74,7 +60,7 @@ Consistency 包括："Consistency in Data" 與 "Consistency in Read"
 
 ### Isolation
 
->任兩個進行中 (in-flight) 的 transactions 不應互相影響／干擾，甚至不應看到彼此對資料庫所造成的影響，否則可能會出現 [[Concurrency#^fc28ed|Concurrency Anomalies]]。
+任兩個進行中 (in-flight) 的 transactions 不應互相影響／干擾，甚至不應看到彼此對資料庫所造成的影響，否則可能會出現 [[Concurrency#^fc28ed|Concurrency Anomalies]]。
 
 **Complete Isolation - Serializability**
 
@@ -117,7 +103,7 @@ SQL Standard 將 Isolation 由寬鬆到嚴格分為四種等級：
 
     一個 transaction 讀不到所有在它開始之後，所有他以外的 transaction 對資料庫做的「所有更動」。
 
-    ![[Screen Shot 2023-02-02 at 1.21.35 PM.png]]
+    ![[serializable.png]] ^c73ad7
 
 ### Durability
 
@@ -129,9 +115,15 @@ SQL Standard 將 Isolation 由寬鬆到嚴格分為四種等級：
 
 ### Basically Available
 
+#TODO 
+
 ### Soft State
 
+#TODO 
+
 ### Eventually Consistent
+
+#TODO 
 
 # 參考資料
 
