@@ -2,6 +2,7 @@
 
 - Database
   - [Integrity Constraint](<././Database/Integrity Constraint.md>)
+  - [DML 子句順序](<././Database/DML 子句順序.md>)
   - PostgreSQL
     - [JOIN vs. FROM 多個表 WHERE ...](<././Database/PostgreSQL/JOIN vs. FROM 多個表 WHERE ....md>)
     - [Nested Query](<././Database/PostgreSQL/Nested Query.md>)
@@ -68,7 +69,7 @@
   - [零碎筆記](<././Operating System/零碎筆記.md>)
   - [Deadlocks (死結)](<././Operating System/Deadlocks (死結).md>)
   - Linux
-    - [Linux Commands](<././Operating System/Linux/Linux Commands.md>)
+    - [常用 Linux Commands](<././Operating System/Linux/常用 Linux Commands.md>)
   - [Process vs. Thread](<././Operating System/Process vs. Thread.md>)
 - Network
   - [CDN](<././Network/CDN.md>)
