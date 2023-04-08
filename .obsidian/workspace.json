@@ -8,43 +8,34 @@
         "type": "tabs",
         "children": [
           {
+            "id": "0bc569e5b7f1eccf",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "Pinkoi/memo.canvas",
+                "viewState": {
+                  "x": -429.498593320236,
+                  "y": -729.5093909626728,
+                  "zoom": -1.3108886043499275
+                }
+              }
+            }
+          },
+          {
             "id": "88eb11d35fb14091",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python/各種 Class 中的 Methods.md",
+                "file": "Python/各種 Attribute 與 Method.md",
                 "mode": "preview",
                 "source": true
               }
             }
           },
           {
-            "id": "f063f8f7fb55a581",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Python/底線 (_) 的用途.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "eb8b9a38e5937fd4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Python/pip.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "df486465ebed4682",
+            "id": "9962711a7a98919d",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -56,17 +47,31 @@
             }
           },
           {
-            "id": "54090901512a0bc0",
+            "id": "f1dbc03071aeb314",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "img/On Activate.png"
+                "file": "Python/底線 (_) 的用途.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "a7b029bf72d44f97",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Network/SSH.md",
+                "mode": "source",
+                "source": true
               }
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -95,7 +100,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": " -> ",
+                "query": "",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -112,8 +117,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -133,7 +137,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "img/On Activate.png",
+                "file": "Python/各種 Attribute 與 Method.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -150,7 +154,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "img/On Activate.png",
+                "file": "Python/各種 Attribute 與 Method.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -173,7 +177,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "img/On Activate.png"
+                "file": "Python/各種 Attribute 與 Method.md"
               }
             }
           }
@@ -196,8 +200,30 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "54090901512a0bc0",
+  "active": "88eb11d35fb14091",
   "lastOpenFiles": [
+    "Python/各種 Attribute 與 Method.md",
+    "Python/Python 中的 OOP.md",
+    "Network/DDoS.md",
+    "Python/底線 (_) 的用途.md",
+    "Network/SSH.md",
+    "Pinkoi/memo.canvas",
+    "Python/pipenv.md",
+    "Python/pip.md",
+    "Pinkoi/新版本部署至正式環境.md",
+    "Operating System/Linux/常用 Linux Commands.md",
+    "Operating System/Linux/與網路相關的指令.md",
+    "Operating System/Linux/存取權限與 chmod.md",
+    "Operating System/Linux/與「搜尋」相關的指令.md",
+    "Network/NAT.md",
+    "軟體開發工具/Vim 使用指南.md",
+    "軟體開發工具/Linux/chmod.md",
+    "img/Screenshot 2023-04-05 at 2.45.04 PM.png",
+    "img/Screenshot 2023-04-05 at 1.13.55 PM.png",
+    "img/Screenshot 2023-04-05 at 12.39.38 PM.png",
+    "Pinkoi/Permission.md",
+    "Database/Locks (鎖).md",
+    "img/On Activate.png",
     "程式語言理論/Object Composition.md",
     "System Design/MVVM.md",
     "程式語言理論/Liskov Substitution Principle (LSP).md",
@@ -207,37 +233,15 @@
     "Python/Iterable vs. Iterator.md",
     "程式語言理論/Interface vs. Abstract Class (in Java).md",
     "Network/gRPC.md",
-    "Web Dev./GraphQL.md",
-    "計算機組織與架構/Garbage Collection vs. Reference Counting.md",
-    "JavaScript/Event Loop.md",
-    "Database/DML 子句順序.md",
     "img/dirty_write.png",
-    "System Design/Distributed Programming.md",
-    "DEVNOTE.md",
-    "Operating System/Deadlocks (死結).md",
     "img/concurrency.jpg",
-    "計算機組織與架構/Compiler vs. Interpreter.md",
     "img/commit_message_structure.png",
-    "軟體開發工具/Git/Commit Message 格式.md",
     "img/cloudfront and cloudflare.png",
-    "軟體開發工具/Git/clone, fork.md",
     "img/Cache and Network Race.png",
     "img/breadcrumbs-bestbuy-location-based.jpeg",
-    "Side Projects/Block Chain Visualize.md",
-    "資料結構與演算法/AVL Tree.md",
-    "計算機組織與架構/Assembly Language (組合語言).md",
-    "Pinkoi/apiv3 指南.md",
-    "System Design/API Server 架構.md",
-    "Pinkoi/Admin Tool.md",
-    "img/add_translation_workflow_crowdin.png",
-    "System Design/Actor Model.md",
-    "img/20089358BHJSdMArgE.png",
-    "img/20089358Ae8XEecWxI.png",
-    "img/20089358AbjWkzPWEE.png",
     "Operating System/Linux",
     "Operating System/MacOS",
     "summary.py.bd03e25ef0f63f31f1af4d7a81f84768.tmp",
-    "Untitled.canvas",
     "Operating System",
     "軟體開發工具/Linux",
     "img",

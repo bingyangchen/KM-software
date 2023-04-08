@@ -15,7 +15,14 @@ erDiagram
 
 這是正規管道，適用於「符合規則」的授權，所謂的符合規則就是「User 只能為其下轄的 Users 或 Roles 加減權限」。
 
-Admin Tool 側邊欄 -> Permission -> User/Role
+```mermaid
+flowchart LR
+id1(Admin Tool 側邊欄)
+id2(Permission)
+id3(User/Role)
+id1 --> id2
+id2 --> id3
+```
 
 ### 法二：直接改資料庫
 

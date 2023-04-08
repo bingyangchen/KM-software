@@ -133,7 +133,7 @@ pipenv install request
 
 ### 使用 `-d` option 聲明該套件只有在開發環境中會用到
 
-以此方法安裝的 packages 會被列舉在 `Pipfile` 中的 `[dev-packages]` 底下。
+以此方法安裝的 packages 會被列舉在 `Pipfile` 中的 `[dev-packages]` 底下：
 
 ```bash
 pipenv install black -d

@@ -4,11 +4,11 @@
   --h1-size: 2rem;
 }
 *:not(pre), *:not(code) {
-  text-align: left;
+  text-align: justify;
   text-justify: inter-word;
 }
 *::before, *::after {
-  text-align: left;
+  text-align: justify;
   text-justify: inter-word;
 }
 

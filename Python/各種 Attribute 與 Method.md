@@ -1,10 +1,27 @@
 #OOP 
 
-Python 的 class 中有 instance method、class method 以及 static method 三種不同 methods，這與傳統的 OOP 語言不同，比如 Java、C++ 和 C# 都只有 instance method 與 class method 兩種 methods。
+# Attribute
+
+Python 中的 class 與其它 OOP 語言一樣，可以有 class attribute 以及 instance attribute，class attribute 須定義在 constructor (`__init__` method) 之前；instance attribute 則須定義在 constructor 裡面，舉例如下：
+
+```Python
+class Dog:
+    # Class Attributes
+    max_age = 20;
+
+    def __init__(self):
+        # Instance Attributes
+        self.age = 0
+        self.weight = 10
+```
+
+# Method
+
+在傳統的 OOP 語言（比如 Java、C++ 和 C#）的 class 中，method 分為 Instance Method 與 Class Method 兩種。然而 Python class 的 method 卻有三種，分別是 Instance Method、Class Method 以及 Static Method，這是因為 ==Python 把其它 OOP 語言的 Class Method 細分成 Class Method 與 Static Method==。
 
 # Instance Method
 
-Instance method 專門給實例化後的 object 使用，範例程式碼如下：
+Instance Method 專門給實例化後的 object 使用，這點 Python 和其它 OOP 語言是一樣的，範例程式碼如下：
 
 ```Python
 class Dog:
@@ -33,6 +50,8 @@ if __name__ == "__main__":
 >在大部分其他 OOP 程式語言中，定義 instance method 時並沒有在第一個參數寫 `self` 的規則。在 class 內，`this.x` 即表示 instance attribute `x`。
 
 # Class Method
+
+Class Method 顧名思義是給 class 使用，範例程式碼如下：
 
 ```Python
 class Dog:

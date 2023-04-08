@@ -1,0 +1,39 @@
+{
+	"nodes":[
+		{"type":"text","text":"`templates/admin/noti_tester2.mako`","id":"641e29531cd450cc","x":-440,"y":-470,"width":421,"height":50},
+		{"type":"text","text":"`rabbitmq/consumers/templates/report_to_seller_private_trading_serious_violation.mako`","id":"85377c4a1df66707","x":-480,"y":-631,"width":504,"height":91},
+		{"type":"text","text":"`apiv3/routes/admin/shop/seller_rating.py`","id":"efd98e6a3b111b8c","x":300,"y":-1014,"width":485,"height":54},
+		{"type":"text","text":"`models2/seller_rating/seller_rating.py`","id":"fb621c8f22d3ddac","x":315,"y":-852,"width":445,"height":50},
+		{"type":"text","text":"`base/notification.py`","id":"2fd38705a993e740","x":390,"y":-340,"width":310,"height":50},
+		{"type":"text","text":"`models2/seller_rating/consts.py`","id":"6b42b2dd01495cdd","x":46,"y":-631,"width":394,"height":60},
+		{"type":"text","text":"`base/notification.py`","id":"5e3f8de8417e6e31","x":660,"y":-500,"width":280,"height":55},
+		{"type":"text","text":"`models2/noti_mocks.py`","id":"897b4e9899add4bb","x":-373,"y":-740,"width":288,"height":55},
+		{"type":"text","text":"`views/Admin.py`","id":"47660425ea00b7a7","x":-331,"y":-887,"width":203,"height":60},
+		{"type":"text","text":"`urls.py`","id":"c090ac37476c2eda","x":-308,"y":-1020,"width":158,"height":60},
+		{"type":"text","text":"#### 預覽 EMAIL","id":"ab18bd87ded8d55c","x":-322,"y":-1080,"width":186,"height":50,"color":"6"},
+		{"type":"text","text":"#### 實際寄送 EMAIL","id":"6b89a267b44d7149","x":427,"y":-1080,"width":236,"height":50,"color":"6"},
+		{"type":"text","text":"`rabbitmq/consumers/templates/report_to_seller_private_trading_serious_violation.mako`","id":"7b200d00fc448559","x":299,"y":-200,"width":493,"height":91},
+		{"type":"text","text":"#### 營收報表\n\n`/api/bill`","id":"0987f865cfac6603","x":-1323,"y":-942,"width":250,"height":110},
+		{"type":"text","text":"#### 營收費用註記工具\n\n`/admin/service`","id":"36ea0870c21769d6","x":-1321,"y":-1085,"width":248,"height":120},
+		{"id":"7a47a3a52f88f4a6","x":-1356,"y":-560,"width":393,"height":335,"type":"text","text":"Asana 開票\n- 附上原票的連結\n- 簡述要做的事情\n- 附上 SQL\n- 附上流程（新增 column、run script、上 code）\n- Collaborator 加上 Mike, Reviewer"},
+		{"id":"f217031c9c7135f3","x":-1356,"y":-166,"width":393,"height":115,"type":"text","text":"使用 script 將已存在的 variation 的 `exposure_satrt_dt` 設為其所屬 incentive 的 `exposure_start_dt`"},
+		{"id":"e3b39354641e2fe4","x":-1330,"y":-719,"width":342,"height":88,"type":"text","text":"`incentive_variation_exposure` 發 PR"},
+		{"id":"78c53f144a05bf10","x":-879,"y":-470,"width":358,"height":320,"type":"text","text":"可以做得更好\n- 開始習慣主動發現問題，定提出可改善的方向，甚至主動實踐\n- 上線前先應給需求方確認結果\n- 解 task 的速度可以更快\n- 應該更了解一些常用的工具 (e.g. GitHub, VSCode Debgger, ssh)"},
+		{"type":"text","text":"`fine_seller` PR Revise","id":"4da1a354c3dfe192","x":-1040,"y":-1085,"width":277,"height":60}
+	],
+	"edges":[
+		{"id":"1cc894bce101a73c","fromNode":"47660425ea00b7a7","fromSide":"bottom","toNode":"897b4e9899add4bb","toSide":"top"},
+		{"id":"5c7beb723ea2dce2","fromNode":"897b4e9899add4bb","fromSide":"bottom","toNode":"85377c4a1df66707","toSide":"top"},
+		{"id":"811b210a7bdc4653","fromNode":"85377c4a1df66707","fromSide":"bottom","toNode":"641e29531cd450cc","toSide":"top"},
+		{"id":"ffdaf940f067290a","fromNode":"c090ac37476c2eda","fromSide":"bottom","toNode":"47660425ea00b7a7","toSide":"top"},
+		{"id":"88c8934860ec373b","fromNode":"efd98e6a3b111b8c","fromSide":"bottom","toNode":"fb621c8f22d3ddac","toSide":"top","label":"send_rating_notification"},
+		{"id":"f0b04432788de0c4","fromNode":"fb621c8f22d3ddac","fromSide":"bottom","toNode":"6b42b2dd01495cdd","toSide":"top","label":"MAIL_TEMPLATE_DICT"},
+		{"id":"38d0dea45afa46d4","fromNode":"fb621c8f22d3ddac","fromSide":"bottom","toNode":"5e3f8de8417e6e31","toSide":"top","label":"CONF（信件標題）"},
+		{"id":"287ae1af2fae2c35","fromNode":"6b42b2dd01495cdd","fromSide":"bottom","toNode":"2fd38705a993e740","toSide":"top"},
+		{"id":"030c26c2e3ad3574","fromNode":"fb621c8f22d3ddac","fromSide":"bottom","toNode":"2fd38705a993e740","toSide":"top","label":"send_notification"},
+		{"id":"474e3543d8c72020","fromNode":"5e3f8de8417e6e31","fromSide":"bottom","toNode":"2fd38705a993e740","toSide":"top"},
+		{"id":"4774bd5b169b8ae2","fromNode":"2fd38705a993e740","fromSide":"bottom","toNode":"7b200d00fc448559","toSide":"top"},
+		{"id":"ec84c5bcc583c73b","fromNode":"7a47a3a52f88f4a6","fromSide":"bottom","toNode":"f217031c9c7135f3","toSide":"top"},
+		{"id":"9e489d40724d7835","fromNode":"e3b39354641e2fe4","fromSide":"bottom","toNode":"7a47a3a52f88f4a6","toSide":"top"}
+	]
+}

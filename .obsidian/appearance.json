@@ -4,8 +4,8 @@
   "monospaceFontFamily": "Monaco",
   "translucency": true,
   "baseFontSize": 17,
-  "baseFontSizeAction": true,
-  "theme": "obsidian",
+  "baseFontSizeAction": false,
+  "theme": "moonstone",
   "textFontFamily": "Georgia,Times New Roman",
   "enabledCssSnippets": [
     "custom"
