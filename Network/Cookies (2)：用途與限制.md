@@ -1,6 +1,6 @@
 #Cookie
 
-由於 HTTP Protocal 是 **stateless** 的，在 client 不主動提供資訊的情況下，server 無法得知任何發出 request 的 client 以前的狀態。
+由於 HTTP protocol 是 **stateless** 的，在 client 不主動提供資訊的情況下，server 無法得知任何發出 request 的 client 以前的狀態。
 
 在 [[從 Web 1.0 到 Web 3.0#^3e48bd|Web 1.0]] 的時代，是否 stateless 並不重要，然而隨著 [[從 Web 1.0 到 Web 3.0#^07ac9b|Web 2.0]] 在 20 世紀末萌芽，**會員／帳號** 的概念逐漸普及，「針對每個帳號提供專屬的資料與服務」也變得理所當然。而 cookies **最初**的用途，就是「儲存登入者的資訊（狀態）」，然後將這些資訊放進 request 中的 `Cookie` header，以讓 server 知道發出 request 的 client 是哪個帳號。
 
@@ -8,7 +8,7 @@
 
 若想了解如何設置與存取 Cookies，請參考 [[Cookies (1)：設置與存取|此文]]。
 
-# Cookies 需要斟酌使用
+# Cookies 須斟酌使用
 
 1. Cookies 其實不適合拿來儲存「機敏」資料，比如 user 的帳號密碼，因為 cookies 會被塞進 **每一個** requests 中，這樣太容易被有心人士竊聽。
 
@@ -24,7 +24,7 @@
 
 ### Authentication
 
-如果 server 可以在用戶登入成功後產生一個 Session 用來記錄「這個使用者已經登入成功」這件事，同時為這個 Session 產生「具有唯一性」的 ID，那麼將這個 Session ID 交給 client，往後就可以透過「來自 client 的 request 的 cookie header 的 Session ID」知道 client 背後的會員是誰，有需要時，再從資料庫撈取屬於該會員的必要資料，不須把會員的所有資料交給 client。
+如果 server 可以在用戶登入成功後產生一個 Session 用來記錄「這個使用者已經登入成功」這件事，同時為這個 Session 產生「具有唯一性」的 ID，那麼將這個 Session ID 交給 client，往後就可以透過「來自 client 的 request 的 `Cookie` header 的 Session ID」知道 client 背後的會員是誰，有需要時，再從資料庫撈取屬於該會員的必要資料，不須把會員的所有資料交給 client。
 
 通常，server 會為每個 Session 設定有效期限，若 client 提供的 Session ID 所對應到的 Session 已過期，則 client 會被要求重新登入。
 

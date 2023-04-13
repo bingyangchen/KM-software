@@ -80,6 +80,8 @@
   - [瀏覽器中的儲存空間](<././Network/瀏覽器中的儲存空間.md>)
   - [Cookies (1)：設置與存取](<././Network/Cookies (1)：設置與存取.md>)
   - [零碎筆記](<././Network/零碎筆記.md>)
+  - [SFTP vs. FTPS](<././Network/SFTP vs. FTPS.md>)
+  - [OSI Model](<././Network/OSI Model.md>)
   - [Preflight Request (預檢請求)](<././Network/Preflight Request (預檢請求).md>)
   - [從 Web 1.0 到 Web 3.0](<././Network/從 Web 1.0 到 Web 3.0.md>)
   - [DDoS](<././Network/DDoS.md>)
@@ -89,7 +91,9 @@
   - [A Record 與 CNAME Record](<././Network/A Record 與 CNAME Record.md>)
   - [gRPC](<././Network/gRPC.md>)
   - [NAT](<././Network/NAT.md>)
+  - [Session Hijacking](<././Network/Session Hijacking.md>)
   - [Cookies (2)：用途與限制](<././Network/Cookies (2)：用途與限制.md>)
+  - [Hub, Bridge, Switch & Router](<././Network/Hub, Bridge, Switch & Router.md>)
 - Web Dev.
   - 後端
     - Express (NodeJS)
@@ -136,6 +140,7 @@
     - [Commit Message 格式](<././軟體開發工具/Git/Commit Message 格式.md>)
     - [stash](<././軟體開發工具/Git/stash.md>)
     - [push, pull, fetch](<././軟體開發工具/Git/push, pull, fetch.md>)
+  - [Formatting Syntax Cheat Sheet](<././Formatting Syntax Cheat Sheet.md>)
 - Side Projects
   - [Simulate the evolution of aggression](<././Side Projects/Simulate the evolution of aggression.md>)
   - [Uber's Problem - Simulate and Solve](<././Side Projects/Uber's Problem - Simulate and Solve.md>)

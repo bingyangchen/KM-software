@@ -79,6 +79,11 @@ img {
   margin-bottom: 40px;
 }
 
+iframe {
+  width: 100%;
+  border-radius: 8px;
+}
+
 .markdown-rendered pre {
   border-radius: 0.7em;
   padding-top: 12px;
@@ -121,4 +126,12 @@ blockquote::before {
   top: -20px;
   font-size: 5rem;
   color: #ddd;
+}
+
+.callout {
+  padding: 12px 20px 0px;
+}
+.callout .callout-title {
+  gap: 6px;
+  margin-bottom: 10px;
 }

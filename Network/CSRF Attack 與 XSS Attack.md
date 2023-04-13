@@ -72,8 +72,6 @@ XSS 是 Cross-Site Scripting 的縮寫，之所以不縮寫為 CSS，是為了�
 
 # 參考資料
 
-<https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html>
-
-<https://en.wikipedia.org/wiki/Cross-site_scripting>
-
-<https://en.wikipedia.org/wiki/Cross-site_request_forgery>
+- <https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html>
+- <https://en.wikipedia.org/wiki/Cross-site_scripting>
+- <https://en.wikipedia.org/wiki/Cross-site_request_forgery>

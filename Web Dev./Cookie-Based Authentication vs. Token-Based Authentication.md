@@ -4,14 +4,16 @@
 
 ^71972f
 
-Cookie-Based Authentication 最原始的意思是「將使用者的資訊（狀態）直接塞進 Cookie Header」，但由於以下兩個原因：
+Cookie-Based Authentication 最原始的意思是「將使用者的資訊（狀態）全部塞進 `Cookie` Header」，但由於以下兩個原因：
 
 1. Cookie 有大小上限（4 KB）
-2. Request 若被攔截，放在 Cookie Header 裡的使用者資訊就洩露了。
+2. Request 若被攔截，放在 `Cookie` Header 裡的使用者資訊就洩露了
 
-因此後來才慢慢演變為只攜帶 Session ID 在 Cookie Header 中，server 再根據 Session ID 找到對應的使用者，必要時再查詢該使用者的資訊並回傳。由於整個 Authentication 的過程分別在 client-sdie 與 server-side 用到了 Cookie 與 Session 兩個技術，因此又叫做 ==**Cookie/Session Authentication**==。
+因此後來慢慢演變為只攜帶 **Session ID** 在 `Cookie` Header 中，server 再根據 Session ID 找到對應的使用者，必要時再查詢該使用者的資訊並回傳。
 
-本文主要指的是 Cookie/Session Authentication，流程下圖：
+由於整個 Authentication 的過程分別在 client-sdie 與 server-side 用到了 Cookie 與 Session 兩個技術，因此又叫做 ==**Cookie/Session Authentication**==，這也是本段主要想探討的。
+
+Cookie/Session Authentication 的流程如下圖：
 
 ```mermaid
 sequenceDiagram
@@ -28,7 +30,7 @@ sequenceDiagram
     Server->>-Client: Respond data exclusive to a1234
 ```
 
-在 Server 端所建立的 Session，其功能是紀錄那些原本想塞進 Cookie 的使用者基本資訊。Session 通常會具有時效性，且通常是 key-value pair，因此常會使用 Redis 來實作。
+在 Server side 所建立的 Session，其功能是紀錄那些原本想塞進 Cookie 的使用者基本資訊。Session 通常會具有時效性，且通常是 key-value pair，因此常會使用 Redis 來實作。
 
 其實，「Server 使用 Session 來紀錄使用者的登入狀態」這件事某種程度上已經違反了 [[RESTful API|REST]] 架構中的 Stateless 原則。
 

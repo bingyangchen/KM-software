@@ -1,0 +1,7 @@
+{
+	"nodes":[
+		{"id":"b1a63b0e320778bc","x":-468,"y":-200,"width":308,"height":100,"type":"text","text":"- 新增 Seller Rating Reason\n- 每月寄送營收報表"},
+		{"id":"31a67c3581cf845a","x":-120,"y":-200,"width":360,"height":60,"type":"text","text":"Incentive Variation 各別曝光時間"}
+	],
+	"edges":[]
+}

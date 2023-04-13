@@ -8,44 +8,44 @@ Cookies 是 browser 儲存文字資料的其中一個地方（其他 browser 資
 
 # 如何設置 Cookies
 
-1. 由 Server 設置
+### 由 Server 設置
 
-    Cookie 可以由 server 透過 response 的 HTTP `Set-Cookie` Header 傳遞給 browser， browser 收到後會將 `Set-Cookie` 的 value 存進 Cookies，browser 會在之後與相同 server 溝通時，**自動** 將這些 cookies 放在 request 的 `Cookie` header。
+Cookie 可以由 server 透過 response 的 HTTP `Set-Cookie` Header 傳遞給 browser， browser 收到後會將 `Set-Cookie` 的 value 存進 Cookies，browser 會在之後與相同 server 溝通時，**自動** 將這些 cookies 放在 request 的 `Cookie` header。
 
-    ```mermaid
-    sequenceDiagram
-        participant Client
-        participant Server
-        Note over Server: mybackend.com
-        Client->>Server: Send a request to mybackend.com.
-        Server->>Client: Add the Set-Cookie header to the response
-        Note left of Server: Set-Cookie: token=a1234
-        Client->>+Server: Send another request with the Cookie <br/> header to mybackend.com
-        Note right of Client: Cookie: token=a1234
-        Server->>-Client: Recognize the cookie, and respond data <br/> exclusive to a1234
-    ```
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Server
+    Note over Server: mybackend.com
+    Client->>Server: Send a request to mybackend.com.
+    Server->>Client: Add the Set-Cookie header to the response
+    Note left of Server: Set-Cookie: token=a1234
+    Client->>+Server: Send another request with the Cookie <br/> header to mybackend.com
+    Note right of Client: Cookie: token=a1234
+    Server->>-Client: Recognize the cookie, and respond data <br/> exclusive to a1234
+```
 
-    如上圖所見，`Set-Cookie` header 長得像這樣：
+如上圖所見，`Set-Cookie` header 長得像這樣：
 
-    ```plaintext
-    Set-Cookie: <cookie-name>=<cookie-value>
-    ```
+```plaintext
+Set-Cookie: <cookie-name>=<cookie-value>
+```
 
-    而 `Cookie` header 則長得像這樣（多個 cookies 間以 `;` 隔開）：
+而 `Cookie` header 則長得像這樣（多個 cookies 間以 `;` 隔開）：
 
-    ```plaintext
-    Cookie: <cookie_1-name>=<cookie_1-value>;<cookie_2-name>=<cookie_2-value>
-    ```
+```plaintext
+Cookie: <cookie_1-name>=<cookie_1-value>;<cookie_2-name>=<cookie_2-value>
+```
 
-2. Client 自己設置
+### Client 自己設置
 
-    在 client-side JavaScript 中，使用 `document.cookie` API 可以對 browser 的 cookies  進行 "get" 與 "set"。其中，"set" cookie 的方式如下：
+在 client-side JavaScript 中，使用 `document.cookie` API 可以對 browser 的 cookies  進行 "get" 與 "set"。其中，"set" cookie 的方式如下：
 
-    ```JavaScript
-    document.cookie = "my_cookie=a1234"
-    ```
+```JavaScript
+document.cookie = "my_cookie=a1234"
+```
 
-    注意，上面的語法只會新增或修改 `my_cookie` 這個 cookie 的值，並不會把其它已存在的 cookie 清除。
+注意，上面的語法只會新增或修改 `my_cookie` 這個 cookie 的值，並不會把其它已存在的 cookie 清除。
 
 # Cookie Attributes
 
@@ -182,10 +182,7 @@ delete_cookie(name: string): void {
 
 # 參考資料
 
-<https://shubo.io/cookies/#cookie-%E6%98%AF%E4%BB%80%E9%BA%BC>
-
-<https://en.wikipedia.org/wiki/HTTP_cookie>
-
-<https://www.w3schools.com/js/js_cookies.asp>
-
-<https://stackoverflow.com/questions/61555100/cookie-in-set-cookie-header-not-being-set>
+- <https://shubo.io/cookies/#cookie-%E6%98%AF%E4%BB%80%E9%BA%BC>
+- <https://en.wikipedia.org/wiki/HTTP_cookie>
+- <https://www.w3schools.com/js/js_cookies.asp>
+- <https://stackoverflow.com/questions/61555100/cookie-in-set-cookie-header-not-being-set>

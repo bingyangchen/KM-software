@@ -10,7 +10,7 @@ Response 中與 CORS 相關的 Headers 包含：
 
 這些 headers 的主要用途是告訴 client 它 (server) 所接受的 request 應符合什麼規格，有些時候 browser 會透過 [[Preflight Request (預檢請求)]] 來取得這些資訊，然後核對「真正要送出的 request」是否符合這些規格，符合才會送出真正的 request。
 
-針對不需要 Preflight Request 的 request，browser 雖無法預先核對規格，但 browser 還是會去檢查 response 裡是否有 `Access-Control-Allow-Origin`  header，且其值是否等於 request 的 `Origin` header，==若發現兩者的 protocal/scheme、IP/domain、port 任一項不相等，則即使收到 response 也不可以打開來看裡面的內容==。
+針對不需要 Preflight Request 的 request，browser 雖無法預先核對規格，但 browser 還是會去檢查 response 裡是否有 `Access-Control-Allow-Origin`  header，且其值是否等於 request 的 `Origin` header，==若發現兩者的 protocol/scheme、IP/domain、port 任一項不相等，則即使收到 response 也不可以打開來看裡面的內容==。
 
 # Same-Origin Policy (SOP)
 
@@ -60,41 +60,31 @@ flowchart TD
 
 ![[Screen Shot 2023-01-08 at 2.51.07 PM.png]]
 
-**解決方法**
-
-調整 `Access-Control-Allow-Methods` header。
+**解決方法：**調整 `Access-Control-Allow-Methods` header。
 
 ### Origin 不被 server 接受時
 
 ![[Screen Shot 2023-01-08 at 2.52.02 PM.png]]
 
-**解決方法**
-
-調整 `Access-Control-Allow-Origin` header，看是要設為 "\*" 或設為 Request 的 Origin。
+**解決方法：**調整 `Access-Control-Allow-Origin` header，看是要設為 "\*" 或設為 Request 的 Origin。
 
 ### Request 中包含不被 server 接受的 header(s) 時
 
 ![[Screen Shot 2023-01-08 at 3.17.25 PM.png]]
 
-**解決方法**
-
-調整 `Access-Control-Allow-Headers` header。
+**解決方法：**調整 `Access-Control-Allow-Headers` header。
 
 ### Response 中包含自定義的 header(s) 時
 
 這種情況下不會有 CORS Error，只會發現使用 JavaScript 讀取該 header 時，總是讀到 `null`
 
-**解決方法**
-
-調整 `Access-Control-Expose-Headers` header。
+**解決方法：**調整 `Access-Control-Expose-Headers` header。
 
 ### Request 的 `credentials: include`，同時 Response 的 `Access-Control-Allow-Origin: *` 時
 
 ![[Screen Shot 2023-01-08 at 2.52.50 PM.png]]
 
-**解決方法**
-
-將 `Access-Control-Allow-Origin` header 設為與 Request 的 `Origin` header 相同的值。
+**解決方法：**將 `Access-Control-Allow-Origin` header 設為與 Request 的 `Origin` header 相同的值。
 
 **補充說明**
 
@@ -104,9 +94,7 @@ flowchart TD
 
 ![[Screen Shot 2023-01-08 at 2.56.17 PM.png]]
 
-**解決方法**
-
-調整 `Access-Control-Allow-Credentials` header。
+**解決方法：**調整 `Access-Control-Allow-Credentials` header。
 
 # 何時需要 Proxy Server
 
@@ -133,18 +121,11 @@ sequenceDiagram
 
 # 參考資料
 
-<https://github.com/aszx87410/blog/issues/68>
-
-<https://en.wikipedia.org/wiki/Cross-origin_resource_sharing>
-
-<https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS>
-
-<https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin>
-
-<https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods>
-
-<https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers>
-
-<https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials>
-
-<https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin>
+- <https://github.com/aszx87410/blog/issues/68>
+- <https://en.wikipedia.org/wiki/Cross-origin_resource_sharing>
+- <https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS>
+- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin>
+- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods>
+- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers>
+- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials>
+- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin>
