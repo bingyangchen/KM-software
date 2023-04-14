@@ -64,6 +64,7 @@ h3 {
 p {
     line-height: 1.8rem;
     margin-block-end: 1em !important;
+    margin: 17px 0;
     letter-spacing: 1px;
 }
 
@@ -137,4 +138,8 @@ blockquote {
         gap: 6px;
         margin-bottom: 10px;
     }
+}
+
+table {
+    width: 100%;
 }

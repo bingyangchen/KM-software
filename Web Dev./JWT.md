@@ -1,6 +1,9 @@
 #Cryptograpy #Authentication
 
-閱讀本文前，你必須先了解什麼是 [[Cookie-Based Authentication vs. Token-Based Authentication#^1ef2e6|Token-Based Authentication]]。
+>[!Info] 溫馨提醒
+>閱讀本文前，你必須先了解什麼是 [[Cookie-Based Authentication vs. Token-Based Authentication#^1ef2e6|Token-Based Authentication]]。
+
+---
 
 JWT 為 JSON Web Token 的縮寫，主要的功能是將 JSON 格式的資料**加密**為一個不定長度的字串，增加資料傳輸時的安全性。
 

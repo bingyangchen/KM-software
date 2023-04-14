@@ -1,4 +1,7 @@
-閱讀本文之前，你必須先瞭解什麼是 [[Client-Server Architecture]]。
+>[!Info] 溫馨提醒
+>閱讀本文之前，你必須先瞭解什麼是 [[Client-Server Architecture]]。
+
+---
 
 我們都知道在網頁中主要的三種語言分別是 HTML, CSS 與 JavaScript，我們常常會說，HTML 就像是一個網頁的軀殼，決定了基本結構；CSS 是衣服，讓網頁外表美觀；JavaScript 則像是網頁的靈魂，讓它能根據使用者的行為作出反應。
 

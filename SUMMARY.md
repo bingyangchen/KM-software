@@ -70,9 +70,9 @@
   - [Deadlocks (死結)](<././Operating System/Deadlocks (死結).md>)
   - Linux
     - [與「搜尋」相關的指令](<././Operating System/Linux/與「搜尋」相關的指令.md>)
+    - [常用指令與快捷鍵](<././Operating System/Linux/常用指令與快捷鍵.md>)
     - [與網路相關的指令](<././Operating System/Linux/與網路相關的指令.md>)
     - [存取權限與 chmod](<././Operating System/Linux/存取權限與 chmod.md>)
-    - [常用 Linux Commands](<././Operating System/Linux/常用 Linux Commands.md>)
   - [Process vs. Thread](<././Operating System/Process vs. Thread.md>)
 - Network
   - [CDN](<././Network/CDN.md>)

@@ -15,9 +15,9 @@
               "state": {
                 "file": "Pinkoi/memo.canvas",
                 "viewState": {
-                  "x": -1190.5916577632038,
-                  "y": -657.3312486618127,
-                  "zoom": -0.4968961989808168
+                  "x": -1311.1088852704227,
+                  "y": -628.868324100401,
+                  "zoom": -0.6852381361672164
                 }
               }
             }
@@ -83,7 +83,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -112,7 +112,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "閱讀",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -129,7 +129,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -149,7 +150,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Network/SSH.md",
+                "file": "Python/底線 (_) 的用途.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -166,7 +167,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Network/SSH.md",
+                "file": "Python/底線 (_) 的用途.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -189,7 +190,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Network/SSH.md"
+                "file": "Python/底線 (_) 的用途.md"
               }
             }
           }
@@ -212,19 +213,27 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "5b876c97076c2892",
+  "active": "f1dbc03071aeb314",
   "lastOpenFiles": [
-    "Operating System/Linux/與網路相關的指令.md",
+    "Web Dev./JWT.md",
+    "Web Dev./SSR vs. CSR.md",
+    "程式語言理論/Liskov Substitution Principle (LSP).md",
+    "Web Dev./Caching for GraphQL.md",
+    "程式語言理論/Imperative vs. Declarative.md",
+    "Python/Python 中的 OOP.md",
     "Network/SSH.md",
+    "Network/Hub, Bridge, Switch & Router.md",
+    "Python/底線 (_) 的用途.md",
+    "Network/SFTP vs. FTPS.md",
+    "Pinkoi/memo.canvas",
+    "Operating System/Linux/常用指令與快捷鍵.md",
+    "Operating System/Linux/與「搜尋」相關的指令.md",
+    "Pinkoi/新版本部署至正式環境.md",
+    "Operating System/Linux/與網路相關的指令.md",
     "img/Screenshot 2023-04-13 at 8.17.23 AM.png",
     "img/Screenshot 2023-04-13 at 8.15.24 AM.png",
-    "Pinkoi/memo.canvas",
     "Pinkoi/What I Did This Month.canvas",
-    "Network/Hub, Bridge, Switch & Router.md",
-    "Network/SFTP vs. FTPS.md",
     "Formatting Syntax Cheat Sheet.md",
-    "Python/底線 (_) 的用途.md",
-    "Python/Python 中的 OOP.md",
     "Pinkoi/apiv3 指南.md",
     "Python/Type Hints.md",
     "Pinkoi/What I Did.md",
@@ -236,14 +245,7 @@
     "Pinkoi/常用的 make 指令.md",
     "Pinkoi/本機環境部署筆記.md",
     "Pinkoi/Code Review.md",
-    "Pinkoi/新版本部署至正式環境.md",
     "Network/OSI Model.md",
-    "System Design/Separation of Concerns (SoC).md",
-    "Operating System/Linux/常用 Linux Commands.md",
-    "Network/瀏覽器中的儲存空間.md",
-    "Network/CSRF Attack 與 XSS Attack.md",
-    "Network/Cookies (2)：用途與限制.md",
-    "Network/CORS & SOP.md",
     "img/Session-Hijacking-pic5-2048x1229.png",
     "img/Screenshot 2023-04-05 at 2.45.04 PM.png",
     "img/Screenshot 2023-04-05 at 1.13.55 PM.png",
