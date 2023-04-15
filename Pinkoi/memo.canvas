@@ -21,11 +21,8 @@
 		{"type":"text","text":"#### Relations\n\n- campaign_ta_manager\n- campaign_ta (uid-list)\n- topics","id":"15a41b97f347d751","x":-1663,"y":68,"width":303,"height":212},
 		{"type":"text","text":"maintain subscription designer by uid_list (campaign_ta)","id":"f0958edb54439f52","x":-1741,"y":340,"width":459,"height":98},
 		{"type":"text","text":"Use script to add a new campaign_ta_manager\n","id":"2047f5664c33a370","x":-1743,"y":-60,"width":463,"height":63},
-		{"type":"text","text":"了解如何篩出 24 hour 的商家\n\n*gcp_shops table 中的 superowner column, operated_by_pinkoi*","id":"5f5d4e98fd4e919b","x":-1799,"y":-629,"width":341,"height":136},
 		{"type":"text","text":"五月初時記得和 finance 部門確認是否收到[營收註記](https://app.asana.com/0/1201591574237600/1204191157675342/f)的信","id":"66f2ccb2c1a0c952","x":-953,"y":-629,"width":307,"height":98},
-		{"type":"text","text":"- https://www.pinkoi.com/topic/pinkoi_academy\n- https://www.pinkoi.com/admin/topics-manager/pinkoi_academy/edit","id":"bc14723034e1b0e2","x":-1760,"y":-267,"width":498,"height":132},
-		{"type":"text","text":"實作篩選 API","id":"db77a7c3cbbdea96","x":-1901,"y":-393,"width":250,"height":60},
-		{"type":"text","text":"sorting 沒效果","id":"ce7a7154c0f229ff","x":-1583,"y":-393,"width":250,"height":60}
+		{"type":"text","text":"- https://www.pinkoi.com/topic/pinkoi_academy\n- https://www.pinkoi.com/admin/topics-manager/pinkoi_academy/edit","id":"bc14723034e1b0e2","x":-1760,"y":-267,"width":498,"height":132}
 	],
 	"edges":[
 		{"id":"1cc894bce101a73c","fromNode":"47660425ea00b7a7","fromSide":"bottom","toNode":"897b4e9899add4bb","toSide":"top"},
@@ -39,10 +36,8 @@
 		{"id":"030c26c2e3ad3574","fromNode":"fb621c8f22d3ddac","fromSide":"bottom","toNode":"2fd38705a993e740","toSide":"top","label":"send_notification"},
 		{"id":"474e3543d8c72020","fromNode":"5e3f8de8417e6e31","fromSide":"bottom","toNode":"2fd38705a993e740","toSide":"top"},
 		{"id":"4774bd5b169b8ae2","fromNode":"2fd38705a993e740","fromSide":"bottom","toNode":"7b200d00fc448559","toSide":"top"},
-		{"id":"24934271b8fb243a","fromNode":"5f5d4e98fd4e919b","fromSide":"bottom","toNode":"db77a7c3cbbdea96","toSide":"top"},
 		{"id":"6bef397c523e72a7","fromNode":"2047f5664c33a370","fromSide":"bottom","toNode":"15a41b97f347d751","toSide":"top"},
 		{"id":"b869361d9643fd4a","fromNode":"15a41b97f347d751","fromSide":"bottom","toNode":"f0958edb54439f52","toSide":"top"},
-		{"id":"52afbfd2a03eab51","fromNode":"bc14723034e1b0e2","fromSide":"bottom","toNode":"2047f5664c33a370","toSide":"top"},
-		{"id":"c5f3849fd8d92a4e","fromNode":"5f5d4e98fd4e919b","fromSide":"bottom","toNode":"ce7a7154c0f229ff","toSide":"top"}
+		{"id":"52afbfd2a03eab51","fromNode":"bc14723034e1b0e2","fromSide":"bottom","toNode":"2047f5664c33a370","toSide":"top"}
 	]
 }

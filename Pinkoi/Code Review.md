@@ -8,21 +8,23 @@
 
 ### Step2
 
-在 Asana 上的 Main Task 下新增一個 Subtask，標題為 `Code Review <PR_number>`。
+在 Asana 上的 Main Task 下新增一個 Subtask，標題為 `Code Review <PR_number>`，舉例如下：
 
 ![[Screenshot 2023-03-19 at 1.45.14 PM.png]]
 
 ### Step3
 
-在 Subtask 的 Description 中貼上 GitHub Pull Request 的連結，並將 Project 設為 Backend。
+在 Subtask 的 Description 中貼上 GitHub Pull Request 的連結。
 
-**在 More actions 點擊 Add to project。**
+### Step4
+
+將 Asana Task 的 Project 設為 Backend（在 More actions 點擊 Add to project）
 
 ![[Screenshot 2023-03-20 at 8.26.10 PM.png]]
 
 ![[Screenshot 2023-03-19 at 1.38.52 PM.png]]
 
-### Step4
+### Step5
 
 將 Reviewer 以及 Lead (ZihZih) 加入為 Collaborator，完成！
 

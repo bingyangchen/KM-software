@@ -82,7 +82,8 @@ PI: Final[float] = 3.14159
 PI = 0  # Error reported by type checker
 ```
 
-*注：現在還無法檢查到 `+=` 等 Augmented Assignment，以上例而言，`PI += 1` 是不會出現錯誤提示的。*
+>[!Note] 注意
+>現在還無法檢查到 `+=` 等 Augmented Assignment，以上例而言，`PI += 1` 是不會出現錯誤提示的。
 
 # After Python 3.9
 

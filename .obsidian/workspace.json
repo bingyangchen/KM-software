@@ -8,39 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "8fed386b9d004264",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Pinkoi/memo.canvas",
-                "viewState": {
-                  "x": -1311.1088852704227,
-                  "y": -628.868324100401,
-                  "zoom": -0.6852381361672164
-                }
-              }
-            }
-          },
-          {
             "id": "9962711a7a98919d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "Python/Python 中的 OOP.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "f1dbc03071aeb314",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Python/底線 (_) 的用途.md",
                 "mode": "preview",
                 "source": true
               }
@@ -82,8 +55,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -112,7 +84,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "閱讀",
+                "query": "tag:#OOP",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -129,8 +101,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -150,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Python/底線 (_) 的用途.md",
+                "file": "Python/Python 中的 OOP.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -167,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Python/底線 (_) 的用途.md",
+                "file": "Python/Python 中的 OOP.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -190,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Python/底線 (_) 的用途.md"
+                "file": "Python/Python 中的 OOP.md"
               }
             }
           }
@@ -213,19 +184,22 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "f1dbc03071aeb314",
+  "active": "9962711a7a98919d",
   "lastOpenFiles": [
+    "Python/底線 (_) 的用途.md",
+    "Python/Python 小技巧.md",
+    "Python/Type Hints.md",
+    "Network/SSH.md",
+    "Python/Python 中的 OOP.md",
+    "Pinkoi/Code Review.md",
+    "Pinkoi/memo.canvas",
     "Web Dev./JWT.md",
     "Web Dev./SSR vs. CSR.md",
     "程式語言理論/Liskov Substitution Principle (LSP).md",
     "Web Dev./Caching for GraphQL.md",
     "程式語言理論/Imperative vs. Declarative.md",
-    "Python/Python 中的 OOP.md",
-    "Network/SSH.md",
     "Network/Hub, Bridge, Switch & Router.md",
-    "Python/底線 (_) 的用途.md",
     "Network/SFTP vs. FTPS.md",
-    "Pinkoi/memo.canvas",
     "Operating System/Linux/常用指令與快捷鍵.md",
     "Operating System/Linux/與「搜尋」相關的指令.md",
     "Pinkoi/新版本部署至正式環境.md",
@@ -235,7 +209,6 @@
     "Pinkoi/What I Did This Month.canvas",
     "Formatting Syntax Cheat Sheet.md",
     "Pinkoi/apiv3 指南.md",
-    "Python/Type Hints.md",
     "Pinkoi/What I Did.md",
     "Pinkoi/上翻譯的流程.md",
     "Network/NAT.md",
@@ -244,8 +217,6 @@
     "Pinkoi/Open API.md",
     "Pinkoi/常用的 make 指令.md",
     "Pinkoi/本機環境部署筆記.md",
-    "Pinkoi/Code Review.md",
-    "Network/OSI Model.md",
     "img/Session-Hijacking-pic5-2048x1229.png",
     "img/Screenshot 2023-04-05 at 2.45.04 PM.png",
     "img/Screenshot 2023-04-05 at 1.13.55 PM.png",
