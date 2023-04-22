@@ -53,7 +53,7 @@ Uncaught TypeError: Cannot set property of undefined (reading 'name')
 回到 `new` 這個議題，最後一個值得注意的細節與 JavaScript 身為 prototype-based language 這件事相關，根據 [[JavaScript is a Prototype-based Language|Prototype-based Language]] 的原則：「一個物件的原型會是它的 constructor」或者說「`[物件].__proto__ === [constructor].prototype`」，以上面的例子來說，我們可以發現：
 
 ```JavaScript
-console.log(jeff.__proto___ === Person.prototype)  // true
+console.log(jeff.__proto_ === Person.prototype)  // true
 ```
 
 而這件事其實也是 `new` 幫我們做到的。

@@ -10,5 +10,5 @@
   "useMarkdownLinks": false,
   "newLinkFormat": "shortest",
   "useTab": false,
-  "spellcheck": false
+  "spellcheck": true
 }

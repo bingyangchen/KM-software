@@ -1,8 +1,15 @@
 # 特色
 
+```mermaid
+flowchart TD
+    id1(Key-Value Model)
+    id2(In-Memory Dataset)
+    id3(BASE Model)
+```
+
 ### Key-Value Model
 
-屬於 NoSQL。
+Redis 屬於 NoSQL。
 
 ### In-Memory Dataset
 

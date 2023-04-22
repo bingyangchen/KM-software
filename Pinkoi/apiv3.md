@@ -1,4 +1,4 @@
-Code Base 出發點：`/apiv3`
+Repo 位置：`/apiv3`
 
 # 範例結構
 

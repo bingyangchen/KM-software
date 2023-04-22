@@ -27,7 +27,11 @@ While most of the text in a note is meant to be read by a human, _metadata_ is
 
 # `<iframe>`
 
-<iframe src="https://jamison-chen.github.io/" style="height:80vh" />
+<iframe src="https://jamison-chen.github.io/" style="aspect-ratio: 16/9" />
+
+---
+
+<iframe style="aspect-ratio: 16/9" src="https://www.youtube.com/embed/Atbl7D_yPug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 # Footnote
 
