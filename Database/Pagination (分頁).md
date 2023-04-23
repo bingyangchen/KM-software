@@ -1,8 +1,8 @@
-Pagination 主要有兩種實現方式，分別為：
+Pagination 主要有三種實現方式，分別為：
 
-1. Offset Pagination
-2. Keyset Pagination
-3. Cursor-Based Pagination
+1. [[#Offset Pagination]]
+2. [[#Keyset Pagination]]
+3. [[#Cursor-Based Pagination]]
 
 # Offset Pagination
 
@@ -20,15 +20,11 @@ OFFSET 20;
 1. 為了讓每次分頁的結果都一樣，因此需要 `ORDER BY`
 2. 為了讓排序更有效率，用來排序的 column 必須有 index
 
-### 優點
-
-==可以跳到任意的分頁==
+### 優點：可以跳到任意的分頁
 
 只要給一個 `OFFSET` 的數字，就可以跳到指定的分頁。
 
-### 缺點
-
-==效能瓶頸==
+### 缺點：效能瓶頸
 
 以上方範例程式碼為例，雖然看似只 `select` 了 10 筆資料，但實際上是選了 30 筆資料然後把前面 20 筆丟掉。
 
@@ -38,25 +34,21 @@ OFFSET 20;
 
 ```PostgreSQL
 SELECT * FROM table_name
-ORDER BY key
 WHERE key > 20
+ORDER BY key
 LIMIT 10;
 ```
 
 ### 注意事項
 
 1. 作為分頁依據的 key **一定要**放在 `ORDER BY` 子句中，也因此，key 通常會有 index
-2. key 必須有 unique constraint
+2. Key 必須有 Unique Constraint
 
-### 優點
+### 優點：處理大量資料時較有效率
 
-==處理大量資料時較有效率==
+Keyset Pagination 不像 Offset Pagination 會把 target page「前」的所有資料都先取出來然後丟掉。
 
-Keyset Pagination 不像 Offset Pagination 會把目標分頁「前」的所有資料都先取出來然後丟掉。
-
-### 缺點
-
-==不一定可以跳到任意的分頁==
+### 缺點：不一定可以跳到任意的分頁
 
 當 key 的值不可預測時，無法只能透過「上一頁」、「下一頁」的方式換頁。
 
@@ -100,20 +92,15 @@ Cursor-Based Pagination 其實是 Keyset Pagination 的一種，只是 client si
 }
 ```
 
-### 優點
-
-==Cursor 可以夾帶額外資訊==
+### 優點：Cursor 可以夾帶額外資訊
 
 做「含有其他排序規則的查詢」時，可以將所有判斷條件一起編碼／加密，再拿 Keyset Pagination 段落中的例子舉例，在查詢第二頁時，就是將 `{"id": 629, "price": 410}` 編碼／加密。
 
-### 缺點
-
-==無法跳到任意的分頁==
+### 缺點：無法跳到任意的分頁
 
 由於 cursor 經過編碼或加密，一定無法預測，所以一定只能透過「上一頁」、「下一頁」的方式換頁。
 
 # 參考資料
 
-<https://vladmihalcea.com/sql-seek-keyset-pagination/>
-
-<https://tec.xenby.com/36-%E9%BE%90%E5%A4%A7%E8%B3%87%E6%96%99%E5%BA%AB%E5%88%86%E9%A0%81%E6%96%B9%E6%A1%88-cursor-based-pagination>
+- <https://vladmihalcea.com/sql-seek-keyset-pagination/>
+- <https://tec.xenby.com/36-%E9%BE%90%E5%A4%A7%E8%B3%87%E6%96%99%E5%BA%AB%E5%88%86%E9%A0%81%E6%96%B9%E6%A1%88-cursor-based-pagination>

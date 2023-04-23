@@ -28,8 +28,9 @@ HAVING … (條件) [optional]
 
 - 可以遞增 (`ASC`) 或遞減 (`DESC`)
 - 可以設定多順位
+- 可以先經過運算再排序
 
-e.g. `ORDER BY grade DESC, sid ASC`
+e.g. `ORDER BY grade DESC, sid ASC, UPPER(name) ASC`
 
 ### 使用 `LIMIT` 限制數量
 

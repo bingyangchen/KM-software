@@ -4,107 +4,148 @@
     "type": "split",
     "children": [
       {
-        "id": "4f5bc153594964f5",
-        "type": "tabs",
+        "id": "476d93c02fec6ac9",
+        "type": "split",
         "children": [
           {
-            "id": "9962711a7a98919d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Python/Python 中的 OOP.md",
-                "mode": "preview",
-                "source": true
+            "id": "4f5bc153594964f5",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "9962711a7a98919d",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Python/Python 中的 OOP.md",
+                    "mode": "preview",
+                    "source": true
+                  }
+                }
+              },
+              {
+                "id": "cf4297d484885e54",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Network/SSH Agent Forwarding.md",
+                    "mode": "preview",
+                    "source": true
+                  }
+                }
+              },
+              {
+                "id": "9a137539952179ed",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Network/SSH Tunneling.md",
+                    "mode": "source",
+                    "source": true
+                  }
+                }
+              },
+              {
+                "id": "b66414695a4212ea",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Network/SFTP vs. FTPS.md",
+                    "mode": "preview",
+                    "source": true
+                  }
+                }
+              },
+              {
+                "id": "775bd53e5b51d0a5",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Database/淺談 SQL.md",
+                    "mode": "preview",
+                    "source": true
+                  }
+                }
+              },
+              {
+                "id": "e5cafe50f217645d",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Database/DML.md",
+                    "mode": "preview",
+                    "source": true
+                  }
+                }
+              },
+              {
+                "id": "1e33bf365cbc4352",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Database/PostgreSQL/Nested Query.md",
+                    "mode": "preview",
+                    "source": true
+                  }
+                }
+              },
+              {
+                "id": "0aa4e25af6572f13",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Database/PostgreSQL/IN vs EXISTS vs ANY vs JOIN.md",
+                    "mode": "preview",
+                    "source": true
+                  }
+                }
               }
-            }
+            ],
+            "currentTab": 4
           },
           {
-            "id": "cf4297d484885e54",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Network/SSH Agent Forwarding.md",
-                "mode": "preview",
-                "source": true
+            "id": "78b0a4caa807cb18",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "4b7cd264349903b8",
+                "type": "leaf",
+                "state": {
+                  "type": "terminal:terminal",
+                  "state": {
+                    "terminal:terminal": {
+                      "cwd": "/Users/pinkoi/Library/CloudStorage/GoogleDrive-106208004@g.nccu.edu.tw/My Drive/KM-software",
+                      "profile": {
+                        "args": [],
+                        "executable": "/bin/zsh",
+                        "name": "zsh",
+                        "platforms": {
+                          "darwin": true
+                        },
+                        "pythonExecutable": "python3",
+                        "type": "integrated",
+                        "useWin32Conhost": true
+                      },
+                      "serial": {
+                        "columns": 132,
+                        "data": "pinkoi@PinkoideAir-4 KM-software % sh push.sh\u001b[1m \r\n\u001b[0msh          sharing     shasum5.30  shazam      shlock      showmount   \r\nshar        shasum      shasum5.34  shift       shortcuts   shutdown    \u001b[2A\u001b[26D",
+                        "rows": 16
+                      }
+                    }
+                  }
+                }
               }
-            }
-          },
-          {
-            "id": "9a137539952179ed",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Network/SSH Tunneling.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "b66414695a4212ea",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Network/SFTP vs. FTPS.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "e5cafe50f217645d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Database/DML.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "775bd53e5b51d0a5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Database/淺談 SQL.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "1e33bf365cbc4352",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Database/PostgreSQL/Nested Query.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "0aa4e25af6572f13",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Database/PostgreSQL/IN vs EXISTS vs ANY vs JOIN.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
+            ]
           }
         ],
-        "currentTab": 6
+        "direction": "horizontal"
       }
     ],
     "direction": "vertical"
@@ -154,7 +195,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 218.5
+    "width": 218.5,
+    "collapsed": true
   },
   "right": {
     "id": "f13142408b62142a",
@@ -170,7 +212,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Database/PostgreSQL/Nested Query.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -187,7 +228,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Database/PostgreSQL/Nested Query.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -209,9 +249,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Database/PostgreSQL/Nested Query.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -233,15 +271,15 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "1e33bf365cbc4352",
+  "active": "4b7cd264349903b8",
   "lastOpenFiles": [
-    "Database/PostgreSQL/IN vs EXISTS vs ANY vs JOIN.md",
-    "Database/EXPLAIN.md",
-    "Database/PostgreSQL/Nested Query.md",
-    "Formatting Syntax Cheat Sheet.md",
     "Database/淺談 SQL.md",
+    "Database/PostgreSQL/Nested Query.md",
     "Database/DML.md",
     "Database/Pagination (分頁).md",
+    "Database/PostgreSQL/IN vs EXISTS vs ANY vs JOIN.md",
+    "Database/EXPLAIN.md",
+    "Formatting Syntax Cheat Sheet.md",
     "Network/SFTP vs. FTPS.md",
     "Database/零碎筆記.md",
     "Database/Locks (鎖).md",
