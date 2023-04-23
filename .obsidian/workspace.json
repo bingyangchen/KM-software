@@ -135,7 +135,7 @@
                       },
                       "serial": {
                         "columns": 132,
-                        "data": "pinkoi@PinkoideAir-4 KM-software % sh push.sh\u001b[1m \r\n\u001b[0msh          sharing     shasum5.30  shazam      shlock      showmount   \r\nshar        shasum      shasum5.34  shift       shortcuts   shutdown    \u001b[2A\u001b[26D",
+                        "data": "pinkoi@PinkoideAir-4 KM-software % sh push.sh \r\nGitBook summary file (SUMMARY.md) generated.\r\n[master ae9f82a] Update\r\n 4 files changed, 160 insertions(+), 134 deletions(-)\r\nEnumerating objects: 15, done.\r\nCounting objects: 100% (15/15), done.\r\nDelta compression using up to 8 threads\r\nCompressing objects: 100% (8/8), done.\r\nWriting objects: 100% (8/8), 1.72 KiB | 1.72 MiB/s, done.\r\nTotal 8 (delta 7), reused 0 (delta 0), pack-reused 0\r\nremote: Resolving deltas: 100% (7/7), completed with 7 local objects.\r\nTo github.com:Jamison-Chen/KM-software.git\r\n   12ed28e..ae9f82a  master -> master\r\nbranch 'master' set up to track 'origin/master'.\r\npinkoi@PinkoideAir-4 KM-software % ",
                         "rows": 16
                       }
                     }
