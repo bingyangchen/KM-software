@@ -1,4 +1,12 @@
-本篇主要討論四種方法在效能上的差異，現在假設資料庫有以下兩個表：
+本篇主要討論標題的四種方法在效能上的差異，現在假設資料庫有以下三個表：
+
+**course**
+
+|id|name|
+|--|--|
+|1|Math|
+|2|Science|
+|…|…|
 
 **student**
 
@@ -7,7 +15,7 @@
 | 1 | Alice | Female | 1999-01-20 |
 | 2 | Bob | Male | 1998-12-12 |
 | 3 | Candice | Female | 1999-04-20 |
-| ... | ... | ... | ... |
+| … | … | … | … |
 
 **enrollment**
 
@@ -17,57 +25,57 @@
 | 1 | 2 | 79.00 |
 | 1 | 3 | 88.00 |
 | 1 | 4 | 88.50 |
-| 2 | 5 |       |
+| 2 | 5 |*null*|
 | 2 | 6 | 79.90 |
-| ... | ... | ... |
+| … | … | … |
 
 # Inclusion Queries
 
 當要篩選出「包含某值」的資料時，這樣的 query 稱為 inclusion queries。
 
-比如我今天想要取得所有有參與「課堂 1」的學生的基本資料，可以分別以 `IN`, `ANY`, `EXISTS` 以及 `JOIN` 四種做法得到相同的 output：
+比如若想取得所有有參與「課堂 1」學生的資料，可以分別以 `IN`, `ANY`, `EXISTS` 以及 `JOIN` 四種做法得到相同的結果：
 
-**使用 `IN`**
+- **使用 `IN`**
 
-```PostgreSQL
-SELECT * FROM student
-WHERE id IN (
-    SELECT sid FROM enrollment
-    WHERE cid = 1
-);
-```
+    ```PostgreSQL
+    SELECT * FROM student
+    WHERE id IN (
+        SELECT sid FROM enrollment
+        WHERE cid = 1
+    );
+    ```
 
-**使用 `= ANY`**
+- **使用 `= ANY`**
 
-```PostgreSQL
-SELECT * FROM student
-WHERE id = ANY(
-    SELECT sid FROM enrollment
-    WHERE cid = 1
-);
-```
+    ```PostgreSQL
+    SELECT * FROM student
+    WHERE id = ANY(
+        SELECT sid FROM enrollment
+        WHERE cid = 1
+    );
+    ```
 
-**使用 `EXISTS`**
+- **使用 `EXISTS`**
 
-```PostgreSQL
-SELECT * FROM student AS s
-WHERE EXISTS (
-    SELECT sid FROM enrollment
-    WHERE cid = 1 AND sid = s.id
-);
-```
+    ```PostgreSQL
+    SELECT * FROM student AS s
+    WHERE EXISTS (
+        SELECT sid FROM enrollment
+        WHERE cid = 1 AND sid = s.id
+    );
+    ```
 
-**使用 `JOIN`**
+- **使用 `JOIN`**
 
-```PostgreSQL
-SELECT s.* FROM student AS s
-JOIN enrollment AS e ON s.id = e.sid
-WHERE e.cid = 1;
-```
+    ```PostgreSQL
+    SELECT s.* FROM student AS s
+    JOIN enrollment AS e ON s.id = e.sid
+    WHERE e.cid = 1;
+    ```
 
 傳統上會認為，`EXIST` 與 `JOIN` 兩種做法在演算上是較有效率的，不過這些年來大部分的 RDBMS 在 `IN` 與 `ANY` 的演算上都做了許多改善，因此其實在處理 inclusion queries 時，上面四個做法的演算效率是一模一樣的。
 
-我們可以用 `EXPLAIN ANALYZE` 子句（詳見[[EXPLAIN|本文]]）來驗證這個說法，你會發現四種做法經過 `EXPLAIN` 的結果都相同如下：
+我們可以用 `EXPLAIN ANALYZE` 產生的 query plan（詳見[[EXPLAIN|本文]]）來驗證這個說法，你會發現四種做法的 query plan 都相同如下：
 
 ```plaintext
                                        QUERY PLAN                                        
@@ -83,11 +91,9 @@ WHERE e.cid = 1;
 (8 rows)
 ```
 
-其中，因為 `IN` 版本與 `ANY` 版本連 subquery 都長得一樣，因此我們會說：
+其中，因為 `IN` 版本與 `ANY` 版本連 subquery 都長得一樣，因此我們會說 ==`IN (subquery)` 與 `= ANY (subquery)` 是等價的==。
 
->`IN (subquery)` 與 `= ANY (subquery)` 是等價的。
-
-可是別高興得太早，我們接來看 exclusion queries。
+可是請別高興得太早！我們接著來看 exclusion queries…
 
 # Exclusion Queries
 
@@ -95,46 +101,46 @@ WHERE e.cid = 1;
 
 比如我今天想要取得所有**沒有**參與「課堂 1」的學生的基本資料，一樣有四種做法可以得到相同的 output：
 
-**使用 `NOT IN`**
+- **使用 `NOT IN`**
 
-```PostgreSQL
-SELECT * FROM student
-WHERE id NOT IN (
-    SELECT sid FROM enrollment
-    WHERE cid = 1
-);
-```
+    ```PostgreSQL
+    SELECT * FROM student
+    WHERE id NOT IN (
+        SELECT sid FROM enrollment
+        WHERE cid = 1
+    );
+    ```
 
-**使用 `<> ALL`**
+- **使用 `<> ALL`**
 
-```PostgreSQL
-SELECT * FROM student
-WHERE id <> ALL(
-    SELECT sid FROM enrollment
-    WHERE cid = 1
-);
-```
+    ```PostgreSQL
+    SELECT * FROM student
+    WHERE id <> ALL(
+        SELECT sid FROM enrollment
+        WHERE cid = 1
+    );
+    ```
 
-**使用 `NOT EXISTS`**
+- **使用 `NOT EXISTS`**
 
-```PostgreSQL
-SELECT * FROM student AS s
-WHERE NOT EXISTS (
-    SELECT sid FROM enrollment
-    WHERE cid = 1 AND sid = s.id
-);
-```
+    ```PostgreSQL
+    SELECT * FROM student AS s
+    WHERE NOT EXISTS (
+        SELECT sid FROM enrollment
+        WHERE cid = 1 AND sid = s.id
+    );
+    ```
 
-**使用 `LEFT JOIN` +  `IS NULL`**
+- **使用 `LEFT JOIN` +  `IS NULL`**
 
-```PostgreSQL
-SELECT s.* FROM student AS s
-LEFT JOIN enrollment AS e
-ON s.id = e.sid AND e.cid = 1
-WHERE e.* IS NULL;
-```
+    ```PostgreSQL
+    SELECT s.* FROM student AS s
+    LEFT JOIN enrollment AS e
+    ON s.id = e.sid AND e.cid = 1
+    WHERE e.* IS NULL;
+    ```
 
-只是這次，`EXPLAIN ANALYZE` 的結果就不同了：
+這次 `EXPLAIN ANALYZE` 產生的 query plan 就不同了：
 
 ```PostgreSQL
 EXPLAIN ANALYZE SELECT * FROM student
@@ -162,6 +168,8 @@ Output:
  Execution Time: 0.051 ms
 (11 rows)
 ```
+
+---
 
 ```PostgreSQL
 EXPLAIN ANALYZE SELECT * FROM student
@@ -191,6 +199,8 @@ Output:
 (12 rows)
 ```
 
+---
+
 ```PostgreSQL
 EXPLAIN ANALYZE SELECT * FROM student AS s
 WHERE NOT EXISTS (
@@ -219,6 +229,8 @@ Output:
 (12 rows)
 ```
 
+---
+
 ```PostgreSQL
 EXPLAIN ANALYZE SELECT s.* FROM student AS s
 LEFT JOIN enrollment AS e
@@ -246,11 +258,11 @@ Output:
 (14 rows)
 ```
 
-你會發現，`NOT IN` 與 `<> ALL` 的 `EXPLAIN ANALYZE` 結果中都出現了 SubPlan，而 `NOT EXISTS` 與 `LEFT JOIN` 則沒有。而==含有越少層 SubPlan 的 query 越有效率==，因此可以初步得到以下結論：
+我們發現，`NOT IN` 與 `<> ALL` 的 `EXPLAIN ANALYZE` 結果中都出現了 SubPlan，而 `NOT EXISTS` 與 `LEFT JOIN` 則沒有。已知==含有越少層 SubPlan 的 query 越有效率==，因此可以初步得到以下結論：
 
 >`NOT EXISTS` 與 `LEFT JOIN` 在處理 Exclusion Queries 時比較有效率。
 
-然而觀察 Execution Time 時我們又會發現，`NOT IN` 所花的時間是最少的，其實這是因為 PostgreSQL 在 `NOT IN` 之中使用了 hashed SubPlan，運算效率因此得到提升，PostgreSQL 會在這部分下功夫，也是因為 `NOT IN` 這種寫法對一般人而言是很直覺的。
+然而觀察 Execution Time 時我們又會發現，`NOT IN` 所花的時間才是最少的，其實這是因為 PostgreSQL 在 `NOT IN` 之中使用了 **hashed SubPlan**，運算效率因此得到提升，PostgreSQL 會在這部分下功夫，也是因為 `NOT IN` 這種寫法對人們而言是很直覺的。
 
 不過，當 SubPlan 產出的 rows 太多時，PostgreSQL 的 `NOT IN` 又會回到沒有 hash 的做法，效率就又變低了。
 

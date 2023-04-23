@@ -56,19 +56,55 @@
             }
           },
           {
-            "id": "21c2f2497ac0b14c",
+            "id": "e5cafe50f217645d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Database/N+1 Query Problem.md",
+                "file": "Database/DML.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "775bd53e5b51d0a5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Database/淺談 SQL.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "1e33bf365cbc4352",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Database/PostgreSQL/Nested Query.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "0aa4e25af6572f13",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Database/PostgreSQL/IN vs EXISTS vs ANY vs JOIN.md",
                 "mode": "preview",
                 "source": true
               }
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -134,7 +170,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Database/N+1 Query Problem.md",
+                "file": "Database/PostgreSQL/Nested Query.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +187,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Database/N+1 Query Problem.md",
+                "file": "Database/PostgreSQL/Nested Query.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,7 +210,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Database/N+1 Query Problem.md"
+                "file": "Database/PostgreSQL/Nested Query.md"
               }
             }
           }
@@ -197,34 +233,34 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "21c2f2497ac0b14c",
+  "active": "1e33bf365cbc4352",
   "lastOpenFiles": [
+    "Database/PostgreSQL/IN vs EXISTS vs ANY vs JOIN.md",
+    "Database/EXPLAIN.md",
+    "Database/PostgreSQL/Nested Query.md",
+    "Formatting Syntax Cheat Sheet.md",
+    "Database/淺談 SQL.md",
+    "Database/DML.md",
+    "Database/Pagination (分頁).md",
+    "Network/SFTP vs. FTPS.md",
+    "Database/零碎筆記.md",
+    "Database/Locks (鎖).md",
+    "Database/Introduction.md",
+    "Database/Aggregate Functions.md",
+    "Database/PostgreSQL/Window Functions.md",
+    "Network/OSI Model.md",
+    "Web Dev./後端/Django (Python)/Django 的專案架構.md",
+    "Python/Python 中的 OOP.md",
+    "Database/ACID vs. BASE.md",
+    "Database/N+1 Query Problem.md",
     "Database/Integrity Constraint.md",
     "Database/MVCC vs. SS2PL.md",
     "Database/Normalization (正規化 ).md",
-    "Database/Pagination (分頁).md",
     "Database/Sharding vs. Partitioning.md",
     "Database/Index (索引).md",
     "Database/Concurrency.md",
-    "Database/Introduction.md",
-    "Database/ACID vs. BASE.md",
-    "Database/零碎筆記.md",
-    "Database/DML 子句順序.md",
-    "Database/淺談 SQL.md",
-    "Database/Locks (鎖).md",
     "Database/Redis/Redis CLI.md",
     "Database/Redis/安裝與啟用 (on MacOS).md",
-    "Database/Redis/Introduction.md",
-    "Python/Python 中的 OOP.md",
-    "Network/SSH Agent Forwarding.md",
-    "Network/SSH Tunneling.md",
-    "Network/SFTP vs. FTPS.md",
-    "Database/N+1 Query Problem.md",
-    "Web Dev./後端/Django (Python)/Django 的專案架構.md",
-    "Web Dev./後端/Django (Python)/如何開始一個專案.md",
-    "Pinkoi/apiv3.md",
-    "Network/A Record 與 CNAME Record.md",
-    "Formatting Syntax Cheat Sheet.md",
     "Pinkoi/desktop.canvas",
     "Pinkoi/What I Did This Month.canvas",
     "Cryptography",

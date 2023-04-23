@@ -13,7 +13,7 @@ erDiagram
 
 在上面的架構層級中，App 這個名詞可能會讓人有些疑問或誤解：「一個 App 通常不就是一個 project 嗎？怎麼一個 project 下埋會有多個 App？」因此這裡建議你可以將 Django 所定義的 App 想成是一個 **Component**，一個 component 通常會是一個完整的「功能模組」，比如一個電商網站 Project 裡可能會有一個專門負責與帳號相關的 component 叫 `account`；可能會有一個購物車的 component `cart`…… 等。
 
-### M0dels
+### Models
 
 一個 Component 底下會有若干個與該 component 最密且相關的 Models，由於 Django 使用 ORM 架構，因此一個 model 就對應到一個 database 中的 relation，這些 models 雖然說與所屬的 component 最密切相關，但當然也是可以在其它 components 中被引入使用的。
 

@@ -2,19 +2,17 @@
 
 - Database
   - [Integrity Constraint](<././Database/Integrity Constraint.md>)
-  - [DML 子句順序](<././Database/DML 子句順序.md>)
   - PostgreSQL
     - [JOIN vs. FROM 多個表 WHERE ...](<././Database/PostgreSQL/JOIN vs. FROM 多個表 WHERE ....md>)
     - [Nested Query](<././Database/PostgreSQL/Nested Query.md>)
     - [零碎筆記](<././Database/PostgreSQL/零碎筆記.md>)
     - [SELECT ... FOR UPDATE](<././Database/PostgreSQL/SELECT ... FOR UPDATE.md>)
     - [NUMERIC vs. REAL vs. DOUBLE PRECISION](<././Database/PostgreSQL/NUMERIC vs. REAL vs. DOUBLE PRECISION.md>)
-    - [Aggregate Functions](<././Database/PostgreSQL/Aggregate Functions.md>)
     - [psql (PostgreSQL CLI)](<././Database/PostgreSQL/psql (PostgreSQL CLI).md>)
     - [Window Functions](<././Database/PostgreSQL/Window Functions.md>)
+    - [IN vs EXISTS vs ANY vs JOIN](<././Database/PostgreSQL/IN vs EXISTS vs ANY vs JOIN.md>)
     - [JOIN](<././Database/PostgreSQL/JOIN.md>)
     - [安裝與啟用 (on MacOS)](<././Database/PostgreSQL/安裝與啟用 (on MacOS).md>)
-    - [IN vs. EXISTS vs. ANY, ALL vs. JOIN](<././Database/PostgreSQL/IN vs. EXISTS vs. ANY, ALL vs. JOIN.md>)
   - [Sharding vs. Partitioning](<././Database/Sharding vs. Partitioning.md>)
   - [零碎筆記](<././Database/零碎筆記.md>)
   - Redis
@@ -23,14 +21,17 @@
     - [安裝與啟用 (on MacOS)](<././Database/Redis/安裝與啟用 (on MacOS).md>)
   - [ACID vs. BASE](<././Database/ACID vs. BASE.md>)
   - [Index (索引)](<././Database/Index (索引).md>)
+  - [EXPLAIN](<././Database/EXPLAIN.md>)
   - [Normalization (正規化 )](<././Database/Normalization (正規化 ).md>)
   - [Pagination (分頁)](<././Database/Pagination (分頁).md>)
   - [Introduction](<././Database/Introduction.md>)
   - [N+1 Query Problem](<././Database/N+1 Query Problem.md>)
   - [Locks (鎖)](<././Database/Locks (鎖).md>)
+  - [DML](<././Database/DML.md>)
   - MongoDB
     - [Mongosh](<././Database/MongoDB/Mongosh.md>)
     - [安裝與啟用](<././Database/MongoDB/安裝與啟用.md>)
+  - [Aggregate Functions](<././Database/Aggregate Functions.md>)
   - [MVCC vs. SS2PL](<././Database/MVCC vs. SS2PL.md>)
   - [淺談 SQL](<././Database/淺談 SQL.md>)
   - [Concurrency](<././Database/Concurrency.md>)

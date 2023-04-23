@@ -12,13 +12,16 @@
 - 不能同時有兩個以上的 threads (users) 在存取資料
 - 無法 rollback
 
+### SQLite3
+
 SQLite3 雖然也是 file-based database，但不算是 "flat-file" database，因為 SQLite3 使用了較複雜的檔案格式，使得它可以做到 "[[Index (索引)|indexing]]"、"[[#^f28c84|transaction]]" 等一般 flat-file database 做不到的事。
 
 # Data Model vs. Schema
 
->Data Model 就是資料庫的 Logical Layer；而 Schema 就是資料庫的 Physical Layer。
+Data Model 就是資料庫的 Logical Layer；而 Schema 就是資料庫的 Physical Layer。
 
-Logical Layer & Physical Layer (Multi-layer Architecture) 的概念其實不只在資料庫這個領域看得到，其它如網路通訊理論等也有 Multi-layer Architecture 的概念。
+> [!Note]
+>Logical Layer & Physical Layer (Multi-layer Architecture) 的概念其實不只在資料庫這個領域看得到，比如網路通訊理論中的 [[OSI Model]] 也是一種 Multi-layer Architecture。
 
 ### Data Model
 
@@ -52,13 +55,13 @@ Schema 用來實現 Data Model 的描述／定義，所以要給定一個 Data M
 - 要存在 disk 還是 memory
 - ...
 
-Developer 透過 SQL 語法撰寫 Database Schema，交給 DBMS 執行過一次後，Database Schema 便設定完成。
+開發人員使用 SQL 撰寫 Database Schema，交給 DBMS 執行過一次後，Database Schema 便設定完成。
 
 ---
 
-在以前，Database Schema (Physical Layer) 是寫在 application codebase 裡的，也就是說，如果有一天你想要更改資料庫儲存資料的方式，你就必須去找到散佈在 application codebase 各處的與資料庫存取相關的片段（一堆 query plans），然後一一修改它們，application codebase 因此變得較難維護。*(使用 [[#Flat-File Database]] 的 application 至今都還是如此，這其實也算是它的缺點之一)*
+以前，Database Schema (Physical Layer) 是寫在 application codebase 裡的，也就是說，如果有一天你想要更改資料庫儲存資料的方式，你就必須去找到散佈在 application codebase 各處的與資料庫存取相關的片段（一堆 query plans），然後一一修改它們，application codebase 會因此變得較難維護。*(使用 [[#Flat-File Database]] 的 application 至今都還是如此，這其實也算是它的缺點之一)*
 
-現今使用 Relational Database（甚至 NoSQL Database）時，我們幾乎不會直接在 application code 裡描述我們要「如何儲存」資料、或者「如何找到」我們想要的資料，而是使用[[程式語言理論/零碎筆記#^6b30b4|高階]]的 SQL 語法口語化地陳述我們想做的事情，DBMS 的 Query Optimizer 可以有效率地將這些 SQL 轉換成 query plans（通常這些 query plans 本身也是有效率的）。
+現今使用 Relational Database（甚至 NoSQL Database）時，我們幾乎不會直接在 application code 裡描述我們要「如何儲存」資料、或者「如何找到」我們想要的資料，而是使用[[程式語言理論/零碎筆記#^6b30b4|高階]]的 SQL 口語化地陳述我們想做的事情，DBMS 的 Query Optimizer 可以有效率地將這些 SQL 轉換成 query plans（通常這些 query plans 本身也是有效率的）。
 
 # Relational Database 的架構
 

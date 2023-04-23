@@ -1,12 +1,6 @@
 凡是經過運算一堆 tuples (rows) 後 output 一個 scalar 的 function，就叫做 Aggregate Function，簡稱 Aggregates。
 
-PostgreSQL 中的 aggregate functions 包括：
-
-- `avg()`
-- `count()`
-- `max()`
-- `min()`
-- `sum()`
+SQL Standard 中的 aggregate functions 包括：`avg()`、`count()`、`max()`、`min()` 以及 `sum()`。
 
 # Aggregates 與 `GROUP BY` 是好朋友
 
@@ -25,28 +19,28 @@ GROUP BY cid;
 
 由於上述限制，因此若我們想將 `max(score)` 當作一個 column 加在 `enrollment` 的後面，就不能用像是 `SELECT *, max(score) FROM enrollment;` 這樣的方式。那該怎麼做呢？其實有兩種方法可以做到：
 
-**法一：`JOIN`**
+- **法一：`JOIN`**
 
-```PostgreSQL
-SELECT e.*, sub.max_score FROM enrollment AS e
-JOIN (
-    SELECT max(score) AS max_score, cid FROM enrollment
-    GROUP BY cid
-) AS sub
-ON e.cid = sub.cid;
-```
+    ```PostgreSQL
+    SELECT e.*, sub.max_score FROM enrollment AS e
+    JOIN (
+        SELECT max(score) AS max_score, cid FROM enrollment
+        GROUP BY cid
+    ) AS sub
+    ON e.cid = sub.cid;
+    ```
 
-既然不能任意把其他 columns 寫在有 aggregate funciton 的 `SELECT` clause，那就使用 `JOIN` 將這些想加入的 columns 加進去。
+    既然不能任意把其他 columns 寫在有 aggregate funciton 的 `SELECT` clause，那就使用 `JOIN` 將這些想加入的 columns 加進去。
 
-**法二：`OVER`**
+- **法二：`OVER`**
 
-```PostgreSQL
-SELECT *, max(score) OVER (PARTITION BY cid) FROM enrollment;
-```
+    ```PostgreSQL
+    SELECT *, max(score) OVER (PARTITION BY cid) FROM enrollment;
+    ```
 
-這個做法實際上是將 `max` 這個 aggregate function 轉化成 [[Window Functions|window function]]，我們可以發現，無論是語法的簡潔度還是執行效率，這個方法皆勝出。
+    這個做法實際上是將 `max` 這個 aggregate function 轉化成 [[Window Functions|window function]]，我們可以發現，無論是語法的簡潔度還是執行效率，這個方法皆勝出。
 
-若沒有要 `PARTITION BY` 任何東西，那就 `OVER ()` 即可。
+    若沒有要 `PARTITION BY` 任何東西，那就 `OVER ()` 即可。
 
 # Aggregates 只能出現在 `SELECT` 及 `HAVING` 子句
 
