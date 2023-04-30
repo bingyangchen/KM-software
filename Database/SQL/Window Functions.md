@@ -1,9 +1,13 @@
-Window functions 與 [[Aggregate Functions]] 有相似也有相異之處，相似之處在於，window functions 也是運算一堆 rows；相異之處在於，aggregate functions 只會為每個分組結果 (`GROUP BY`) output 一個 row 或者說一個 scalar，window functions 則是會保留所有原本的 rows，並把運算的結果依照分組結果 (`PARTITION BY`) 附加在每一個 row 上。
+Window functions 與 [[Aggregate Functions]] 有相似也有相異之處，相似之處在於，window functions 也是運算一堆 tuples；相異之處在於，aggregate functions 只會為每個分組結果 (`GROUP BY`) output 一個 tuple 或者一個 scalar，window functions 則是把運算的結果依照分組結果 (`PARTITION BY`) 附加在每一個 tuple 上。
 
 舉例：
 
 ```PostgreSQL
-SELECT depname, empno, salary, avg(salary) OVER (PARTITION BY depname)
+SELECT
+    depname,
+    empno,
+    salary,
+    avg(salary) OVER (PARTITION BY depname)
 FROM empsalary;
 ```
 
@@ -29,13 +33,17 @@ Output:
 
 若一個 function 被呼叫時，後面跟著 `OVER` clause，則該 function 就是一個 window function，反之則不是。
 
-`OVER` clause 的內容又叫做 **window definition**，其用途在描述「apply 這個 window function 前要如何處理資料」，**前處理**泛指分組 ([[#^8ea1ae|PARTITION BY]])、排序 (`ORDER BY`) 等。
+### Window Definition
+
+`OVER` clause 中的內容又叫做 **window definition**，其用途在描述「apply 這個 window function 前要如何處理資料」，**前處理**泛指分組 ([[#^8ea1ae|PARTITION BY]])、排序 (`ORDER BY`) 等。
 
 如果資料無須前處理，則 `OVER` clause 以空值 `()` 表示，比如：
 
 ```PostgreSQL
 SELECT *, ROW_NUMBER() OVER () FROM student;
 ```
+
+### `WINDOW` Clause
 
 一個 query 中可以有多個 window functions，每個 window function 都必須有各自的 window definition，然而，如果有多個 window functions 的 window definition 長地一模一樣，則可以將 window definition 定義在 `WINDOW` clause 中，並定義一個 window name 來代表這個 window definition，進而達到重複使用的目的，比如下例中的 `w`：
 
@@ -45,7 +53,7 @@ FROM empsalary
 WINDOW w AS (PARTITION BY depname ORDER BY salary DESC);
 ```
 
-若一個 query 中有超過多個 window functions，則擁有相同 `PARTITION BY` 與 `ORDER BY` 的 window functions 必定會在「同一個對 data 的 loop」中被計算出來，換句話說，它們看到的 data 的分組結果與排序結果會是一模一樣的。
+若一個 query 中有超過多個 window functions，則擁有相同 `PARTITION BY` 與 `ORDER BY` 的 window functions 必定會在「同一個對 data 的 loop」中被計算出來。
 
 # 以 `ORDER BY` 排序
 
@@ -70,6 +78,10 @@ Output:
   5 | Eric    | Male   | 1999-08-08    |          8
 (8 rows)
 ```
+
+在 window definition 中排序與在外面排序有什麼不一樣呢？
+
+#TODO 
 
 # 以 `PARTITION BY` 分組
 
@@ -133,7 +145,7 @@ Output:
 
 Window functions 可以讀取到的 rows 是經過 `WHERE`, `GROUP BY`, `HAVING` 篩選／分組過後的 rows，其執行順位就像其它被 SELECT 的 columns 一樣，幾乎是最後。
 
-也因為如此，==window functions 只能出現在 SELECT clause 中作為其中一個 output column，以及出現在 ORDER BY clause 中作為 filter condition，其他地方像是 GROUP BY, HAVING, WHERE clauses 中都不能出現 window functions==。
+也因為如此，==window functions 只能出現在 `SELECT` clause 中作為其中一個 output column，以及出現在 `ORDER BY` clause 中作為 filter condition，其他地方像是 `GROUP BY`, `HAVING`, `WHERE` clauses 中都不能出現 window functions==。
 
 Window functions 的執行順位甚至在 aggregate functions 之後，這意味著你可以將 aggregate function 的 output 放在一個 window function 中做為參數，但不能將 window funtion 的 output 放在一個 aggregate function 中做為參數。
 
@@ -229,11 +241,17 @@ Output:
 一個 window function call 的結構可以是下面的其中一種：
 
 ```plaintext
-function_name ([expression, [expression, ...]]) [FILTER (WHERE filter_clause)] OVER window_name
+function_name (
+    [expression, [expression, ...]]
+) [FILTER (WHERE filter_clause)]
+OVER window_name
 ```
 
 ```plaintext
-function_name ([expression, [expression, ...]]) [FILTER (WHERE filter_clause)] OVER (window_definition)
+function_name (
+    [expression, [expression, ...]]
+) [FILTER (WHERE filter_clause)]
+OVER (window_definition)
 ```
 
 ```plaintext
@@ -255,6 +273,5 @@ function_name (*) [FILTER (WHERE filter_clause)] OVER (window_definition)
 
 # 參考資料
 
-<https://www.postgresql.org/docs/current/tutorial-window.html>
-
-<https://www.postgresql.org/docs/current/sql-expressions.html#SYNTAX-WINDOW-FUNCTIONS>
+- <https://www.postgresql.org/docs/current/tutorial-window.html>
+- <https://www.postgresql.org/docs/current/sql-expressions.html#SYNTAX-WINDOW-FUNCTIONS>

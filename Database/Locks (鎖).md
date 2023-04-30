@@ -1,4 +1,4 @@
-Locking 是許多 DBMS 用來進行 [[Concurrency#^d021d9|Concurrency Control]] 的手段之一，在 PostgreSQL 主要有以下四種 Locks：
+Locking 是許多 DBMS 用來進行 [[Concurrency#^d021d9|Concurrency Control]] 的手段之一，比如 PostgreSQL 就有以下四種 Locks：
 
 - [Table-Level Locks](<# Table-Level Locks>)
 - [Row-Level Locks](<# Row-Level Locks>)

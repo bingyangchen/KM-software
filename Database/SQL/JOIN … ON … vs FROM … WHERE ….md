@@ -1,4 +1,4 @@
-結論是，盡量使用 `JOIN`。
+結論是：盡量使用 `JOIN`。
 
 假設現在資料庫有以下幾個表：
 
@@ -32,7 +32,7 @@
 
 今天我想「列出一個有公司名稱、團隊名稱、員工名稱的總表」，則有以下兩種做法：
 
-### FROM 多個表 WHERE ...
+### FROM … WHERE …
 
 ```PostgreSQL
 SELECT c.name, t.name, e.name
@@ -40,7 +40,7 @@ FROM company AS c, team AS t, employee AS e
 WHERE c.id = t.cid AND t.id = e.tid;
 ```
 
-### JOIN ... ON ...
+### JOIN … ON …
 
 ```PostgreSQL
 SELECT c.name, t.name, e.name

@@ -20,4 +20,41 @@
 
 # 新增一個 Tool
 
+### Step1: 新增一個 Page Folder
+
+在 `/admin-site/src/pages` 裡新增一個 Page Folder，folder 所在的位置應與 tool 在 Admin Tool 側邊欄的位置一致，這是 convention，目的是方便尋找。
+
+Page folder 裡至少會有 `index.vue` 一個檔案，這個檔案是 tool 的 home。
+
+Page folder 裡不應放入任何 UI 邏輯以及資料操作邏輯，故通常只會看到 `<template>` 裡包著若干個 component(s)，以及在 `<script>` 裡更改 `document.title`，像是下面這樣：
+
+```vue
+<template>
+    <my-component />
+</template>
+<script>
+export default {
+    created() {
+        document.title = 'My Tool Name'
+    }
+}
+</script>
+```
+
+### Step2: 新增一個 Menu Item
+
+在 `/admin-site/src/components/menuItems.js` 裡新增一個 object，object 所在的位置會影響 tool 在 Admin Tool 側邊欄的位置。
+
+Object 長的像這樣：
+
+```javascript
+{
+    title: 'My Tool',
+    icon: 'icon-name',
+    to: '/route/to/tool',
+}
+```
+
+# Components
+
 #TODO 

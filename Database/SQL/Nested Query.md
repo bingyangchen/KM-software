@@ -14,12 +14,11 @@ WHERE column_name <operator> (
 
 # Nested Query 的使用規則
 
-- Subquery 必須用 `()` 包覆之
-- 出現在 `SELECT` clause 中的 subquery 必須是 [[#^546f7e|scalar subquery]]
-- Subquery 中的 `SELECT` 子句中通常只會有一個 column，除非 outer query 的 `WHERE` 子句中有「拿多個 subquery output 的 columns 來進行比較」的動作（[[#^e6b41b|見此段]]），或者根本不在意有幾個 columns（比如使用 `EXISTS` 時）
+- Subquery 必須用 `()` 包起來
+- 出現在 `SELECT` 字句中的 subquery 必須是 [[#^546f7e|scalar subquery]]
 - Subquery 中不能出現 `ORDER BY` 子句，但可以用 `GROUP BY` 來達到 `ORDER BY` 的效果
-- Subquery 的 output 只有一個 row 時，outer query 只能用 `=`, `<`, `>`, `>=`, `<=`, `<>`, `<=>` 等 single-row operators 來進行比較運算
-- Subquery 的 output 不只一個 row 時，outer query 只能用 `IN`, `EXISTS`, `NOT IN`, `ANY`, `ALL` 等 multi-row operators 來進行比較運算
+- Subquery 的 output 只有一個 tuple (row) 時，outer query 只能用 `=`, `<`, `>`, `>=`, `<=`, `<>`, `<=>` 等 single-row operators 來進行比較運算
+- Subquery 的 output 不只一個 tuple 時，outer query 只能用 `IN`, `EXISTS`, `NOT IN`, `ANY`, `ALL` 等 multi-row operators 來進行比較運算
 - `BETWEEN` operator 不可以在 outer query 的 `WHERE` 子句中與 subquery 並用
 
 ### `EXISTS` Operator
@@ -47,7 +46,7 @@ WHERE salary > (
 );
 ```
 
-Scalar subquery 也可以出現在 `SELECT` clause 中：
+Scalar subquery 也可以出現在 `SELECT` 字句中：
 
 ```PostgreSQL
 SELECT

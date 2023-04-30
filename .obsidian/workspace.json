@@ -4,7 +4,7 @@
     "type": "split",
     "children": [
       {
-        "id": "476d93c02fec6ac9",
+        "id": "c24febacf5447c31",
         "type": "split",
         "children": [
           {
@@ -12,60 +12,60 @@
             "type": "tabs",
             "children": [
               {
-                "id": "9962711a7a98919d",
+                "id": "8e76943265815a86",
                 "type": "leaf",
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "Python/Python 中的 OOP.md",
+                    "file": "Network/檔案傳輸.md",
                     "mode": "preview",
                     "source": true
                   }
                 }
               },
               {
-                "id": "cf4297d484885e54",
+                "id": "56c4601e2d254fd3",
                 "type": "leaf",
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "Network/SSH Agent Forwarding.md",
-                    "mode": "preview",
-                    "source": true
-                  }
-                }
-              },
-              {
-                "id": "9a137539952179ed",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Network/SSH Tunneling.md",
+                    "file": "Operating System/CRLF.md",
                     "mode": "source",
                     "source": true
                   }
                 }
               },
               {
-                "id": "b66414695a4212ea",
+                "id": "6dd27293f5e36d9c",
                 "type": "leaf",
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "Network/SFTP vs. FTPS.md",
+                    "file": "Database/SQL/Window Functions.md",
                     "mode": "preview",
                     "source": true
                   }
                 }
               },
               {
-                "id": "775bd53e5b51d0a5",
+                "id": "a6a821b0f3de64b1",
                 "type": "leaf",
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "Database/淺談 SQL.md",
+                    "file": "Database/SQL/淺談 SQL.md",
+                    "mode": "preview",
+                    "source": true
+                  }
+                }
+              },
+              {
+                "id": "2a4b73538870b222",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Database/SQL/DDL.md",
                     "mode": "preview",
                     "source": true
                   }
@@ -77,45 +77,20 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "Database/DML.md",
-                    "mode": "preview",
-                    "source": true
-                  }
-                }
-              },
-              {
-                "id": "1e33bf365cbc4352",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Database/PostgreSQL/Nested Query.md",
-                    "mode": "preview",
-                    "source": true
-                  }
-                }
-              },
-              {
-                "id": "0aa4e25af6572f13",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Database/PostgreSQL/IN vs EXISTS vs ANY vs JOIN.md",
+                    "file": "Database/SQL/DML.md",
                     "mode": "preview",
                     "source": true
                   }
                 }
               }
-            ],
-            "currentTab": 4
+            ]
           },
           {
-            "id": "78b0a4caa807cb18",
+            "id": "8b882376d75d3a7d",
             "type": "tabs",
             "children": [
               {
-                "id": "4b7cd264349903b8",
+                "id": "8dc4efa332839991",
                 "type": "leaf",
                 "state": {
                   "type": "terminal:terminal",
@@ -134,8 +109,8 @@
                         "useWin32Conhost": true
                       },
                       "serial": {
-                        "columns": 132,
-                        "data": "pinkoi@PinkoideAir-4 KM-software % sh push.sh \r\nGitBook summary file (SUMMARY.md) generated.\r\n[master ae9f82a] Update\r\n 4 files changed, 160 insertions(+), 134 deletions(-)\r\nEnumerating objects: 15, done.\r\nCounting objects: 100% (15/15), done.\r\nDelta compression using up to 8 threads\r\nCompressing objects: 100% (8/8), done.\r\nWriting objects: 100% (8/8), 1.72 KiB | 1.72 MiB/s, done.\r\nTotal 8 (delta 7), reused 0 (delta 0), pack-reused 0\r\nremote: Resolving deltas: 100% (7/7), completed with 7 local objects.\r\nTo github.com:Jamison-Chen/KM-software.git\r\n   12ed28e..ae9f82a  master -> master\r\nbranch 'master' set up to track 'origin/master'.\r\npinkoi@PinkoideAir-4 KM-software % sh push.sh\r\nGitBook summary file (SUMMARY.md) generated.\r\n[master 50fa58b] Update\r\n 1 file changed, 1 insertion(+), 1 deletion(-)\r\nEnumerating objects: 7, done.\r\nCounting objects: 100% (7/7), done.\r\nDelta compression using up to 8 threads\r\nCompressing objects: 100% (4/4), done.\r\nWriting objects: 100% (4/4), 759 bytes | 759.00 KiB/s, done.\r\nTotal 4 (delta 3), reused 0 (delta 0), pack-reused 0\r\nremote: Resolving deltas: 100% (3/3), completed with 3 local objects.\r\nTo github.com:Jamison-Chen/KM-software.git\r\n   ae9f82a..50fa58b  master -> master\r\nbranch 'master' set up to track 'origin/master'.\r\npinkoi@PinkoideAir-4 KM-software % ",
+                        "columns": 107,
+                        "data": "pinkoi@PinkoideAir-4 KM-software % sh\u001b[1Cpush.sh\u001b[1m \r\n\u001b[0mCryptography/                        Side\\ Projects/\r\nDEVNOTE.md                           System\\ Design/\r\nDatabase/                            Web\\ Dev./\r\nFormatting\\ Syntax\\ Cheat\\ Sheet.md  img/\r\nJavaScript/                          push.sh\r\nLICENSE                              summary.py\r\nNetwork/                             程式語言理論/\r\nOperating\\ System/                   計算機組織與架構/\r\nPinkoi/                              資料結構與演算法/\r\nPython/                              軟體開發工具/\r\nSUMMARY.md                           \u001b[11A\u001b[9C",
                         "rows": 16
                       }
                     }
@@ -195,8 +170,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 218.5,
-    "collapsed": true
+    "width": 218.5
   },
   "right": {
     "id": "f13142408b62142a",
@@ -271,35 +245,42 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "4b7cd264349903b8",
+  "active": "8dc4efa332839991",
   "lastOpenFiles": [
-    "Database/淺談 SQL.md",
-    "Database/PostgreSQL/Nested Query.md",
-    "Database/DML.md",
-    "Database/Pagination (分頁).md",
-    "Database/PostgreSQL/IN vs EXISTS vs ANY vs JOIN.md",
-    "Database/EXPLAIN.md",
+    "Network/檔案傳輸.md",
+    "Network/SSH 基本概念.md",
+    "Operating System/CRLF.md",
+    "Python/pipenv.md",
     "Formatting Syntax Cheat Sheet.md",
-    "Network/SFTP vs. FTPS.md",
-    "Database/零碎筆記.md",
-    "Database/Locks (鎖).md",
-    "Database/Introduction.md",
-    "Database/Aggregate Functions.md",
-    "Database/PostgreSQL/Window Functions.md",
-    "Network/OSI Model.md",
-    "Web Dev./後端/Django (Python)/Django 的專案架構.md",
-    "Python/Python 中的 OOP.md",
-    "Database/ACID vs. BASE.md",
-    "Database/N+1 Query Problem.md",
-    "Database/Integrity Constraint.md",
-    "Database/MVCC vs. SS2PL.md",
-    "Database/Normalization (正規化 ).md",
-    "Database/Sharding vs. Partitioning.md",
-    "Database/Index (索引).md",
-    "Database/Concurrency.md",
-    "Database/Redis/Redis CLI.md",
-    "Database/Redis/安裝與啟用 (on MacOS).md",
+    "Network/SSH Tunneling.md",
+    "img/ssh-tunnels-4.png",
+    "img/ssh-tunnels-3.png",
+    "img/ssh-tunnels-2.png",
+    "img/ssh-tunnels-1.png",
+    "img/ssh-tunnels.png",
+    "Network/SSH Agent Forwarding.md",
+    "Operating System/Linux/與網路相關的指令.md",
+    "Operating System/Linux/常用指令與快捷鍵.md",
+    "Database/SQL/Window Functions.md",
+    "Pinkoi/翻譯.md",
+    "Database/SQL/DML.md",
     "Pinkoi/desktop.canvas",
+    "Pinkoi/Celery Tasks.md",
+    "Pinkoi/通知系統 & GT.md",
+    "Pinkoi/Cypress.md",
+    "Pinkoi/新版本部署至正式環境.md",
+    "Pinkoi/Topic.canvas",
+    "Pinkoi/Topic.md",
+    "Pinkoi/Code Review.md",
+    "Pinkoi/OpenAPI.md",
+    "Database/SQL/淺談 SQL.md",
+    "Pinkoi/設計館營收.md",
+    "Database/SQL/DDL.md",
+    "Database/零碎筆記.md",
+    "Database/Introduction.md",
+    "Database/PostgreSQL/算數.md",
+    "Database/PostgreSQL/零碎筆記.md",
+    "Database/SQL",
     "Pinkoi/What I Did This Month.canvas",
     "Cryptography",
     "img/Screenshot 2023-04-13 at 8.17.23 AM.png",
@@ -307,11 +288,6 @@
     "img/FTPS-vs.-SFTP-1.png",
     "img/Session-Hijacking-pic5-2048x1229.png",
     "img/Screenshot 2023-04-05 at 2.45.04 PM.png",
-    "img/Screenshot 2023-04-05 at 1.13.55 PM.png",
-    "img/Screenshot 2023-04-05 at 12.39.38 PM.png",
-    "img/On Activate.png",
-    "img/dirty_write.png",
-    "img/concurrency.jpg",
     "Operating System/Linux",
     "Operating System/MacOS",
     "summary.py.bd03e25ef0f63f31f1af4d7a81f84768.tmp",
@@ -320,7 +296,6 @@
     "img",
     "summary.py",
     "Pinkoi",
-    "圖庫/url-structure-url-path.png.crdownload",
     "未命名.canvas"
   ]
 }

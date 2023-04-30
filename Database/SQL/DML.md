@@ -27,6 +27,7 @@ HAVING … (條件) [optional]
 ^26d599
 
 - 可以遞增 (`ASC`) 或遞減 (`DESC`)
+- 可以聲明 `null` 要一律放最前面還是一律放最後面
 - 可以設定多順位
 - 可以先經過運算再排序
 
@@ -55,8 +56,21 @@ SET
     …
 
 WHERE … (條件) [optional]
+
+RETURNING … (欄位) [optional]
 ```
+
+若有 `RETUNING` 子句，則更新完資料後會回傳被更新的資料的指定欄位。
 
 # `DELETE`
 
-#TODO 
+```PostgreSQL
+DELETE FROM … (表) [required]
+
+WHERE … (條件) [optional]
+
+RETURNING … (欄位) [optional]
+```
+
+- 若沒有 `WHERE` 子句，是刪除該表的所有資料
+- 若有 `RETUNING` 子句，則刪完資料後會回傳被刪除的資料的指定欄位

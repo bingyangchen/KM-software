@@ -26,6 +26,6 @@
 
 ### Step5
 
-將 Reviewer 以及 Lead (ZihZih) 加入為 Collaborator，完成！
+將 Lead (ZihZih) 加入為 Collaborator，完成！
 
 通過 Code Review 後，就可以 Deploy 到正式環境了，詳細步驟請見 [[新版本部署至正式環境|此處]]。

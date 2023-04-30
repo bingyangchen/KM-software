@@ -73,22 +73,24 @@
     WHERE e.cid = 1;
     ```
 
-傳統上會認為，`EXIST` 與 `JOIN` 兩種做法在演算上是較有效率的，不過這些年來大部分的 RDBMS 在 `IN` 與 `ANY` 的演算上都做了許多改善，因此其實在處理 inclusion queries 時，上面四個做法的演算效率是一模一樣的。
+傳統上會認為 `EXIST` 與 `JOIN` 兩種做法較有效率，不過這些年來大部分的 RDBMS 在 `IN` 與 `ANY` 的演算上都做了許多改善，因此其實在處理 inclusion queries 時，上面四個做法的演算效率是一模一樣的。
 
 我們可以用 `EXPLAIN ANALYZE` 產生的 query plan（詳見[[EXPLAIN|本文]]）來驗證這個說法，你會發現四種做法的 query plan 都相同如下：
 
 ```plaintext
-                                       QUERY PLAN                                        
-------------------------------------------------------------------------------------------
- Hash Join  (cost=14.44..30.38 rows=7 width=144)
-   Hash Cond: (s.id = e.sid)
-   ->  Seq Scan on student s  (cost=0.00..14.70 rows=470 width=144)
-   ->  Hash  (cost=14.35..14.35 rows=7 width=8)
-         ->  Bitmap Heap Scan on enrollment e  (cost=4.21..14.35 rows=7 width=8)
-               Recheck Cond: (cid = 1)
-               ->  Bitmap Index Scan on enrollment_pkey  (cost=0.00..4.21 rows=7 width=0)
-                     Index Cond: (cid = 1)
-(8 rows)
+                                                                       QUERY PLAN                                                                       
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+ Hash Join  (cost=460.41..918.92 rows=10004 width=14) (actual time=5.063..14.325 rows=9915 loops=1)
+   Hash Cond: (s.id = e.sid)
+   ->  Seq Scan on student s  (cost=0.00..406.00 rows=20000 width=22) (actual time=0.019..3.037 rows=20000 loops=1)
+   ->  Hash  (cost=335.36..335.36 rows=10004 width=8) (actual time=4.960..4.962 rows=9915 loops=1)
+         Buckets: 16384  Batches: 1  Memory Usage: 516kB
+         ->  Index Only Scan using enrollment_pkey on enrollment e  (cost=0.29..335.36 rows=10004 width=8) (actual time=0.045..2.530 rows=9915 loops=1)
+               Index Cond: (cid = 1)
+               Heap Fetches: 0
+ Planning Time: 0.480 ms
+ Execution Time: 14.989 ms
+(10 rows)
 ```
 
 其中，因為 `IN` 版本與 `ANY` 版本連 subquery 都長得一樣，因此我們會說 ==`IN (subquery)` 與 `= ANY (subquery)` 是等價的==。

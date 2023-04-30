@@ -1,6 +1,8 @@
 #SSH
 
-SSH 為 Secure Socket Shell 的縮寫，是一種網路通訊協定，主要功能是讓使用者可以透過 A 裝置 (SSH client) 遠端登入／存取／操縱 B 裝置 (SSH server)，前提是 client 與 server 皆要開機且連上網。SSH server 與 client 預設皆使用 port 22 (TCP port)。
+SSH 為 Secure Socket Shell 的縮寫，是一種網路通訊協定，主要功能是讓使用者可以透過 A 裝置 (SSH client) 遠端登入／存取／操縱 B 裝置 (SSH server)，前提是 client 與 server 皆要開機且連上網。
+
+SSH server 與 client 預設皆使用 ==port 22== (TCP port)。
 
 SSH 會將訊息加密，因此即使 client 與 server 所連上的網路不安全，兩個裝置也可以安全地溝通，這點是其他類似工具（如 Telnet 與 rlogin）所欠缺的。
 
@@ -13,7 +15,7 @@ flowchart TD
     id1{是否信任}
     id2{是否成功}
     id3{是否通過}
-    id4((Terminate))
+    id4((End))
     start --> HandShake
     HandShake --> id0
     id0 --True--> KeyExchange
@@ -34,7 +36,7 @@ flowchart TD
 
 每當 client 向 server 發出連線請求時，第一個環節就是 Hand Shake，在這個環節中，server 會將自己的 public key (host key) 傳給 client。
 
-Client 會希望準備連上的 server 是自己信任的，因此 client side 會有一個叫做 `known_hosts` 的白名單，通常放在 `~/.ssh` 底下，這個白名單會記錄信任的 server 的 IP-host key pair。
+Client 會希望自己準備連上的 server 是值得信任的，因此 client side 會有一個叫做 `known_hosts` 的白名單，通常放在 `~/.ssh` 底下，這個白名單會記錄信任（連線過）的 server 的 IP 與 host key。
 
 當 client 使用 terminal 嘗試連線一個不存在於 `~/.ssh/known_host` 的 server 時，terminal 會跳出以下訊息：
 
@@ -44,23 +46,23 @@ ECDSA key fingerprint is <key>.
 Are you sure you want to continue connecting (yes/no)?
 ```
 
-若輸入 yes， 則 client 會新增一筆 IP-host key pair 於 `~/.ssh/known_host` 中，下次就不會跳出相同的提示了。
+若輸入 `yes`， 則 client 會新增一筆 IP 與 host key 於 `~/.ssh/known_host`，且下次連線同一台 server 時就不會跳出相同的提示了。
 
-Server 的 host key 通常會在 install SSH server 時自動產生，且不同演算法的版本都會有一份，會存在 `/etc/ssh` 底下，可以重新生成，只是當 SSH server 換 key 時，client 需要重新決定是否信任。
+Server 的 host key 通常會在 install SSH server 時自動產生，且不同演算法的版本都各有一份，會存在 `/etc/ssh` 底下，可以重新生成，只是當 SSH server 換 key 時，client 須重新決定是否信任這個 host key。
 
 # Key Exchange
 
 ```mermaid
 sequenceDiagram
     Client->>Server: 提供自己支援的 SSH 協定版本有哪些
-    Server->>Client: 選擇一個可接受的協定版本、產生 session id 並傳送
+    Server->>Client: 回傳一個可接受的協定版本、產生 session id 並傳送
     Client->>Server: 提供自己偏好的對稱式加密演算法與雜湊演算法
-    Server->>Client: 選擇一個可接受的對稱式加密演算法與雜湊演算法
+    Server->>Client: 回傳一個可接受的對稱式加密演算法與雜湊演算法
     Server->>Server: 使用 session id 與其他共同<br/>的資訊產生 Shared Secret Key
     Client->>Client: 使用 session id 與其他共同<br/>的資訊產生 Shared Secret Key
 ```
 
-產生 Shared Secret Key 的方法叫做 [[Diffie-Hellman Key Exchange Algorithm]]，client 與 server 不用將 secret key 傳給對方就可以得到一模一樣的 key。
+產生 Shared Secret Key 的方法（client 與 server 的最後一個步驟）叫做 [[Diffie-Hellman Key Exchange Algorithm]]，client 與 server 不用將 secret key 傳給對方就可以得到一模一樣的 secret key。
 
 由於每次的 SSH session 都有唯一的 session id，因此每一次的 SSH session 都會產生出不同的 Shared Secret Key。
 
@@ -178,7 +180,7 @@ Certificate-Based Authentication 是 Public-Key Authentication 的變體，因�
     # 可以順便改其他設定，比如是否允許 Password Authentication
     ```
 
-    >[!Note] 補充
+    >[!Note]
     >除了 `sshd_config` 外，還有另一個長得很像的檔案叫 `ssh_config`，前者是用來設定 SSH Server，後者則是用來設定 SSH Client。
 
 - **Step3: 重啟 openssh-server**
@@ -195,7 +197,7 @@ Certificate-Based Authentication 是 Public-Key Authentication 的變體，因�
 
 ![[Screenshot 2023-04-13 at 8.17.23 AM.png]]
 
-> [!Note] 補充
+> [!Note]
 > MacOS 也是使用 `ssh_config` 來設定 SSH Server，只是不需要額外將 `#Port 22` 取消註解就可以提供連線。
 
 ---
@@ -238,7 +240,14 @@ MacOS 與 Linux 無須額外安裝程式即可扮演 SSH Client，Windows 則必
 
 ^2621ab
 
-SSH Agent 是 SSH Client 端用來攜帶 private key、攜帶 passphrase，以及檢查 host 是否可信的程式，啟動 SSH Agent 的指令為：`ssh-agent`（Linux OS 中通常開機時會自動開啟）。
+SSH Agent 是運行在 client side 的 background program，其功能包括：
+
+1. 攜帶 private key（暫存在 RAM）
+2. 檢查準備連線的 host 是否是信任的 host
+
+SSH Agent 還有一個功能，就是如果 client 的 private key 需要輸入 passphrase，則只須在「指定攜帶該 key (`ssh-add`) 的時候」輸入 passphrase，後續 SSH Agent 就會記住這個 passphrase（一樣是存在 RAM）並在需要用到 private key 的時候自動幫你輸入 passphrase。
+
+啟動 SSH Agent 的指令為：`ssh-agent`（Linux OS 中通常開機時會自動開啟）；可以用 `echo "$SSH_AUTH_SOCK"` 來確認 SSH Agent 是否為開啟狀態。
 
 # 常用的 SSH 相關指令
 
@@ -247,7 +256,7 @@ SSH Agent 是 SSH Client 端用來攜帶 private key、攜帶 passphrase，以�
 **Pattern**
 
 ```bash
-ssh <USERNAME>@<HOSTNAME> [-p <PORT>]
+ssh [OPTIONS] <USERNAME>@<HOSTNAME> [-p <PORT>]
 ```
 
 其中 `<USERNAME>` 指的是一個已存在於 server 上的使用者的名稱；`<HOSTNAME>` 可以是 Server 的 IP address 或 domain name，若 client 與 server 處在同一個 [[NAT]] Router 後面，則 `<HOSTNAME>` 應為 Local IP address，否則應為 Public IP address。
@@ -256,41 +265,9 @@ ssh <USERNAME>@<HOSTNAME> [-p <PORT>]
 
 若有找到指定 IP 以及指定 User，則進入 Authentication 階段。
 
-### `scp`：將 Client 的檔案複製到 Server
+**常用的 Options**
 
-使用 `scp` 前**不**需要先使用指令進行 SSH 連線，使用方法與 `cp` 類似，pattern 如下：
-
-```bash
-scp [OPTION] [USER@[SRC_IP:]]PATH_TO_FILE [USER@]DEST_IP:PATH_TO_FILE
-```
-
-- **示範一：將當前目錄中的 `test.txt` 檔案複製到遠端的 `~/Desktop`**
-
-    ```bash
-    scp ./test.txt my_user@my_server:./Desktop
-    ```
-
-    Source 與 destination 皆可以是相對路徑或絕對路徑，其中 target 相對路徑的出發點是指定 user 的 home directory (`~`)。
-
-    可以透過另外 declare 檔案名稱為複製出來的檔案重新命名：
-
-    ```bash
-    scp ./test.txt my_user@my_server:./Desktop/copied_test.txt
-    ```
-
-- **示範二：將當前目錄中的 `sub_dir` 子目錄複製到遠端的 `~/Desktop`**
-
-    ```bash
-    scp -r ./sub_dir my_user@my_server:./Desktop
-    ```
-
-    要複製整個 directory 就要使用 `-r` option。
-
-    也可以透過另外 declare 附錄名稱為複製出來的目錄重新命名：
-
-    ```bash
-    scp -r ./sub_dir my_user@my_server:./Desktop/copied_dir
-    ```
+- `-v`: 可以看到 terminal 印出 client 與 server 溝通的過程
 
 ### `ssh-keygen`：產生 Key
 
@@ -319,13 +296,13 @@ ssh-keygen -t ecdsa -b 521 -f ~/Desktop/id_test
 
 輸入指令後會被要求設定 passphrase，也可以不設定。passphrase 用途是防止 private key 被盜用，因為之後使用 private key 時都會被要求輸入 passphrase。
 
-### `ssh-agent`：[[#^2621ab|啟動 SSH Agent]]
+### `ssh-agent`：啟動 [[#^2621ab|SSH Agent]]
 
 ### `ssh-add`
 
 此指令可以用來控制 SSH Agent 要攜帶哪些 keys，以及更改 SSH Agent 要用哪個白名單來判斷一個 host 是否是信任的 host。
 
-- 攜帶一個新 key
+- **攜帶一個新 key**
 
     ```bash
     ssh-add [<PATH_TO_FILE_OF_PRIVATE_KEY>]
@@ -333,25 +310,25 @@ ssh-keygen -t ecdsa -b 521 -f ~/Desktop/id_test
 
     若不給 `<PATH_TO_FILE_OF_PRIVATE_KEY>`，則預設加入 `~/.ssh/id_rsa`, `~/.ssh/id_ecdsa`, `~/.ssh/id_ecdsa_sk`, `~/.ssh/id_ed25519`, `~/.ssh/id_ed25519_sk`, `~/.ssh/id_dsa` 所有 keys。
 
-- 列出所有已攜帶的 keys
+- **列出所有已攜帶的 keys**
 
     ```bash
     ssh-add -l
     ```
 
-- 取消攜帶的指定的 key
+- **卸下的指定的 key**
 
     ```bash
     ssh-add -d <PATH_TO_FILE_OF_PRIVATE_KEY>
     ```
 
-- 取消攜帶所有 keys
+- **卸下所有 keys**
 
     ```bash
     ssh-add -D
     ```
 
-- 設定要用哪個檔案作為信任的 hosts 的白名單
+- **設定要用哪個檔案作為信任的 hosts 的白名單**
 
     ```bash
     ssh-add -H <PATH_TO_WHITELIST_FILE>
@@ -369,7 +346,7 @@ Host myserver
     AddKeysToAgent yes
     IdentityFile ~/.ssh/id_rsa
 
-Host anotherserver
+Host <NICKNAME>
     <OPTION> <VALUE>
     ...
 ```
@@ -381,10 +358,14 @@ ssh-add ~/.ssh/id_rsa
 ssh jamison@192.168.50.88 -p 2345
 ```
 
+> [!Info]
+> 可以在 `<NICKNAME>` 的部分使用 wildcard (`*`)，將某些設定套用到所有 hosts。
+
 # 其它進階概念
 
 - [[SSH Agent Forwarding]]
 - [[SSH Tunneling]]
+- [[檔案傳輸#SCP|SCP 檔案傳輸]]
 
 # 參考資料
 
