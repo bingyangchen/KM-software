@@ -111,8 +111,9 @@ Public-Key Authentication 比前面兩者來的安全，主要分為兩個環節
         Server->>Server: 隨機產生一段訊息<br/>並用 client 的 public key 加密
         Server->>Client: "Challenge" the client
         Client->>Client: 使用對應的 private key 解密
-        Client->>Server: 回傳解密的結果
-        Server->>Server: 驗證結果
+        Client->>Client: 將解密的結果結尾加上 session id<br/>然後用一個雙方約定好的 hash<br/>function 計算出一個 hash value
+        Client->>Server: 回傳 hash value
+        Server->>Server: 將原本的隨機訊息結尾也加上<br/>session id，然後也用雙方約定好的<br/>hash function 計算出 hash value
         Server->>Client: 若結果相符則允許連線，否則拒絕連線
     ```
 
@@ -150,8 +151,9 @@ Certificate-Based Authentication 是 Public-Key Authentication 的變體，因�
         Server->>Server: 隨機產生一段訊息<br/>並用 client 的 public key 加密
         Server->>Client: "Challenge" the client
         Client->>Client: 使用對應的 private key 解密
-        Client->>Server: 回傳解密的結果
-        Server->>Server: 驗證結果
+        Client->>Client: 將解密的結果結尾加上 session id<br/>然後用一個雙方約定好的 hash<br/>function 計算出一個 hash value
+        Client->>Server: 回傳 hash value
+        Server->>Server: 將原本的隨機訊息結尾也加上<br/>session id，然後也用雙方約定好的<br/>hash function 計算出 hash value
         Server->>Client: 若結果相符則允許連線，否則拒絕連線
     ```
 
@@ -334,7 +336,7 @@ ssh-keygen -t ecdsa -b 521 -f ~/Desktop/id_test
     ssh-add -H <PATH_TO_WHITELIST_FILE>
     ```
 
-# SSH 設定檔
+# SSH Client 設定檔
 
 在 SSH Client 端可以建立一個叫做 `config` 的設定檔在 `~/.ssh` 底下，這樣可以免去每次執行連線 SSH Server 時都要加上一堆 options 與 arguments，示範如下：
 

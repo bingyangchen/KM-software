@@ -95,5 +95,13 @@ router.include_router(
 )
 ```
 
->[!Note] `tag` 參數
->`tag` 參數會讓 API Document 出現對應的段落，因此若一個 sub-direcoty 中全部都是下一層的 route directory、沒有 api enpoint，那該 sub-direcoty 在其 parent 的 `__init__.py` 或者是 `/apiv3/app.py` 中就不需要 `tag`
+### `tag` 參數
+
+`tag` 參數會讓 API Document 出現對應的段落，因此若一個 sub-directory 中全部都是下一層的 route directory、沒有 api endpoint，那該 sub-directory 在其 parent 的 `__init__.py` 或者是 `/apiv3/app.py` 中就不需要 `tag`
+
+# API 文件
+
+以下三個 URL 可以查看自動產生的 API 文件：
+
+- `/apiv3/docs` (OpenAPI)
+- `/apiv3/redoc`

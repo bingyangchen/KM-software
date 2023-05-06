@@ -72,6 +72,10 @@
 
 進入 Webpack 的 watch mode (開發設計師後台使用)。
 
+### `make admin-container`
+
+建立新的 Admin Tool Docker image。
+
 ### `make python-container`
 
 重新依據 `pyproject.toml` 以及 `poetry.lock` 建立新的 Python Docker image。

@@ -4,123 +4,107 @@
     "type": "split",
     "children": [
       {
-        "id": "c24febacf5447c31",
-        "type": "split",
+        "id": "4f5bc153594964f5",
+        "type": "tabs",
         "children": [
           {
-            "id": "4f5bc153594964f5",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "8e76943265815a86",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Network/檔案傳輸.md",
-                    "mode": "preview",
-                    "source": true
-                  }
-                }
-              },
-              {
-                "id": "56c4601e2d254fd3",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Operating System/CRLF.md",
-                    "mode": "source",
-                    "source": true
-                  }
-                }
-              },
-              {
-                "id": "6dd27293f5e36d9c",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Database/SQL/Window Functions.md",
-                    "mode": "preview",
-                    "source": true
-                  }
-                }
-              },
-              {
-                "id": "a6a821b0f3de64b1",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Database/SQL/淺談 SQL.md",
-                    "mode": "preview",
-                    "source": true
-                  }
-                }
-              },
-              {
-                "id": "2a4b73538870b222",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Database/SQL/DDL.md",
-                    "mode": "preview",
-                    "source": true
-                  }
-                }
-              },
-              {
-                "id": "e5cafe50f217645d",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Database/SQL/DML.md",
-                    "mode": "preview",
-                    "source": true
-                  }
-                }
+            "id": "56c4601e2d254fd3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Operating System/CRLF.md",
+                "mode": "source",
+                "source": true
               }
-            ]
+            }
           },
           {
-            "id": "8b882376d75d3a7d",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "8dc4efa332839991",
-                "type": "leaf",
-                "state": {
-                  "type": "terminal:terminal",
-                  "state": {
-                    "terminal:terminal": {
-                      "cwd": "/Users/pinkoi/Library/CloudStorage/GoogleDrive-106208004@g.nccu.edu.tw/My Drive/KM-software",
-                      "profile": {
-                        "args": [],
-                        "executable": "/bin/zsh",
-                        "name": "zsh",
-                        "platforms": {
-                          "darwin": true
-                        },
-                        "pythonExecutable": "python3",
-                        "type": "integrated",
-                        "useWin32Conhost": true
-                      },
-                      "serial": {
-                        "columns": 107,
-                        "data": "pinkoi@PinkoideAir-4 KM-software % sh\u001b[1Cpush.sh\u001b[1m \r\n\u001b[0mCryptography/                        Side\\ Projects/\r\nDEVNOTE.md                           System\\ Design/\r\nDatabase/                            Web\\ Dev./\r\nFormatting\\ Syntax\\ Cheat\\ Sheet.md  img/\r\nJavaScript/                          push.sh\r\nLICENSE                              summary.py\r\nNetwork/                             程式語言理論/\r\nOperating\\ System/                   計算機組織與架構/\r\nPinkoi/                              資料結構與演算法/\r\nPython/                              軟體開發工具/\r\nSUMMARY.md                           \u001b[11A\u001b[9C",
-                        "rows": 16
-                      }
-                    }
-                  }
-                }
+            "id": "2c8c1cb3d4d51bd7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Operating System/Linux/常用指令與快捷鍵.md",
+                "mode": "source",
+                "source": true
               }
-            ]
+            }
+          },
+          {
+            "id": "e9c5c0ee0e966473",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Operating System/Linux/與網路相關的指令.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "d1c2f239e371e176",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Network/檔案傳輸.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "6dd27293f5e36d9c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Database/SQL/Window Functions.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "a6a821b0f3de64b1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Database/SQL/淺談 SQL.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "2a4b73538870b222",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Database/SQL/DDL.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "e5cafe50f217645d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Database/SQL/DML.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
           }
         ],
-        "direction": "horizontal"
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -165,6 +149,14 @@
               "type": "starred",
               "state": {}
             }
+          },
+          {
+            "id": "f237943f62f3ad40",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
         ]
       }
@@ -186,6 +178,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Network/檔案傳輸.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -202,6 +195,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Network/檔案傳輸.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -223,7 +217,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Network/檔案傳輸.md"
+              }
             }
           }
         ]
@@ -245,11 +241,32 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "8dc4efa332839991",
+  "active": "d1c2f239e371e176",
   "lastOpenFiles": [
+    "Operating System/Linux/與網路相關的指令.md",
+    "Operating System/Linux/常用指令與快捷鍵.md",
+    "Pinkoi/desktop.canvas",
+    "Pinkoi/What I Did This Month.canvas",
+    "Pinkoi/Promo Tid Generator.canvas",
+    "Pinkoi/常用的 make 指令.md",
+    "Pinkoi/Pinkoi Academy Subscribe.canvas",
+    "Pinkoi/Cypress.md",
+    "Operating System/CRLF.md",
+    "Database/SQL/DML.md",
+    "Pinkoi/Topic.canvas",
+    "Pinkoi/Admin Tool.md",
+    "Pinkoi/apiv3.md",
+    "Pinkoi/新版本部署至正式環境.md",
+    "Pinkoi/OpenAPI.md",
+    "Web Dev./前端/PWA.md",
+    "Pinkoi/Code Review.md",
+    "Database/SQL/Window Functions.md",
+    "Pinkoi/Celery Tasks.md",
+    "Database/SQL/Aggregate Functions.md",
+    "Database/SQL/淺談 SQL.md",
     "Network/檔案傳輸.md",
     "Network/SSH 基本概念.md",
-    "Operating System/CRLF.md",
+    "Network/The OSI Model.md",
     "Python/pipenv.md",
     "Formatting Syntax Cheat Sheet.md",
     "Network/SSH Tunneling.md",
@@ -259,29 +276,9 @@
     "img/ssh-tunnels-1.png",
     "img/ssh-tunnels.png",
     "Network/SSH Agent Forwarding.md",
-    "Operating System/Linux/與網路相關的指令.md",
-    "Operating System/Linux/常用指令與快捷鍵.md",
-    "Database/SQL/Window Functions.md",
     "Pinkoi/翻譯.md",
-    "Database/SQL/DML.md",
-    "Pinkoi/desktop.canvas",
-    "Pinkoi/Celery Tasks.md",
     "Pinkoi/通知系統 & GT.md",
-    "Pinkoi/Cypress.md",
-    "Pinkoi/新版本部署至正式環境.md",
-    "Pinkoi/Topic.canvas",
-    "Pinkoi/Topic.md",
-    "Pinkoi/Code Review.md",
-    "Pinkoi/OpenAPI.md",
-    "Database/SQL/淺談 SQL.md",
-    "Pinkoi/設計館營收.md",
-    "Database/SQL/DDL.md",
-    "Database/零碎筆記.md",
-    "Database/Introduction.md",
-    "Database/PostgreSQL/算數.md",
-    "Database/PostgreSQL/零碎筆記.md",
     "Database/SQL",
-    "Pinkoi/What I Did This Month.canvas",
     "Cryptography",
     "img/Screenshot 2023-04-13 at 8.17.23 AM.png",
     "img/Screenshot 2023-04-13 at 8.15.24 AM.png",

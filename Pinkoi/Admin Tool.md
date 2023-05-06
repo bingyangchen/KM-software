@@ -26,12 +26,27 @@
 
 Page folder 裡至少會有 `index.vue` 一個檔案，這個檔案是 tool 的 home。
 
-Page folder 裡不應放入任何 UI 邏輯以及資料操作邏輯，故通常只會看到 `<template>` 裡包著若干個 component(s)，以及在 `<script>` 裡更改 `document.title`，像是下面這樣：
+Page folder 裡不應放入任何 UI 邏輯以及資料操作邏輯，故通常只會看到：
+
+- `<template>` 裡包著若干個 component(s)
+- `<route>` 裡包著一個 object，這個 object 決定了畫面的 header
+- 在 `<script>` 裡更改 `document.title`
+
+像是下面這樣：
 
 ```vue
 <template>
     <my-component />
 </template>
+
+<route>
+{
+    meta: {
+        title: 'My Tool Name'
+    }
+}
+</route>
+
 <script>
 export default {
     created() {
