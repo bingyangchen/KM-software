@@ -1,4 +1,5 @@
 #!/bin/bash
+git checkout dev
 python summary.py
 
 # git config user.name "Jamison Chen"
@@ -15,4 +16,7 @@ fi
 # ssh-add -D
 # ssh-add ~/.ssh/id_rsa
 
-git push -u origin master
+git push -u origin dev
+
+git checkout master
+git merge dev
