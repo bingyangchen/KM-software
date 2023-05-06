@@ -5,6 +5,9 @@ from collections import OrderedDict
 from const import DIRECTORIES_TO_IGNORE, FILES_TO_IGNORE
 
 REGEX = r"!\[\[(.*)\]\]"
+PRODUCTION_IMG_URL_PREFIX = (
+    "https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/"
+)
 
 
 def normalize_img_links(path: str) -> None:
@@ -35,7 +38,9 @@ def normalize_img_links(path: str) -> None:
 
             for match in matches:
                 if original_link := idx_substring_map.get(match):
-                    idx_substring_map[match] = f"![](<{original_link[3:-2]}>)"
+                    idx_substring_map[
+                        match
+                    ] = f"![](<{PRODUCTION_IMG_URL_PREFIX}{original_link[3:-2]}>)"
 
             content = "".join(idx_substring_map.values())
 
