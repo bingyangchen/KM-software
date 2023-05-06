@@ -50,7 +50,7 @@
               "type": "markdown",
               "state": {
                 "file": "Network/SSH Tunneling.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": true
               }
             }
@@ -116,7 +116,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -190,7 +190,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Python/Python 小技巧.md",
+                "file": "Network/SSH Tunneling.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -207,7 +207,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Python/Python 小技巧.md",
+                "file": "Network/SSH Tunneling.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -230,7 +230,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Python/Python 小技巧.md"
+                "file": "Network/SSH Tunneling.md"
               }
             }
           }
@@ -253,9 +253,12 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "027d3f74fc6f258b",
+  "active": "d1c2f239e371e176",
   "lastOpenFiles": [
     "normalize_img_links.py.a5fb04dcd964cb85f8f9a41b41368192.tmp",
+    "Python/Python 小技巧.md",
+    "normalize_img_links.py",
+    "const.py",
     "__pycache__/const.cpython-311.pyc",
     "Network/SSH Tunneling.md",
     "Network/SSH 基本概念.md",
@@ -263,10 +266,8 @@
     "__pycache__/const.cpython-310.pyc",
     "__pycache__",
     "summary.py.bd03e25ef0f63f31f1af4d7a81f84768.tmp",
-    "normalize_img_links.py",
     "normalize_img_link.py.858f97e6ef6d8260c6414111c77e941f.tmp",
     "const.py.ae76d9aee9dcec54e7ccdc497f905699.tmp",
-    "const.py",
     "normalize_img_link.py",
     "Operating System/Linux/與網路相關的指令.md",
     "Operating System/Linux/常用指令與快捷鍵.md",
@@ -299,8 +300,6 @@
     "img/ssh-tunnels.png",
     "Network/SSH Agent Forwarding.md",
     "Pinkoi/翻譯.md",
-    "Pinkoi/通知系統 & GT.md",
-    "Database/SQL",
     "img/Screenshot 2023-04-13 at 8.17.23 AM.png",
     "img/Screenshot 2023-04-13 at 8.15.24 AM.png",
     "img/FTPS-vs.-SFTP-1.png",

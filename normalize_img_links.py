@@ -35,8 +35,7 @@ def normalize_img_links(path: str) -> None:
 
             for match in matches:
                 if original_link := idx_substring_map.get(match):
-                    l, r = match
-                    idx_substring_map[match] = f"![](<{original_link[l + 3 : r - 2]}>)"
+                    idx_substring_map[match] = f"![](<{original_link[3:-2]}>)"
 
             content = "".join(idx_substring_map.values())
 
