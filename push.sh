@@ -20,3 +20,10 @@ git push -u origin dev
 
 git checkout master
 git merge dev
+
+python normalize_img_links.py
+git add .
+git commit -m "Update"
+git push -u origin master
+
+git checkout dev
