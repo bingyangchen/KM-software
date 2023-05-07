@@ -88,7 +88,7 @@ SSH client 連線到 SSH server 時都須要登入 server，登入的方式有�
 
 ### Host-Based Authentication
 
-在 Server 上設定允許連線的 IP address 與 hostname 白名單（寫在 `sshd_config` 中），可以使用 wildcard，只有透過被允許的 IP address 或 hostname 要求的連線才會被允許。
+在 Server 上設定允許連線的 IP address 與 hostname 白名單（寫在 `/etc/ssh/sshd_config` 中），可以使用 wildcard，只有透過被允許的 IP address 或 hostname 要求的連線才會被允許。
 
 ### Public-Key Authentication
 
@@ -183,7 +183,7 @@ Certificate-Based Authentication 是 Public-Key Authentication 的變體，因�
     ```
 
     >[!Note]
-    >除了 `sshd_config` 外，還有另一個長得很像的檔案叫 `ssh_config`，前者是用來設定 SSH Server，後者則是用來設定 SSH Client。
+    >在 `/etc/ssh` 中，除了 `sshd_config` 外，還有另一個長得很像的檔案叫 `ssh_config`，前者是用來設定 SSH Server，後者則是用來設定 SSH Client。
 
 - **Step3: 重啟 openssh-server**
 
@@ -197,7 +197,7 @@ Certificate-Based Authentication 是 Public-Key Authentication 的變體，因�
 
 只須至 System Settings > General > Sharing，然後將 Remote Login 選項開啟，client 即可連線，如下圖所示：
 
-![[Screenshot 2023-04-13 at 8.17.23 AM.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Screenshot 2023-04-13 at 8.17.23 AM.png>)
 
 > [!Note]
 > MacOS 也是使用 `ssh_config` 來設定 SSH Server，只是不需要額外將 `#Port 22` 取消註解就可以提供連線。

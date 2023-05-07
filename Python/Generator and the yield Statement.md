@@ -12,7 +12,7 @@
     3. 讓 generator object 成為 for loop 迭代的對象（詳見 [[Iterable vs. Iterator]]）
 - 當 generator object 下次要「被取值」時，generator function 會從上次暫停的地方繼續執行，而不是從頭執行。
 
-![[function-vs-generator.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/function-vs-generator.png>)
 
 # 節省記憶體
 
@@ -170,10 +170,7 @@ print(generator_obj.send(16)) # 256
 
 # 參考資料
 
-<https://realpython.com/introduction-to-python-generators/>
-
-<https://betterprogramming.pub/yield-in-python-76413d5e2a27>
-
-<https://betterprogramming.pub/yield-in-python-76413d5e2a27>
-
-<https://ithelp.ithome.com.tw/articles/10196328>
+- <https://realpython.com/introduction-to-python-generators/>
+- <https://betterprogramming.pub/yield-in-python-76413d5e2a27>
+- <https://betterprogramming.pub/yield-in-python-76413d5e2a27>
+- <https://ithelp.ithome.com.tw/articles/10196328>
