@@ -1,3 +1,9 @@
+# Commit Message 的格式
+
+#TODO 
+
+# 推薦的 Commit Message 風格
+
 ![[commit_message_structure.png]]
 
 ### Type 的種類
