@@ -32,11 +32,13 @@ SSL/TLS 會使用 hash function 為傳輸的資料算出一個 hash value 並一
 
 - Step1
 
-    CA 公開 public key (public certificate, root certificate) 給所有主流 browser 供應商。有名的 CA 包含：DigiCert, Let's Encrypt, Buypass …等。
+    CA 公開 public key (public certificate, root certificate) 給所有主流 browser 供應商。有名的 CA 包含：DigiCert, Let's Encrypt, GeoTrust, GoDaddy …等。
 
 - Step2: Browser 供應商確保自己的產品上有所有主流 CAs 的 public keys
 
-- Step3: Domain owner 向任一 CA 請求對憑進行[[數位簽章]]
+- Step3: **Certificate Signing Request (CSR)**
+
+    Domain owner 向任一 CA 請求對憑進行[[數位簽章]]。
 
 - Step4
 
@@ -81,22 +83,28 @@ sequenceDiagram
 
 ### Client Hello 中有哪些資訊？
 
-- 其所支持的 SSL protocol 最高版本
-- 這個 SSL protocol 版本之下，其所支援的所有 **cipher suites**，cipher suite 內容包括：
-    - 所使用的 SSL protocol
-    - Session key 的 key-exchange algorithm（常見的有 [[RSA algorithm]] 與 [[Diffie-Hellman Key Exchange Algorithm|DH algorithm]]）
-    - 憑證的 public-key infrastructure (PKI)
-    - 對實際資料進行加密時所使用的（對稱式）加密演算法
-    - 對稱式加密演算法的操作模式
-    - 確保 data integrity 的 hash algorithm
-- 要使用哪種資料壓縮方法
+- 其所支援的 SSL protocol 最高版本
+- 其所支援的所有 **Cipher Suites**
+
+    一個 cipher suite 就是一個字串，其結構如下：
+
+    ![[cipher-suite.png]]
+
+    - SSL protocol
+    - 交換 session key 所需的 key-exchange algorithm（常見的有 [[RSA]] 與 [[Diffie-Hellman Key Exchange Algorithm|DH]]）
+    - Signature algorithm（常見的有 RSA、DSA 與 [[ECDSA]]）
+    - 對實際資料進行加密時所使用的（對稱式）encryption algorithm
+    - 確保 data integrity 所需的 hashed algorithm
+- 要使用哪種 data compression method
 - （若要採用 RSA 做為 key-exchange algorithm 的話）一個隨機數
 
 ### 如何 Validate Certificate？
 
 Server 傳送憑證給 client 後，client 的 browser 會讀取簽署此份憑證的 CA 的資訊，並找到此 CA 的 public key（Recall: Browser 會有所有主流 CAs 的 public key），用此 key 解密憑證中的 digital signature，看結果是否與 server 送來的 public key 相同，若相同則代表認證成功。
 
-以 Google Chrome 為例，當驗證成功時，點擊網址列右側的鎖頭會顯示 "Connection is secure"，進一步點擊會顯示以下資訊：
+![[signing-and-validating-certificate.png]]
+
+以 Google Chrome 為例，當驗證成功時，點擊網址列右側的鎖頭會顯示 "Connection is secure"，進一步點擊可以查看憑證內容：
 
 ![[chrome-ssl-certificate.png]]
 
@@ -104,7 +112,7 @@ Server 傳送憑證給 client 後，client 的 browser 會讀取簽署此份憑�
 
 ![[chrome-https-not-secure.png]]
 
-若 server 也需要 client 提供憑證，則會在 step 2 時告之 client，client 則會在驗證完 server 的憑證後提供自己憑證。 
+若 server 也需要 client 提供憑證，則會在 step 2 時告知 client，client 則會在驗證完 server 的憑證後提供自己憑證。 
 
 >[!Tip] Tip: 使用 CLI 取得指定網站的 SSL 憑證
 >
@@ -121,7 +129,9 @@ Server 傳送憑證給 client 後，client 的 browser 會讀取簽署此份憑�
 ![[how-ssl-encrypt-data.png]]
 
 >[!Note]
->上圖中的 **MAC** 不是 MAC address (Media Access Control)，而是 **Message Authentication Code**，簡言之就是 compressed data 的 hash value。
+>上圖中的 **MAC** 不是 MAC address (Media Access Control)，而是 **Message Authentication Code**，是 compressed data 經過 Hash-Based MAC Function (HMAC Function) 計算的結果，簡言之就是 compressed data 的 hash value。
+>
+>想了解 HMAC Function 的詳細運作方式，請見[本影片](https://www.youtube.com/watch?v=wlSG3pEiQdc)。
 
 # 不同等級的 SSL 憑證
 
@@ -139,10 +149,15 @@ SSL 憑證分為三種等級：
 
 最高級也最嚴格的版本，除了 OV 的驗證流程之外，還會有其他的徵信措施。
 
+# 延伸閱讀
+
+- [[申請 SSL Certificate]]
+- [Certificate Chain of Trust](https://www.keyfactor.com/blog/certificate-chain-of-trust/)
+
 # 參考資料
 
 - <https://kinsta.com/knowledgebase/how-ssl-works/>
 - <https://www.websecurity.digicert.com/zh/tw/security-topics/what-is-ssl-tls-https>
 - <https://medium.com/@clu1022/a9d6720bdd48>
 - <https://medium.com/@clu1022/31a2a8a888a6>
-- <https://medium.com/@clu1022/f00da1f2cc15>
+- <https://sectigostore.com/blog/what-is-an-ssl-tls-cipher-suite/>
