@@ -1,6 +1,6 @@
 # Session Fixation Attack
 
-![[Session-Hijacking-pic5-2048x1229.png]]
+![[Session-Hijacking.png]]
 
 # Session Sniffing
 
