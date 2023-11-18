@@ -4,7 +4,7 @@ CAP Theorem 又叫做 Brewer's Theorem。
 >
 >\- Eric Brewer
 
-![[cap_theorem.png]]
+![[cap-theorem-2.png]]
 
 ### Consistency
 

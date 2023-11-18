@@ -15,7 +15,7 @@ Web browser (client) 與 Web server 之間的溝通
 
 # Multicast
 
-![[Multicast.png]]
+![[multicast.png]]
 
 ### 實現方式
 
@@ -27,7 +27,7 @@ Facebook/YouTube 中的直播
 
 # Broadcast
 
-![[Broadcast.png]]
+![[broadcast.png]]
 
 ### 實現方式
 
@@ -39,7 +39,7 @@ ARP
 
 # Anycast
 
-![[Anycast.png]]
+![[anycast.png]]
 
 ### 舉例
 

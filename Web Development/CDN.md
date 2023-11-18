@@ -4,7 +4,7 @@ CDN 為 Content Delivery/Distribution Network 的縮寫，是一種「可以根�
 
 下左圖為 Single-Server 的服務示意圖，右圖則為使用 CDN 的服務示意圖。
 
-![[CDN.svg]]
+![[cdn.svg]]
 
 CDN 流程圖：
 
