@@ -1,4 +1,4 @@
-#SystemDesign #Database 
+#Database 
 
 ![[etl-vs-elt.png]]
 

@@ -1,3 +1,5 @@
+#ArchitecturalDesignPatterns
+
 MVC 是一種 Architectural Design Patterns，是分別取 Model, View, Controller 三個字的開頭組成的縮寫。
 
 ![[Traditional MVC Process.png]]
