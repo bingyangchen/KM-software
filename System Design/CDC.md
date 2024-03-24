@@ -1,5 +1,3 @@
-#Database 
-
 ![[cdc.webp]]
 
 CDC 即 Change Data Capture。
