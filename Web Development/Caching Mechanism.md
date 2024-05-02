@@ -37,7 +37,7 @@
 
 `Memory Cache` > `Service-Worker Cache` > `HTTP (Disk) Cache` > `Server-Side Caching`
 
-![[caching mechanism.png]]
+![[caching-mechanism.png]]
 
 # 其它
 
