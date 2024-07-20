@@ -42,14 +42,14 @@ Compiler 編譯程式語言的期間稱為 **compile time**（編譯期），編
 
 - 使用 compiler 將應用程式的 source code 編譯成 machine code
     - 一般情況下，compiler 會根據目前 CPU 的 [[Instruction Set Architecture|ISA]] 編譯出專屬於該 ISA 的 object code，最後產出專屬於該 ISA 的 machine code，所以在 x86 架構的 CPU 環境下編譯出來的 machine code 就不能給 ARM 架構的 CPU 運行（但也有 [cross compiler](https://en.wikipedia.org/wiki/Cross_compiler) 可以在 A 環境下編譯出 B 環境可用的 machine code）
-    - 通常會採取這種作法的，會被稱為 compiled language，比如 C、C++、Go
+    - 通常會採取這種做法的，會被稱為 compiled language，比如 C、C++、Go
 - 將應用程式的 source code，以及整個可以執行該 source code 的 interpreter，打包並編譯成執行檔 (executable)
     - 給 Windows OS 的 executable 是 .exe file，給 MacOS 的是 .app file
     - Executable 除了一些 metadata 外，主要也是 machine code，所以也不能跨平台
-    - 通常會採取這種作法的，會被稱為 interpreted language，比如 Python
+    - 通常會採取這種做法的，會被稱為 interpreted language，比如 Python
 - 如果幾乎所有人的電腦上都有可以執行該 source code 的 interpreter，則可以直接發佈 source code
     - 須要為不同 ISAs 實作可以在該平台的運作的 interpreter
-    - 通常會採取這種作法的，也會被稱為 interpreted language，比如 JavaScript（幾乎每個人的電腦上都有瀏覽器，而瀏覽器中幾乎都有 [[JavaScript Engine]]）
+    - 通常會採取這種做法的，也會被稱為 interpreted language，比如 JavaScript（幾乎每個人的電腦上都有瀏覽器，而瀏覽器中幾乎都有 [[JavaScript Engine]]）
 
 ---
 

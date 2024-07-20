@@ -8,7 +8,7 @@ Module system（模組系統）是 JavaScript 在 [[ES5 vs ES6|ES6]] 才引入�
 <script type="module" src="./js/main.js"></script>
 ```
 
-在 [[Programming Language/JavaScript/Node.js/Introduction|Node.js]] 中要使用 `import`/`export`，則有兩種作法：
+在 [[Programming Language/JavaScript/Node.js/Introduction|Node.js]] 中要使用 `import`/`export`，則有兩種做法：
 
 - 將有 `import`/`export` statement 的 module files 的副檔名改為 **.mjs**（聲明這是一個 module file）
 - 在 package.json 中聲明 `"type": "module"`（否則預設是 `"type": "commonjs"`）
