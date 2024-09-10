@@ -90,7 +90,7 @@ Client 取得 response 後，下次對同一個 endpoint 發起 request 時會�
 
 另外，==browser 在決定是否使用 HTTP cache 時並不會檢查 request 的 payload 或者 body==，也就是說如果 browser 連 POST 這類的 request 都會試著去拿 HTTP cache 來用，那麼只要是同一個 endpoint，無論使用者 payload 放什麼值，都會符合 browser 使用 HTTP cache 的標準。
 
-這個特性雖然合理，然而它卻使得 [[L1 - Introduction.canvas|GraphQL]] 無法直接受惠於 HTTP cache，因為 GraphQL 的 requests 預設是使用 POST method。關於 GraphQL 如何才能觸發 caching mechanism，詳見 [[L2 - Caching|Caching for GraphQL]]。
+這個特性雖然合理，然而它卻使得 [[1 - Introduction.canvas|GraphQL]] 無法直接受惠於 HTTP cache，因為 GraphQL 的 requests 預設是使用 POST method。關於 GraphQL 如何才能觸發 caching mechanism，詳見 [[2 - Caching|Caching for GraphQL]]。
 
 # 組合技：`Cache-Control` + `ETag`
 

@@ -1,7 +1,7 @@
 #Caching 
 
 >[!Note]
->在閱讀本文之前建議先對 [[Caching.canvas|Caching]] 與 [[L1 - Introduction.canvas|GraphQL]] 有初步的認知。
+>在閱讀本文之前建議先對 [[Caching.canvas|Caching]] 與 [[1 - Introduction.canvas|GraphQL]] 有初步的認知。
 
 # HTTP Cache for GraphQL
 
