@@ -1,4 +1,4 @@
-Assembly language（組合語言）are converted into executable [[Machine Code]] by an [[Assembler]].
+Assembly language（組合語言）are converted into executable [[Machine Code]] by an [[Assembler.draft|assembler]].
 
 Because assembly languages depend on the machine code instructions, each assembly language is specific to a particular computer architecture.
 
