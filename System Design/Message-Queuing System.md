@@ -22,7 +22,7 @@ Message-queuing system 簡稱 MQ system，本篇將著重講解這個整合方�
 
 ![[components-of-a-message-queuing-system.png]]
 
-[[Messaging Protocols|AMQP]] 定義了一個 MQ system 必備的元素：
+[[Messaging Protocols.draft|AMQP]] 定義了一個 MQ system 必備的元素：
 
 ### Message
 
@@ -47,7 +47,7 @@ Message broker 可以再拆成 message queue、exchange 兩個部分：
 
 Messages 排隊的地方就叫做 message queue，每個 queue 都有自己的名字。
 
-從 queue 中取 message 時，原則上採用 FIFO 策略，但也有會將 message 以特定 attribute 排序的 [[ADT#Priority Queue|priority queue]]。
+從 queue 中取 message 時，原則上採用 FIFO 策略，但也有會將 message 以特定 attribute 排序的 [[ADT.draft#Priority Queue|priority queue]]。
 
 Message queue 不算是 [[Singular Update Queue]]，因為==一個 MQ system 中可能有多個 queues==，一個 queue 也可能有不只一個 consumer。
 
