@@ -297,7 +297,7 @@ ssh jamison@192.168.50.88 -p 2345
 
 - [[SSH Agent Forwarding]]
 - [[SSH Tunneling]]
-- [[檔案傳輸#SCP|SCP 檔案傳輸]]
+- [[File Transfer#SCP|SCP 檔案傳輸]]
 
 # 參考資料
 

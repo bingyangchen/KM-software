@@ -33,7 +33,7 @@ Docker 是一個提供 containerization 服務的平台，整個 Docker 平台�
     curl --unix-socket /var/run/docker.sock http://localhost/containers/json
     ```
 
-    從這個指令可以發現，我們是透過 [[Principles of Network Applications.draft#Unix Domain Socket|Unix domain socket]] 與 Docker 溝通的。
+    從這個指令可以發現，我們是透過 [[Socket & Port#Unix Domain Socket|Unix domain socket]] 與 Docker 溝通的。
 
 ### Docker Host
 
