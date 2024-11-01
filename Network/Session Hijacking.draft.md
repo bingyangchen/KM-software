@@ -2,7 +2,7 @@
 
 # Session Fixation Attack
 
-![[Session-Hijacking.png]]
+![[session-hijacking.png]]
 
 # Session Sniffing
 
