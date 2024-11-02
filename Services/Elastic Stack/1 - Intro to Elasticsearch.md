@@ -86,8 +86,8 @@ Elasticsearch 透過 [[HTTP1.1, HTTP2 & HTTP3]] 傳送，且使用的是 [[REST 
 
 `curl` request pattern:
 
-```sh
-curl -X <REST_VERB> <NODE>:<PORT>/<INDEX>[/<TYPE>[/<ID>]] [<OPTION> ...]
+```bash
+curl -X {REST_VERB} {NODE}:{PORT}/{INDEX}[/{TYPE}[/{ID}]] [{OPTION} ...]
 ```
 
 e.g.
