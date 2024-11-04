@@ -18,6 +18,11 @@ RabbitMQ 是一個可以用來當作 [[Message-Queuing System#Message Broker|Mes
 
 #TODO 
 
+# 其它類似服務
+
+- [[Kafka.draft]]
+- Nats
+
 # 參考資料
 
 - <https://www.rabbitmq.com/tutorials/amqp-concepts.html>

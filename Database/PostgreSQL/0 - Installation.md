@@ -15,7 +15,7 @@ brew install PostgreSQL@15.2
 brew service postgresql start
 ```
 
-### [[psql#進入 psql|進入 PostgreSQL CLI]]
+### [[2 - psql#進入 psql|進入 PostgreSQL CLI]]
 
 ### 關閉背景執行的 PostgreSQL Server
 
