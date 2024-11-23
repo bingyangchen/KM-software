@@ -1,4 +1,6 @@
-# Process
+# Process & Thread
+
+### Process
 
 -   Process 即執行中的 program
 -   每一個 process 是互相獨立的（不共享 CPU time、RAM 等資源）
@@ -6,7 +8,7 @@
 -   **Multitasking OS** 可以同時執行多個 processes，然而若使用的硬體是單核 CPU (single-core processor)，一次也只能執行一個 process，因此 multitasking OS 通常會搭載多核 CPU (**multi-core processor**)
 -   Process 會佔用 RAM，因此如何排程 ([[CPU Scheduling.draft|CPU scheduling]])，以及如何有效管理 RAM 是 OS 須關注的事
 
-# Thread
+### Thread
 
 - 一個 process 由多個 threads 組成，一個 thread 負責一項功能
 
@@ -17,3 +19,13 @@
 -   同一個 process 底下的 threads 共享資源，如 RAM、CPU time 等，不同的 processes 間則否
 -   進行 multi-threading 時，若多個 threads 若同時存取同一個全域變數，可能導致 **Synchronization Problem**
 - 若 threads 間互搶資源，可能產生 [[Deadlocks]] 或 freezing
+
+# Thread Pool
+
+#TODO 
+
+# 參考資料
+
+- <https://en.wikipedia.org/wiki/Process_(computing)>
+- <https://en.wikipedia.org/wiki/Process_management_(computing)>
+- <https://en.wikipedia.org/wiki/Thread_(computing)>

@@ -283,4 +283,4 @@ JavaScript 直到 ES6 後才有 [[Module System]] 的概念，但在 ES6 之前�
 
 到了 ES7 (ES2016) 後，除了 `Promise` 外還多了 `async`/`await` 兩個 syntax sugar。
 
-關於 `Promise` 的詳細介紹，請見 [[Asynchronous Programming]]。
+關於 `Promise` 的詳細介紹，請見 [[Asynchronous Programming.draft|Asynchronous Programming]]。
