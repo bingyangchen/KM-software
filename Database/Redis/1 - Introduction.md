@@ -44,7 +44,7 @@ flowchart TD
 ##### Pros & Cons
 
 - Pros
-    - 只有一個 thread 就不需要 [[Locks]] 或其它解決 synchronization problem 的手段
+    - 只有一個 thread 就不需要 [[Locks in Database|locks]] 或其它解決 synchronization problem 的手段
     - 只有一個 thread所以沒有 [[Concurrency]] 問題，比較好 debug
     - I/O multiplexing 使得 Redis 不會因為只有一個 thread 而塞車
 - Cons

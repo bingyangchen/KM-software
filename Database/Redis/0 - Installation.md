@@ -68,7 +68,7 @@ redis-cli
 quit
 ```
 
-也可以使用 `control` + `c` 送出 [[Process.draft|SIGINT]]。
+也可以使用 `Control` + `C` 送出 [[Unix Signal & IPC#Unix Signal|SIGINT]]。
 
 # Redis Clients
 
