@@ -1,3 +1,6 @@
+>[!Info] 官方文件
+><https://redis.io/docs/latest/develop/interact/transactions/>
+
 Redis transaction 確保多個指令可以被一起執行不會被插隊，而因為 Redis is single-threaded，所以這樣一來就可以避免 race condition。
 
 Redis transaction 與一般我們理解的 DB transaction 最大的不同在於：當一個 redis transaction 中有部分指令執行失敗時，並不會影響到後續指令的執行，也不會因此而 rollback。換句話說，==即使使用 redis transaction，也無法讓多個指令有 atomicity==。
@@ -68,7 +71,3 @@ QUEUED
 ```
 
 在上面的例子中，因為在 `WATCH` 與 `MULTI` 之間有一個 non-transaction 的指令更改了 `mykey`，所以後續 transaction 並不會成功更改 `mykey`。
-
-# 參考資料
-
-- <https://redis.io/docs/latest/develop/interact/transactions/>

@@ -9,11 +9,13 @@ id2 --run--> id3
 
 # Image
 
-Image 又叫做 container image，就像是一個應用程式環境的 snapshot，這個 snapshot 記錄了某個時刻下 filesystem 的狀態，用來建立一個具有該環境的 container。==Image is readonly/immutable==，建立後不能修改內容。
+Image 又叫做 container image，就像是一個應用程式環境的 snapshot，這個 snapshot 記錄了 OS layer、filesystem 的狀態、環境變數... 等，用來建立一個具有該環境的 container。
 
 ### Layering
 
-Image 由若干個 layers 堆疊而成，每一個 layer 都是在對 filesystem 做修改。雖然 "image is immutable"，但我們可以透過在一層 image 上疊加另一層 image 來覆寫原本 image 的行為。
+Image 由若干個 layers 堆疊而成，每一個 layer 都是在對 filesystem 做修改。
+
+==Image is readonly/immutable==，建立後不能修改內容，但我們可以透過在既有的 image 上疊加新的 layers 來覆寫原本 image 的行為。疊加新 layers 後的 image 就是一個新的 image，製造一個新 image 的動作稱為 "build"。
 
 **Example**
 
@@ -25,9 +27,9 @@ Image 由若干個 layers 堆疊而成，每一個 layer 都是在對 filesystem
 4. 在第四個 layer 透過 pip 下載所有 requirements.txt 中列舉的 Python dependencies。
 5. 在最後一個 layer 複製所有 application code 到 filesystem 內。
 
-==Layering 的好處在於 reusability==，承上方的例子，假如今天有第二個應用程式也要使用 Python，那它可以直接使用已安裝好 Python 的 image 作為基底（上方例子中的第二層），不須要自己 build 一個。
+==Layering 的好處在於 reusability==，承上方的例子，假如今天有第二個應用程式也要使用 Python，那它可以直接使用已安裝好 Python 的 image 作為基底（上方例子中的第二層），不須要自己從頭 build 一個。
 
-### 兩種 Build Image 的方法
+##### 兩種 Build Image 的方法
 
 - 使用 `docker container commit`（較少見）
 
@@ -41,17 +43,16 @@ Image 由若干個 layers 堆疊而成，每一個 layer 都是在對 filesystem
 
 - 使用 Dockerfile + `docker build`
 
-    Dockerfile 請看[[#Dockerfile|這段]]。
+    Dockerfile 請看[[#Dockerfile|這段]]；`docker build` 指令的使用方式請看[[2 - Docker CLI#根據 Dockerfile 建立 Image|這篇]]。
 
 ### Tagging
 
-Image 除了有名稱外，開發者還可以為它加上 tag，tag 通常被用來表示 image 的版本。
-
-`docker build` 時，可以用 `--tag [{HOST}[:{PORT_NUMBER}]/]{PATH}[:{TAG}]` 為 image 取名字與 tag；若是已經 build 好的 image，則可以用 `docker image tag` 來增加 tag 到指定的 image 上。
-
-### Pull & Push Images
-
-除了自己 build image 以外，也可以從公有或私有的 remote repository（如 [[4 - Docker Hub.draft|Docker Hub]]）pull image 來使用，也可以將自己建立好的 image push 至 repository，相關指令請看[[2 - Docker CLI#與 Registry 相關的指令|這篇]]。
+- Image 除了有名稱外，還有 tag，tag 通常被用來表示 image 的版本。
+- `docker build` 時，可以用 `--tag [{HOST}[:{PORT_NUMBER}]/]{PATH}[:{TAG}]` 為 image 取名字與 tag：
+    - 若 tag 名稱已被標記在另外一個 image 上了，則該 tag 會從舊 image 上被移除。
+    - 若沒有提供 tag，則預設的 tag 為 `latest`。
+- 可以用 `docker image tag` 在既有的 image 上增加 tag。
+- 若一個 image 沒有任何 tag，且在 host 上沒有被用來運行任何 container，則該 image 會被標記為 "dangling image"。
 
 ### Caching
 
@@ -66,9 +67,13 @@ Build image 時，Docker daemon 除了會產出最終的 image layer 外，也�
 
 若 `docker build` 時想要強制 rebuild、不使用 cache，須加上 `--no-cache` option。
 
+### Pull & Push Images
+
+除了自己 build image 以外，也可以從公有或私有的 remote repository（如 [[4 - Docker Hub.draft|Docker Hub]]）pull image 來使用，也可以將自己建立好的 image push 至 repository，相關指令為 `docker pull` 與 `docker push`，詳細請看[[2 - Docker CLI#與 Registry 相關的指令|這篇]]。
+
 # Dockerfile
 
-使用 `docker container commit` 的方式建立 image 雖然直覺，但其實有許多不方便處，比如當 image 被刪除後，開發者便無法快速地 rebuild 出一個一模一樣的；或者當開發者想要更改 image 中的 layer 順序或在中間插入／刪除某個 layer 時，都必須從頭到尾重新 commit 一次。
+使用 `docker container commit` 建立 image 的這種方式雖然直覺，但其實有許多不方便處，比如當 image 被刪除後，開發者便無法快速地 rebuild 出一個一模一樣的；或者當開發者想要更改 image 中的 layer 順序或在中間插入／刪除某個 layer 時，都必須從頭到尾重新 commit 一次。
 
 Dockerfile 中的每行 instruction 都會建立一個新的 image layer，因此開發者可以將 layer order 按順序以文件的方式紀錄，當要 rebuild image 時，只須更改 Dockerfile 然後使用 `docker build` 指令即可快速且自動化完成所有 building processes。
 
@@ -217,20 +222,24 @@ ENTRYPOINT [{COMMAND}, {ARGUMENT}, ...]
 - `ENTRYPOINT` 在 build image 時不會被執行，是在啟動 container 時才執行。
 - 將新的 layer 覆蓋在既有 layer 上後，既有 layer 的 `ENTRYPOINT` 就無效了。
 - 一個 Dockerfile 只能有一個 `ENTRYPOINT`，若出現多個，則只有最後一個有用。
-- 若執行 `docker run --entrypoint {ENTRYPOIN} {IMAGE}`，則 `{ENTRYPOINT}` 會覆蓋 Dockerfile 裡的 `ENTRYPOINT`。
-- 若執行 `docker run {IMAGE} {COMMAND}`，則 `{COMMAND}` 會被視為 Dockerfile 裡的 `ENTRYPOINT` 的 arguments。
+- 若 `ENTRYPOINT` 使用 exec form 撰寫，則 `CMD` 會被視為是 `ENTRYPOINT` 的額外參數。
 - 若 `ENTRYPOINT` 使用 Shell form 撰寫，則：
     - `CMD` 與 `docker run` 的 `{COMMAND}` 都會沒有作用。
-    - `ENTRYPOIN` 的指令會被視為是 `/bin/sh -c` 的 sub-command，因為沒有傳入 signal，所以==無法接收到 `docker stop` 所發出的 `SIGTERM` signal==。
+    - `ENTRYPOINT` 的指令會被視為是 `/bin/sh -c` 的 sub-command，因為沒有傳入 signal，所以==無法接收到 `docker stop` 所發出的 `SIGTERM` signal==。
         - 解決方法是在 `ENTRYPOINT` 寫 `exec {COMMAND}`，直接用當前所在的 Shell process 來執行 `{COMMAND}`。
 
-### `CMD` 與 `ENTRYPOINT` 的交互作用
+##### `ENTRYPOINT` 與 `docker run` 的交互作用
 
-| |**No `ENTRYPOINT`**|**`ENTRYPOINT exec_entry p1_entry`**|**`ENTRYPOINT ["exec_entry", "p1_entry"]`**|
+- 若執行 `docker run --entrypoint {ENTRYPOINT} {IMAGE}`，則指令裡的 `{ENTRYPOINT}` 會覆蓋 Dockerfile 裡的 `ENTRYPOINT`。
+- 若執行 `docker run {IMAGE} {COMMAND}`，且 `ENTRYPOINT` 使用 exec form 撰寫，則指令裡的 `{COMMAND}` 會被視為 Dockerfile 裡 `ENTRYPOINT` 的額外參數。
+
+##### `CMD` 與 `ENTRYPOINT` 的交互作用
+
+| |**No `ENTRYPOINT`**|**`ENTRYPOINT s t`**|**`ENTRYPOINT ["s", "t"]`**|
 |---|---|---|---|
-|**No `CMD`**|error, not allowed|`/bin/sh -c exec_entry p1_entry`|`exec_entry p1_entry`|
-|**`CMD ["exec_cmd", "p1_cmd"]`**|`exec_cmd p1_cmd`|`/bin/sh -c exec_entry p1_entry`|`exec_entry p1_entry exec_cmd p1_cmd`|
-|**`CMD exec_cmd p1_cmd`**|`/bin/sh -c exec_cmd p1_cmd`|`/bin/sh -c exec_entry p1_entry`|`exec_entry p1_entry /bin/sh -c exec_cmd p1_cmd`|
+|**No `CMD`**|error, not allowed|`/bin/sh -c s t`|`s t`|
+|**`CMD ["u", "v"]`**|`u v`|`/bin/sh -c s t`|`s t u v`|
+|**`CMD u v`**|`/bin/sh -c u v`|`/bin/sh -c s t`|`s t /bin/sh -c u v`|
 
 ### 註解
 
@@ -262,7 +271,7 @@ EXPOSE 3000
 CMD ["node", "./src/index.js"]
 ```
 
-上面這種寫法，當改動到任何程式碼時，都會從 `COPY . .` 開始 rebuild，就會須要花很多時間重新進行 `yarn install`，即使要安裝的套件根本沒有變。
+上面這種寫法，當改動到任何程式碼時，都會從 `COPY . .` 開始 rebuild，就會須要花很多時間重新進行 `yarn install --production`，即使要安裝的套件根本沒有變。
 
 **修正後**
 
@@ -276,13 +285,15 @@ EXPOSE 3000
 CMD ["node", "src/index.js"]
 ```
 
-修正後的寫法，若有改動程式碼，但沒有更動到 package.json 與 yarn.lock，就可以利用 cache 來避免重複執行 `yarn install`。
+修正後的寫法，若有改動程式碼，但沒有更動到 package.json 與 yarn.lock，就可以利用 cache 來避免重複執行 `yarn install --production`。
 
 ### Multi-Stage Builds
 
-==Multi-stage builds 的目的是縮小 final image 的大小==，在建置 image 時，中間準備階段所安裝的套件、生成的檔案可能是 final image 用不到的，開發者可以將這些事情寫在某個 intermediate stage 中，final image 只從 intermediate stage 複製出必要的檔案即可。
+==Multi-stage builds 的目的是縮小 final image 的大小==。在建置 image 時，中間準備階段所安裝的套件、生成的檔案可能是 final image 用不到的，開發者可以將這些事情寫在某個 intermediate stage 中，final image 只從 intermediate stage 複製出必要的檔案即可。
 
-比如對於用 compile language 打造的服務來說，final image 只需要最終的 compiled binaries，不須要 source code、compiler，此時就可以將 compiling 的過程寫在 intermediate stage 中。
+比如對於用 compile language 打造的服務來說，final image 只需要最終的 compiled binaries，不須要 source code 跟 compiler，此時就可以將 compiling 的過程寫在 intermediate stage 中。
+
+**Key Notes**
 
 - 當一個 Dockerfile 中有多個 `FROM` instructions 時，每個 `FROM` 就是一個 stage。
 - Stages 間可以繼承，比如 `FROM a AS b` 的意思就是「以 stage "a" 的 image 作為基底，建立一個新的 image，並且將新的 stage 命名為 "b"」
@@ -291,13 +302,17 @@ CMD ["node", "src/index.js"]
 
 # Container
 
-Container 是一個根據 image 建立 (create) 出來的環境，一個 host 上可以運行多個 containers，不同的 containers 有獨立的 filesystem，所以不會互不干擾；在 container 內對 filesystem 操作時也不會影響到 image 的內容。
+Container 是根據 image 建立 (create) 出來的 running instance。
+
+一個 host 上可以運行多個 containers，不同的 containers 有獨立的 filesystem，所以不會互不干擾。
+
+由於「運行 container」這個動作本身就是在 image 上再加一層 layer，所以==在 container 內對 filesystem 操作時不會動到 image 的內容==；而「刪除 container」其實就是刪除這層 container layer。
 
 ### Container Status
 
 ![[docker-container-fsm.png]]
 
-- 圖中的 "stopped" 也可以叫做 "exited"；"running" 也可以叫做 "up"
+- 上圖中的 "stopped" 也可以叫做 "exited"；"running" 也可以叫做 "up"。
 
 # 參考資料
 

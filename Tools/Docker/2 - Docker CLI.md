@@ -1,9 +1,12 @@
 >[!Info] 官方文件
 ><https://docs.docker.com/reference/cli/docker/>
 
+>[!Note]
+>與 Docker Compose 相關的指令另外收錄在 [[5 - Docker Compose.draft|Docker Compose]]。
+
 Docker CLI (`docker`) 是使用者與 Docker daemon 互動的其中一個途徑，這裡節錄了一些常用的指令，想了解完整的指令請看官方文件。
 
-# 顯示 Docker Engine 的資訊
+# 顯示 Docker Engine 資訊
 
 ```bash
 docker version
@@ -59,7 +62,7 @@ docker build -t my_image --platform=linux/arm64,linux/amd64 .
 
 ---
 
-### 查看一個 Image 的每一層
+### 查看 Image 的 Layers
 
 ```bash
 docker image history [{OPTIONS}] {IMAGE_ID}
@@ -119,7 +122,7 @@ docker run [{OPTIONS}] {IMAGE_NAME} [{COMMAND}]
 |Option|Short|Description|
 |---|:-:|---|
 |`--detach`|`-d`|在背景執行 container，不佔用 host 的終端機。|
-|`--env {KEY}={VALUE}`|`-e`|設定環境變數。（多個環境變數需要多個 `-e`）|
+|`--env {KEY}={VALUE}`|`-e`|設定環境變數（多個環境變數需要多個 `-e`）|
 |`--env-file {PATH_TO_FILE}`| |透過檔案一次設定多個環境變數。|
 |`--tty`|`-t`|將 host 的終端機連接上 container 的 I/O streams。|
 |`--interactive`|`-i`|維持 container 的 STDIN 開啟，須搭配 `-t` 使用。|
@@ -128,7 +131,7 @@ docker run [{OPTIONS}] {IMAGE_NAME} [{COMMAND}]
 |`--volume`|`-v`|將 volume / host-directories 綁定 container。</br>使用方式: `-v {HOST_PATH}:{CONTAINER_PATH}`|
 |`--mount`|`-m`|將 volume/host-directories/`tmpfs` 綁定 container。使用方式請見[[7 - Storage in Docker.draft\|這篇]]。|
 
-- `docker run` 可以拆解為 `docker create` 與 `docker start` 兩個步驟。
+- `docker run` 可以拆解為 `docker create` 與 `docker start` 兩個步驟，所以每次使用 `docker run` 時，Docker daemon 都會建立一個新的 container，不是把舊的 stopped container 開來用。
 - 若在 host 找不到指定的 image，則會嘗試 pull image from Docker Hub。
 - `-v` 與 `--mount` 的功能差不多，但 `--mount` 的功能更齊全，所以官方推薦一律使用 `--mount`。
 - 若 `-e` 或 `--env-file` 中含有與 Dockerfile 中 `ENV` 所設定的環境變數同名的變數，則會覆蓋掉 Dockerfile 中的 `ENV` 所設定的值。
@@ -137,10 +140,8 @@ docker run [{OPTIONS}] {IMAGE_NAME} [{COMMAND}]
 e.g.
 
 ```bash
-docker run --name my_container -it my_image echo hello
+docker run -it my_image echo hello
 ```
-
----
 
 >[!Note]
 >`docker run` 的 `{COMMAND}` 雖然看起來像 **Shell form**，但其實是 **exec form**。==exec form 不是使用 Shell 執行指令==，所以無法做到「讀取變數」、「使用 `&&` 串接多個指令」等 Shell script 獨有的操作，必須打開 Shell 然後在 Shell 裡面執行 Shell script 才可以：
@@ -216,7 +217,7 @@ docker [container] restart [{OPTIONS}] {CONTAINER_ID} [{CONTAINER_ID} ...]
 
 ---
 
-### 在正在運行的 Container 中執行指令
+### 在 Running Container 中執行指令
 
 ```bash
 docker [container] exec [{OPTIONS}] {CONTAINER_ID} {COMMAND}
@@ -260,7 +261,7 @@ docker exec -it my_container bash
 
 ---
 
-### 查看 Container 的 Log
+### 查看 Container Logs
 
 ```bash
 docker [container] logs [{OPTIONS}] {CONTAINER_ID}
@@ -292,7 +293,7 @@ docker [container] stats [{CONTAINER_ID} ...]
 docker [container] rm [{OPTIONS}] {CONTAINER_ID} [{CONTAINER_ID} ...]
 ```
 
-- 預設無法刪除狀態為 "Running" 的 containers，須加上 `-f` option。
+- 預設無法刪除狀態為 "Running" 的 containers，但加上 `-f` option 可以強制刪除。
 
 **常用的 Options**
 
@@ -329,6 +330,14 @@ docker volume ls
 
 ---
 
+### 建立 Volume
+
+```bash
+docker volume create {VOLUME_NAME}
+```
+
+---
+
 ### 刪除 Volume
 
 ```bash
@@ -351,25 +360,13 @@ Running container 的 volume 須要額外使用 `-f` option 才能被刪除，�
 docker volume prune
 ```
 
-# 與 Docker Compose 相關的指令
+# 與 Netwrok 相關的指令
 
-請見 [[5 - Docker Compose.draft|Docker Compose]]。
-
-# 清理垃圾
+### 建立 Network
 
 ```bash
-docker system prune [{OPTIONS}]
+docker netwrok create {NETWORK_NAME}
 ```
-
-這個指令預設會刪除所有 dangling images、stopped containers、unused networks 與 unused build cache。
-
-**常用的 Options**
-
-|Option|Short|Description|
-|:-:|:-:|---|
-|`--all`|`-a`|連同 unused images 也刪除（預設只刪除 dangling 的）|
-|`--force`|`-f`|刪除前不顯示提示問句。|
-|`--volumes`| |刪除 anonymous volumes。|
 
 # 與 Registry 相關的指令
 
@@ -387,13 +384,13 @@ docker search redis
 
 ---
 
-### 從 Registry 下載指定 Image 至 Local
+### 從 Registry 下載 Image
 
 ```bash
-docker [image] pull {IMAGE_NAME}[:{IMAGE_VERSION}]
+docker [image] pull {IMAGE_NAME}[:{TAG}]
 ```
 
-- 如果不指定 `{IMAGE_VERSION}` 則預設為 `latest`。
+- 如果不指定 `{TAG}` 則預設為 `latest`。
 
 e.g.
 
@@ -419,6 +416,22 @@ e.g.
 ```bash
 docker push registry.helloworld.io/my_server:latest
 ```
+
+# 清理垃圾
+
+```bash
+docker system prune [{OPTIONS}]
+```
+
+這個指令預設會刪除所有 dangling images、stopped containers、unused networks 與 unused build cache。
+
+**常用的 Options**
+
+|Option|Short|Description|
+|:-:|:-:|---|
+|`--all`|`-a`|連同 unused images 也刪除（預設只刪除 dangling 的）|
+|`--force`|`-f`|刪除前不顯示提示問句。|
+|`--volumes`| |刪除 anonymous volumes。|
 
 # 其它組合技
 

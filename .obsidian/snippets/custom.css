@@ -1,6 +1,8 @@
 @charset "UTF-8";
 * {
   --radius-s: 5px;
+  --inline-title-size: calc(2.5 * var(--font-text-size));
+  --inline-title-line-hight: calc(3.5 * var(--font-text-size));
   --h1-size: calc(2.1 * var(--font-text-size));
   --h3-size: calc(1.5 * var(--font-text-size));
   --h5-size: calc(1.2 * var(--font-text-size));
@@ -36,10 +38,8 @@
 }
 
 .inline-title {
-  letter-spacing: 1px;
+  letter-spacing: 1px !important;
   text-align: center;
-  line-height: calc(3.5 * var(--font-text-size));
-  font-size: calc(2.5 * var(--font-text-size));
   padding: 20px 0;
 }
 
@@ -120,7 +120,7 @@ iframe {
 .markdown-rendered div:has(> h3) + div:has(> p) {
   margin-block-start: 25px;
 }
-.markdown-rendered div:has(> h4), .markdown-rendered div:has(> h5) {
+.markdown-rendered div:has(> h4):not(:last-child), .markdown-rendered div:has(> h5) {
   margin-block-end: 15px;
 }
 .markdown-rendered div:has(> ul), .markdown-rendered div:has(> ol) {
@@ -254,6 +254,10 @@ a:hover {
 .mermaid {
   display: flex;
   justify-content: center;
+}
+.mermaid p {
+  line-height: inherit;
+  letter-spacing: inherit;
 }
 
 .canvas-node {

@@ -13,7 +13,7 @@ npx {PACKAGE_NAME} {PACKAGE_COMMAND} [args...]
 npx --package={PACKAGE_NAME} -c '{PACKAGE_COMMAND} [args...]'
 ```
 
-### npx 是如何運作的
+### npx 是如何運作的？
 
 當我們在專案的根目錄執行 `npx {PACKAGE_NAME} {PACKAGE_COMMAND}` 時，npx 會先看看這個專案的 local environment 中是否已有 `{PACKAGE_NAME}` 這個套件，有的話就直接使用，沒有的話就換去 global environment 找，還是沒有的話就開始下載該套件，但是並==不會將下載來的套件存進 storage，而是將其 cache 住==，下載完成後執行指定的指令，執行完後就會將 cache 住的套件刪除了。
 

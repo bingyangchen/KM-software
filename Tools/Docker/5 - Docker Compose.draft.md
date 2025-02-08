@@ -1,9 +1,19 @@
 >Docker compose is a tool for defining and running multi-container application on a single host.
 
-通常一個完整的應用程式／系統／服務會由不只一個部件／子系統／子服務構成，以一個 API service 為例，可能會有 API server、DBMS、in-memory cache、reverse proxy 等部件，有時候 API server 甚至不是單獨一個，而是多個 micro-services 互相協作，這種情況下，雖然每個部件都可以容器化（這已經大幅簡化了部署流程）但如果所有 containers 都須要各自被維護，開發者還要處裡 containers 間的 networks、dependencies 等設定，單純的容器化就顯得有些不足，因此我們須要一個工具方便開發者管理同一服務底下多個 containers，而 Docker Compose 就是一個這樣的工具。
-
 >[!Info] 官方文件
 ><https://docs.docker.com/compose/>
+
+[[Backend Web Architecture|一個完整的應用程式／服務／系統]]通常會包括 API server、database、reverse-proxy server 等多個系統元件，其中一種做法是只建立一個 container 然後把所有東西都放在裡面，但這樣做的話會有一些缺點：
+
+- 無法針對單一系統元件進行 scaling，只能整個應用程式一起。
+- 無法針對單一系統元件的 image 進行 rebuild。
+- 可能要處理 dependencies 不相容的問題。
+
+因此，==比較好的做法是將不同統系統元件拆成不同的 containers==。但這衍生出另一個問題，如果所有 containers 都須要各自被維護，開發者還要處裡 containers 間的 networks、dependencies 等設定，單純的容器化工具就顯得有些不足，因此我們須要一個 "orchestration tool" 方便開發者在同一個 host 中管理同一服務底下的多個 containers，而 Docker Compose 就是一個這樣的工具。
+
+>[!Note]
+>Docker Compose 只能在同一個 host 中管理 containers，所以其實沒有解決「無法針對單一系統元件進行 scaling」的問題。要解決這個問題，只能將不同的 container 部署在不同的 node/host 上，但此時你須要的 orchestration tool 就不是 Docker Compose 了，須要改用 **Kubernetes**。
+
 # Installation
 
 ### On Linux Ubuntu
