@@ -77,7 +77,7 @@ class Engineer extends Employee {
 
 >一個系統應該要可以擴充功能，且擴充功能時應不須要修改到既有功能的 code，也不用擔心既有的功能壞掉。
 
-實務上的例子如 Google Chrome，你可以在上面安裝多個 plugins，這些 plugins 的開發者不須要修改到 Google Chrome 的底層程式碼就可以開發出各式各樣的 plugins。
+實務上的例子如 Google Chrome，你可以在上面安裝多個 extensions，這些 extensions 的開發者不須要修改到 Google Chrome 的 code 就可以開發出各式各樣的 extensions。
 
 ### 參考資料
 
@@ -90,9 +90,9 @@ class Engineer extends Employee {
 
 ### 重點摘要
 
-- 若在可運行的 function（或程式碼片段）中，將任何型別為 $T$ 的物件替換成型別為 $S$ 的物件後，function／程式碼片段應該仍然可以正常運行，則稱型別 $S$ 為型別 $T$ 的 subtype，或說 $T$ 為 $S$ 的 supertype
-- ==Subtype 與 subclass 是兩個完全不相干的概念==，只有遵守特定規則來繼承，才會形成 subtype，否則就只是 subclass
-- 當你想要使用繼承時要非常小心，因為==大多數的情況都不該用繼承==，繼承是所有依賴關係裡面最強的，而太過依賴總是沒啥好事
+- 若在可運行的 function（或程式碼片段）中，將任何型別為 $T$ 的物件替換成型別為 $S$ 的物件後，function／程式碼片段應該仍然可以正常運行，則稱型別 $S$ 為型別 $T$ 的 subtype，或說 $T$ 為 $S$ 的 supertype。
+- ==Subtype 與 subclass 是兩個完全不相干的概念==，只有遵守特定規則來繼承，才會形成 subtype，否則就只是 subclass。
+- 當你想要使用繼承時要非常小心，因為==大多數的情況都不該用繼承==，繼承是所有依賴關係裡面最強的，而太過依賴總是沒啥好事。
 
 # Interface Segregation Principle
 

@@ -133,6 +133,8 @@ DNS request 與 DNS response 的 format 長得一樣。
     dig +short google.com
     ```
 
+    詳見[[與網路相關的指令]]。
+
 # DNS Lookup Tool (Website)
 
 <https://www.whatsmydns.net/>
