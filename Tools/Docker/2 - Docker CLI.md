@@ -2,7 +2,7 @@
 ><https://docs.docker.com/reference/cli/docker/>
 
 >[!Note]
->與 Docker Compose 相關的指令另外收錄在 [[5 - Docker Compose.draft|Docker Compose]]。
+>與 Docker Compose 相關的指令另外收錄在 [Docker Compose](</Tools/Docker/5 - Docker Compose.draft.md>)。
 
 Docker CLI (`docker`) 是使用者與 Docker daemon 互動的其中一個途徑，這裡節錄了一些常用的指令，想了解完整的指令請看官方文件。
 

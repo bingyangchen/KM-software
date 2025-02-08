@@ -42,10 +42,6 @@
     - [Closure](<././Programming Language/Closure.md>)
     - [Imperative vs. Declarative](<././Programming Language/Imperative vs. Declarative.md>)
     - [String](<././Programming Language/String.md>)
-    - Design Pattern
-      - [Template Method](<././Programming Language/Design Pattern/Template Method.md>)
-      - [Strategy](<././Programming Language/Design Pattern/Strategy.md>)
-      - [Factory Method](<././Programming Language/Design Pattern/Factory Method.md>)
     - [Test-Driven Development (TDD)](<././Programming Language/Test-Driven Development (TDD).md>)
     - [Static vs. Non-Static](<././Programming Language/Static vs. Non-Static.md>)
     - [OOP 零碎筆記](<././Programming Language/OOP 零碎筆記.md>)
@@ -105,8 +101,6 @@
     - Redis
       - [0 - Installation](<././Database/Redis/0 - Installation.md>)
       - [1 - Introduction](<././Database/Redis/1 - Introduction.md>)
-      - [Redis Persistence](<././Database/Redis/Redis Persistence.md>)
-      - [Redis Queue](<././Database/Redis/Redis Queue.md>)
       - [Redis Transaction](<././Database/Redis/Redis Transaction.md>)
       - [Redis Pipeline](<././Database/Redis/Redis Pipeline.md>)
     - [Integrity Constraints](<././Database/Integrity Constraints.md>)
@@ -143,6 +137,7 @@
       - [1 - Introduction](<././Tools/Docker/1 - Introduction.md>)
       - [2 - Docker CLI](<././Tools/Docker/2 - Docker CLI.md>)
       - [3 - Dockerfile, Image & Container](<././Tools/Docker/3 - Dockerfile, Image & Container.md>)
+      - [9 - Secrets in Docker](<././Tools/Docker/9 - Secrets in Docker.md>)
       - [清除 Container 內的 Server Logs](<././Tools/Docker/清除 Container 內的 Server Logs.md>)
     - Mac
       - [零碎筆記](<././Tools/Mac/零碎筆記.md>)
@@ -225,6 +220,10 @@
     - [Serverless Computing](<././System Design/Serverless Computing.md>)
     - [Database Replication](<././System Design/Database Replication.md>)
     - [Architectural Pattern](<././System Design/Architectural Pattern.md>)
+    - Design Pattern
+      - [Template Method](<././System Design/Design Pattern/Template Method.md>)
+      - [Strategy](<././System Design/Design Pattern/Strategy.md>)
+      - [Factory Method](<././System Design/Design Pattern/Factory Method.md>)
     - [Horizontal Scaling vs. Vertical Scaling](<././System Design/Horizontal Scaling vs. Vertical Scaling.md>)
     - [CDC](<././System Design/CDC.md>)
     - [ETL vs. ELT](<././System Design/ETL vs. ELT.md>)

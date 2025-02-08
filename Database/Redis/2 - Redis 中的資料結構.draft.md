@@ -91,4 +91,4 @@ Redis stream 中的每一筆資料稱為一個 "stream entry"，每個 entry 都
 - `XLEN`：
 
 >[!Note]
->關於 Redis Stream 的詳細介紹，請看[[Redis Stream.draft|這篇]]。
+>關於 Redis Stream 的詳細介紹，請看[這篇](</Database/Redis/Redis Stream.draft.md>)。

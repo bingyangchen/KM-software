@@ -3,7 +3,7 @@
 >[!Info] 官方文件
 ><https://docs.docker.com/compose/>
 
-[[Backend Web Architecture|一個完整的應用程式／服務／系統]]通常會包括 API server、database、reverse-proxy server 等多個系統元件，其中一種做法是只建立一個 container 然後把所有東西都放在裡面，但這樣做的話會有一些缺點：
+[一個完整的應用程式／服務／系統](</System Design/Backend Web Architecture.md>)通常會包括 API server、database、reverse-proxy server 等多個系統元件，其中一種做法是只建立一個 container 然後把所有東西都放在裡面，但這樣做的話會有一些缺點：
 
 - 無法針對單一系統元件進行 scaling，只能整個應用程式一起。
 - 無法針對單一系統元件的 image 進行 rebuild。
