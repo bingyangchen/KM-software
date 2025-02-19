@@ -141,7 +141,7 @@
       - [清除 Container 內的 Server Logs](<././Tools/Docker/清除 Container 內的 Server Logs.md>)
     - Mac
       - [零碎筆記](<././Tools/Mac/零碎筆記.md>)
-      - [Xcode](<././Tools/Mac/Xcode.md>)
+      - [Xcode CLT](<././Tools/Mac/Xcode CLT.md>)
       - [Homebrew](<././Tools/Mac/Homebrew.md>)
     - [ngrok](<././Tools/ngrok.md>)
     - [Cron](<././Tools/Cron.md>)
@@ -159,7 +159,7 @@
       - GitHub
         - [GitHub Page](<././Tools/Git/GitHub/GitHub Page.md>)
         - [新增 SSH Client](<././Tools/Git/GitHub/新增 SSH Client.md>)
-        - [Workflow](<././Tools/Git/GitHub/Workflow.md>)
+        - [GitHub Workflow](<././Tools/Git/GitHub/GitHub Workflow.md>)
         - [保護 Branch](<././Tools/Git/GitHub/保護 Branch.md>)
       - [Pre Commit Hooks](<././Tools/Git/Pre Commit Hooks.md>)
       - [diff、show、log](<././Tools/Git/diff、show、log.md>)

@@ -134,7 +134,7 @@ docker run [{OPTIONS}] {IMAGE_NAME} [{COMMAND}]
 |`--rm`| |離開 container 後，自動刪除 container，以及相關的 volumes。|
 |`--name`| |為 container 取名。（若沒有這個 option 則 Docker 會隨機取名）|
 |`--volume {HOST_PATH}:{CONTAINER_PATH}`|`-v`|將 volume / host directories 綁定 container。|
-|`--mount {CONFIG}`|`-m`|將 volume/host-directories/`tmpfs` 綁定 container。使用方式請見[[7 - Storage in Docker.draft\|這篇]]。|
+|`--mount {CONFIG}`|`-m`|將 volume/host-directories/`tmpfs` 綁定 container。使用方式請見[這篇](</Tools/Docker/7 - Storage in Docker.draft.md>)。|
 
 - `-v` 與 `--mount` 的功能差不多，但 `--mount` 的功能更齊全，所以官方推薦一律使用 `--mount`。
 - 若 `-e` 或 `--env-file` 中含有與 Dockerfile 中 `ENV` 所設定的環境變數同名的變數，則會覆蓋掉 Dockerfile 中的 `ENV` 所設定的值。

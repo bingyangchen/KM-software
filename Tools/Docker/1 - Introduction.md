@@ -37,7 +37,7 @@ flowchart LR
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/container-vs-virtual-machine.png>)
 
-Virtual machine (VM) 會將整個 OS 都虛擬化，所以不同 VMs 間只會共用 host 的硬體資源；相對地，一個 host 上所有 containers 不只共用 host 的硬體資源，也共用 host 的 [[Kernel.draft|OS kernel]]，所以即使 container 內可以有自己的 OS，但那也只包含 application layer 的 OS，這樣的好處是可以讓 container 變得相對輕量，也縮短了啟動 container 所需的時間（分鐘級 → 毫秒級）。
+Virtual machine (VM) 會將整個 OS 都虛擬化，所以不同 VMs 間只會共用 host 的硬體資源；相對地，一個 host 上所有 containers 不只共用 host 的硬體資源，也共用 host 的 [OS kernel](</Operating System/Kernel.draft.md>)，所以即使 container 內可以有自己的 OS，但那也只包含 application layer 的 OS，這樣的好處是可以讓 container 變得相對輕量，也縮短了啟動 container 所需的時間（分鐘級 → 毫秒級）。
 
 你可能會問：「如果使用 host 的 OS kernel，那要怎麼在一個 Windows 或 macOS 的電腦上運行 Linux 的 container？」答案是須要先建立一個 VM 把 OS kernel 也虛擬化，比如若要在 macOS 裡運行一個 Linux container，就要先在 macOS 裡架一個有基本 Linux 環境的 VM，然後才能在 VM 裡面運行 container。
 
