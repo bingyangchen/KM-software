@@ -99,7 +99,9 @@ iframe {
     ol {
         margin: 0;
         & > li {
-            margin-bottom: 8px;
+            margin-top: 4px;
+            margin-bottom: 4px;
+            margin-inline: 3ch 1ch;
             line-height: calc(1.8 * var(--font-text-size));
             letter-spacing: 0.5px;
             p,
@@ -109,7 +111,7 @@ iframe {
         }
         ul,
         ol {
-            margin: 10px 0 !important;
+            margin: 6px 0 10px !important;
         }
     }
     div {
@@ -125,14 +127,16 @@ iframe {
         }
         &:has(> ul),
         &:has(> ol) {
-            margin-block: 20px calc(1.2 * var(--p-spacing));
+            margin-block: 16px calc(1.2 * var(--p-spacing));
         }
         &:has(> p) {
             margin-block: var(--p-spacing);
-            &:has(+ .el-table),
+            &:has(+ .el-table) {
+                margin-block-end: 20px;
+            }
             &:has(+ .el-ul),
             &:has(+ .el-ol) {
-                margin-block-end: 20px;
+                margin-block-end: 16px;
             }
         }
         &:has(> table) {

@@ -27,7 +27,7 @@ Image 由若干個 layers 堆疊而成，每一個 layer 都是在對 filesystem
 4. 在第四個 layer 透過 pip 下載所有 requirements.txt 中列舉的 Python dependencies。
 5. 在最後一個 layer 複製所有 application code 到 filesystem 內。
 
-==Layering 的好處在於 reusability==，承上方的例子，假如今天有第二個應用程式也要使用 Python，那它可以直接使用已安裝好 Python 的 image 作為基底（上方例子中的第二層），不須要自己從頭 build 一個。
+Layering 的好處在於 reusability，承上方的例子，假如今天有第二個應用程式也要使用 Python，那它可以直接使用已安裝好 Python 的 image 作為基底（上方例子中的第二層），不須要自己從頭 build 一個。
 
 ##### 兩種 Build Image 的方法
 
@@ -103,7 +103,9 @@ CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
 FROM [--platform={PLATFORM}] {IMAGE_NAME}[:{TAG}] [AS {NAME}]
 ```
 
-- `{BASE_IMAGE_NAME}[:{TAG}]` 表示要使用哪個 image 作為這個新 image 的 base，若沒有提供 `{TAG}` 則預設使用 `latest`。
+- `{BASE_IMAGE_NAME}[:{TAG}]` 表示要使用哪個 image 作為這個新 image 的 base
+    - ==最 "base" 的 image 叫做 `scratch`==。事實上 `scratch` 並不是一個 image，而是一個特殊的 keyword，`FROM scrath` 告訴 Docker「這個 Dockerfile 裡的第一個 instruction 就是整個 image 的第一個 layer」。
+    - 若沒有提供 `{TAG}` 則預設使用 `latest`。
 - `--platform` argument 表示要使用專門 build 給哪個 OS & ISA 用的 image，預設為 host 本身的 OS & ISA
 
 ##### `WORKDIR`
@@ -114,6 +116,7 @@ WORKDIR {PATH}
 
 切換至 image 中指定的位置，若該路徑不存在，則會先將缺的目錄建立出來再進去。
 
+`WORKDIR {PATH}` 與 `RUN cd {PATH} && ...` 的差異在於：`RUN cd {PATH} && ...` 只有在執行當下這個 `RUN` instruction 時會到指定的路徑，執行後續的 instruction 時就會回到原本的位置了；`WORKDIR {PATH}` 的效果則是會讓後續的 instruction 都改到 `{PATH}`。
 ##### `COPY`
 
 ```Dockerfile
@@ -184,7 +187,7 @@ RUN ["{COMMAND}", "{ARG}", ...]
 
 ##### `CMD`
 
-啟動這個 image 建立的 container 時，預設會執行的指令。`CMD` 也分為 shell form 與 exec form 兩種寫法：
+啟動這個 image 建立的 container 時，預設要執行的指令。`CMD` 也分為 shell form 與 exec form 兩種寫法：
 
 ```Dockerfile
 # Shell form
@@ -197,7 +200,7 @@ CMD [{COMMAND}, {ARGUMENT}, ...]
 >[!Note]
 >關於 Shell form 與 exec form 的差別，請見前面的 `RUN` 段落。
 
-- `CMD` 與 `RUN` 的不同：==`CMD` 在 build image 時不會被執行==。
+- `CMD` 與 `RUN` 的不同：==`CMD` 是 run container 時要執行的，在 build image 時不會執行==；`RUN` 則是 build image 時執行。
 - 將新的 layer 覆蓋在既有 layer 上後，既有 layer 的 `CMD` 就無效了。
 - 一個 Dockerfile 中只能有一個 `CMD`，若出現多個，則只有最後一個有用。
 - 若執行 `docker run {IMAGE} {COMMAND}`，則 `{COMMAND}` 會覆蓋掉 Dockerfile 裡的 `CMD` instruction。
