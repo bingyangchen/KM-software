@@ -8,16 +8,16 @@ Image 可以被我們 push 至 container registry 也可以讓我們從 containe
 
 ```mermaid
 flowchart LR
-    id1("Image A")
-    id2("Image B")
-    id3("Image C")
-    id4("Image D")
+    id1("Image A:1.0")
+    id2("Image A:2.0")
+    id3("Image B")
+    id4("Image C")
     subgraph Registry
         subgraph Repository1
-        id1 ~~~ id2
+            id1 ~~~ id2
         end
         subgraph Repository2
-        id3 ~~~ id4
+            id3 ~~~ id4
         end
     end
 ```

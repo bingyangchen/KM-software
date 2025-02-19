@@ -117,25 +117,28 @@ docker container ls
 docker run [{OPTIONS}] {IMAGE_NAME} [{COMMAND}]
 ```
 
+- `docker run` 可以拆解為 `docker create` 與 `docker start` 兩個步驟，所以每次使用 `docker run` 時，Docker daemon 都會建立一個新的 container，不是把舊的 stopped container 開來用。
+- 若在 host 找不到指定的 image，則會嘗試 pull image from Docker Hub。
+- `{COMMAND}` 是啟動 container 後要在 container 內執行的指令，可以不提供，若提供的話，會==覆蓋掉==原本寫在 Dockerfile 的 `CMD` 的指令。
+
 **常用的 Options**
 
 |Option|Short|Description|
 |---|:-:|---|
 |`--detach`|`-d`|在背景執行 container，不佔用 host 的終端機。|
 |`--env {KEY}={VALUE}`|`-e`|設定環境變數（多個環境變數需要多個 `-e`）|
-|`--env-file {PATH_TO_FILE}`| |透過檔案一次設定多個環境變數。|
+|`--env-file {PATH/TO/FILE}`| |透過檔案一次設定多個環境變數。|
 |`--tty`|`-t`|將 host 的終端機連接上 container 的 I/O streams。|
 |`--interactive`|`-i`|維持 container 的 STDIN 開啟，須搭配 `-t` 使用。|
-|`--publish`|`-p`|將 container 的 port 映射到 host 的 port。</br>使用方式: `-p {HOST_PORT}:{CONTAINER_PORT}`|
+|`--publish {HOST_PORT}:{CONTAINER_PORT}`|`-p`|將 container 的 port 映射到 host 的 port。|
 |`--rm`| |離開 container 後，自動刪除 container，以及相關的 volumes。|
-|`--volume`|`-v`|將 volume / host-directories 綁定 container。</br>使用方式: `-v {HOST_PATH}:{CONTAINER_PATH}`|
-|`--mount`|`-m`|將 volume/host-directories/`tmpfs` 綁定 container。使用方式請見[[7 - Storage in Docker.draft\|這篇]]。|
+|`--name`| |為 container 取名。（若沒有這個 option 則 Docker 會隨機取名）|
+|`--volume {HOST_PATH}:{CONTAINER_PATH}`|`-v`|將 volume / host directories 綁定 container。|
+|`--mount {CONFIG}`|`-m`|將 volume/host-directories/`tmpfs` 綁定 container。使用方式請見[[7 - Storage in Docker.draft\|這篇]]。|
 
-- `docker run` 可以拆解為 `docker create` 與 `docker start` 兩個步驟，所以每次使用 `docker run` 時，Docker daemon 都會建立一個新的 container，不是把舊的 stopped container 開來用。
-- 若在 host 找不到指定的 image，則會嘗試 pull image from Docker Hub。
 - `-v` 與 `--mount` 的功能差不多，但 `--mount` 的功能更齊全，所以官方推薦一律使用 `--mount`。
 - 若 `-e` 或 `--env-file` 中含有與 Dockerfile 中 `ENV` 所設定的環境變數同名的變數，則會覆蓋掉 Dockerfile 中的 `ENV` 所設定的值。
-- `{COMMAND}` 是啟動 container 後要在 container 內執行的指令，可以不提供，若提供的話，會==覆蓋掉==原本寫在 Dockerfile 的 `CMD` 的指令。
+- 幫 container 取名的目的在於方便人類記憶，否則 hash 太難記了。在 Docker 指令中可以使用 container name 來只定要操做的 container。
 
 e.g.
 
@@ -180,6 +183,9 @@ docker [container] start {CONTAINER_ID} [{CONTAINER_ID} ...]
 docker [container] stop [{OPTIONS}] {CONTAINER_ID} [{CONTAINER_ID} ...]
 ```
 
+- 若啟動 container 時有配置終端機，那也可以在該終端機前景使用 `Ctrl` + `C` 終止 container。
+- 終止後，container 的狀態會變為 "Exited"。
+
 **常用的 Options**
 
 |Option|Short|Description|
@@ -189,8 +195,6 @@ docker [container] stop [{OPTIONS}] {CONTAINER_ID} [{CONTAINER_ID} ...]
 
 - 若 container 是 Linux container，則強制關閉前所等待的時間 default 為 10 秒；Windows container 的 default 為 30 秒。
 - 在 create container 時，可以透過 `--stop-signal` 與 `--stop-timeout` 來設定該 container 的預設值。
-- 若啟動 container 時有配置終端機，那也可以在該終端機前景使用 `Ctrl` + `C` 終止 container。
-- 終止後，container 的狀態會變為 "Exited"。
 
 ---
 

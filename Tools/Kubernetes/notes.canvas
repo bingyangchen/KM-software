@@ -1,11 +1,16 @@
 {
 	"nodes":[
+		{"id":"4e224fa667d10d2e","x":-253,"y":-456,"width":968,"height":868,"type":"group","label":"實務"},
+		{"id":"a787eb06fb260c87","x":-253,"y":-934,"width":968,"height":308,"type":"group","label":"基礎"},
 		{"id":"bcc7240f0420ba81","type":"text","text":"Amazon EKS requires up to **five available IP addresses** from the subnets that you specified when you created your cluster.","x":-233,"y":-217,"width":417,"height":139},
 		{"id":"b08c369077f5f5aa","type":"text","text":"2 for API server, 3 for etcd","x":267,"y":-176,"width":275,"height":58},
-		{"id":"a7fa5a5a684c473a","type":"text","text":"- Standard support: 14 months; Cost: 0.1 USD/hour\n- Extended support: 12 months; Cost: 0.6 USD/hour","x":-233,"y":52,"width":506,"height":125},
-		{"id":"dbe58e8f99c559fb","type":"text","text":"- Control plane\n- Data plane","x":-233,"y":-436,"width":194,"height":125},
-		{"id":"e16f73c73ef87a42","type":"text","text":"Kubernetes version skew policy:\n\n- 1.28 前：最多接受 2 個 minor version skew\n- 1.28 以後：最多接受 3 個 minor version skew","x":-233,"y":300,"width":456,"height":166},
-		{"id":"2fc0d7b22d7034d1","type":"text","text":"https://docs.aws.amazon.com/eks/","x":328,"y":300,"width":367,"height":58}
+		{"id":"dbe58e8f99c559fb","type":"text","text":"- Control plane\n- Data plane","x":-233,"y":-436,"width":200,"height":125},
+		{"id":"a7fa5a5a684c473a","type":"text","text":"- Standard support: 14 months; Cost: 0.1 USD/hour\n- Extended support: 12 months; Cost: 0.6 USD/hour","x":-233,"y":13,"width":512,"height":125},
+		{"id":"e16f73c73ef87a42","type":"text","text":"Kubernetes version skew policy:\n\n- 1.28 前：最多接受 2 個 minor version skew\n- 1.28 以後：最多接受 3 個 minor version skew","x":-233,"y":226,"width":462,"height":166},
+		{"id":"2fc0d7b22d7034d1","type":"text","text":"https://docs.aws.amazon.com/eks/","x":328,"y":226,"width":367,"height":58},
+		{"id":"5c41f4d8323aa594","x":-233,"y":-914,"width":133,"height":59,"type":"text","text":"`kubectl`"},
+		{"id":"1c326a06c0cf71ea","x":-233,"y":-787,"width":491,"height":141,"type":"text","text":"在 MacOS 上，pv 的 host path 必須在 /tmp/ 底下，否則即使有設定 `persistentVolumeReclaimPolicy: Delete`，也無法隨著 pvc 一起被刪除。"},
+		{"id":"71a3435295cd8ff7","x":12,"y":-913,"width":344,"height":58,"type":"text","text":"pv 是 corss-namespace 的 resource"}
 	],
 	"edges":[
 		{"id":"fd4b861dec5ff744","fromNode":"bcc7240f0420ba81","fromSide":"right","toNode":"b08c369077f5f5aa","toSide":"left"}

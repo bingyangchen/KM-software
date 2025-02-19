@@ -1,5 +1,10 @@
->[!Info] 官方文件
-><https://docs.docker.com/guides/>
+# 學習資源
+
+- [📃 官方文件](https://docs.docker.com/guides/)
+- YouTube
+    - <https://www.youtube.com/watch?v=pg19Z8LL06w>
+    - <https://www.youtube.com/watch?v=3c-iBn73dDE>
+- https://www.huweihuang.com/docker-notes/
 
 # Containerization
 
@@ -10,11 +15,29 @@ Containerization（容器化）指的是「將應用程式運行時所需的 OS�
 - 可以快速建置環境，有利於拉近 **dev**elopment 與 **op**eration 兩種工作間的距離（簡化了 operation 的工作）。
 - 可以將多個不同的應用程式分別容器化並運行在同一台 host 上，這些應用程式的環境相互獨立，不會影響彼此。
 
+### Workflow with Docker
+
+```mermaid
+flowchart LR
+    dockerhub("`**DockerHub**
+    - Base Image
+    - Your Image`")
+    localmachine("Local Machine")
+    coderepository("Code Repository")
+    ci(CI)
+    remoteserver("Remote Server")
+    dockerhub -.pull image.-> localmachine
+    localmachine --push code--> coderepository
+    coderepository --trigger--> ci
+    ci --push image--> dockerhub
+    dockerhub -.pull image.-> remoteserver
+```
+
 # Container vs. Virtual Machine
 
 ![[container-vs-virtual-machine.png]]
 
-Virtual machine (VM) 會將整個 OS 都虛擬化，所以不同 VMs 間只會共用 host 的硬體資源；相對地，一個 host 上所有 containers 不只共用 host 的硬體資源，也共用 host 的 [[Kernel.draft|OS kernel]]，所以即使 container 內可以有自己的 OS，但那也只包含 application layer 的 OS，這漾的好處是可以讓 container 變得相對輕量，也縮短了啟動 container 所需的時間（分鐘級 → 毫秒級）。
+Virtual machine (VM) 會將整個 OS 都虛擬化，所以不同 VMs 間只會共用 host 的硬體資源；相對地，一個 host 上所有 containers 不只共用 host 的硬體資源，也共用 host 的 [[Kernel.draft|OS kernel]]，所以即使 container 內可以有自己的 OS，但那也只包含 application layer 的 OS，這樣的好處是可以讓 container 變得相對輕量，也縮短了啟動 container 所需的時間（分鐘級 → 毫秒級）。
 
 你可能會問：「如果使用 host 的 OS kernel，那要怎麼在一個 Windows 或 macOS 的電腦上運行 Linux 的 container？」答案是須要先建立一個 VM 把 OS kernel 也虛擬化，比如若要在 macOS 裡運行一個 Linux container，就要先在 macOS 裡架一個有基本 Linux 環境的 VM，然後才能在 VM 裡面運行 container。
 

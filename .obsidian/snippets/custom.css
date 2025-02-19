@@ -98,7 +98,9 @@ iframe {
 }
 .markdown-rendered ul > li,
 .markdown-rendered ol > li {
-  margin-bottom: 8px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-inline: 3ch 1ch;
   line-height: calc(1.8 * var(--font-text-size));
   letter-spacing: 0.5px;
 }
@@ -112,7 +114,7 @@ iframe {
 .markdown-rendered ul ol,
 .markdown-rendered ol ul,
 .markdown-rendered ol ol {
-  margin: 10px 0 !important;
+  margin: 6px 0 10px !important;
 }
 .markdown-rendered div:has(> h3) {
   margin: 40px 0 25px;
@@ -124,13 +126,16 @@ iframe {
   margin-block-end: 15px;
 }
 .markdown-rendered div:has(> ul), .markdown-rendered div:has(> ol) {
-  margin-block: 20px calc(1.2 * var(--p-spacing));
+  margin-block: 16px calc(1.2 * var(--p-spacing));
 }
 .markdown-rendered div:has(> p) {
   margin-block: var(--p-spacing);
 }
-.markdown-rendered div:has(> p):has(+ .el-table), .markdown-rendered div:has(> p):has(+ .el-ul), .markdown-rendered div:has(> p):has(+ .el-ol) {
+.markdown-rendered div:has(> p):has(+ .el-table) {
   margin-block-end: 20px;
+}
+.markdown-rendered div:has(> p):has(+ .el-ul), .markdown-rendered div:has(> p):has(+ .el-ol) {
+  margin-block-end: 16px;
 }
 .markdown-rendered div:has(> table) {
   margin-block: 20px calc(1.2 * var(--p-spacing));
