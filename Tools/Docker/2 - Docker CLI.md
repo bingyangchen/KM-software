@@ -391,7 +391,7 @@ docker network create [{OPTIONS}] {NETWROK_NAME}
 |`--driver`|`-d`|Network driver 的種類，沒有提供的話預設為 `bridge`。|
 
 >[!Info]
->關於 network diver 的詳細介紹，請看[[8 - Network in Docker.draft#Network Driver|這篇]]。
+>關於 network diver 的詳細介紹，請看[這篇](</Tools/Docker/8 - Network in Docker.draft.md#Network Driver>)。
 
 ### Remove a Network
 

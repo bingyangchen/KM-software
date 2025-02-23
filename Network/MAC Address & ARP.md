@@ -158,7 +158,7 @@ router.asus.com (192.168.50.1) at 24:4b:fe:35:13:7c on en0 ifscope [ethernet]
 ```
 
 >[!Note]
->更多與網路相關的指令請見[[10 - Commands - Network|本文]]。
+>更多與網路相關的指令請見[本文](</Operating System/Shell/10 - Commands - Network.md>)。
 
 # 參考資料
 

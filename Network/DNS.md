@@ -133,7 +133,7 @@ DNS request 與 DNS response 的 format 長得一樣。
     dig +short google.com
     ```
 
-    詳見[[10 - Commands - Network]]。
+    詳見[10 - Commands - Network](</Operating System/Shell/10 - Commands - Network.md>)。
 
 # DNS Lookup Tool (Website)
 

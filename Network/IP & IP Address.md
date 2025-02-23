@@ -236,8 +236,8 @@ sequenceDiagram
 
 # 延伸閱讀
 
-- [[10 - Commands - Network#可以給我你的 IP Address 嗎？|查詢 IP address 的方法]]
-- [[DNS]]
+- [查詢 IP address 的方法](</Operating System/Shell/10 - Commands - Network.md#可以給我你的 IP Address 嗎？>)
+- [DNS](</Network/DNS.md>)
 
 # 參考資料
 
