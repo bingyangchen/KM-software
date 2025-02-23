@@ -236,7 +236,7 @@ sequenceDiagram
 
 # 延伸閱讀
 
-- [[與網路相關的指令#可以給我你的 IP Address 嗎？|查詢 IP address 的方法]]
+- [[10 - Commands - Network#可以給我你的 IP Address 嗎？|查詢 IP address 的方法]]
 - [[DNS]]
 
 # 參考資料

@@ -4,12 +4,12 @@
 ```mermaid
 flowchart TD
     id1(for each in x)
-    id2{x 是否有\n__iter__\nmethod?}
+    id2{x 是否有<br/>__iter__ method?}
     id3("呼叫 iter(x)，產生一個 iterator object: y")
-    id4{x 是否有\n__getitem__\nmethod?}
-    id5{y 是否有\n__next__\nmethod?}
-    id6("每一次 loop 就 call 一次\ny.__next__()\n直到 raise StopIteration")
-    id7("每一次 loop 就 call 一次\nx.__getitem__(i)\n直到 raise IndexError")
+    id4{x 是否有<br/>__getitem__<br/>method?}
+    id5{y 是否有<br/>__next__ method?}
+    id6("每一次 loop 就 call 一次<br/>y.__next__()<br/>直到 raise StopIteration")
+    id7("每一次 loop 就 call 一次<br/>x.__getitem__(i)<br/>直到 raise IndexError")
     id8(raise TypeError)
     id1 --> id2
     id2 --有--> id3

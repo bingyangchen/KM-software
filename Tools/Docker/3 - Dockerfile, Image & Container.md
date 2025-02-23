@@ -92,7 +92,7 @@ EXPOSE 5000
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
 ```
 
-### Dockerfile Instructions
+### 常用的 Dockerfile Instructions
 
 >[!Note]
 >詳細撰寫規則請見[官方文件](https://docs.docker.com/reference/dockerfile/)，這裡只節錄常用的。
@@ -104,9 +104,17 @@ FROM [--platform={PLATFORM}] {IMAGE_NAME}[:{TAG}] [AS {NAME}]
 ```
 
 - `{BASE_IMAGE_NAME}[:{TAG}]` 表示要使用哪個 image 作為這個新 image 的 base
-    - ==最 "base" 的 image 叫做 `scratch`==。事實上 `scratch` 並不是一個 image，而是一個特殊的 keyword，`FROM scrath` 告訴 Docker「這個 Dockerfile 裡的第一個 instruction 就是整個 image 的第一個 layer」。
-    - 若沒有提供 `{TAG}` 則預設使用 `latest`。
-- `--platform` argument 表示要使用專門 build 給哪個 OS & ISA 用的 image，預設為 host 本身的 OS & ISA
+    - =="最 base" 的 image 叫做 `scratch`==。事實上 `scratch` 並不是一個 image，而是一個特殊的 keyword，`FROM scrath` 告訴 Docker「這個 Dockerfile 裡的第一個 instruction 就是整個 image 的第一個 layer」。
+    - 若沒有提供 `{TAG}`，則 Docker 預設會幫你加上 `latest`。
+- `--platform` option 表示要使用專門給指定 OS & ISA 用的 image，預設為 host 本身的 OS & ISA。
+
+##### `ARG`
+
+```Dockerfile
+ARG {NAME}[={DEFAULT_VALUE}] [{NAME}[={VALUE}] ...]
+```
+
+若 Dockerfile 中有定義 `{NAME}` 這個 argument，則在使用 `docker build` 建立 image 時，可以加上 `--build-arg {NAME}={VALUE}` option 來將參數傳入 Dockerfile 中。
 
 ##### `WORKDIR`
 
@@ -123,14 +131,14 @@ WORKDIR {PATH}
 COPY {SOURCE} [{MORE_SOURCE} ...] {DESTINATION}
 ```
 
-- 將 host filesystem 中的檔案複製到 image 內的 filesystem 中（連同檔案的 metadata，如 permission）。
-- 也可以用來複製不同 build stages 間的 image（詳見 [[#Multi-Stage Builds]]）。
-- 若 `{DESTINATION}` 是目錄但該目錄本來並不存在，則會先建立出該目錄再將檔案複製進去。
-- 複製整個目錄時，是將目錄中的所有內容複製到 `{DESTINATION}` 這個目錄底下，不是複製目錄本身。
-- 複製整個目錄時，有寫在 .dockerignore 裡的檔案會自動被排除。
+將 host filesystem 中的檔案複製到 image 內的 filesystem 中（連同檔案的 metadata，如 permission）。也可以用來複製不同 build stages 間的 image（詳見 [[#Multi-Stage Builds]]）。
 
->[!Note]
->.dockerignore 的撰寫方式同 .gitignore。
+- 若 `{DESTINATION}` 是目錄但該目錄本來並不存在，則會先建立出該目錄再將檔案複製進去。
+- 當 `{SOURCE}` 是目錄時，是將目錄底下的所有內容複製到 `{DESTINATION}` 這個目錄底下，不是複製 `{SOURCE}` 目錄本身。
+- 複製目錄時，有寫在 .dockerignore 裡的檔案會自動被排除。
+
+    >[!Note]
+    >.dockerignore 的撰寫方式和 .gitignore 一樣，皆為 Glob。
 
 ##### `ENV`
 
@@ -169,6 +177,8 @@ RUN {COMMAND} {ARG} ...
 RUN ["{COMMAND}", "{ARG}", ...]
 ```
 
+**Shell Form vs. Exec Form**
+
 - Exec form 的 array 是 JSON string array，所以：
     - 裡面的每個 element 都必須使用雙引號 (`"`) 包住，不能用單引號 (`'`)。
     - `\` 必須使用跳脫字元：`\\`
@@ -200,12 +210,12 @@ CMD [{COMMAND}, {ARGUMENT}, ...]
 >[!Note]
 >關於 Shell form 與 exec form 的差別，請見前面的 `RUN` 段落。
 
-- `CMD` 與 `RUN` 的不同：==`CMD` 是 run container 時要執行的，在 build image 時不會執行==；`RUN` 則是 build image 時執行。
+- `CMD` vs `RUN`：==`CMD` 是 run container 時要執行的，在 build image 時不會執行==；`RUN` 則是 build image 時執行。
 - 將新的 layer 覆蓋在既有 layer 上後，既有 layer 的 `CMD` 就無效了。
 - 一個 Dockerfile 中只能有一個 `CMD`，若出現多個，則只有最後一個有用。
 - 若執行 `docker run {IMAGE} {COMMAND}`，則 `{COMMAND}` 會覆蓋掉 Dockerfile 裡的 `CMD` instruction。
 - `docker run {IMAGE} {COMMAND}` 的 `{COMMAND}` 是 exec form。
-- 使用 exec form 撰寫時，第一個 element 可以不是指令名稱而直接是 argument，此時 `CMD` 的整個 array 會被視為是 `ENTRYPOINT` instruction 的 default arguments，且此時 `ENTRYPOINT` 也必須用 exec form 撰寫（後面段落會詳細介紹 `ENTRYPOINT`）。
+- 使用 exec form 撰寫時，第一個 element 可以不是指令名稱而直接是 argument，此時 `CMD` 的整個 array 會被視為是 `ENTRYPOINT` instruction 的 default arguments，但前提是 Dockerfile 中要有 `ENTRYPOINT` instruction 且 `ENTRYPOINT` 也必須用 exec form 撰寫。*（後面段落會詳細介紹 `ENTRYPOINT`）*
 
 ##### `ENTRYPOINT`
 
@@ -226,23 +236,25 @@ ENTRYPOINT [{COMMAND}, {ARGUMENT}, ...]
 - 將新的 layer 覆蓋在既有 layer 上後，既有 layer 的 `ENTRYPOINT` 就無效了。
 - 一個 Dockerfile 只能有一個 `ENTRYPOINT`，若出現多個，則只有最後一個有用。
 - 若 `ENTRYPOINT` 使用 exec form 撰寫，則 `CMD` 會被視為是 `ENTRYPOINT` 的額外參數。
-- 若 `ENTRYPOINT` 使用 Shell form 撰寫，則：
-    - `CMD` 與 `docker run` 的 `{COMMAND}` 都會沒有作用。
-    - `ENTRYPOINT` 的指令會被視為是 `/bin/sh -c` 的 sub-command，因為沒有傳入 signal，所以==無法接收到 `docker stop` 所發出的 `SIGTERM` signal==。
-        - 解決方法是在 `ENTRYPOINT` 寫 `exec {COMMAND}`，直接用當前所在的 Shell process 來執行 `{COMMAND}`。
+- 若 `ENTRYPOINT` 使用 Shell form 撰寫，則 `docker run` 指令中的 `{COMMAND}` 與 `CMD` 都會沒有作用。
 
-##### `ENTRYPOINT` 與 `docker run` 的交互作用
+>[!Note]
+>使用 Shell form 撰寫 `CMD` 跟 `ENTRYPOINT` 時，指令會被視為是 `/bin/sh -c` 的 sub-command，此時 `sh` 會是 container 中的 PID 1，且因為 `sh` 沒有傳遞 signal 給 sub-command，所以 sub-command ==無法接收到 `docker stop` 所發出的 `SIGTERM` signal==。解決方法是在 `CMD`/`ENTRYPOINT` 後面寫 `exec {COMMAND}`，直接用當前所在的 Shell process 來執行 `{COMMAND}`。
+
+**`ENTRYPOINT` 與 `docker run` 的交互作用**
 
 - 若執行 `docker run --entrypoint {ENTRYPOINT} {IMAGE}`，則指令裡的 `{ENTRYPOINT}` 會覆蓋 Dockerfile 裡的 `ENTRYPOINT`。
-- 若執行 `docker run {IMAGE} {COMMAND}`，且 `ENTRYPOINT` 使用 exec form 撰寫，則指令裡的 `{COMMAND}` 會被視為 Dockerfile 裡 `ENTRYPOINT` 的額外參數。
+- 若執行 `docker run {IMAGE} {COMMAND}`，且 Dockerfile 裡的 `ENTRYPOINT` 使用 exec form 撰寫，則指令裡的 `{COMMAND}` 會被視為 Dockerfile 裡 `ENTRYPOINT` 的額外參數。
 
-##### `CMD` 與 `ENTRYPOINT` 的交互作用
+**🔥 `ENTRYPOINT` 與 `CMD` 的交互作用**
 
 | |**No `ENTRYPOINT`**|**`ENTRYPOINT s t`**|**`ENTRYPOINT ["s", "t"]`**|
 |---|---|---|---|
 |**No `CMD`**|error, not allowed|`/bin/sh -c s t`|`s t`|
 |**`CMD ["u", "v"]`**|`u v`|`/bin/sh -c s t`|`s t u v`|
 |**`CMD u v`**|`/bin/sh -c u v`|`/bin/sh -c s t`|`s t /bin/sh -c u v`|
+
+---
 
 ### 註解
 

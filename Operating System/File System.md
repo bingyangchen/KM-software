@@ -1,5 +1,5 @@
 >[!Info]
->本文旨在介紹作業系統中的 file system，但不包括相關指令，若要查看與 file system 相關的指令，請見[[9 - 與 File System 相關的指令|本文]]。
+>本文旨在介紹作業系統中的 file system，但不包括相關指令，若要查看與 file system 相關的指令，請見[[9 - Commands - File System|本文]]。
 
 # 基礎觀念
 
@@ -104,7 +104,7 @@ flowchart TD
 
 ### 一般檔案 vs. 執行檔
 
-若一個 user 對一個一般檔案有 [[7 - 與 Permission 相關的指令|execute 的權限]]，則該檔案對該 user 來說就是一個執行檔。
+若一個 user 對一個一般檔案有 [[7 - Commands - Permission|execute 的權限]]，則該檔案對該 user 來說就是一個執行檔。
 
 User 可以直接在 [[Operating System/Shell/1 - Introduction|Shell]] 中輸入執行檔的檔名來執行該檔案，比如若要執行一個位在當前目錄的名為 myscript 的執行檔，則須輸入：
 
@@ -119,7 +119,7 @@ User 可以直接在 [[Operating System/Shell/1 - Introduction|Shell]] 中輸入
 
 一個一般檔案在還沒有變成執行檔前，若使用 `open` 指令打開，OS 會使用文字編輯器打開這個檔案；但若這個檔案變成一個執行檔，則 `open` 指令會觸發 OS 使用 [[CLI vs. Terminal vs. Console vs. Shell#Terminal|terminal emulator]] + Shell 直接執行檔案中的 script。
 
-新建一個檔案時，所有 users 對該檔案都不會有 execute 的權限（即使是建立它的 user 也只會有 read 跟 write 權限），所以該檔案對所有 users 來說都只是一個「一般檔案」，若要讓該檔案成為一個執行檔，則須使用 [[7 - 與 Permission 相關的指令#用 Permission Code 設定|chmod]] 指令改變權限，比如：
+新建一個檔案時，所有 users 對該檔案都不會有 execute 的權限（即使是建立它的 user 也只會有 read 跟 write 權限），所以該檔案對所有 users 來說都只是一個「一般檔案」，若要讓該檔案成為一個執行檔，則須使用 [[7 - Commands - Permission#用 Permission Code 設定|chmod]] 指令改變權限，比如：
 
 ```bash
 chmod u+x myscript

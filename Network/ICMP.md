@@ -51,7 +51,7 @@ ICMP 分為 ICMP for IPv4 與 ICMP for IPv6，或簡稱 ICMPv4 與 ICMPv6。通�
 - `ping`
 - `traceroute`
 
-`ping` 與 `traceroute` 這兩個指令常被 client 用來診斷自己與 destination host 之間的網路狀況，它們使用的都是 ICMP。關於它們的詳細使用方式，請見[[與網路相關的指令|本文]]。
+`ping` 與 `traceroute` 這兩個指令常被 client 用來診斷自己與 destination host 之間的網路狀況，它們使用的都是 ICMP。關於它們的詳細使用方式，請見[[10 - Commands - Network|本文]]。
 
 # DDoS Attack: ICMP Flood
 

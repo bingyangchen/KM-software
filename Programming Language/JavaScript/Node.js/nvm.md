@@ -11,7 +11,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 ```
 
 ### Step2: 重啟 terminal
-e
+
 透過以下指令檢查是否成功安裝 nvm：
 
 ```bash

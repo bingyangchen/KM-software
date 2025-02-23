@@ -6,6 +6,6 @@
 
 # 延伸閱讀
 
-- [[與檔案壓縮、打包相關的指令]]
+- [[11 - Commands - File Compression]]
 
 # 參考資料
