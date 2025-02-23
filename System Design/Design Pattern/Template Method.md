@@ -31,7 +31,7 @@ classDiagram
         +step3()*
         +step4()*
     }
-    note for AbstractClass "setp1();\nif (step2()) {\n&emsp;step3();\n} else {\n&emsp;step4();\n}\n\n"
+    note for AbstractClass "setp1();<br/>if (step2()) {<br/>&emsp;step3();<br/>} else {<br/>&emsp;step4();<br/>}<br/>"
     AbstractClass <|-- ConcreteClass1
     AbstractClass <|-- ConcreteClass2
     class ConcreteClass1{

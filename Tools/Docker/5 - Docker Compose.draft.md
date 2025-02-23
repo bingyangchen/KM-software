@@ -56,9 +56,9 @@ flowchart
             svc3 <--network--> svc1
         end
         subgraph volume [Volumes]
-           v1(Volume 1)
-           v2(Volume 2)
-           v3(Volume 3)
+            v1(Volume 1)
+            v2(Volume 2)
+            v3(Volume 3)
         end
         v1 <-.r/w.-> svc1
         v2 <-.r/w.-> svc2
@@ -104,7 +104,7 @@ Compose file 是一份描述如何建立並運行多個 containers、以及描�
 ```yaml
 services:
   frontend:
-    image: example/webapp
+    image: webapp
     ports:
       - "443:8043"
     networks:
@@ -116,7 +116,7 @@ services:
       - server-certificate
 
   backend:
-    image: example/database
+    image: apiserver
     volumes:
       - db-data:/etc/data
     networks:
@@ -143,7 +143,27 @@ networks:
 
 根據上面這份 compose file 建立出來的服務架構如下圖：
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/docker-compose-example.png>)
+```mermaid
+flowchart LR
+    subgraph infra [Infrastructure]
+        subgraph backtier [back-tier network]
+            direction LR
+            webapp(webapp)
+            apiserver(apiserver)
+            webapp --> apiserver
+        end
+        volume[(db-data)]
+        apiserver --r/w--> volume
+    end
+    httpconfig@{ shape: notch-rect, label: "http-config" }
+    cert@{ shape: notch-rect, label: "server-certificate" }
+    user["External User"]
+    hostport((443))
+    httpconfig -.read-only.-> webapp
+    cert -.read-only.-> webapp
+    user --> hostport
+    hostport --> webapp
+```
 
 以下將分別介紹如何設定 compose application model 中的 service、network、volume、config 與 secret 這些元件：
 

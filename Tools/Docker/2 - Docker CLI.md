@@ -364,12 +364,81 @@ Running container 的 volume 須要額外使用 `-f` option 才能被刪除，�
 docker volume prune
 ```
 
-# 與 Netwrok 相關的指令
+# 與 Network 相關的指令
 
-### 建立 Network
+### List All Networks
 
 ```bash
-docker netwrok create {NETWORK_NAME}
+docker network ls [{OPTIONS}]
+```
+
+**常用的 Options**
+
+|Option|Short|Description|
+|---|:-:|---|
+|`--quiet`|`-q`|只列出 network ID。|
+
+### Create a New Network
+
+```bash
+docker network create [{OPTIONS}] {NETWROK_NAME}
+```
+
+**常用的 Options**
+
+|Option|Short|Description|
+|---|:-:|---|
+|`--driver`|`-d`|Network driver 的種類，沒有提供的話預設為 `bridge`。|
+
+>[!Info]
+>關於 network diver 的詳細介紹，請看[[8 - Network in Docker.draft#Network Driver|這篇]]。
+
+### Remove a Network
+
+```bash
+docker network rm [-f] {NETWORK}
+```
+
+刪除 network 前，必須先將所有已連上該 network 的 containers 都先 disconnect，否則即使加上 `-f` 也無法刪除 network（`-f` 的功能只是讓指定刪除的 network 不存在時不會跳錯誤）。
+
+### Run a Container in a Network
+
+建立 container 時可以用 `--network` option 來指定要將該 container 放進哪個 network：
+
+```bash
+docker run --network={NETWORK} {IMAGE}
+```
+
+若建立 container 時沒有指定 network，Docker 預設會將它連上 `bridge` network。
+
+### Connect a Container to a Network
+
+前面的 `docker run --network` 是在 container 建立時就將它加進指定的 network 中，但有時後也會須要將已經建立的 container 加入新的 network 中，此時須使用：
+
+```bash
+docker netwrok connect [{OPTIONS}] {NETWORK} {CONTAINER}
+```
+
+**常用的 Options**
+
+|Option|Short|Description|
+|---|:-:|---|
+|`--alias`| |設定這個 container 在這個 netwrok 的別名。|
+
+同一個 network 中的各個 containers 可以直接用 alias 當做 URL 來和彼此溝通，所以同一個 network 中的所有 container aliases 必須是唯一的。
+
+### Disconnect a Container from a Network
+
+```bash
+docker network disconnect [-f] {NETWORK} {CONTAINER}
+```
+
+- Add `--force`/`-f` to forcefully disconnect.
+
+### Show Network Details
+
+```bash
+docker network inspect {NETWORK}
 ```
 
 # 與 Registry 相關的指令

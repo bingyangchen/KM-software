@@ -20,30 +20,14 @@ flowchart
 
 同一個 network 中的 containers 可以用彼此的 container name 或者它們在 network 中的 IP address 與對方溝通，不須要使用 `localhost` 或 `127.0.0.1`，也就是說這些 containers 不須要先 publish ports 到 host 上就可以和彼此溝通。
 
->[!Note]
->一個 container 可以同時位於多個 networks 中，每個 container 在每個 network 中會有不一樣的 IP address。
+一個 container 可以同時位於多個 networks 中，每個 container 在每個 network 中會有不一樣的 IP address。
 
-### List All Networks
+>[!Info]
+>與 network 相關的指令請看[[2 - Docker CLI#與 Network 相關的指令|這篇]]。
 
-```bash
-docker network ls
-```
+# Network Driver
 
-### Create a New Network
-
-Docker 在建立 container 時，預設就會將它連上 network，
-
-```bash
-docker network create {NETWROK_NAME}
-```
-
-**常用的 Options**
-
-|Option|Short|Description|
-|---|:-:|---|
-|`--driver`|`-d`|Network 的種類，沒有提供的話預設為 `bridge`。|
-
-# Network Drivers 的種類
+### Network Driver 的種類
 
 |Driver|Description|
 |---|---|

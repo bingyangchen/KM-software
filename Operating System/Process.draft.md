@@ -57,9 +57,9 @@ Multiprogramming OS（又叫做 multitasking OS）可以同時執行多個 proce
 
 # 延伸閱讀
 
-- [與 Process 相關的指令](</Operating System/Shell/8 - 與 Process 相關的指令.md>)
-- [Job Control](</Operating System/Job Control.md>)
-- [CPU Scheduling](</Operating System/CPU Scheduling.draft.md>)
+- [[8 - Commands - Process|與 Process 相關的指令]]
+- [[Job Control]]
+- [[CPU Scheduling.draft|CPU Scheduling]]
 
 # 參考資料
 

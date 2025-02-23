@@ -26,7 +26,7 @@ flowchart
     id0("使用者透過鍵盤輸入指令")
     id1("Terminal emulator 捕捉鍵盤輸入")
     id2("Terminal emulator 將指令交給 Shell")
-    id3{"指令是\nShell built-in\ncommand？"}
+    id3{"指令是<br/>Shell built-in<br/>command？"}
     id4("Shell 透過 system call 開啟新的 process 來執行")
     id5(...)
     id6("Shell 直接處理（觸發 Kernel 執行指令）")

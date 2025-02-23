@@ -58,6 +58,16 @@ declare -f
 
 ```bash
 printenv
+# or
+env
+```
+
+### Per-Command Variable
+
+若想讓某個變數只在執行特定 command 時有意義或有特定的值，則可以用以下寫法：
+
+```bash
+{VAR}={VALUE} [{VAR}={VALUE} ...] {COMMAND}
 ```
 
 ### 變數的串接
@@ -65,10 +75,10 @@ printenv
 e.g.
 
 ```bash
-VAR=hello
-VAR=world$VAR
+a=hello
+a=$a"world"
 
-echo $VAR  # worldhello
+echo $a  # helloworld
 ```
 
 ### 字串中的變數
@@ -76,10 +86,10 @@ echo $VAR  # worldhello
 普通的字串可以使用 `''` 或 `""` 包起來，但若要將變數塞在字串中，則一定要使用 `""`，否則無法解析變數：
 
 ```bash
-VAR=hello
+a=hello
 
-echo "$VAR world"  # hello world
-echo '$VAR world'  # $VAR world
+echo "$a world"  # hello world
+echo '$a world'  # $a world
 ```
 
 ### 具有特殊意義的變數名稱
@@ -88,13 +98,17 @@ echo '$VAR world'  # $VAR world
 
 |Variable|Description|
 |:-:|---|
-|`$_`|上一個指令的最後一個參數值|
-|`$?`|上一個指令的 exit code|
-|`$@`|執行目前的 Shell script file 時所給的所有參數<br/>（看起來是一個 space-separated string，但其實是一個 array）|
-|`$#`|執行目前的 Shell script file 時所給的參數的數量|
-|`$$`|執行目前的 Shell script file 的 process ID|
+|`$_`|上一個指令的最後一個參數值。|
+|`$?`|上一個指令的 exit code。|
+|`$@`|執行目前的 Shell script file 時所給的所有參數。<br/>（看起來是一個 space-separated string，但其實是一個 array）|
+|`$#`|執行目前的 Shell script file 時所給的參數的數量。|
+|`$$`|執行目前的 Shell script file 的 process ID。|
 
 ### 將指令的輸出存成變數
+
+```bash
+{VAR}=$({COMMAND})
+```
 
 e.g.
 
@@ -102,10 +116,9 @@ e.g.
 foo=$(pwd)
 
 echo foo  # /Users/bob
-echo "I'm now in $(pwd)"  # I'm now in /Users/bob
 ```
 
->[!Note] 延伸
+>[!Note]
 >也可以使用 `<()` 將一個指令的輸出存進 virtual file，如果須要把某個指令的輸出餵給「只接收 file 作為 argument」的指令時，這個指令可以派上用場，比如：
 >
 >```bash

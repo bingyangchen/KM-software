@@ -27,7 +27,7 @@ classDiagram
         +doSomething()
         +createProduct(): Product*
     }
-    note for Creator "doSomething() {\n&emsp;Product p = createProduct();\n&emsp;p.doStuff();\n&emsp;...\n}\n\n"
+    note for Creator "doSomething() {<br/>&emsp;Product p = createProduct();<br/>&emsp;p.doStuff();<br/>&emsp;...<br/>}<br/>"
     class ConcreteCreator1 {
         ...
         +createProduct(): Product

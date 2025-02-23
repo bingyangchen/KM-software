@@ -151,8 +151,8 @@ CAP theorem 其實有一點把問題過度簡化了，在一個 CA system 中，
 ```mermaid
 flowchart TD
     id1{Partitioned?}
-    id2{Tradeoff b/w\navailability\n& consistency}
-    id3{Tradeoff b/w\nlatency\n& consistency}
+    id2{Tradeoff b/w<br/>availability<br/>& consistency}
+    id3{Tradeoff b/w<br/>latency<br/>& consistency}
     id4(PA)
     id5(PC)
     id6(EL)
