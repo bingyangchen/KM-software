@@ -38,14 +38,14 @@ fi
 
 git push origin dev
 
-print_centered_message "Remote branch 'dev' updated. Merging into master..." "${BLUE}"
+print_centered_message "Remote branch 'dev' updated. Recreating master branch..." "${BLUE}"
 
-git switch master
-git merge -Xtheirs dev -m "Merge branch 'dev'" || {
-    git diff --name-only --diff-filter=U -z | xargs -0 git rm
-    git commit -m "Merge branch 'dev'"
-}
-print_centered_message "Local branch 'dev' merged into 'master'. Normalizing files..." "${BLUE}"
+git branch -D master || true
+git push origin --delete master || true
+
+git switch -c master
+
+print_centered_message "Local branch 'dev' copied to 'master'. Normalizing files..." "${BLUE}"
 
 python -B summary.py
 python -B normalize_img_links.py
