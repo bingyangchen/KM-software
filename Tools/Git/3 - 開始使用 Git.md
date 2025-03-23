@@ -7,11 +7,11 @@ git init
 - 此指令須在專案的 root directory 執行，每個專案只須要執行一次
 - 無論是已經行之有年的專案，或者是剛建立的專案，都可以使用這個指令將 Git 導入
 
-此時專案根目錄會多一個叫 **.git** 的 directory，且裡面已經有一些子目錄與檔案，==.git directory 就是所謂的 **repository**==，是未來對這個專案進行版本控制時會用到的唯一 directory（關於 .git file 的詳情，請見 [[The .git Folder]]）。
+此時專案根目錄會多一個叫 **.git** 的 directory，且裡面已經有一些子目錄與檔案，==.git directory 就是所謂的 **repository**==，是未來對這個專案進行版本控制時會用到的唯一 directory（關於 .git file 的詳情，請見 [The .git Folder](</Tools/Git/The .git Folder.md>)）。
 
 # Commit 初體驗
 
-在 [[Tools/Git/1 - Introduction#📌 檔案在 Git 裡的狀態|L1]] 有提到檔案在 Git 裡的各種狀態，讓我們回顧一下這張圖：
+在 [L1](</Tools/Git/1 - Introduction.md#📌 檔案在 Git 裡的狀態>) 有提到檔案在 Git 裡的各種狀態，讓我們回顧一下這張圖：
 
 ```mermaid
 sequenceDiagram
@@ -65,10 +65,10 @@ git commit [-m "{COMMIT_TITLE}" [-m "{COMMIT_DESCRIPTION}"]]
 
 Commit 時必須附上 message，message 分為 title 與 description 兩個部分。
 
-若想輸入的 commit message 很長，不想直接在指令中寫，那輸入指令時可以先不要輸入 `-m` option 以及後面的 message（輸入 `git commit` 即可），如此一來 Git 就會[[2 - 安裝與設定#設定編輯器|打開一個文字編輯器]]，讓你更舒服地撰寫 commit message。
+若想輸入的 commit message 很長，不想直接在指令中寫，那輸入指令時可以先不要輸入 `-m` option 以及後面的 message（輸入 `git commit` 即可），如此一來 Git 就會[打開一個文字編輯器](</Tools/Git/2 - 安裝與設定.md#設定編輯器>)，讓你更舒服地撰寫 commit message。
 
 >[!Note]
->關於 commit message 格式的詳細敘述，請見[[Commit Message|本文]]。
+>關於 commit message 格式的詳細敘述，請見[本文](</Tools/Git/Commit Message.md>)。
 
 ### 一步完成 `git add` 與 `git commit`
 
@@ -86,7 +86,7 @@ git commit -a -m "{COMMIT_TITLE}"
 前面介紹了如何把一個檔案的變動從 working directory 搬到 staging area，以及從 staging area 搬到 repo，那這些動作可以倒轉嗎？換句話說，如果我在 `git add` 或 `git commit` 後後悔了，可以反悔嗎？
 
 >[!Note]
->在繼續閱讀本段之前，建議先了解 [[HEAD]] 是什麼。
+>在繼續閱讀本段之前，建議先了解 [HEAD](</Tools/Git/HEAD.md>) 是什麼。
 >
 ### Repository → Staging Area
 
@@ -149,7 +149,7 @@ sequenceDiagram
 ```
 
 >[!Note]
->上述動作皆不會動到檔案內容，若想要實際「回到上一個版本」須使用 `reset --hard` 指令，關於「回到上一個版本」的完整介紹請見[[reset、revert、rebase.canvas|本文]]。
+>上述動作皆不會動到檔案內容，若想要實際「回到上一個版本」須使用 `reset --hard` 指令，關於「回到上一個版本」的完整介紹請見[本文](</Tools/Git/reset、revert、rebase.canvas>)。
 
 # 如何讓整個專案脫離 Git 管控？
 
@@ -158,4 +158,4 @@ sequenceDiagram
 須注意的是，一旦將 .git 刪掉就意味著關於此專案所有的歷史版本都會遭到刪除，只剩下刪除當下的 working directory，如果刪掉 .git 後你後悔了，除了去垃圾桶找之外，剩下的指望就剩從 remote repo 拿了。
 
 >[!Note]
->更多關於 .git 的詳情，請見[[The .git Folder|本文]]。
+>更多關於 .git 的詳情，請見[本文](</Tools/Git/The .git Folder.md>)。

@@ -10,7 +10,7 @@ brew install redis
 ```
 
 >[!Note]
->執行這個指令時，若出現 `command not found: brew`，代表你的電腦中沒有沒有 Homebrew，此時你須要先[[Homebrew#安裝|安裝 Homebrew]]。
+>執行這個指令時，若出現 `command not found: brew`，代表你的電腦中沒有沒有 Homebrew，此時你須要先[安裝 Homebrew](</Tools/Mac/Homebrew.md#安裝>)。
 
 ### 啟動 Redis Server 並在前景運行
 
@@ -69,7 +69,7 @@ redis-cli
 quit
 ```
 
-也可以使用 `Control` + `C` 送出 [[Unix Signal & IPC#Unix Signal|SIGINT]]。
+也可以使用 `Control` + `C` 送出 [SIGINT](</Operating System/Unix Signal & IPC.md#Unix Signal>)。
 
 # Redis Clients
 

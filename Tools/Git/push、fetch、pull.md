@@ -15,7 +15,7 @@
     此步驟的作用是「用一個叫做 `origin` 的變數儲存 remote repo 的 URL」，這樣以後 push 時，就不用把 remote repo 的 URL 一字不漏地寫出來，只須以 `origin` 作為 alias 即可。（[詳見此文](https://www.git-tower.com/learn/git/glossary/origin)）
 
     >[!Note]
-    >有 `add` 當然就有 `remove`，請見[[#移除 `origin` 與 `{REMOTE_REPO_URL}` 的對應關係|此段]]。
+    >有 `add` 當然就有 `remove`，請見[此段](</./Tools/Git/push、fetch、pull.md#移除 `origin` 與 `{REMOTE_REPO_URL}` 的對應關係>)。
 
 - Step3: 將目前所在的 local branch 推送至 remote repo 中的指定 branch
 
@@ -57,7 +57,7 @@ git push -f origin {REMOTE_BRANCH_NAME}
 ```
 
 - 強制 push 目前 local branch 的狀態到 remote branch，無視前面說的 push 的原則
-- 可以在 GitHub 設定某 repo 的某 branch 要拒絕 force push，藉此[[保護 Branch]]
+- 可以在 GitHub 設定某 repo 的某 branch 要拒絕 force push，藉此[保護 Branch](</Tools/Git/GitHub/保護 Branch.md>)
 
 >[!Danger]
 >

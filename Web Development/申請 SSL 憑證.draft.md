@@ -6,8 +6,8 @@
 
 - 手動申請憑證
 - 自動申請憑證
-    - [[#使用 certbot 自動申請]]
-    - [[#使用 acme.sh 自動申請]]
+    - [#使用 certbot 自動申請](</./Web Development/申請 SSL 憑證.draft.md#使用 certbot 自動申請>)
+    - [#使用 acme.sh 自動申請](</./Web Development/申請 SSL 憑證.draft.md#使用 acme.sh 自動申請>)
 - Web-server solution: Caddy
 - Third-party solution: CloudFlare
 
@@ -129,7 +129,7 @@ acme.sh --install-cert --nginx -d my-domain.com --reloadcmd "service nginx force
 ```
 
 - 若想要一次申請多個網域，則可以寫多個 `-d`
-- 執行此指令前，請先確保目前的 user 對 webroot (/var/www/html/) 有 [[7 - Commands - Permission|write 權限]]
+- 執行此指令前，請先確保目前的 user 對 webroot (/var/www/html/) 有 [write 權限](</Operating System/Shell/7 - Commands - Permission.md>)
     - acme.sh 不能搭配 `sudo` 使用，所以你必須直接切換成有權限的 user
 
 Done!
@@ -156,7 +156,7 @@ Done!
 
 CloudFlare 除了提供 CDN 服務外，也提供 SSL 加密服務。其提供加密服務的方式其實就是擋在 server 前面扮演 reverse proxy 的角色。
 
-使用 CloudFlare 還有一個額外的好處是它內建了防禦 [[DDoS Attack.canvas|DDoS attack]] 的機制。
+使用 CloudFlare 還有一個額外的好處是它內建了防禦 [DDoS attack](</Network/DDoS Attack.canvas>) 的機制。
 
 ```mermaid
 architecture-beta

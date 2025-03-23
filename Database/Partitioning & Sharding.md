@@ -8,7 +8,7 @@
 
 將一個有 m 個 columns 的表拆分呈多個表 (partitions)，每個 partition 的資料筆數相同，但只會擁有原表的部分 columns。其實可以把 vertical partitioning 想像成多張一對一關係的表。
 
-![[db-vertical-partitioning.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/db-vertical-partitioning.png>)
 
 # Sharding
 
@@ -32,7 +32,7 @@ Sharding 算是一種 horizontal partitioning，差別在於 sharding 時，會�
 
 透過某欄位的值的大小來判斷該筆料應該被分配到哪個 shard。
 
-![[db-range-based-sharding.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/db-range-based-sharding.png>)
 
 - 缺點
     - 無法保證資料被平均地分配到各個 shards
@@ -42,7 +42,7 @@ Sharding 算是一種 horizontal partitioning，差別在於 sharding 時，會�
 
 建一張對照表來紀錄每一個 shard key 應該對應到哪個 shard，分配的規則可以自己定義，通常對照表本身會是一個服務。
 
-![[db-directory-based-sharding.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/db-directory-based-sharding.png>)
 
 - 缺點
     - 對照表會是 single point of failure，由於對照表非常頻繁地被存取，因此可能成為整個服務的 bottleneck
@@ -55,7 +55,7 @@ Sharding 算是一種 horizontal partitioning，差別在於 sharding 時，會�
 
 選定一個 hash function，此 function 的輸入值為 shard key，輸出值為 shard number，用來安排每一筆資料應被分發到哪個 shard。
 
-![[db-key-based-sharding.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/db-key-based-sharding.png>)
 
 - 缺點
     - 若決定新增一個 node，則必須重新選擇 hash function，並且將所有既存的 shards 中的資料做一次大風吹 (rebalancing)
@@ -73,7 +73,7 @@ Sharding 算是一種 horizontal partitioning，差別在於 sharding 時，會�
 
 在 sharding 前，你還可以嘗試其它較簡單的手段，這些手段包括：
 
-- [[Database Replication|Replicas]] for read
+- [Replicas](</System Design/Database Replication.md>) for read
 
     Primary database 負責處理「寫入」的 queries，然後將被寫入的資料複製到 secondary databases，secondary databases 負責處理「讀取」的 queries。（但這麼做會導致 consistency 降低）
 
@@ -81,7 +81,7 @@ Sharding 算是一種 horizontal partitioning，差別在於 sharding 時，會�
 
     為 database 配置一台專屬的機器，不要跟其它 app components 放在一起。（但這麼做會增加 app 與 database 的溝通時間）
 
-- [[Horizontal Scaling vs. Vertical Scaling#Vertical Scaling|Vertical Scaling (Scaling Up)]]
+- [Vertical Scaling (Scaling Up)](</System Design/Horizontal Scaling vs. Vertical Scaling.md#Vertical Scaling>)
 
 - Application-Level Caching
 
@@ -89,7 +89,7 @@ Sharding 算是一種 horizontal partitioning，差別在於 sharding 時，會�
 
 ---
 
-![[db-partitioning-and-sharding.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/db-partitioning-and-sharding.png>)
 
 # 參考資料
 

@@ -25,13 +25,13 @@ flowchart TD
 
 ### PoPs
 
-CDN 供應商會將數百到數千個不等的 nodes 部署在全球各地，這些 nodes 又叫做 point of presences (PoPs) 或 edge servers，每個 PoP 都配有超大的儲存空間（HDD、SSD、RAM 都有）來儲存資料，扮演著如同 [[Forward Proxy & Reverse Proxy#Reverse Proxy|reverse proxy]] 的角色，提供資料 [[Caching.canvas|Caching]] 的服務。
+CDN 供應商會將數百到數千個不等的 nodes 部署在全球各地，這些 nodes 又叫做 point of presences (PoPs) 或 edge servers，每個 PoP 都配有超大的儲存空間（HDD、SSD、RAM 都有）來儲存資料，扮演著如同 [reverse proxy](</System Design/Forward Proxy & Reverse Proxy.md#Reverse Proxy>) 的角色，提供資料 [Caching](</System Design/Caching.canvas>) 的服務。
 
 ### CDN 供應商
 
 常見的 CDN 供應商包括 Amazon [[CloudFront]]、Cloudflare 等。
 
-![[cloudfront-and-cloudflare.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/cloudfront-and-cloudflare.png>)
 
 # 如何找到最近的 Edge Server？
 
@@ -65,7 +65,7 @@ CDN 某種程度也可以用來防止 origin server 受到 DDoS 攻擊，因為�
 
 CDN 有備援機制，當某個 edge server 故障時，CDN 服務會將請求轉導至其它鄰近地區的 server。
 
-![[cdn-vs-no-cdn.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/cdn-vs-no-cdn.png>)
 
 # 參考資料
 

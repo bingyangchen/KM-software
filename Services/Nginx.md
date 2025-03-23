@@ -1,4 +1,4 @@
-Nginx 可以用來當作 [[Backend Web Architecture#Web Server|web server]] 與 [[Forward Proxy & Reverse Proxy#Reverse Proxy| reverse proxy]]，與它類似的其它軟體還有 Apache。
+Nginx 可以用來當作 [web server](</System Design/Backend Web Architecture.md#Web Server>) 與 [reverse proxy](</System Design/Forward Proxy & Reverse Proxy.md#Reverse Proxy>)，與它類似的其它軟體還有 Apache。
 
 # Installation
 

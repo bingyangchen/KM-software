@@ -1,4 +1,4 @@
-Python 作為一個[[程式語言的分類#動態型別|動態型別]]的語言，雖然享受著「開發速度快」及「容易上手」等美名，不過隨著專案越來越龐大，開發和 debug 的速度卻會因缺乏型別定義而下降，出現 bug 的機率也隨之上升。
+Python 作為一個[動態型別](</Programming Language/程式語言的分類.md#動態型別>)的語言，雖然享受著「開發速度快」及「容易上手」等美名，不過隨著專案越來越龐大，開發和 debug 的速度卻會因缺乏型別定義而下降，出現 bug 的機率也隨之上升。
 
 不過 Python 自 3.5 推出後便導入 type hint，開始擁抱一些靜態型別的優點，舉例如下：
 
@@ -38,7 +38,7 @@ greet(n)
 - `Dict[X, Y]` ：一個全部的 key 型別都是 `X`，且全部的 value 型別都是 `Y` 的 dict
 
 >[!Info]
->上述的 non-primitive types 皆必須先 `from typing import {TYPE}` 才能使用，但在 Python 3.9 之後有 built-in types 可以取代之（就不用 import 了），詳見 [[#After Python 3.9|此段]]。
+>上述的 non-primitive types 皆必須先 `from typing import {TYPE}` 才能使用，但在 Python 3.9 之後有 built-in types 可以取代之（就不用 import 了），詳見 [此段](</./Programming Language/Python/Type Hints.md#After Python 3.9>)。
 
 ### Special Types
 

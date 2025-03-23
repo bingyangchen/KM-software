@@ -10,11 +10,11 @@ FQDN 為 fully-qualified domain name 的縮寫，又叫做 absolute domain name�
 
 Clients（比如瀏覽器）與大多數的 routers 並不會一開始就知道所有 IP address ↔ domain name 如何對應，它們必須問那些專門維護 IP address ↔ domain name map 的 DNS servers，DNS server 也常被簡稱為 **name server**。
 
-如果你希望人們可以透過某個 domain name 找到你的網站，首先必須要購買該 domain name，然後還必須設定「哪些 DNS servers 負責記錄你的 server's IP address ↔ domain name map」（關於網域購買與設定的細節，請見[[在 GoDaddy 購買 Domain Nme 並指向 AWS EC2 Instance|本文]]）。
+如果你希望人們可以透過某個 domain name 找到你的網站，首先必須要購買該 domain name，然後還必須設定「哪些 DNS servers 負責記錄你的 server's IP address ↔ domain name map」（關於網域購買與設定的細節，請見[本文](</Web Development/在 GoDaddy 購買 Domain Nme 並指向 AWS EC2 Instance.md>)）。
 
 # DNS Hierarchy
 
-![[dns-hierarchy.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/dns-hierarchy.png>)
 
 為了應付來自全世界 clients 與 routers 的查詢請求，DNS 必須有很好的 scalibility 與 accessibility，因此 DNS 採用==分散式架構==，在世界各地建置 DNS servers，避免 SPoF (single point of failure)。
 
@@ -44,7 +44,7 @@ TLD 是 top-level domain 的縮寫，top-level domain 指的是 domain name 的�
 - Authoritative name servers 負責解析 domain name 末兩段，也就是倒數第二個 `.` 到第一個 `/` 前的字串
 - 一個 authoritative name server 只負責一個 2LD (second-level domain) + TLD pair，所以負責解析 `*.google.com` 的 authoritative name server 就不知道 `*.facebook.com` 的 IP address；負責 `*.github.com` 的 authoritative name server 就不知道 `*.github.io` 的 IP address
 - Authoritative name server 可能是由擁有它的組織自己維護，也可能是由 ISP (internet service provider) 所維護
-- ==Authortative name server 是整個 DNS hierarchy 的最底層==，因此不論前面帶什麼 sub-domain，都會由同一個 authoritative name sever 負責解析，而不同 sub-domain 所對應的行為是由服務內部的 [[Forward Proxy & Reverse Proxy|reverse proxy]] 決定的
+- ==Authortative name server 是整個 DNS hierarchy 的最底層==，因此不論前面帶什麼 sub-domain，都會由同一個 authoritative name sever 負責解析，而不同 sub-domain 所對應的行為是由服務內部的 [reverse proxy](</System Design/Forward Proxy & Reverse Proxy.md>) 決定的
 
 ### Local DNS Servers
 
@@ -56,7 +56,7 @@ TLD 是 top-level domain 的縮寫，top-level domain 指的是 domain name 的�
 
 當 client 不知道某個 domain name 所對應的 IP address 時，就會到外部網路進行查詢，這個動作稱為 DNS lookup，或叫 DNS resolve。DNS lookup 分為 iterative 與 recursive 兩種進行方式。
 
-![[dns-recusive-vs-interative.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/dns-recusive-vs-interative.png>)
 
 ### Iterative Approach
 
@@ -86,7 +86,7 @@ TLD 是 top-level domain 的縮寫，top-level domain 指的是 domain name 的�
 
 # DNS Records
 
-DNS record 又叫做 DNS resource record，或者簡記為 RR，分為 **A record**、**CNAME record**、**NS record** 與 **MX record** 四種，細節請見 [[DNS Record]]。
+DNS record 又叫做 DNS resource record，或者簡記為 RR，分為 **A record**、**CNAME record**、**NS record** 與 **MX record** 四種，細節請見 [DNS Record](</Network/DNS Record.md>)。
 
 # DNS Server Cache
 
@@ -102,13 +102,13 @@ DNS server 使用 port 53（小知識：這也是 AWS Route 53 服務名稱的�
 
 ### Transport Layer Protocol
 
-DNS 最初 (1983) 是使用 [[UDP]] 作為 transport layer 的 protocol，後來發展成也可以使用 [[TCP.draft|TCP]]，使用 UDP 的好處是「低成本」、「快速」，但缺點就是「不安全」、「不穩定」。
+DNS 最初 (1983) 是使用 [[UDP]] 作為 transport layer 的 protocol，後來發展成也可以使用 [TCP](</Network/TCP.draft.md>)，使用 UDP 的好處是「低成本」、「快速」，但缺點就是「不安全」、「不穩定」。
 
 ### Message Format
 
 DNS request 與 DNS response 的 format 長得一樣。
 
-![[dns-message-format.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/dns-message-format.png>)
 
 - Flags 區段記錄了包括：
     - QR：這是一個 query 還是 response
@@ -133,7 +133,7 @@ DNS request 與 DNS response 的 format 長得一樣。
     dig +short google.com
     ```
 
-    詳見[[10 - Commands - Network]]。
+    詳見[10 - Commands - Network](</Operating System/Shell/10 - Commands - Network.md>)。
 
 # DNS Lookup Tool (Website)
 

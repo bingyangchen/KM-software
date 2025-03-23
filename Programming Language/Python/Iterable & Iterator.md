@@ -1,9 +1,9 @@
 >[!Note]
->本篇請搭配 [[for Loop in Python]]、[[Generator and the yield Statement]] 一起服用。
+>本篇請搭配 [for Loop in Python](</Programming Language/Python/for Loop in Python.md>)、[Generator and the yield Statement](</Programming Language/Python/Generator and the yield Statement.md>) 一起服用。
 
 Iterable 泛指一切可以「被迭代」的物件，換句話說就是一切可以被 for loop "loop" 的物件；iterator 一樣可以被迭代，只是有其它比較嚴格的規範，因此可以說 ==iterator 是 iterable 的 subclass==。
 
-從 [[Generator and the yield Statement]] 一文中可知：一個 generator object 也可以被迭代，所以 ==generator 也是 iterable 的 subclass==。事實上，在閱讀過全文後你會發現以下關係：
+從 [Generator and the yield Statement](</Programming Language/Python/Generator and the yield Statement.md>) 一文中可知：一個 generator object 也可以被迭代，所以 ==generator 也是 iterable 的 subclass==。事實上，在閱讀過全文後你會發現以下關係：
 
 $$
 Generator \subset Iterator \subset Iterable
@@ -25,18 +25,18 @@ flowchart
 在 Python 中，一個 iterable 必須同時具備下列條件：
 
 - 可以被 for loop 迭代
-- 可以被 [[Sequence Unpacking|unpacking]]
+- 可以被 [unpacking](</Programming Language/Python/Sequence Unpacking.md>)
 - 可以做為參數被傳入 `all()`、`any()`、`enumerate()`、`max()`、`min()`、`len()`、`zip()`、`sum()`、`map()`、`filter()` 等 Python built-in function 中
 
 list, tuple, dictionary, set, string 在 Python 中皆是 iterable。
 
 ### The Iterable Protocol
 
-Iterable protocol 規定 class 必須實作 `__iter__` method，這個 method 必須回傳一個 [[#Iterator]]。
+Iterable protocol 規定 class 必須實作 `__iter__` method，這個 method 必須回傳一個 [#Iterator](</./Programming Language/Python/Iterable & Iterator.md#Iterator>)。
 
 ### Subclasses of Iterable
 
-- [[#Iterator]]
+- [#Iterator](</./Programming Language/Python/Iterable & Iterator.md#Iterator>)
 - [Sequence](https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range)
 
 ```Python
@@ -146,7 +146,7 @@ class MyIterator(Iterator):
 
 ### 使用 `next` 對 Iterator 取值
 
-[[#The Iterator Protocol]] 規定一個 iterator 必須實作的其中一個 method 叫做 `__next__`，閱讀過 [[for Loop in Python]] 後你會了解 for loop 是透過不斷地呼叫 iterator 的 `__next__` method 來取值，那我們可不可以手動呼叫 `__next__` method 來取值呢？
+[#The Iterator Protocol](</./Programming Language/Python/Iterable & Iterator.md#The Iterator Protocol>) 規定一個 iterator 必須實作的其中一個 method 叫做 `__next__`，閱讀過 [for Loop in Python](</Programming Language/Python/for Loop in Python.md>) 後你會了解 for loop 是透過不斷地呼叫 iterator 的 `__next__` method 來取值，那我們可不可以手動呼叫 `__next__` method 來取值呢？
 
 答案是可以，但 ... 有點太粗暴，因為很少人會直接呼叫一個物件的 [[Super Method]]。
 

@@ -109,7 +109,7 @@ Git 的發明者同時也是 Linux kernal 的發明者：Linus Torvalds。Git �
 每一個使用 Git 做版本控制的專案的 root directory 都會有一個名為 .git 的 folder，==.git folder 就是所謂的 repo==，所有與版本控制相關的資訊皆存放在 .git 裡，包括所有的 commits、branches… 等，所以==如果 .git 被刪了，所有歷史紀錄就都消失了==。
 
 >[!Note]
->關於 .git folder 的更多細節，請見 [[The .git Folder]]。
+>關於 .git folder 的更多細節，請見 [The .git Folder](</Tools/Git/The .git Folder.md>)。
 
 ### 一個 Commit 就是一個版本，Commits 間有順序
 
@@ -184,7 +184,7 @@ sequenceDiagram
     Staging area 顯示某檔案即將「脫離 Git 管控」，時機有以下兩種：
 
     - *1.* 所說的「消失」狀態被放進 staging area 後
-    - 檔案沒有被實際刪除，而是使用者試圖讓某個本來被 Git 管理的檔案[[4 - Ignore|脫離 Git 管控]]，但還沒 commit，==這個狀態下的檔案同時會是 untracked==
+    - 檔案沒有被實際刪除，而是使用者試圖讓某個本來被 Git 管理的檔案[脫離 Git 管控](</Tools/Git/4 - Ignore.md>)，但還沒 commit，==這個狀態下的檔案同時會是 untracked==
 
 ##### Ignored
 
@@ -229,4 +229,4 @@ flowchart TD
 
 # GitHub
 
-別把 Git 與 GitHub 搞混了，Git 是一個 VCS，而 GitHub 是一個網站，GitHub 主要提供的服務是一個雲端 Git server，也就是前面在[[#常用術語]]提到的 **remote** 的一種（其它提供類似服務的網站，包括 GitLab, Bitbucket, GitKraken… 等）。
+別把 Git 與 GitHub 搞混了，Git 是一個 VCS，而 GitHub 是一個網站，GitHub 主要提供的服務是一個雲端 Git server，也就是前面在[#常用術語](</./Tools/Git/1 - Introduction.md#常用術語>)提到的 **remote** 的一種（其它提供類似服務的網站，包括 GitLab, Bitbucket, GitKraken… 等）。

@@ -49,7 +49,7 @@ flowchart LR
 
 ### Serverless vs. Monolithic
 
-![[serverless-to-monolithic.jpeg]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/serverless-to-monolithic.jpeg>)
 
 # 參考資料
 

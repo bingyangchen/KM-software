@@ -32,24 +32,24 @@ sequenceDiagram
 - Session 通常會具有時效性
 - Session 通常是 key-value pair
 - 因為存取頻繁且為了存取快速，session 通常會存在 memory cache 裡（比如存 Redis）
-- 「Server 使用 session 來紀錄使用者的登入狀態」違反 [[REST API#Statelessness|REST API 的 stateless 原則]]
+- 「Server 使用 session 來紀錄使用者的登入狀態」違反 [REST API 的 stateless 原則](</Web Development/REST API.md#Statelessness>)
 
 ### 優點
 
-搭配上 [[Cookies 的存取#HttpOnly|HttpOnly]] 以及 [[Cookies 的存取#Secure|Secure]] 的 session ID / auth cookie，可以防止受到 [[CSRF Attack & XSS Attack#XSS Attack|XSS attack]]，且即使被駭客竊聽，cookie 的 plaintext 也不會被竊聽者取得。
+搭配上 [HttpOnly](</Web Development/Cookies/Cookies 的存取.md#HttpOnly>) 以及 [Secure](</Web Development/Cookies/Cookies 的存取.md#Secure>) 的 session ID / auth cookie，可以防止受到 [XSS attack](</Web Development/CSRF Attack & XSS Attack.md#XSS Attack>)，且即使被駭客竊聽，cookie 的 plaintext 也不會被竊聽者取得。
 
 ### 缺點
 
 - 只有在「server 與 client 的網域相同」時才能運作，因為如果 server 與 client 的網域不同，那麼 client 就不會自動攜帶 cookie 了。
-- 因為 cookies 會自動被 request 帶上，所以 cookie-based authentication 容易受到 [[CSRF Attack & XSS Attack#CSRF Attack|CSRF Attack]]，但其實還是有以下兩種方式可以預防：
-    - 將 session ID 這個 cookie 的 [[Cookies 的存取#SameSite|SameSite]] attribute 設為 `Lax`，搭配上 server-side 使用「GET method **以外**的 API」
+- 因為 cookies 會自動被 request 帶上，所以 cookie-based authentication 容易受到 [CSRF Attack](</Web Development/CSRF Attack & XSS Attack.md#CSRF Attack>)，但其實還是有以下兩種方式可以預防：
+    - 將 session ID 這個 cookie 的 [SameSite](</Web Development/Cookies/Cookies 的存取.md#SameSite>) attribute 設為 `Lax`，搭配上 server-side 使用「GET method **以外**的 API」
     - 將 session ID 這個 cookie 的 `SameSite` attribute 設為 `Strict`
     - CSRF token
 - 如果有些每次溝通都必須夾帶的基本資料，但又不想直接存在 cookie，就等於每次都要進 Session 所使用的資料庫查詢該基本資料，這顯得有點蠢。
 
 ### 其實也不一定要用 Cookie
 
-Client side 儲存資料的地方至少有 [[瀏覽器中的儲存空間.draft|cookies、local storage、session storage]] 這三種，因此其實廣義來說，session ID 可以存在這三個地方中的任意處，只要在送出 request 時記得帶上，那就算是 cookie/session authentication 了。
+Client side 儲存資料的地方至少有 [cookies、local storage、session storage](</Web Development/瀏覽器中的儲存空間.draft.md>) 這三種，因此其實廣義來說，session ID 可以存在這三個地方中的任意處，只要在送出 request 時記得帶上，那就算是 cookie/session authentication 了。
 
 唯一要注意的就是，若不把 session ID 存在 cookie（儲存空間），就無法利用「request 會自動帶上 cookie」這個特質，必須另外寫一段 JavaScript 來將 session ID 塞進 request 的任一部份，至於是哪一部份，則須由前後端自行約定，比如：
 
@@ -59,16 +59,16 @@ Client side 儲存資料的地方至少有 [[瀏覽器中的儲存空間.draft|c
 
 ### 不使用 Cookie 會有什麼優點？
 
-事實上儲存空間有了 cookie 以外的選擇後，等同於解決了[[#缺點]]中的前兩點：
+事實上儲存空間有了 cookie 以外的選擇後，等同於解決了[#缺點](</./Web Development/Authentication - Cookie-Based vs. Token-Based.md#缺點>)中的前兩點：
 
 1. 若前後端所在的網域不同，還是可以主動用 JavaScript 將 session ID 塞進 request
-2. 若採用 JavaScript 主動將 session ID 塞進 request 的方式，就意味著不像 cookies 一樣會被自動攜帶，也就不會有 [[CSRF Attack & XSS Attack#CSRF Attack|CSRF Attack]] 的問題
+2. 若採用 JavaScript 主動將 session ID 塞進 request 的方式，就意味著不像 cookies 一樣會被自動攜帶，也就不會有 [CSRF Attack](</Web Development/CSRF Attack & XSS Attack.md#CSRF Attack>) 的問題
 
 ### 不使用 Cookie 會有什麼缺點？
 
 **Vulnerable to XSS Attack**
 
-由於須採用 JavaScript 主動將 session ID 塞進 request，就意味著 JavaScript 可以存取到存在瀏覽器中的 session ID，也就意味著 [[CSRF Attack & XSS Attack#XSS Attack|XSS Attack]] 是有效的。
+由於須採用 JavaScript 主動將 session ID 塞進 request，就意味著 JavaScript 可以存取到存在瀏覽器中的 session ID，也就意味著 [XSS Attack](</Web Development/CSRF Attack & XSS Attack.md#XSS Attack>) 是有效的。
 
 # Token-Based Authentication
 
@@ -98,18 +98,18 @@ sequenceDiagram
     Server->>-Client: Respond data exclusive to a1234
 ```
 
-與 cookie-based authentication 相同的是，token 也可以存在[[瀏覽器中的儲存空間.draft|瀏覽器的任一種儲存空間]]，當 client 對 server 送出 request 時，再使用 JavaScript 將 token 塞進 request 的[[#其實也不一定要用 Cookie|任一部份]]即可。
+與 cookie-based authentication 相同的是，token 也可以存在[瀏覽器的任一種儲存空間](</Web Development/瀏覽器中的儲存空間.draft.md>)，當 client 對 server 送出 request 時，再使用 JavaScript 將 token 塞進 request 的[任一部份](</./Web Development/Authentication - Cookie-Based vs. Token-Based.md#其實也不一定要用 Cookie>)即可。
 
-最常見的 token-based authentication 為 [[JWT.draft|JWT]]。
+最常見的 token-based authentication 為 [JWT](</Web Development/JWT.draft.md>)。
 
 ### 優點
 
 - 針對那些每次溝通都必須夾帶的基本資料，可以直接夾帶在 token 裡，如此一來就不用每次都進 session 所用的資料庫查。
-- 只要不是放在 cookie 裡，就沒有受到 [[CSRF Attack & XSS Attack#CSRF Attack|CSRF attack]] 的風險，事實上通常採用 token-based authentication 時都不會選擇存在  cookie 然後讓 request 自動帶上，所以有時候你會看到 ==**Cookieless Authentication**== 這個名詞。
+- 只要不是放在 cookie 裡，就沒有受到 [CSRF attack](</Web Development/CSRF Attack & XSS Attack.md#CSRF Attack>) 的風險，事實上通常採用 token-based authentication 時都不會選擇存在  cookie 然後讓 request 自動帶上，所以有時候你會看到 ==**Cookieless Authentication**== 這個名詞。
 
 ### 缺點
 
-- 與 cookie-based authentication 中[[#不使用 Cookie 的缺點]]相同，因為可以用 JavaScript 存取瀏覽器裡的 token，所以有受到 XSS attack 的風險。
+- 與 cookie-based authentication 中[#不使用 Cookie 的缺點](</./Web Development/Authentication - Cookie-Based vs. Token-Based.md#不使用 Cookie 的缺點>)相同，因為可以用 JavaScript 存取瀏覽器裡的 token，所以有受到 XSS attack 的風險。
 - 隨著 token 裡夾帶著資訊越多，token 的大小就越大，進而拉長傳輸時間。
 
 >[!Note]
@@ -119,7 +119,7 @@ sequenceDiagram
 
 | |Session Storage|Local Storage|Cookies|
 |---|---|---|---|
-|清除機制|在 browser 關閉後便會被清空／登出|須手動清除／登出|若有設置 `max-age` 或 `expire` 則會在時間到時自動清除／登出，否則須手動清除／登出（詳見[[Cookies 的存取#expires\|本文]]）|
+|清除機制|在 browser 關閉後便會被清空／登出|須手動清除／登出|若有設置 `max-age` 或 `expire` 則會在時間到時自動清除／登出，否則須手動清除／登出（詳見[本文](</Web Development/Cookies/Cookies 的存取.md#expires>)）|
 |同一個 Domain 的分頁間是否共享 token？|❌|✅|✅|
 
 # 參考資料

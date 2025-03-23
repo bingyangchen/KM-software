@@ -15,7 +15,7 @@ ref: refs/heads/main
 - 這個 hash value 其實就是 repo 目前所在的 commit 的編號
 - 檔案路徑 refs/heads/main 中的 main 是目前所在的分支的名字
 
-`HEAD` 會自動指向目前所在的 [[Branch|branch]] 的「最後一個 commit」，所以：
+`HEAD` 會自動指向目前所在的 [branch](</Tools/Git/Branch.md>) 的「最後一個 commit」，所以：
 
 - 切換 branch 時，`HEAD` 會變
 
@@ -57,7 +57,7 @@ ref: refs/heads/main
 
 當 `HEAD` 不在一個 branch 的最後一個 commit 時，就是 detached 的狀態（其實「不在一個 branch 的最後一個 commit」就等同於「不在 branch 上」）所以換句話說，detached HEAD 就是 HEAD 不知道自己在哪個 branch 上。
 
-關於如何進入與離開 detached HEAD 狀態，請見 [[checkout、switch、restore.canvas#Detached HEAD|checkout]]。
+關於如何進入與離開 detached HEAD 狀態，請見 [checkout](</Tools/Git/checkout、switch、restore.canvas#Detached HEAD>)。
 
 # 其它種類的 `HEAD`
 

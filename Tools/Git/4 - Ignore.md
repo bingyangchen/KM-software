@@ -7,7 +7,7 @@
 - Local 編輯器的設定檔，如 .vscode/
 - 每次運行程式碼時都會產生的不必要的檔案，比如 \_\_pycache\_\_、.log
 
-此時可以將不想被 Git 控管的檔案或子目錄條列在一個叫做 **.gitignore** 的檔案內，這樣這些檔案從被產生開始就不會被納入 Git 的管控。.gitignore 的位置會在專案的 root directory（和 [[The .git Folder|.git folder]] 同一層）。
+此時可以將不想被 Git 控管的檔案或子目錄條列在一個叫做 **.gitignore** 的檔案內，這樣這些檔案從被產生開始就不會被納入 Git 的管控。.gitignore 的位置會在專案的 root directory（和 [.git folder](</Tools/Git/The .git Folder.md>) 同一層）。
 
 ### 已經被管控的檔案怎麼脫身？
 
@@ -53,10 +53,10 @@ flowchart TD
 git reset {FILE}
 ```
 
-若是已經 commit 了才後悔，則應使用 `git revert` 將該 commit 的變動反轉（關於 `git revert` 的詳情請見[[reset、revert、rebase.canvas|本文]]）。
+若是已經 commit 了才後悔，則應使用 `git revert` 將該 commit 的變動反轉（關於 `git revert` 的詳情請見[本文](</Tools/Git/reset、revert、rebase.canvas>)）。
 
 >[!Note]
->只要是想 unstage 已進入 staging area 的檔案變動，都可以使用 `git reset`，關於 `git reset` 的其它用法，請見[[reset、revert、rebase.canvas|本文]]。
+>只要是想 unstage 已進入 staging area 的檔案變動，都可以使用 `git reset`，關於 `git reset` 的其它用法，請見[本文](</Tools/Git/reset、revert、rebase.canvas>)。
 
 ---
 

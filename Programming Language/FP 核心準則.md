@@ -3,7 +3,7 @@
 FP 中包括以下幾個核心準則：
 
 - 使用 [Pure Functions](<#Pure Function>)
-- 善用 [[Function Composition]] 提高程式碼的複用性
+- 善用 [Function Composition](</Programming Language/Function Composition.md>) 提高程式碼的複用性
 - 避免 [Mutating Shared State](<#Mutable Shared State 所造成的困擾>)
 - 避免產生 [Side Effects](<#Side Effects>)
 
@@ -17,7 +17,7 @@ Pure function 泛指符合以下兩個條件的 function:
 
     這個特性進一步使得 pure function 擁有 **Referential Transparency** 這個特性，意思就是在茫茫程式碼中，我可以把所有呼叫 function F 的地方替換成 function F（在給定 input 的情況下所產生）的 output，同時程式的運行結果與替換前相比不會有任何差異。
 
-- 不會產生 [[#Side Effects]]
+- 不會產生 [#Side Effects](</./Programming Language/FP 核心準則.md#Side Effects>)
 
 # Mutable Shared State 造成的困擾
 

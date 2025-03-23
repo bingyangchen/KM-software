@@ -1,8 +1,8 @@
-以文字檔為例，現今的文字檔常見的是以 [[Character Encoding & Decoding#UTF-8|UTF-8]] 編碼，一個 character 會佔用到 2 bytes 甚至 3 bytes，然而一個 ASCII character 的大小其實只有 1 byte，因此一個 UTF-8 編碼文字檔中，ASCII character 的開頭會有很多個 `0` (leading zeros)，這樣其實很浪費空間。
+以文字檔為例，現今的文字檔常見的是以 [UTF-8](</Computer Science/Character Encoding & Decoding.md#UTF-8>) 編碼，一個 character 會佔用到 2 bytes 甚至 3 bytes，然而一個 ASCII character 的大小其實只有 1 byte，因此一個 UTF-8 編碼文字檔中，ASCII character 的開頭會有很多個 `0` (leading zeros)，這樣其實很浪費空間。
 
 而檔案壓縮其實就是透過把這些 leading zeros 的空間釋放出來，進而達到縮小檔案大小的效果。可以想像一個喝完的鋁箔包，中間是空的，壓扁後體積就縮小了。
 
-Data Compression (Source Coding, or Bit-Rate Reduction) 的演算法有很多（詳見[[Data Compression Algorithms.draft|這篇]]），因此也有很多不同的壓縮檔案用的指令。
+Data Compression (Source Coding, or Bit-Rate Reduction) 的演算法有很多（詳見[這篇](</Data Structures & Algorithms/Data Compression Algorithms.draft.md>)），因此也有很多不同的壓縮檔案用的指令。
 
 壓縮過的檔案無法直接使用，作業系統會不知道如何讀取／寫入／執行它們，因此每一種壓縮演算法都會有對應的「解壓縮」演算法。
 
@@ -10,11 +10,11 @@ Data Compression (Source Coding, or Bit-Rate Reduction) 的演算法有很多（
 
 |指令|File Extension|演算法|
 |---|---|---|
-|[[#compress]]|`*.Z`|Modified Lempel-Ziv Algorithm|
-|[[#gzip]]|`*.gz`|Lempel-Ziv Algorithm|
-|[[#bzip2]]|`*.bz2`|Burrows-Wheeler Algorithm|
-|[[#zip]]|`*.zip`||
-|[[#rar]]|`*.rar`||
+|[#compress](</./Operating System/Shell/11 - Commands - File Compression.md#compress>)|`*.Z`|Modified Lempel-Ziv Algorithm|
+|[#gzip](</./Operating System/Shell/11 - Commands - File Compression.md#gzip>)|`*.gz`|Lempel-Ziv Algorithm|
+|[#bzip2](</./Operating System/Shell/11 - Commands - File Compression.md#bzip2>)|`*.bz2`|Burrows-Wheeler Algorithm|
+|[#zip](</./Operating System/Shell/11 - Commands - File Compression.md#zip>)|`*.zip`||
+|[#rar](</./Operating System/Shell/11 - Commands - File Compression.md#rar>)|`*.rar`||
 
 上述這些壓縮檔案的指令，一次都只能對單一個檔案進行壓縮，無法一次壓縮多個檔案，也無法壓縮一個資料夾，如果希望可以一次壓縮多個檔案或資料夾，我們須要先將它們「打包」(bundle)，相關指令如下：
 

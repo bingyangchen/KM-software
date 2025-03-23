@@ -35,23 +35,23 @@ flowchart LR
 
 # Container vs. Virtual Machine
 
-![[container-vs-virtual-machine.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/container-vs-virtual-machine.png>)
 
-Virtual machine (VM) 會將整個 OS 都虛擬化，所以不同 VMs 間只會共用 host 的硬體資源；相對地，一個 host 上所有 containers 不只共用 host 的硬體資源，也共用 host 的 [[Kernel.draft|OS kernel]]，所以即使 container 內可以有自己的 OS，但那也只包含 application layer 的 OS，這樣的好處是可以讓 container 變得相對輕量，也縮短了啟動 container 所需的時間（分鐘級 → 毫秒級）。
+Virtual machine (VM) 會將整個 OS 都虛擬化，所以不同 VMs 間只會共用 host 的硬體資源；相對地，一個 host 上所有 containers 不只共用 host 的硬體資源，也共用 host 的 [OS kernel](</Operating System/Kernel.draft.md>)，所以即使 container 內可以有自己的 OS，但那也只包含 application layer 的 OS，這樣的好處是可以讓 container 變得相對輕量，也縮短了啟動 container 所需的時間（分鐘級 → 毫秒級）。
 
 你可能會問：「如果使用 host 的 OS kernel，那要怎麼在一個 Windows 或 macOS 的電腦上運行 Linux 的 container？」答案是須要先建立一個 VM 把 OS kernel 也虛擬化，比如若要在 macOS 裡運行一個 Linux container，就要先在 macOS 裡架一個有基本 Linux 環境的 VM，然後才能在 VM 裡面運行 container。
 
-幸運的是，架設 VM 這件事已經有 [[#Docker Desktop]] 這類的工具幫我們自動處理好了！
+幸運的是，架設 VM 這件事已經有 [#Docker Desktop](</./Tools/Docker/1 - Introduction.md#Docker Desktop>) 這類的工具幫我們自動處理好了！
 
 # The Architecture of Docker
 
 Docker 是一個提供 containerization 服務的平台，整個 Docker 平台主要可以分為 **client**、**Docker host** 與 **registry** 三個 components，使用者透過 client 操控 Docker host；Docker host 必要時會到 registry 下載 image。
 
-![[docker-architecture.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/docker-architecture.png>)
 
 ### Client
 
-使用者可以透過 [[2 - Docker CLI|Docker CLI]]（程式名稱為 `docker`）或 REST API 與 Docker host 溝通。
+使用者可以透過 [Docker CLI](</Tools/Docker/2 - Docker CLI.md>)（程式名稱為 `docker`）或 REST API 與 Docker host 溝通。
 
 以「列出在 local 運行中的 containers」為例：
 
@@ -67,7 +67,7 @@ Docker 是一個提供 containerization 服務的平台，整個 Docker 平台�
     curl --unix-socket /var/run/docker.sock http://localhost/containers/json
     ```
 
-    這個指令透過 [[Socket & Port#Unix Domain Socket|Unix domain socket]] 與 Docker host 溝通。
+    這個指令透過 [Unix domain socket](</Network/Socket & Port.md#Unix Domain Socket>) 與 Docker host 溝通。
 
 ### Docker Host
 
@@ -76,12 +76,12 @@ Docker host 包括 Docker daemon，以及存放 images 與 containers 的空間�
 Docker daemon 是 Docker 的核心程式（程式名為 `dockerd`）。我們可以粗略地說：「Docker daemon 負責管理 images、containers、Docker networks 與 Docker volumes」，但其實 ==`dockerd` 本身不負責運行 container==，它會把有關 container management 的工作轉交給更底層的程式（程式名為 `containerd`）來完成。
 
 >[!Info]
->關於 Docker daemon 的完整介紹請看[[6 - Docker Daemon.draft|這篇]]。
+>關於 Docker daemon 的完整介紹請看[這篇](</Tools/Docker/6 - Docker Daemon.draft.md>)。
 
 ### Registry
 
 - Registry 指的是用來存放 images 的地方，通常特指雲端的空間。
-- Registry 分為 [[4 - Docker Hub.draft|public (Docker Hub)]] 與 private (self-hosted) 兩種。
+- Registry 分為 [public (Docker Hub)](</Tools/Docker/4 - Docker Hub.draft.md>) 與 private (self-hosted) 兩種。
 - 使用者可以把 local 的 images 推上 registry，也可以從 registry 中 pull images 到 local。
 - Image 之於 Docker Hub 猶如 project 之於 GitHub。
 
@@ -117,11 +117,11 @@ Image --run--> Container
 ```
 
 >[!Info]
->完整介紹請看[[3 - Dockerfile, Image & Container|這篇]]。
+>完整介紹請看[這篇](</Tools/Docker/3 - Dockerfile, Image & Container.md>)。
 
 # Multi-Container Application
 
-[[Backend Web Architecture|一個完整的應用程式／服務／系統]]通常會包括 API server、database、reverse-proxy server 等多個系統元件，其中一種做法是只建立一個 container 然後把所有東西都放在裡面，但這樣做的話會有一些缺點：
+[一個完整的應用程式／服務／系統](</System Design/Backend Web Architecture.md>)通常會包括 API server、database、reverse-proxy server 等多個系統元件，其中一種做法是只建立一個 container 然後把所有東西都放在裡面，但這樣做的話會有一些缺點：
 
 - 無法針對單一系統元件進行 scaling，只能整個應用程式一起。
 - 無法針對單一系統元件的 image 進行 rebuild。
@@ -136,7 +136,7 @@ A tool for defining and running multi-container applications ==on a single host=
 須注意的是，由於 Docker Compose 是在單一 host 上運行所有 containers，所以仍然沒有解決「無法針對單一系統元件進行 scaling」的問題。
 
 >[!Info]
->關於 Docker Compose 的詳細介紹請看[[5 - Docker Compose.draft|這篇]]。
+>關於 Docker Compose 的詳細介紹請看[這篇](</Tools/Docker/5 - Docker Compose.draft.md>)。
 
 ### Kubernetes
 

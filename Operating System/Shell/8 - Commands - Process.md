@@ -45,7 +45,7 @@ jobs
 ```
 
 >[!Info] Job vs. Process
->一個 job 可能由一個或多個 processes 組成。想了解關於 job 的詳細介紹可以看[[Job Control|這篇]]。
+>一個 job 可能由一個或多個 processes 組成。想了解關於 job 的詳細介紹可以看[這篇](</Operating System/Job Control.md>)。
 
 # 觀察即時狀態
 
@@ -105,7 +105,7 @@ kill [{SIGNAL}] %{JOB_ID}
 |`-9`|強制終止 process|
 |`-15`|Gracefully terminate a process，這是預設值|
 
-關於 Unix signal 的詳細介紹請看[[Unix Signal & IPC|這篇]]。
+關於 Unix signal 的詳細介紹請看[這篇](</Operating System/Unix Signal & IPC.md>)。
 
 ### 與其它指令搭配
 
@@ -145,7 +145,7 @@ killall System
 
 # Process Priority
 
-在 Linux 系統中，各個 processes 可能會有不同的執行優先度（priority/niceness），優先度越高的 process 會被分配到越多比例的 [[CPU Scheduling.draft|CPU time]]，優先度以整數 -20~19 表示，==數字越小優先度越高==。
+在 Linux 系統中，各個 processes 可能會有不同的執行優先度（priority/niceness），優先度越高的 process 會被分配到越多比例的 [CPU time](</Operating System/CPU Scheduling.draft.md>)，優先度以整數 -20~19 表示，==數字越小優先度越高==。
 
 ### 先設置 Priority 再執行指令
 

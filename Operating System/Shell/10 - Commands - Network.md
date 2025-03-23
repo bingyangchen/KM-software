@@ -45,12 +45,12 @@ en0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
 
 ### 用 `curl ifconfig.me` 取得 Public IP Address
 
-如果你所連到的網路在 [[IP & IP Address#NAT|NAT]] 底下，那就必須從外部才能知道自己的 public IP address，因此這裡要使用 `curl` 發 request 到 `https://ifconfig.me` 這個外部網站，取得自己的 public IP address 後 stdout。
+如果你所連到的網路在 [NAT](</Network/IP & IP Address.md#NAT>) 底下，那就必須從外部才能知道自己的 public IP address，因此這裡要使用 `curl` 發 request 到 `https://ifconfig.me` 這個外部網站，取得自己的 public IP address 後 stdout。
 
 其實並不是只有 `https://ifconfig.me` 可以查詢 public IP address，其它網站（如 `https://ipinfo.io`）甚至提供了更完整的資訊，所以也可以試試看 `curl ipinfo.io`。
 
 >[!Note]
->關於 local IP address 與 public IP address 的差異，請看[[IP & IP Address|這篇]]。
+>關於 local IP address 與 public IP address 的差異，請看[這篇](</Network/IP & IP Address.md>)。
 
 # `curl {URL}`
 
@@ -111,7 +111,7 @@ curl -O https://example.com/filename.txt
 curl -T "img[1-1000].png" ftp://ftp.example.com/
 ```
 
-上方範例是上傳 local 的 img1.png, img2.png, …, img1000.png 等 1000 個檔案到 `ftp.example.com` 這台 server，使用 protocol 的是 [[File Transfer#FTP|FTP]]。
+上方範例是上傳 local 的 img1.png, img2.png, …, img1000.png 等 1000 個檔案到 `ftp.example.com` 這台 server，使用 protocol 的是 [FTP](</Network/File Transfer.md#FTP>)。
 
 # `wget`
 
@@ -255,7 +255,7 @@ en0        1500  192.168.50    192.168.50.87   72801125     - 17626450
 
 # `ping {HOST}`
 
-- `ping` 使用 [[ICMP]] 來確認 destination host 是否可以在網路上被找到，因此 ==ping 成功只能代表 network routing 沒問題，並不代表該 host 可以正常提供服務==
+- `ping` 使用 [ICMP](</Network/ICMP.md>) 來確認 destination host 是否可以在網路上被找到，因此 ==ping 成功只能代表 network routing 沒問題，並不代表該 host 可以正常提供服務==
 - `{HOST}` 的部分可以填入 IP address 或 domain，但不可加上 protocol、path、port、query string 等額外資訊
 - Destination host 收到 ping 後會回覆，這個回覆被稱為 pong
 
@@ -280,7 +280,7 @@ round-trip min/avg/max/stddev = 6.555/10.582/14.924/3.915 ms
 
 # `traceroute {HOST}`
 
-`traceroute` 使用 [[ICMP]] 來取得自己到 destination host 的路徑（會經過哪些 routers）以及花費的時間。
+`traceroute` 使用 [ICMP](</Network/ICMP.md>) 來取得自己到 destination host 的路徑（會經過哪些 routers）以及花費的時間。
 
 e.g.
 
@@ -332,7 +332,7 @@ Destination     Gateway         Genmask         Flags Metric Ref    
 
 # `arp`
 
-### 查詢本機的 [[MAC Address & ARP#ARP Table|ARP Table]]
+### 查詢本機的 [ARP Table](</Network/MAC Address & ARP.md#ARP Table>)
 
 ```bash
 arp -a
@@ -346,7 +346,7 @@ router.asus.com (192.168.50.1) at 24:4b:fe:35:13:7c on en0 ifscope [ethernet]
 
 # `dig {DOMAIN}`
 
-- 查詢 `{DOMAIN}` 的 IP addresses（進行 [[DNS#DNS Lookup|DNS lookup]]）
+- 查詢 `{DOMAIN}` 的 IP addresses（進行 [DNS lookup](</Network/DNS.md#DNS Lookup>)）
 - `+short` option 可以讓輸出更為簡潔（只保留 IPv4 address 的部分）
 
 e.g.
@@ -368,7 +368,7 @@ Output:
 
 # `nc`
 
-`nc` 是一個全名為 [Netcat](https://netcat.sourceforge.net/) 的網路狀態檢查工具，可以用來發送、監聽 [[OSI Model.draft#Transport Layer (Layer 4)|transport layer (L4)]] 的網路封包。
+`nc` 是一個全名為 [Netcat](https://netcat.sourceforge.net/) 的網路狀態檢查工具，可以用來發送、監聽 [transport layer (L4)](</Network/OSI Model.draft.md#Transport Layer (Layer 4)>) 的網路封包。
 
 **常用的 Options**
 
@@ -376,7 +376,7 @@ Output:
 |:-:|---|
 |`-l`|監聽指定 socket，沒給這個參數的話就是「發送」封包至該 socket|
 |`-u`|使用 UDP，沒給這個參數的話預設是用 TCP|
-|`-U`|聲明將使用 [[Socket & Port#Unix Domain Socket\|Unix Domain Socket]]|
+|`-U`|聲明將使用 [Unix Domain Socket](</Network/Socket & Port.md#Unix Domain Socket>)|
 |`-v`|give more verbose output|
 |`-w {n}`|connect + read 最多等 `{n}` 秒。不能與 `-l` 併用。|
 

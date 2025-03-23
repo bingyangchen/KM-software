@@ -6,7 +6,7 @@
 
 ### RPC 與 API 的關係是什麼？
 
-[[API.canvas|API]] 是比 RPC 更廣泛的概念性名詞，API 泛指「定義 client 與 server 間要使用什麼 protocol、使用什麼格式的資料來相互溝通的一系列規則」，而 RPC 只是其中一種規則，所以與 RPC 同層級的名詞應該是 [[REST API]]、[[1 - Introduction.canvas|GraphQL]] 等。
+[API](</Web Development/API.canvas>) 是比 RPC 更廣泛的概念性名詞，API 泛指「定義 client 與 server 間要使用什麼 protocol、使用什麼格式的資料來相互溝通的一系列規則」，而 RPC 只是其中一種規則，所以與 RPC 同層級的名詞應該是 [REST API](</Web Development/REST API.md>)、[GraphQL](</Web Development/GraphQL/1 - Introduction.canvas>) 等。
 
 ### RPC vs. REST
 
@@ -23,11 +23,11 @@
 
 RPC 只是一個概念，而 gRPC 是一個由 Google 所實作的 RPC framework。
 
-![[grpc.jpg]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/grpc.jpg>)
 
 ### Protocol Buffers
 
-gRPC 使用 protocol buffers 作為傳遞資料的格式，這個概念就有如 REST API 規定以 JSON、(url-encoded) form data… 等作為[[網頁應用程式傳遞資料的格式.draft|網頁應用程式傳遞資料的格式]]。
+gRPC 使用 protocol buffers 作為傳遞資料的格式，這個概念就有如 REST API 規定以 JSON、(url-encoded) form data… 等作為[網頁應用程式傳遞資料的格式](</Web Development/網頁應用程式傳遞資料的格式.draft.md>)。
 
 統計顯示，使用 protocol buffers 編碼過的 data，其傳輸速度比使用 JSON 快了將近 5 倍，這是 protocol buffers 的其中一個優點。
 
@@ -64,7 +64,7 @@ message SignReply {
 
 ### gRPC 架構於 HTTP/2 之上
 
-這麼做可以享受許多 [[HTTP1.1, HTTP2 & HTTP3#HTTP 與 HTTP/2|HTTP/2]] 的好處，包括：
+這麼做可以享受許多 [HTTP/2](</Network/HTTP1.1, HTTP2 & HTTP3.md#HTTP 與 HTTP/2>) 的好處，包括：
 
 - Multiplexing
 - Stream Prioritization

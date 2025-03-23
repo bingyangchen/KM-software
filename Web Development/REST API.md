@@ -26,7 +26,7 @@ REST 是 **RE**presentational **S**tate **T**ransfer 的縮寫，是在西元 20
 
 ### Client-Server Architecture
 
-Client 與 server 必須分離／獨立，詳見 [[Client-Server Model.canvas|Client-Server Model]]。
+Client 與 server 必須分離／獨立，詳見 [Client-Server Model](</System Design/Client-Server Model.canvas>)。
 
 ### Statelessness
 
@@ -48,7 +48,7 @@ Server 除了回覆純文字資料以外，也可以回覆一些 client-side 可
 
 # E-R Diagram of REST API
 
-![[er-diagram-of-rest-api.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/er-diagram-of-rest-api.png>)
 
 # REST API 範例
 

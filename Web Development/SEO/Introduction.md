@@ -4,11 +4,11 @@ SEO 就是一個讓網頁在搜尋結果中排名上升的過程。
 
 # SEO 的種類
 
-- [[#On-Site SEO]]
-- [[#Off-Site SEO]]
-- [[#Technical SEO]]
+- [#On-Site SEO](</./Web Development/SEO/Introduction.md#On-Site SEO>)
+- [#Off-Site SEO](</./Web Development/SEO/Introduction.md#Off-Site SEO>)
+- [#Technical SEO](</./Web Development/SEO/Introduction.md#Technical SEO>)
 
-![[onpage-vs-offpage-vs-technical-seo.webp]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/onpage-vs-offpage-vs-technical-seo.webp>)
 
 # On-Site SEO
 
@@ -38,7 +38,7 @@ On-site SEO 關注的是網站本身的內容，包括：
 
 ### `title` 標籤要簡潔且明確
 
-![[google-search-result.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/google-search-result.png>)
 
 - `title` 不僅用於顯示在 browser 的 tab 上，同時也是顯示在搜尋結果中的文字
 - 不要超過 70 字，多的字不會顯示在搜尋結果中
@@ -61,13 +61,13 @@ On-site SEO 關注的是網站本身的內容，包括：
 3. 放在第一段的內容最重要，最好能夠描述整篇文章的概要
 4. 善用 `h1` ~ `h4` 描繪整篇文章的結構
 
-    ![[help-readers-by-using-visual-hierarchy.webp]]
+    ![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/help-readers-by-using-visual-hierarchy.webp>)
 
     不只對爬蟲來說，放在 `h1` ~ `h4` 代表其重要性較高，`h1` ~ `h4` 如果外觀較一般內文顯眼，也較容易抓住讀者的眼睛。
 
 5. 網頁的主結構盡量使用 **HTML 結構標籤**，不要都用 `div`
 
-    ![[web-structure.webp]]
+    ![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/web-structure.webp>)
 
 ### 圖文並茂
 
@@ -97,15 +97,15 @@ User 在一個網頁的停留時間是 Google 對網頁的評分項目，停留�
 
 另一方面，如果網站有良好的導覽列設計，則可以促使使用者在網站中「到處逛逛」，進而拉長他的停留時間：
 
-![[nav.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/nav.png>)
 
 除了導覽列以外，也可以提供 breadcrumbs (麵包屑)，讓使用者清楚目前的網頁與網站首頁的相對位置：
 
-![[breadcrumbs-bestbuy-location-based.jpeg]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/breadcrumbs-bestbuy-location-based.jpeg>)
 
-### [[SSL & TLS|使用 HTTPS]]
+### [使用 HTTPS](</Network/SSL & TLS.md>)
 
-Google 表示從 2014 年開始，受 SSL/TLS 保護（網址以 https 開頭）的網站會在 [[Web Development/SEO/Introduction|SEO]] 中獲得較高的分數。
+Google 表示從 2014 年開始，受 SSL/TLS 保護（網址以 https 開頭）的網站會在 [SEO](</Web Development/SEO/Introduction.md>) 中獲得較高的分數。
 
 # Off-Site SEO
 
@@ -138,7 +138,7 @@ Sitemap 的格式可以是 `.xml` 或者 `.txt`，將 sitemap 交給 Google 可�
 
 ### 工具統整
 
-![[tools-you-need-for-an-seo-audit.webp]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/tools-you-need-for-an-seo-audit.webp>)
 
 - [Google Search Console](https://search.google.com/search-console)
 - [Google PageSpeed Insight](https://pagespeed.web.dev/)

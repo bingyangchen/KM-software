@@ -6,7 +6,7 @@
 brew install node@22
 ```
 
-安裝 Node.js 時，[[npm]] 會一併被安裝。
+安裝 Node.js 時，[npm](</Programming Language/JavaScript/Node.js/npm.md>) 會一併被安裝。
 
 ### 確認 Node.js 版本
 
@@ -32,7 +32,7 @@ N_PREFIX=$HOME/.local n stable
 
 ---
 
-你也可以選擇使用 [[nvm]] 全域安裝多個不同 Node 版本，並進行切換。
+你也可以選擇使用 [nvm](</Programming Language/JavaScript/Node.js/nvm.md>) 全域安裝多個不同 Node 版本，並進行切換。
 
 # 參考資料
 

@@ -8,16 +8,16 @@
 
 # The Elastic Stack
 
-![[elastic-stack.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/elastic-stack.png>)
 
 ### Elasticsearch 是 Elastic Stack 的核心
 
 - 是一個提供 **Full-Text Search**（全文搜尋）功能的服務
 - 建構在 **Apache Lucene** 之上，兩者都是用 **Java** 寫的
-- 使用 [[HTTP1.1, HTTP2 & HTTP3|HTTP]] 做為 application layer，並且使用 [[REST API]]（詳見[[#溝通方式|此段]]）
+- 使用 [HTTP](</Network/HTTP1.1, HTTP2 & HTTP3.md>) 做為 application layer，並且使用 [REST API](</Web Development/REST API.md>)（詳見[此段](</./Services/Elastic Stack/1 - Intro to Elasticsearch.md#溝通方式>)）
 - 接收 **JSON** 格式的 request payload，大多時候也回傳 JSON 格式的 responses
 - 給定搜尋條件後，可以找出與這些條件「相關」的資料並依相關性排序
-    - 不一定要完全相符才找得到（詳見 [[4 - Search in Elasticsearch]]）
+    - 不一定要完全相符才找得到（詳見 [4 - Search in Elasticsearch](</Services/Elastic Stack/4 - Search in Elasticsearch.md>)）
 
 # Elasticsearch 核心概念
 
@@ -51,7 +51,7 @@ flowchart TB
 Index 會有一個 human-readable 的名字，比如：product。
 
 >[!Note]
->其實在 Elasticsearch 7.0 前，index 與 document 中間還有一層 **Type**，一個 index 底下可以有若干個 types，type 之下才是 documents，但自 Elasticsearch 6.0 開始，一個 index 底下只能有一個 type，而在 Elasticsearch 7.0 以後，就已經移除 type 這個概念了，取而代之的是 [[6 - Mapping in Elasticsearch|Mapping]]，用來定義一個 index 中的 documents 的每個 fields 應該是什麼資料型態。
+>其實在 Elasticsearch 7.0 前，index 與 document 中間還有一層 **Type**，一個 index 底下可以有若干個 types，type 之下才是 documents，但自 Elasticsearch 6.0 開始，一個 index 底下只能有一個 type，而在 Elasticsearch 7.0 以後，就已經移除 type 這個概念了，取而代之的是 [Mapping](</Services/Elastic Stack/6 - Mapping in Elasticsearch.md>)，用來定義一個 index 中的 documents 的每個 fields 應該是什麼資料型態。
 
 # Scalability
 
@@ -59,7 +59,7 @@ Index 會有一個 human-readable 的名字，比如：product。
 
 一個 cluster 裡會有若干個 **nodes**（一個 node 就是一台 server），每個 cluster 會有一個 unique name 可以透過設定檔設定（預設叫 `elasticsearch`）。
 
-![[elastic-cluster-and-nodes.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/elastic-cluster-and-nodes.png>)
 
 ### Shard
 
@@ -75,14 +75,14 @@ Shard 可以細分為 **Primary Shard** 與 **Replica**，每個 primary shard �
 
 Replica 一方面可以提高服務對於 search requests 的吞吐量，也可以用來備援，也因為 replica 的其中一個功能是備援，所以==一個 primary shard 與它的 replicas 一定不會放在同一個 node 上==，不然若 node crash 了，replica 也無法發揮作用。
 
-![[cluster-node-index-shard.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/cluster-node-index-shard.png>)
 
 >[!Note]
 >Primary shard 的數量必須在建置 Elasticsearch cluster 的一開始就決定，且==不能修改==，若真的要增加或減少 primary shard，就只能重新建一個 cluster。
 
 # 溝通方式
 
-Elasticsearch 透過 [[HTTP1.1, HTTP2 & HTTP3]] 傳送，且使用的是 [[REST API]]，預設使用 port 9200。
+Elasticsearch 透過 [HTTP1.1, HTTP2 & HTTP3](</Network/HTTP1.1, HTTP2 & HTTP3.md>) 傳送，且使用的是 [REST API](</Web Development/REST API.md>)，預設使用 port 9200。
 
 `curl` request pattern:
 
@@ -99,7 +99,7 @@ curl -X PUT http://localhost:9200/ecommerce -d '{...}'
 ```
 
 >[!Note]
->需要對 Elastic server 進行一些設定才能在 local 使用 curl 呼叫 local 的 Elasticsearch API，詳見 [[2 - 在本機建立 Elastic Service#Security]]。
+>需要對 Elastic server 進行一些設定才能在 local 使用 curl 呼叫 local 的 Elasticsearch API，詳見 [2 - 在本機建立 Elastic Service#Security](</Services/Elastic Stack/2 - 在本機建立 Elastic Service.md#Security>)。
 
 # 參考資料
 

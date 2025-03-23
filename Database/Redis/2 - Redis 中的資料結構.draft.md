@@ -16,7 +16,7 @@ OK
 
 # List
 
-支援 left push、left pop、right push 與 right pop，所以可以實現 queue 和 stack 等 [[ADT.draft|ADT]]。
+支援 left push、left pop、right push 與 right pop，所以可以實現 queue 和 stack 等 [ADT](</Data Structures & Algorithms/ADT.draft.md>)。
 
 e.g.
 
@@ -67,7 +67,7 @@ e.g.
 # Stream
 
 >[!Note]
->關於 Redis Stream 的詳細介紹，請看[[Redis Stream.draft|這篇]]。
+>關於 Redis Stream 的詳細介紹，請看[這篇](</Database/Redis/Redis Stream.draft.md>)。
 
 Redis stream 是 Redis 5.0 後新增的資料結構，行為像是一個 append-only log，但相較於傳統的 append-only log 有一些優勢，包括：
 

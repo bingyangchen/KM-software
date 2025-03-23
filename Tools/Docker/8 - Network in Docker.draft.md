@@ -23,7 +23,7 @@ flowchart
 一個 container 可以同時位於多個 networks 中，每個 container 在每個 network 中會有不一樣的 IP address。
 
 >[!Info]
->與 network 相關的指令請看[[2 - Docker CLI#與 Network 相關的指令|這篇]]。
+>與 network 相關的指令請看[這篇](</Tools/Docker/2 - Docker CLI.md#與 Network 相關的指令>)。
 
 # Network Driver
 

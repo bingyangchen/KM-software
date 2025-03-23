@@ -1,7 +1,7 @@
 # Piping
 
 >[!Note]
->在了解 piping 之前，你會須要先了解 [[Operating System/Shell/1 - Introduction#STDIN, STDOUT & STDERR|stdin, stdout & stderr]]。
+>在了解 piping 之前，你會須要先了解 [stdin, stdout & stderr](</Operating System/Shell/1 - Introduction.md#STDIN, STDOUT & STDERR>)。
 
 ```bash
 {COMMAND_A} | {COMMAND_B}
@@ -49,7 +49,7 @@ cat myfile.txt
 
 ### 將 stdout 導向 stderr
 
-使用 `>&` 搭配 [[Operating System/File System#File Descriptors (FD)|file descriptor]] 可以將 stdout 導向 stderr，比如：
+使用 `>&` 搭配 [file descriptor](</Operating System/File System.md#File Descriptors (FD)>) 可以將 stdout 導向 stderr，比如：
 
 ```bash
 echo hello 1>&2
@@ -129,7 +129,7 @@ fg [%{JOB_ID}]
 如果當前的 Shell session 的背景中只有一個 job 則可以不用寫 `{JOB_ID}`，可以用 `jobs` 指令查看所有「當前 Shell session 中」的 jobs 以及它們的 job ID。
 
 >[!Note]
->想知道更多關於 `fg`、`jobs` 指令以及 job control 的詳細介紹，可以看[[Job Control|這篇]]。
+>想知道更多關於 `fg`、`jobs` 指令以及 job control 的詳細介紹，可以看[這篇](</Operating System/Job Control.md>)。
 
 # Chaining Commands
 
@@ -159,7 +159,7 @@ echo "world"
 
 ### 有條件地接連執行指令 - `||`
 
-只有 `||` 前面的指令執行失敗時（產生一個非 0 的 [[Operating System/Shell/1 - Introduction#Exit Codes|exit code]]），才會執行 `||` 後面的指令。
+只有 `||` 前面的指令執行失敗時（產生一個非 0 的 [exit code](</Operating System/Shell/1 - Introduction.md#Exit Codes>)），才會執行 `||` 後面的指令。
 
 e.g.
 

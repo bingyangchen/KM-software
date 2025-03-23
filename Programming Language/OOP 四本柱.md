@@ -10,7 +10,7 @@
 
 ### Interface vs. Abstract Class
 
-- 一個 class 可以實作 (implements) 多個 interfaces，但只能[[#繼承 (Inheritance)|繼承 (extends/inherit)]] 最多一個 class，abstract class 是一種 class，所以一個 class 最多只能繼承一個 abstract class
+- 一個 class 可以實作 (implements) 多個 interfaces，但只能[繼承 (extends/inherit)](</./Programming Language/OOP 四本柱.md#繼承 (Inheritance)>) 最多一個 class，abstract class 是一種 class，所以一個 class 最多只能繼承一個 abstract class
 
 - Abstract class 可以 implements interface，但 interface 不會繼承包括 abstract class 在內的任何 class
 
@@ -57,7 +57,7 @@ classDiagram
 
 ### 請謹慎使用 Inheritance
 
-之所以想提高 code reusability，究其根本是想一定程度地提高「維護」程式的方便性。然而，繼承所形成的依賴關係很強，當 class `A` 繼承 class `B` 後，`A` 與 `B` 就「耦合」(coupled) 了，耦合會使得彼此互相限制彼此的擴展性，不當地使用反而會讓程式更難維護，所以應謹慎使用。若既想提高 code reusability 又不想增加耦合度，可以使用 [[Object Composition]]。
+之所以想提高 code reusability，究其根本是想一定程度地提高「維護」程式的方便性。然而，繼承所形成的依賴關係很強，當 class `A` 繼承 class `B` 後，`A` 與 `B` 就「耦合」(coupled) 了，耦合會使得彼此互相限制彼此的擴展性，不當地使用反而會讓程式更難維護，所以應謹慎使用。若既想提高 code reusability 又不想增加耦合度，可以使用 [Object Composition](</Programming Language/Object Composition.md>)。
 
 # 多型 (Polymorphism)
 

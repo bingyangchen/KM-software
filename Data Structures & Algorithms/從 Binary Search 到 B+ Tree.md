@@ -4,9 +4,9 @@
 
 但若==數列是排序好的==，搜尋時就可以用時間複雜度僅有 $O(\log n)$ 的 binary search 來達成。Binary search 的概念如下：
 
-![[binary-search.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/binary-search.png>)
 
-但由於「[[Sorting Algorithms.canvas|排序]]」本身的時間複雜度至少為 $O(n)$，所以若未來搜尋的機會不多，其實先將亂序數列做排序再做 binary search 並沒有比較節省資源。
+但由於「[排序](</Data Structures & Algorithms/Sorting Algorithms.canvas>)」本身的時間複雜度至少為 $O(n)$，所以若未來搜尋的機會不多，其實先將亂序數列做排序再做 binary search 並沒有比較節省資源。
 
 ### Linked List 中不適合執行 Binary Search
 
@@ -65,7 +65,7 @@ BST 有以下規則：
 
 Example:
 
-![[binary-search-tree.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/binary-search-tree.png>)
 
 在 BST 中單次搜尋、新增、刪除的時間複雜度「平均而言」都是 $O(\log n)$，其中新增跟刪除會另外需要 restructure：
 
@@ -192,7 +192,7 @@ class BinarySearchTree:
 
 前面提到的各種操作的時間複雜度時都是「平均而言」，因為 BST 有可能不像一開始的圖一樣那麼平衡，最極端不平衡的 BST 會長的像下面這樣：
 
-![[imbalanced-bst.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/imbalanced-bst.png>)
 
 這樣的 BST 其實就是一個 linked list，無論是搜尋、新增或刪除，其時間複雜度都會是 $O(n)$。為避免這種情況發生，於是有了接下來的 balanced BST。
 
@@ -200,7 +200,7 @@ class BinarySearchTree:
 
 Balanced BST 在原本的 BST 上加上了一個限制：「對於任何一個 balanced BST 及其 subtree，各個 leaf nodes 的 depth 不可相差超過 1。」
 
-Balanced BST 只是一個分類，用來平衡樹的方法有很多種，不同方法做出來的樹名字都不同，比如 AVL tree 以及 red-black tree，詳見[[Balanced BST.canvas|本文]]。
+Balanced BST 只是一個分類，用來平衡樹的方法有很多種，不同方法做出來的樹名字都不同，比如 AVL tree 以及 red-black tree，詳見[本文](</Data Structures & Algorithms/Balanced BST.canvas>)。
 
 在搜尋演算法中，balanced BST 已經是非常有效率的資料結構了，但是若整個演算過程涉及與 disk 溝通，那就要額外考慮 disk I/O 的問題（將 disk 中的資料讀進 memory，以及將 memory 中的資料寫進 disk）因為 ==disk I/O 是造成 latency 的元兇之一==。
 
@@ -224,7 +224,7 @@ B tree 也是一種 self-balancing tree，樹中的每一個 node 都可以塞�
 
 下面是一個 5 階 B tree（一個深藍色方塊是一個 node，一個淺藍色方塊是一筆資料）：
 
-![[b-tree-of-order-5.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/b-tree-of-order-5.png>)
 
 使用這種資料結構儲存資料的 DBMS 會將每個 node 存在不同的 disk unit 中，一個 disk unit 的大小為 4 KB，因此每次進 disk 讀取資料的最小量也是 4 KB。B tree 的目的其實就是盡可能地在每個 node 中塞滿 4 KB 的資料，如此一來便能最大化每次 disk I/O 的效益。
 
@@ -244,8 +244,8 @@ B+ tree 可以說是針對上述 B tree 的兩個缺點而來，之所以能克�
 
 |Data Structure|Description|
 |---|---|
-|B Tree|![[b-tree.png]]|
-|B+ Tree|![[b-plus-tree.png]]|
+|B Tree|![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/b-tree.png>)|
+|B+ Tree|![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/b-plus-tree.png>)|
 
 在 B+ tree 中，由於每一筆資料都只能出現在 leaf nodes 中，因此搜尋每一筆資料時所需的 disk I/O 較平均，不會因爲該資料的 index 出現在比較上層就比較少。
 

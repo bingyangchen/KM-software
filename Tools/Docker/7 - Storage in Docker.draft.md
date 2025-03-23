@@ -8,7 +8,7 @@ Volume 是==將 container 內的資料同步寫入 host's filesystem== 的功能
 
 - MacOS: 在 virtual machine 裡的 /var/lib/docker/volumes/
 
-    但因為我們很難直接從 host 去存取 VM 裡的 filesystem，所以建議在 MacOS 上使用 [[#Bind Mount]]。
+    但因為我們很難直接從 host 去存取 VM 裡的 filesystem，所以建議在 MacOS 上使用 [#Bind Mount](</./Tools/Docker/7 - Storage in Docker.draft.md#Bind Mount>)。
 
 ### 將 Container 與 Volume 連接
 

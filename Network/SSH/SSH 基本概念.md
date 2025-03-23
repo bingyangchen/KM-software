@@ -62,7 +62,7 @@ sequenceDiagram
     Client->>Client: 使用 session ID 與其它共同<br/>的資訊產生 Shared Secret Key
 ```
 
-上方流程圖中，產生 shared secret key 的演算法叫做 [[Diffie-Hellman Key Exchange Algorithm.draft|Diffie-Hellman Key Exchange Algorithm]]，client 與 server 不用將 secret key 傳給對方就可以得到一模一樣的 secret key。
+上方流程圖中，產生 shared secret key 的演算法叫做 [Diffie-Hellman Key Exchange Algorithm](</Cryptography/Diffie-Hellman Key Exchange Algorithm.draft.md>)，client 與 server 不用將 secret key 傳給對方就可以得到一模一樣的 secret key。
 
 由於每次的 SSH session 都有唯一的 session ID，因此每一次的 SSH session 都會產生出不同的 shared secret key。
 
@@ -80,7 +80,7 @@ SSH 幾乎把所有可以使用的加密機制都用了一輪，包括 asymmetri
 
 # 各種 SSH Authentication 的方法
 
-SSH client 連線到 SSH server 時都須要登入 server，登入的方式有很多，也可以疊加使用，以下將逐一介紹（設定方式請見 [[#sshd_config 中的常用設定]]）：
+SSH client 連線到 SSH server 時都須要登入 server，登入的方式有很多，也可以疊加使用，以下將逐一介紹（設定方式請見 [#sshd_config 中的常用設定](</./Network/SSH/SSH 基本概念.md#sshd_config 中的常用設定>)）：
 
 ### Password Authentication
 
@@ -200,7 +200,7 @@ Certificate-Based Authentication 是 Public-Key Authentication 的變體，因�
 
 只須至 System Settings > General > Sharing，然後將 Remote Login 選項開啟，client 即可連線，如下圖所示：
 
-![[mac-os-open-remote-login.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/mac-os-open-remote-login.png>)
 
 > [!Note]
 > MacOS 也是使用 sshd_config 來設定 SSH server，只是不需要額外將 `#Port 22` 取消註解就可以提供連線。
@@ -293,9 +293,9 @@ ssh bob@192.168.50.88 -p 2345
 
 # 其它進階概念
 
-- [[SSH Agent Forwarding]]
-- [[SSH Tunneling]]
-- [[File Transfer#SCP|SCP 檔案傳輸]]
+- [SSH Agent Forwarding](</Network/SSH/SSH Agent Forwarding.md>)
+- [SSH Tunneling](</Network/SSH/SSH Tunneling.md>)
+- [SCP 檔案傳輸](</Network/File Transfer.md#SCP>)
 
 # 參考資料
 

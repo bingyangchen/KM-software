@@ -1,7 +1,7 @@
 #WebDevBackend #WebDevFrontend 
 
 >[!Info] 溫馨提醒
->閱讀本文之前，你必須先瞭解什麼是 [[Client-Server Model.canvas|Client-Server Model]]。
+>閱讀本文之前，你必須先瞭解什麼是 [Client-Server Model](</System Design/Client-Server Model.canvas>)。
 
 ---
 
@@ -13,7 +13,7 @@
 
 在 SSR 的世界裡，當 client 對某網頁發起有效的 request 後，該網站的 web server 會把所有指定網頁中應呈現的東西寫好放在 HTML 中（這個動作就叫做 **rendering**），然後才回覆給 client，緊接著會回覆 CSS，最後才是回覆 JavaScript，這裡的 JavaScript 只負責事件監聽。
 
-![[server-side-rendering.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/server-side-rendering.png>)
 
 # Client-Side Rendering (CSR)
 
@@ -21,11 +21,11 @@
 
 前端 server 負責提供 HTML（幾乎空白）、CSS 以及 JavaScript，這些檔案都是靜態的（內容是固定不變的），其中 JavaScript 須負責頁面渲染、資料取得、事件監聽三項工作，因此通常檔案比在 SSR 龐大許多，client 收到後必須使用瀏覽器的引擎執行這些 JavaScript，其中「資料取得」便是向後端 API server 溝通的過程，API server 只須專注於回覆資料（通常以 JSON 格式回覆），不須像 SSR 裡的 server 一樣負責 render 整個畫面。
 
-![[client-side-rendering.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/client-side-rendering.png>)
 
 # 比較一：Time to Interactive
 
-由於在 SSR 中，JavaScript 只扮演 event handler/listener 的角色（也就是負責根據使用者的行為作出反應），因此通常檔案不會很大，下載不需要花太多時間，所以使用者從「看到網頁」到「可以使用網頁」之間的時間差通常會較小（當然相對地，HTML 檔案大小就會較大，所以從 client「請求網頁」到「看到網頁」之間的時間差會相對較大，詳見 [[#比較二：Experience of Navigation|比較二]]）。
+由於在 SSR 中，JavaScript 只扮演 event handler/listener 的角色（也就是負責根據使用者的行為作出反應），因此通常檔案不會很大，下載不需要花太多時間，所以使用者從「看到網頁」到「可以使用網頁」之間的時間差通常會較小（當然相對地，HTML 檔案大小就會較大，所以從 client「請求網頁」到「看到網頁」之間的時間差會相對較大，詳見 [比較二](</./Web Development/SSR vs. CSR.md#比較二：Experience of Navigation>)）。
 
 在 CSR 中，一個稍具複雜度的網站通常會有龐大的 JavaScript 來處理頁面渲染、資料取得、事件監聽三項工作，此時不僅需要花較多時間傳輸 JavaScript，從檔案「下載完成」到使用者「看到網頁並且可以使用」之間的時間差也取決於裝置的性能（但頁面重新渲染只會發生在重新整理時，不算太常發生），收發 API 的過程中也可能使得部分元件因資料不足而暫時無法使用。
 
@@ -39,7 +39,7 @@
 
 # 比較三：SEO Result
 
-從 [[Web Development/SEO/Introduction]] 一文我們可以知道搜尋引擎要先爬取網頁內容才能為每個網頁評分，在這個情境裡，爬蟲事實上就是 client，所以爬蟲同樣會依序拿到 HTML、CSS 與 JavaScript。通常而言，爬蟲並不會執行 CSS 與 JavaScript，不過這對 SSR 的網頁來說其實無傷大雅，因為評分的重點是網頁的結構以及內容，並不是外觀與互動。
+從 [Web Development/SEO/Introduction](</Web Development/SEO/Introduction.md>) 一文我們可以知道搜尋引擎要先爬取網頁內容才能為每個網頁評分，在這個情境裡，爬蟲事實上就是 client，所以爬蟲同樣會依序拿到 HTML、CSS 與 JavaScript。通常而言，爬蟲並不會執行 CSS 與 JavaScript，不過這對 SSR 的網頁來說其實無傷大雅，因為評分的重點是網頁的結構以及內容，並不是外觀與互動。
 
 然而，由於 CSR 是透過在 client 端的瀏覽器執行 JavaScript，才能渲染出完整的頁面內容以及填入所有資料，若爬蟲不執行 JavaScript，那麼它讀取到的 HTML 就幾乎是空的，此時該網頁的評分自然不會太高。
 

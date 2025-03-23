@@ -11,7 +11,7 @@ Mapping 用來定義一個 index 中的所有 documents 必須擁有哪些 field
 GET <INDEX_NAME>/_mapping
 ```
 
-Example search result:（以 [[5 - Aggregation in Elasticsearch|CH5]] 用到的 `ecommerce` index 為例）
+Example search result:（以 [CH5](</Services/Elastic Stack/5 - Aggregation in Elasticsearch.md>) 用到的 `ecommerce` index 為例）
 
 ```json
 {
@@ -57,7 +57,7 @@ Example search result:（以 [[5 - Aggregation in Elasticsearch|CH5]] 用到的 
 
 在 dynamic mapping 的情況下，所有文字的 fields 都會分別被 map 為 `keyword` 以及 `text`，示意圖如下：
 
-![[keyword-text-double-mapping.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/keyword-text-double-mapping.png>)
 
 # 自定義 Mapping
 
@@ -66,7 +66,7 @@ Example search result:（以 [[5 - Aggregation in Elasticsearch|CH5]] 用到的 
 - 一個 index 的 mapping 必須在「建立 index 時」定義，不能先有 document 在裡面才定義 mapping
 - 一個 index 只會有一個 mapping，所以同一個 index 底下的所有 documents 的資料型態必須一致
 - 當某個 field 的 data type 被定義好後，就不能修改，只能新增新的 field data type definition
-- 如果真的要修改 index 的 mapping，只能另外建立一個 index（名字要與原本的不同）、另外定義一個新的 mapping，然後把 documents 從舊 index [[#Reindex]] 到新的 index 上
+- 如果真的要修改 index 的 mapping，只能另外建立一個 index（名字要與原本的不同）、另外定義一個新的 mapping，然後把 documents 從舊 index [#Reindex](</./Services/Elastic Stack/6 - Mapping in Elasticsearch.md#Reindex>) 到新的 index 上
 - 用不到的 field 可以不額外使用任何資料結構儲存之
 - 若 document 擁有 index 所沒有的 fields，則當該 document 被 index 時，會 dynamic mapping 那些 fields
 
@@ -152,7 +152,7 @@ PUT produce/_mapping
 }
 ```
 
-你會發現這裡出現的 `"script"` 與 `"source"`，在 [[5 - Aggregation in Elasticsearch#Aggregation 組合技]]也出現過，只是多了 `"runtime"` 與 `emit`。
+你會發現這裡出現的 `"script"` 與 `"source"`，在 [5 - Aggregation in Elasticsearch#Aggregation 組合技](</Services/Elastic Stack/5 - Aggregation in Elasticsearch.md#Aggregation 組合技>)也出現過，只是多了 `"runtime"` 與 `emit`。
 
 新增成功後，再次查看 mapping 會得到像下面這樣的結果：
 

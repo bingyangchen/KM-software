@@ -1,4 +1,4 @@
-一個 Linux OS 中可以存在若干個 users，其中必定會有一個 user 叫做 `root`，`root` 擁有系統中的所有（最高）[[7 - Commands - Permission|權限]]，又叫做 superuser。
+一個 Linux OS 中可以存在若干個 users，其中必定會有一個 user 叫做 `root`，`root` 擁有系統中的所有（最高）[權限](</Operating System/Shell/7 - Commands - Permission.md>)，又叫做 superuser。
 
 `root` 的權限是最高的，因此強烈建議平時不要以 `root` 身份登入系統，否則你執行的應用程式都會獲得 `root` 的權限（也就是所有權限）。
 
@@ -12,9 +12,9 @@
 su
 ```
 
-輸入指令後會被要求輸入 `root` user 的密碼，輸入正確後會進入一個新的 Shell（屬於當前 Shell 的 [[Operating System/Shell/1 - Introduction#Subshell|subshell]]）。
+輸入指令後會被要求輸入 `root` user 的密碼，輸入正確後會進入一個新的 Shell（屬於當前 Shell 的 [subshell](</Operating System/Shell/1 - Introduction.md#Subshell>)）。
 
-但光使用 `su` 並不會讓[[Operating System/Shell/1 - Introduction#Environment Variable|環境變數]]跟著變，讀取的 Shell 設定檔也還是原本 user 的 home directory 底下的設定檔，只是有了 `root` 的權限而已，如果要讓環境變數也變成 `root` 的，須在指令中加一個 `-`：
+但光使用 `su` 並不會讓[環境變數](</Operating System/Shell/1 - Introduction.md#Environment Variable>)跟著變，讀取的 Shell 設定檔也還是原本 user 的 home directory 底下的設定檔，只是有了 `root` 的權限而已，如果要讓環境變數也變成 `root` 的，須在指令中加一個 `-`：
 
 ```bash
 su -
@@ -243,7 +243,7 @@ w
 ```
 
 > [!Info]
-> MacOS「新增／修改／刪除／查詢／列舉使用者與群組」的指令與 Linux 不同，詳細請見[[Tools/Mac/零碎筆記#如何建立透過 Terminal 一個 User|這裡]]。
+> MacOS「新增／修改／刪除／查詢／列舉使用者與群組」的指令與 Linux 不同，詳細請見[這裡](</Tools/Mac/零碎筆記.md#如何建立透過 Terminal 一個 User>)。
 
 # 參考資料
 

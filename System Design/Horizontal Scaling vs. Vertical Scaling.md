@@ -1,4 +1,4 @@
-![[horizontal-scaling-vs-vertical-scaling.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/horizontal-scaling-vs-vertical-scaling.png>)
 
 一個服務的 scalability 指的是其面對大量請求／任務時的應對能力，而 scaling 就是指「擴展 server 應對能力」這個動作。Scaling 的方式分為 horizontal scaling 與 veritcal scaling 兩種。
 
@@ -22,8 +22,8 @@ Vertical scaling 會較 horizontal scaling 簡單，原因是程式邏輯不用�
 
 | |Horizontal Scaling|Vertical Scaling|
 |---|---|---|
-|Database|[[Partitioning & Sharding#Sharding\|Sharding]]|多核心處理器|
-|Concurrency|[[Distributed Programming.draft\|Distributed Programming]]|[[Actor Model.draft\|Actor Model]]|
+|Database|[Sharding](</Database/Partitioning & Sharding.md#Sharding>)|多核心處理器|
+|Concurrency|[Distributed Programming](</System Design/Distributed Programming.draft.md>)|[Actor Model](</System Design/Actor Model.draft.md>)|
 |Messaging|Server 間須互傳資料|沒有此問題|
 
 # 參考資料

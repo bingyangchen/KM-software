@@ -2,7 +2,7 @@
 ><https://docs.docker.com/reference/cli/docker/>
 
 >[!Note]
->與 Docker Compose 相關的指令另外收錄在 [[5 - Docker Compose.draft|Docker Compose]]。
+>與 Docker Compose 相關的指令另外收錄在 [Docker Compose](</Tools/Docker/5 - Docker Compose.draft.md>)。
 
 Docker CLI (`docker`) 是使用者與 Docker daemon 互動的其中一個途徑，這裡節錄了一些常用的指令，想了解完整的指令請看官方文件。
 
@@ -46,7 +46,7 @@ docker [image] build [{OPTIONS}] {PATH_TO_DOCKERFILE}|{URL}
 |Option|Short|Description|
 |:-:|:-:|---|
 |`--tag`|`-t`|爲 image 取名，格式為 `[{HOST}[:{PORT_NUMBER}]/]{PATH}[:{TAG}]`。|
-|`--target {STAGE}`| |要 build 的 stage（詳見 [[3 - Dockerfile, Image & Container#Multi-Stage Builds\|multi-stage builds]]）。|
+|`--target {STAGE}`| |要 build 的 stage（詳見 [multi-stage builds](</Tools/Docker/3 - Dockerfile, Image & Container.md#Multi-Stage Builds>)）。|
 |`--platform={P1}[,{P2},...]`| |為一到多個指定平台 build 該平台可用的 image。|
 |`--no-cache`| |從頭開始重新 build，不使用過去的 cache。|
 
@@ -145,7 +145,7 @@ docker run [{OPTIONS}] {IMAGE_NAME} [{COMMAND}]
 |`--rm`| |離開 container 後，自動刪除 container，以及相關的 volumes。|
 |`--name`| |為 container 取名。（若沒有這個 option 則 Docker 會隨機取名）|
 |`--volume {HOST_PATH}:{CONTAINER_PATH}`|`-v`|將 volume / host directories 綁定 container。|
-|`--mount {CONFIG}`|`-m`|將 volume/host-directories/`tmpfs` 綁定 container。使用方式請見[[7 - Storage in Docker.draft\|這篇]]。|
+|`--mount {CONFIG}`|`-m`|將 volume/host-directories/`tmpfs` 綁定 container。使用方式請見[這篇](</Tools/Docker/7 - Storage in Docker.draft.md>)。|
 
 - `-v` 與 `--mount` 的功能差不多，但 `--mount` 的功能更齊全，所以官方推薦一律使用 `--mount`。
 - 若 `-e` 或 `--env-file` 中含有與 Dockerfile 中 `ENV` 所設定的環境變數同名的變數，則會覆蓋掉 Dockerfile 中的 `ENV` 所設定的值。
@@ -164,7 +164,7 @@ docker run -it my_image echo hello
 >docker run -it my_image sh -c "cd /app && echo $MY_VAR"
 >```
 >
->關於 Shell form 與 exec form 的詳細差別，請看[[3 - Dockerfile, Image & Container#RUN|這篇]]。
+>關於 Shell form 與 exec form 的詳細差別，請看[這篇](</Tools/Docker/3 - Dockerfile, Image & Container.md#RUN>)。
 
 ---
 
@@ -201,7 +201,7 @@ docker [container] stop [{OPTIONS}] {CONTAINER_ID} [{CONTAINER_ID} ...]
 
 |Option|Short|Description|
 |---|:-:|---|
-|`--singal`|`-s`|用來終止 container 的 [[Unix Signal & IPC\|Unix signal]]，預設為 `SIGTERM` (15)，參數值可以使用 signal 的名字或代號，比如 `-s SIGKILL` 或 `-s 9`。|
+|`--singal`|`-s`|用來終止 container 的 [Unix signal](</Operating System/Unix Signal & IPC.md>)，預設為 `SIGTERM` (15)，參數值可以使用 signal 的名字或代號，比如 `-s SIGKILL` 或 `-s 9`。|
 |`--time`|`-t`|強制關閉前所等待的時間 (grace period)。在送出 Unix signal 後，若 container 超過指定時間還沒有停止，則送出 `SIGKILL`。|
 
 - 若 container 是 Linux container，則強制關閉前所等待的時間 default 為 10 秒；Windows container 的 default 為 30 秒。
@@ -218,7 +218,7 @@ docker [container] kill {CONTAINER_ID} [{CONTAINER_ID} ...]
 `docker kill` 的效果等價於 `docker stop -s 9`，兩者都不會有 grace period。
 
 >[!Note]
->關於 container 的各種狀態間如何切換，請看[[3 - Dockerfile, Image & Container#Container Status|這篇]]。
+>關於 container 的各種狀態間如何切換，請看[這篇](</Tools/Docker/3 - Dockerfile, Image & Container.md#Container Status>)。
 
 ---
 
@@ -402,7 +402,7 @@ docker network create [{OPTIONS}] {NETWROK_NAME}
 |`--driver`|`-d`|Network driver 的種類，沒有提供的話預設為 `bridge`。|
 
 >[!Info]
->關於 network diver 的詳細介紹，請看[[8 - Network in Docker.draft#Network Driver|這篇]]。
+>關於 network diver 的詳細介紹，請看[這篇](</Tools/Docker/8 - Network in Docker.draft.md#Network Driver>)。
 
 ### Remove a Network
 
@@ -474,7 +474,7 @@ docker search redis
 docker login [{OPTIONS}] [{SERVER}]
 ```
 
-- 在沒有提供 `{SERVER}` 的情況下，預設是登入 [[4 - Docker Hub.draft|Docker Hub]]。
+- 在沒有提供 `{SERVER}` 的情況下，預設是登入 [Docker Hub](</Tools/Docker/4 - Docker Hub.draft.md>)。
 - 若要向私有的 Docker registry push/pull image，就須要先登入該 registry。
 - 登出的指令為 `docker logout [{SERVER}]`。
 

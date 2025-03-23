@@ -2,27 +2,27 @@
 
 ### File-Based Integration
 
-![[message-queue-file-based-integration.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/message-queue-file-based-integration.png>)
 
 ### Shared-Database Integration
 
-![[message-queue-shared-db-integration.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/message-queue-shared-db-integration.png>)
 
 ### Direct Connection
 
-![[message-queue-direct-connection-integration.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/message-queue-direct-connection-integration.png>)
 
 ### Message-Queuing System
 
-![[message-queue-message-broker-integration.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/message-queue-message-broker-integration.png>)
 
 Message-queuing system 簡稱 MQ system，本篇將著重講解這個整合方法。
 
 # Components of a MQ System
 
-![[components-of-a-message-queuing-system.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/components-of-a-message-queuing-system.png>)
 
-[[Messaging Protocols.draft|AMQP]] 中有定義一個 MQ system 必備的元素：
+[AMQP](</Network/Messaging Protocols.draft.md>) 中有定義一個 MQ system 必備的元素：
 
 ### Message
 
@@ -39,7 +39,7 @@ Producer 負責製造 messages，並把 messages 交給 message broker。
 
 ### Message Broker
 
-Message broker 收到來自 producer 的 message 後會送一個 [[#Acknowledgements|ACK]] 給 producer。
+Message broker 收到來自 producer 的 message 後會送一個 [ACK](</./System Design/Message-Queuing System.md#Acknowledgements>) 給 producer。
 
 Message broker 可以再拆成 message queue、exchange 兩個部分：
 
@@ -47,17 +47,17 @@ Message broker 可以再拆成 message queue、exchange 兩個部分：
 
 Messages 排隊的地方就叫做 message queue，每個 queue 都有自己的名字。
 
-從 queue 中取 message 時，原則上採用 FIFO 策略，但也有會將 message 以特定 attribute 排序的 [[ADT.draft#Priority Queue|priority queue]]。
+從 queue 中取 message 時，原則上採用 FIFO 策略，但也有會將 message 以特定 attribute 排序的 [priority queue](</Data Structures & Algorithms/ADT.draft.md#Priority Queue>)。
 
-Message queue 不算是 [[Singular Update Queue]]，因為==一個 MQ system 中可能有多個 queues==，一個 queue 也可能有不只一個 consumer。
+Message queue 不算是 [Singular Update Queue](</System Design/Singular Update Queue.md>)，因為==一個 MQ system 中可能有多個 queues==，一個 queue 也可能有不只一個 consumer。
 
 ##### Exchange/Router
 
 Exchange（或者叫 router）負責決定每一則 message 要被傳到哪個 queue，queue 與 exchange 之間的關係稱作 **binding**，示意圖如下：
 
-![[message-queue-binding.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/message-queue-binding.png>)
 
-決定 message 去向的機制有很多種，詳見 [[#Message Routing]]。
+決定 message 去向的機制有很多種，詳見 [#Message Routing](</./System Design/Message-Queuing System.md#Message Routing>)。
 
 ### Consumer/Worker
 
@@ -65,10 +65,10 @@ Consumer（或者叫 worker）負責處理 message queue 中的 messages。
 
 決定 queue 裡的一則 message 要交給哪些／哪個 consumer(s) 的方法有兩種：
 
-- 看看哪些 consumers 有 [[#Publish-Subscribe (Pub-Sub)|subscribe]] 這個 queue，將 message 送給所有 subscribers
+- 看看哪些 consumers 有 [subscribe](</./System Design/Message-Queuing System.md#Publish-Subscribe (Pub-Sub)>) 這個 queue，將 message 送給所有 subscribers
 - 請 consumers 內部投票決定誰要來處理這個 message（這是比較沒效率的做法）
 
-Consumer 會在收到 message 後，或者處理完 message 後，送一個 [[#Acknowledgements|ACK]] 給 message broker。
+Consumer 會在收到 message 後，或者處理完 message 後，送一個 [ACK](</./System Design/Message-Queuing System.md#Acknowledgements>) 給 message broker。
 
 >[!Note]
 >一個 node 可以同時是 producer 也是 consumer。
@@ -86,7 +86,7 @@ Consumer 會在收到 message 後，或者處理完 message 後，送一個 [[#A
 
 當 producer 把 message 交給 message broker 後，以及 message broker 把 message 交給 consumer 後，收到訊息的一方都會回覆一個「收到」(**ACK**)，若送訊息的一方沒有收到 ACK，就代表 message 沒有成功傳遞。這個機制可以確保每則 message 都有被處理到。
 
-### 符合 [[SoC]] 精神
+### 符合 [SoC](</System Design/SoC.md>) 精神
 
 - Producer 與 consumer 不用知道彼此是誰、數量有多少，只要認識 message queue 即可
 - Producer、message broker 與 consumer 可以分開開發，也可以各自 scale on demand
@@ -102,7 +102,7 @@ Consumer 會在收到 message 後，或者處理完 message 後，送一個 [[#A
 
 Message queue 主要有兩種模式：
 
-![[pub-sub-vs-ptp.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/pub-sub-vs-ptp.png>)
 
 ### Publish-Subscribe (Pub-Sub)
 
@@ -122,7 +122,7 @@ Message queue 主要有兩種模式：
 
 ### Unicast
 
-![[unicast.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/unicast.png>)
 
 - 機制
 
@@ -134,7 +134,7 @@ Message queue 主要有兩種模式：
 
 ### Multicast
 
-![[multicast.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/multicast.png>)
 
 - 機制
 
@@ -145,26 +145,26 @@ Message queue 主要有兩種模式：
 
 ### Broadcast
 
-![[broadcast.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/broadcast.png>)
 
 - 機制
 
     Router/exchange 將 message 送給所有與自己相連的 queues。這樣的 exchange 叫做 **==Fanout Exchange==**。
 
 - 舉例
-    - [[MAC Address & ARP|ARP query]]
-    - [[IP & IP Address#DHCP|DHCP discovery]]
+    - [ARP query](</Network/MAC Address & ARP.md>)
+    - [DHCP discovery](</Network/IP & IP Address.md#DHCP>)
 
 ### Anycast
 
-![[anycast.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/anycast.png>)
 
 - 機制
 
     根據某種規則（或隨機）將 message 送進某個 queue。
 
 - 舉例
-    - [[CDN]] 會根據物理距離、各 server 忙碌程度等因素決定要將請求送給哪個 server
+    - [CDN](</Web Development/CDN.md>) 會根據物理距離、各 server 忙碌程度等因素決定要將請求送給哪個 server
     - Load balancing mechanism
 
 # Delivery Guarantee
@@ -173,17 +173,17 @@ Message queue 主要有兩種模式：
 - **At-Least-Once Delivery**：可以保證 message 至少被成功接收到一次，但有可能重複接收到相同的 message。
 - **At-Most-Once Delivery**：可以保證 message 最多被成功接收到一次，有可能有 message 沒有成功被接收到。
 
-![[message-delivery-guarentees.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/message-delivery-guarentees.png>)
 
 # 相關的第三方服務
 
-![[message-brokers.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/message-brokers.png>)
 
 - [Nats](https://nats.io/)
 - Amazon SQS
-- [[RabbitMQ.draft|RabbitMQ]]
+- [RabbitMQ](</Services/RabbitMQ.draft.md>)
 - Google Pub/Sub
-- [[Kafka.draft|Kafka]]
+- [Kafka](</Services/Kafka.draft.md>)
 - Azure Service Bus
 
 | |NATS|RabbitMQ|Kafka|

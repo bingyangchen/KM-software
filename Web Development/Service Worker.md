@@ -27,19 +27,19 @@ stateDiagram-v2
 
 - **On Install - As a Dependency**
 
-    ![[on-install-as-a-dependency.png]]
+    ![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/on-install-as-a-dependency.png>)
 
 - **On Install - Not As a Dependency**
 
-    ![[on-install-not-as-a-dependency.png]]
+    ![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/on-install-not-as-a-dependency.png>)
 
 - **On Activate**
 
-    ![[on-activate.png]]
+    ![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/on-activate.png>)
 
 - **On User Interaction**
 
-    ![[on-user-interaction.png]]
+    ![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/on-user-interaction.png>)
 
 ### Caching Strategies at Client Side
 
@@ -47,41 +47,41 @@ Caching strategies 即決定「什麼情況下要使用 cache」的策略。Clie
 
 ###### Cache Only
 
-![[cache-only.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/cache-only.png>)
 
 ###### Network Only
 
-![[network-only.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/network-only.png>)
 
 >[!Note]
 >從 network 取來的資料也可以存進 cache，如下圖：
 >
->![[on-network-response.png]]
+>![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/on-network-response.png>)
 
 ###### Cache Falling Back to Network
 
-![[cache-falling-back-to-network.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/cache-falling-back-to-network.png>)
 
 >[!Note]
 >如果 network 也沒有回應，那可以顯示預設畫面，下圖的步驟 4 指的就是顯示預設畫面，比如 404 頁面或 offline 提示。
 >
->![[generic-fallback.png]]
+>![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/generic-fallback.png>)
 
 ###### Network Falling Back to Cache
 
-![[network-falling-back-to-cache.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/network-falling-back-to-cache.png>)
 
 ###### Stale-While-Revalidate
 
 Revalidate 指的就是下圖中第 4 步「向 network 索取真實資料」的動作。
 
-在 [[SSR vs. CSR#Client-Side Rendering (CSR)|CSR]] 的架構中，從 network 取得真實資料後，必須重新渲染畫面才能讓使用者看到最新的資料，否則就算新資料來了，也只是更新 cache 而已，user 要等到下次送出相同的 request 時才看得到（但那時很可能又有更新的資料）。
+在 [CSR](</Web Development/SSR vs. CSR.md#Client-Side Rendering (CSR)>) 的架構中，從 network 取得真實資料後，必須重新渲染畫面才能讓使用者看到最新的資料，否則就算新資料來了，也只是更新 cache 而已，user 要等到下次送出相同的 request 時才看得到（但那時很可能又有更新的資料）。
 
-![[stale-while-revalidate.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/stale-while-revalidate.png>)
 
 ###### Cache and Network Race
 
-![[cache-and-network-race.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/cache-and-network-race.png>)
 
 # 使用 Message 與 DOM 溝通
 
@@ -139,17 +139,17 @@ Service worker 除了在 localhost 時，可以在未加密的 `http` protocol �
 
 # 訊息推播
 
-![[on-push-message.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/on-push-message.png>)
 
 # Background Syncing
 
 Background syncing 使得即使 user 將 browser 關閉，web app 還是可以在背景向 network 要資料並更新 cache。
 
-![[on-background-sync.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/on-background-sync.png>)
 
 # Service Worker-Side Templating
 
-![[service-worker-side-templating.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/service-worker-side-templating.png>)
 
 # 更新 Service Worker
 

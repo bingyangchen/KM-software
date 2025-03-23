@@ -1,15 +1,15 @@
 #SSH 
 
-### [[2 - 安裝與設定|Step 1: 確認 Client 上有安裝 Git]]
+### [Step 1: 確認 Client 上有安裝 Git](</Tools/Git/2 - 安裝與設定.md>)
 
-### [[SSH 常用指令#產生 SSH Key|Step2: Client 新增 SSH Key]]
+### [Step2: Client 新增 SSH Key](</Network/SSH/SSH 常用指令.md#產生 SSH Key>)
 
 ### Step3: 將 SSH Key 加到 GitHub
 
 - Step3-1: 複製 .pub 檔（即 public key）中的內容
 - Step3-2: 登入 GitHub，到 Settings > SSH and GPG keys 點選 `New SSH key`
 
-### Step4: [[SSH 基本概念#SSH Agent|SSH Agent]] 攜帶 SSH Key
+### Step4: [SSH Agent](</Network/SSH/SSH 基本概念.md#SSH Agent>) 攜帶 SSH Key
 
 e.g.
 

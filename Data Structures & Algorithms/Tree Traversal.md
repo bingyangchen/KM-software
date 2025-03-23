@@ -20,7 +20,7 @@
 
 先處理自己，再由左到右處理小孩。
 
-![[preorder-traversal.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/preorder-traversal.png>)
 
 ### 應用
 
@@ -50,7 +50,7 @@ def preorder(root):
 
 先由左到右處理小孩，再處理自己。
 
-![[postorder-traversal.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/postorder-traversal.png>)
 
 ### 應用
 
@@ -80,7 +80,7 @@ def postorder(root):
 
 先處理左小孩，再處理自己，最後處理右小孩。
 
-![[inorder-traversal.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/inorder-traversal.png>)
 
 >[!Note]
 >只有 binary tree 可以做 in-order traversal。
@@ -125,7 +125,7 @@ def inorder(root):
 
 同一層的由左到右處理完，再處理下一層。
 
-![[level-order-traversal.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/level-order-traversal.png>)
 
 ### 應用
 

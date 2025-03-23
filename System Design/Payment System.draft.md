@@ -1,4 +1,4 @@
-![[payment-system.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/payment-system.png>)
 
 ### Steps 0-1
 

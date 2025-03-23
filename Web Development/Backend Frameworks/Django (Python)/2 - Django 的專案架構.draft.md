@@ -21,7 +21,7 @@ Django 使用 [[ORM.canvas|ORM]] 架構，因此原則上一個 model 就對應�
 
 ### Views
 
-一個 app (component) 底下也會有若干個與該 app 最密切相關的 views，如果專案採用前後端混合的架構（[[SSR vs. CSR#Server-Side Rendering (SSR)|server-side rendering]]），則一個 view 就對應到一個網頁；若專案只是一個 API server，那一個 view 就會對應到一個 API endpoint。
+一個 app (component) 底下也會有若干個與該 app 最密切相關的 views，如果專案採用前後端混合的架構（[server-side rendering](</Web Development/SSR vs. CSR.md#Server-Side Rendering (SSR)>)），則一個 view 就對應到一個網頁；若專案只是一個 API server，那一個 view 就會對應到一個 API endpoint。
 
 ### URLs
 
@@ -148,8 +148,8 @@ urlpatterns = [
 
 # MTV Pattern
 
-在 [[Architectural Pattern]] 一文中我們介紹過 MVC、MVP、MVVM 等架構，而 MTV 可以說是 Django 開發團隊自創的名詞，根本上就是 MVC。Django 的 view + model 其實就是 MVC 的 model；Django 的 template 其實就是 MVC 的 view；urls.py 搭配 Django 內建機制其實就實現了 MVC 的 controller。
+在 [Architectural Pattern](</System Design/Architectural Pattern.md>) 一文中我們介紹過 MVC、MVP、MVVM 等架構，而 MTV 可以說是 Django 開發團隊自創的名詞，根本上就是 MVC。Django 的 view + model 其實就是 MVC 的 model；Django 的 template 其實就是 MVC 的 view；urls.py 搭配 Django 內建機制其實就實現了 MVC 的 controller。
 
 如果你好奇為什麼它們要自己定義新的名詞，可以參考[這篇 Django 開發團隊的說明](https://docs.djangoproject.com/en/5.0/faq/general/#django-appears-to-be-a-mvc-framework-but-you-call-the-controller-the-view-and-the-view-the-template-how-come-you-don-t-use-the-standard-names)。
 
-![[mtv.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/mtv.png>)

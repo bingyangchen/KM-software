@@ -4,7 +4,7 @@ Program 被存在 disk 裡，而 process 是被放在 memory 中執行的 progra
 
 # Process 的結構
 
-![[process-structure.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/process-structure.png>)
 
 一個 process 在 memory 中包括以下幾個區塊（按順序）：
 
@@ -19,17 +19,17 @@ Program 被存在 disk 裡，而 process 是被放在 memory 中執行的 progra
 
 下圖為 process 的 FSM diagram：
 
-![[process-state-fsm.png]]
+![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/process-state-fsm.png>)
 
 # Thread
 
 - Process 是 thread 的容器：
 
-    ![[process-and-thread.jpg]]
+    ![](<https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/process-and-thread.jpg>)
 
 - 各個 process 間是互相獨立的（有自己的 virtual memory space）；但同一個 process 中的多個 threads 是共享同一個 virtual memory space，也共享其所屬 process 被分配到的 CPU time
 - 進行 multi-thread programming 時，若多個 threads 若同時存取同一個全域變數，可能導致 **Synchronization Problem**
-- 若 threads 間互搶資源，可能產生 [[Deadlocks]] 或 freezing
+- 若 threads 間互搶資源，可能產生 [Deadlocks](</Operating System/Deadlocks.md>) 或 freezing
 
 ### Thread Pooling
 
@@ -57,9 +57,9 @@ Multiprogramming OS（又叫做 multitasking OS）可以同時執行多個 proce
 
 # 延伸閱讀
 
-- [[8 - Commands - Process|與 Process 相關的指令]]
-- [[Job Control]]
-- [[CPU Scheduling.draft|CPU Scheduling]]
+- [與 Process 相關的指令](</Operating System/Shell/8 - Commands - Process.md>)
+- [Job Control](</Operating System/Job Control.md>)
+- [CPU Scheduling](</Operating System/CPU Scheduling.draft.md>)
 
 # 參考資料
 
