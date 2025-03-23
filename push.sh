@@ -26,6 +26,8 @@ if [ "$current_branch" != "dev" ]; then
     exit 1
 fi
 
+print_centered_message "Updating dev branch..." "${BLUE}"
+
 git add -A
 
 if [[ -z $1 ]]; then
@@ -35,25 +37,28 @@ else
 fi
 
 git push origin dev
-print_centered_message "Remote branch 'dev' updated" "${BLUE}"
+
+print_centered_message "Remote branch 'dev' updated. Merging into master..." "${BLUE}"
 
 git switch master
 git merge -Xtheirs dev -m "Merge branch 'dev'" || {
     git diff --name-only --diff-filter=U -z | xargs -0 git rm
     git commit -m "Merge branch 'dev'"
 }
-print_centered_message "Local branch 'dev' merged into 'master'" "${BLUE}"
+print_centered_message "Local branch 'dev' merged into 'master'. Normalizing files..." "${BLUE}"
 
 python -B summary.py
 python -B normalize_img_links.py
 python -B normalize_internal_links.py
 
-set +e
+print_centered_message "Files normalized. Updating master branch..." "${BLUE}"
 
 git add -A
 git commit -m Update
 git push origin master
-print_centered_message "Remote branch 'master' updated" "${BLUE}"
+
+print_centered_message "Remote branch 'master' updated. Switching back to dev..." "${BLUE}"
 
 git switch dev
+
 print_centered_message "Done!" "${GREEN}"
