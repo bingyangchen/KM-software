@@ -6,7 +6,7 @@ from const import DIRECTORIES_TO_IGNORE, FILES_TO_IGNORE
 
 REGEX = r"!\[\[.*?\]\]"
 PRODUCTION_IMG_URL_PREFIX = (
-    "https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/"
+    "https://raw.githubusercontent.com/bingyangchen/KM-software/master/img/"
 )
 
 
