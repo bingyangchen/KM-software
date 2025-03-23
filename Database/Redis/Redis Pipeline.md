@@ -52,7 +52,7 @@ SET mykey $val   // b3
 
 若 client 使用 pipeline 一次將多個 commands 送出，則 server 也會把所有操作的 output 集中在一個 response 裡，server 會把執行完但還不能送出的 output 暫存在 memory 中，因此 ==client 也要注意不要一次把太多的 request 擠在同一個 pipeline，才不會造成 server OOM (out-of-memory)==。
 
-# Pipeline in Python
+# Redis Pipeline in Python
 
 基本用法：
 

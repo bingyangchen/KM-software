@@ -53,7 +53,7 @@ scp [{OPTION}] [[{USERNAME}@]{SRC_IP}:]{PATH_TO_FILE} [[{USERNAME}@]{DEST_IP}:]{
 
 Source 與 destination 皆可以是相對路徑或絕對路徑，其中若在 server side 使用相對路徑，則出發點是指定 user 的 home directory (`~`)；若在 client side 使用相對路徑，則出發點是下 `scp` 指令的地方。以下提供幾個示範：
 
-### 示範一：將 Client 的檔案複製到 Server
+### 示範一：將 Local 的檔案複製到 Remote
 
 ```bash
 scp ./test.txt my_user@my_server:./Desktop
@@ -65,7 +65,7 @@ scp ./test.txt my_user@my_server:./Desktop
 scp ./test.txt my_user@my_server:./Desktop/copied_test.txt
 ```
 
-### 示範二：將 Client 的目錄複製到 Server
+### 示範二：將 Local 的目錄複製到 Remote
 
 ```bash
 scp -r ./dir my_user@my_server:./Desktop
@@ -79,7 +79,7 @@ scp -r ./dir my_user@my_server:./Desktop
 scp -r ./dir my_user@my_server:./Desktop/copied_dir
 ```
 
-### 示範三：將 Server 中的檔案複製到 Client
+### 示範三：將 Remote 中的檔案複製到 Local
 
 ```bash
 scp my_user@my_server:~/Desktop/test.txt ~/Desktop

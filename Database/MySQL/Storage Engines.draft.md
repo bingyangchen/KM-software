@@ -9,7 +9,7 @@ Storage engine 是 MySQL 中負責管理資料如何被儲存、讀取、更新�
 ### InnoDB
 
 - 是 MySQL 9.0 後預設的 storage engine，也是最普遍被使用的 storage engine。
-- 支援 [[Database/0 - Introduction#Database Transaction|transaction]]、[[Indexing in Database]]、[[Locks in Database#Row-Level Locks|row-level lock]]、[[Integrity Constraints#Referential-Integrity Constraint|foreign-key constraint]]，因此==適合高併發讀寫環境==。
+- 支援 [[Introduction to Database#Database Transaction|transaction]]、[[Indexing in Database]]、[[Locks in Database#Row-Level Locks|row-level lock]]、[[Integrity Constraints#Referential-Integrity Constraint|foreign-key constraint]]，因此==適合高併發讀寫環境==。
 - 有 [[Buffer Pool of InnoDB|Buffer Pool]] 與 [[Adaptive Hash Index]] 可以加快讀取速度。
 - 有 checksum 機制，避免當資料損毀時沒被注意到。
 - 符合 [[ACID vs. BASE#ACID|ACID model]] 的要件。

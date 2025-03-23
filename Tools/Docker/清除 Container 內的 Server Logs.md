@@ -1,10 +1,10 @@
-### 步驟一：列出所有 containers，取得目標 container 的 ID
+### 步驟一：列出所有 Containers，取得目標 Container 的 ID
 
 ```bash
 docker ps
 ```
 
-### 步驟二：找到目標 container 的 log 檔存放位置
+### 步驟二：找到目標 Container 的 Log File 位置
 
 ```bash
 docker inspect --format="{{.LogPath}}" {CONTAINER_ID}
@@ -16,7 +16,7 @@ Example output:
 /var/lib/docker/containers/57ef5c1...-json.log
 ```
 
-這個路徑是 host 上的檔案路徑，不是 container 內的路徑。
+這個路徑是 host's filesystem 上的檔案路徑，不是 container 內的路徑。
 
 ### 步驟三：將該檔案的內容清空
 

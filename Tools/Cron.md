@@ -1,4 +1,4 @@
-Cron 是 Linux OS 內建的排程系統，其運作方式是使用者將 **cron expression** 與要定時執行的指令寫入 Cron 的設定檔，Cron 就會根據 cron expression 定時執行指令。
+Cron 是 Linux OS 內建的排程系統，使用者將 **cron expression** 與要定時執行的指令寫入 Cron 的設定檔，Cron 就會根據 cron expression 定時執行指令。
 
 # Cron Expression
 

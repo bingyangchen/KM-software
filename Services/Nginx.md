@@ -1,11 +1,17 @@
-Nginx 是一個讓電腦可以成為 [[Backend Web Architecture#Web Server|web server]] 的軟體，與它類似的其它軟體還有 Apache。
+Nginx 可以用來當作 [[Backend Web Architecture#Web Server|web server]] 與 [[Forward Proxy & Reverse Proxy#Reverse Proxy| reverse proxy]]，與它類似的其它軟體還有 Apache。
 
-# 安裝
+# Installation
+
+### On Linux Ubuntu
 
 ```bash
 sudo apt-get update
 sudo apt-get install nginx
 ```
+
+### On MacOS
+
+#TODO 
 
 # 設定檔
 
@@ -105,7 +111,7 @@ http {
 
 Nginx 設定檔中可以使用 `include` 來引入另一個設定檔，因此建議可以把性質相近的設定寫在一個檔案，再由一個 main config file 將各個片段 include。
 
-### sites-available/ & sites-enable/
+### sites-available/ 與 sites-enable/
 
 設定檔要放在 /etc/nginx/sites-available/ 底下，但這些設定檔預設都是不啟用，若要啟用某個設定檔，就必須在 /etc/nginx/sites-enable/ 放入它的 (soft) link，詳細步驟如下：
 
@@ -148,7 +154,13 @@ sudo ln -s /etc/nginx/sites-available/your_app /etc/nginx/sites-enabled
 >[!Note]
 >執行下方指令時，若需要 superuser 權限，就在最前面加上 `sudo`。
 
-### 啟動 Nginx Server
+### 查看目前 Nginx 版本
+
+```bash
+nginx -v
+```
+
+### 在背景啟動 Nginx Server
 
 ```bash
 sudo systemctl start nginx
@@ -192,7 +204,7 @@ nginx -s reload
 >[!Note]
 >Reload 與 restart 不同，reload 是 "gracefully restart after config change"，restart 則是直接 restart。
 
-### 關閉 Nginx Server
+### 關閉背景執行的 Nginx Server
 
 ```bash
 ## On Linux
@@ -200,12 +212,6 @@ sudo systemctl stop nginx
 
 ## On Debian/Ubuntu/RHEL/CentOS Linux
 sduo service nginx stop
-```
-
-### 查看目前 Nginx 版本
-
-```bash
-nginx -v
 ```
 
 # 參考資料

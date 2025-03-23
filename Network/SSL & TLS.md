@@ -1,10 +1,25 @@
-SSL 是 Secure Sockets Layer 的縮寫，是網路通訊中用來加密訊息的 protocol 之一，是附加在 [[OSI Model.draft#Transport Layer (Layer 4)|Transport Layer (L4)]] 與 [[OSI Model.draft#Application Layer (Layer 7)|Application Layer (L7)]] 之間的一層。
+SSL 是 Secure Sockets Layer 的縮寫，是網路通訊中用來加密訊息的協定 (protocol) 之一，是附加在 [[OSI Model.draft#Transport Layer (Layer 4)|Transport Layer (L4)]] 與 [[OSI Model.draft#Application Layer (Layer 7)|Application Layer (L7)]] 之間的一層。
 
-![[with-ssl-and-without-ssl.png]]
+```mermaid
+block-beta
+  block
+    columns 1
+    a["HTTP"] b["TCP"] c["IP"]
+    d["Normal Application"]
+    style d stroke-width:0;fill:transparent
+  end
+  block
+    columns 1
+    e["HTTP"] f["SSL"] g["TCP"] h["IP"]
+    i["Application with SSL"]
+    style f fill:#ff0
+    style i stroke-width:0;fill:transparent
+  end
+```
 
 TLS 是 Transport Layer Security 的縮寫，是 SSL 的改良版本，自 1999 年開始取代 SSL，其運作方式與 SSL 大致相同。這兩個詞常常被交替使用（SSL 甚至更常見一點）但目前實際上運作的大多是 TLS。
 
-HTTP、[[File Transfer#FTP|FTP]] 與 [[SMTP]] 等通訊協定都可以透過 SSL/TLS 加密。受到 SSL/TLS 的保護的 HTTP，其網址會以 https 開頭而不再是 http；受到 SSL/TLS 的保護的 FTP，其網址會以 ftps 開頭而不再是 ftp，"s" 代表 "secure"。
+HTTP、[[File Transfer#FTP|FTP]]、[[SMTP]] 等多種通訊協定都可以透過 SSL/TLS 加密。受到 SSL/TLS 的保護的 HTTP，其網址會以 https 開頭而不再是 http；受到 SSL/TLS 的保護的 FTP，其網址會以 ftps 開頭而不再是 ftp，"s" 代表 "secure"，其它依此類推。
 
 Google 表示從 2014 年開始，受 SSL/TLS 保護（網址以 https 開頭）的網站會在 [[Web Development/SEO/Introduction|SEO]] 中獲得較高的分數。
 
@@ -20,11 +35,11 @@ SSL/TLS 使得 client 與 server 彼此可以驗證對方是否真的是自己�
 
 SSL/TLS 會將 server 與 client 間傳遞的所有訊息加密，因此即使訊息在傳送的過程中被竊聽，也不容易被理解（防止 man-in-the-middle attacks）。
 
-其中 authentication 與 key exchange 使用的是[[非對稱式加密]]，[[#SSL/TLS 如何加密資訊|資料傳輸]]階段使用的則是[[對稱式加密]]。
+其中 authentication 與 key exchange 使用的是[[非對稱式加密]]；[[#SSL/TLS 如何加密資訊|資料傳輸]]階段使用的則是[[對稱式加密]]。
 
 ### Data Integrity
 
-SSL/TLS 會為要被傳輸的（加密後的）資料計算一個 cryptographic [[Hash Function、Hash Table.canvas|hash]]（須要搭配一個 shared secret key 才能 hash，這個 hash 被叫做 HMAC）並將其放在資料尾部，一同傳給接收資訊的一方，接收者用相同的 hash function & shared private key 對原始資料進行 hash 後若得到相同的 HMAC，則代表資料沒有被竄改過。
+SSL/TLS 會為要被傳輸的（加密後的）資料計算一個 cryptographic [[Hash Function、Hash Table.canvas|hash]]（須要搭配一個 shared secret key 才能 hash，這個 hash 被叫做 ==HMAC==）並將其放在資料尾部，一同傳給接收資訊的一方，接收者用相同的 hash function & shared private key 對原始資料進行 hash 後若得到相同的 HMAC，則代表資料沒有被竄改過。
 
 # SSL/TLS 的運作方式
 
@@ -32,28 +47,32 @@ SSL/TLS 會為要被傳輸的（加密後的）資料計算一個 cryptographic 
 
 - Step1
 
-    CA 公開 public key (public certificate, root certificate) 給所有主流 browser 供應商。有名的 CA 包含：DigiCert, Let's Encrypt, GeoTrust, GoDaddy …等。
+    CA 公開 public key (public certificate, root certificate) 給所有主流 browser 供應商。有名的 CA 包含：DigiCert、Let's Encrypt、GeoTrust、GoDaddy …等。
 
 - Step2: Browser 供應商確保自己的產品上有所有主流 CAs 的 public keys
 
-- Step3: **Certificate Signing Request (CSR)**
+- Step3: ==**Certificate Signing Request (CSR)**==
 
-    Domain owner 向任一 CA 請求對憑進行[[數位簽章]]。
+    Domain owner 向任一 CA 請求對憑證進行 [[digital signature]]（詳見[[#Certificate Signing Request|此段]]）。
 
 - Step4
 
-    若 CA 審核沒問題，就會簽署憑證並交給 domain owner，憑證中包括：
+    若 CA 審核通過，就會簽署憑證並交給 domain owner，憑證中包括：
 
     - 憑證序號
-    - Domain owner 的名稱
+    - Domain owner's name
     - 此 domain 專屬的 public key
-    - Digital signature（將 3. 的 public key 使用 private key 加密）
+    - Digital signature
 
     Domain owner 須將此憑證保管好，並將憑證的儲存位置加入 server config。
 
 - Step5, 6, 7
 
     當網址以 https 開頭時，client 會在向 server 索取資源前，先開啟 [[#SSL Handshake]] 流程。
+
+### Certificate Signing Request
+
+
 
 # SSL Handshake
 
@@ -100,9 +119,11 @@ sequenceDiagram
 
 ### 如何驗證憑證？
 
-Server 傳送憑證給 client 後，client 的 browser 會讀取簽署此份憑證的 CA 的資訊，並找到此 CA 的 public key（Recall: Browser 會有所有主流 CAs 的 public key），用此 key 解密憑證中的 digital signature，看結果是否與 server 送來的 public key 相同，若相同則代表認證成功。
+Server 傳送憑證給 client 後，client 的 browser 會讀取簽署此份憑證的 CA 的資訊，並找到此 CA 的 public key（Recall: browser 會有所有主流 CAs 的 public key）用此 key 解密憑證中的 digital signature，看結果是否與 server 送來的 public key 相同，若相同則代表認證成功。
 
 ![[signing-and-validating-certificate.png]]
+
+**以 Chrome 為例**
 
 在 Google Chrome 中，當憑證驗證成功時，點擊網址列右側的鎖頭會顯示 "Connection is secure"，進一步點擊可以查看憑證內容：
 
@@ -153,7 +174,7 @@ SSL 憑證分為三種等級：
 
 # 延伸閱讀
 
-- [[申請 SSL 憑證]]
+- [[申請 SSL 憑證.draft]]
 - [Certificate Chain of Trust](https://www.keyfactor.com/blog/certificate-chain-of-trust/)
 
 # 參考資料

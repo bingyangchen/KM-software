@@ -1,18 +1,18 @@
 {
 	"nodes":[
-		{"id":"63cf160e50407ee1","type":"group","x":-579,"y":-68,"width":509,"height":531,"label":"重要 Argument & Option"},
+		{"id":"63cf160e50407ee1","type":"group","x":-633,"y":-68,"width":519,"height":531,"label":"重要 Argument & Option"},
 		{"id":"b48e85890a004ef7","type":"text","text":"其實在執行所有 porcelain command 時，Git 都會判斷有沒有必要執行 gc，預設是當 loose object 超過 6,700 個時會自動執行 gc。","x":-37,"y":-48,"width":346,"height":179},
-		{"id":"4136ef5ff1f14b98","type":"text","text":"`--prune=<DATE>` argument\n\n- 指定日期以前的產生的 loose object 才會被清除\n- 預設值是兩個禮拜前\n- `--prune=now` 就是把所有 loose object 清除","x":-559,"y":-48,"width":465,"height":221},
 		{"id":"d74f43f84dfb6858","type":"text","text":"透過自動觸發 `git prune` 來清除 loose objects","x":95,"y":-418,"width":269,"height":99},
 		{"id":"afb699b82e3e80ff","type":"text","text":"將 repo 中的垃圾清除，減少 repo 佔用的硬碟空間","x":97,"y":-259,"width":266,"height":99},
 		{"id":"d8ce377e5dbc3378","type":"text","text":"`git gc`","x":-193,"y":-313,"width":123,"height":59,"color":"5"},
 		{"id":"9c62c2bde97595bc","type":"text","text":"[官方文件](https://git-scm.com/docs/git-gc)","x":-202,"y":-453,"width":142,"height":58},
 		{"id":"1202016500246276","type":"text","text":"所以通常我們不會直接使用 `git prune` 這個指令，而會用 `git gc`","x":110,"y":-640,"width":239,"height":140},
+		{"id":"8c601a58f26f2903","type":"text","text":"為了避免 OOM，可以增加下面這些 configs:\n\n```bash\ngit config pack.windowMemory \"100m\"\ngit config pack.packSizeLimit \"100m\"\ngit config pack.threads \"1\"\n```","x":-848,"y":-490,"width":449,"height":207,"color":"3"},
 		{"id":"c61ae23961043752","type":"text","text":"[官方文件](https://git-scm.com/docs/git-prune)","x":475,"y":-529,"width":142,"height":58},
 		{"id":"d60452c715d4f931","type":"text","text":"`git prune`","x":470,"y":-398,"width":153,"height":59,"color":"5"},
 		{"id":"3aae43949d5dac05","type":"text","text":"可以在 config file 透過 `gc.auto` 來複寫 6,700 這個預設值，比如：\n\n```properties\n[gc]\nauto = 1\n```","x":-30,"y":221,"width":332,"height":218},
-		{"id":"10c0a53fefe55021","type":"text","text":"`--aggresive` option\n\n- 更積極地將佔用空間最小化\n- 要多花很多時間\n- ==絕大多數的情境都不須要用到==","x":-559,"y":219,"width":319,"height":220},
-		{"id":"8c601a58f26f2903","x":-848,"y":-490,"width":449,"height":207,"type":"text","text":"為了避免 OOM，可以增加下面這些 configs:\n\n```bash\ngit config pack.windowMemory \"100m\"\ngit config pack.packSizeLimit \"100m\"\ngit config pack.threads \"1\"\n```"}
+		{"id":"10c0a53fefe55021","type":"text","text":"`--aggresive` option\n\n- 更積極地將佔用空間最小化\n- 要多花很多時間\n- ==絕大多數的情境都不須要用到==","x":-613,"y":219,"width":336,"height":210},
+		{"id":"4136ef5ff1f14b98","type":"text","text":"`--prune=<DATE>` argument\n\n- 指定日期以前的產生的 loose object 才會被清除\n- 預設值是兩個禮拜前\n- `--prune=now` 就是把所有 loose object 清除","x":-613,"y":-48,"width":483,"height":211}
 	],
 	"edges":[
 		{"id":"94eda4ffbc51d2f6","fromNode":"d8ce377e5dbc3378","fromSide":"bottom","toNode":"63cf160e50407ee1","toSide":"top"},

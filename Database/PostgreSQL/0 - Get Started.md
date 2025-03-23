@@ -1,6 +1,6 @@
-# MacOS
+# On MacOS
 
-### 安裝
+### Installation
 
 ```bash
 brew install postgresql
@@ -34,9 +34,9 @@ brew services stop postgresql
 brew services stop postgresql@{VERSION}
 ```
 
-# Ubuntu
+# On Linux Ubuntu
 
-### 安裝
+### Installation
 
 ```bash
 # Step1: Create the file repository configuration.
@@ -52,7 +52,7 @@ sudo apt-get update
 sudo apt-get -y install postgresql
 ```
 
-### 開啟 Server
+### 在背景啟動 Server
 
 ```bash
 sudo systemctl start postgresql.service
@@ -64,7 +64,7 @@ sudo systemctl start postgresql.service
 sudo systemctl status postgresql.service
 ```
 
-### 關閉 Server
+### 關閉背景運行的 Server
 
 ```bash
 sudo systemctl stop postgresql.service

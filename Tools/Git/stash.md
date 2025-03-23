@@ -109,7 +109,7 @@ git stash show -p stash@{2}
 
 ### Apply & Drop 指定的 Stash
 
-==Git 存放 stashes 的空間在資料結構上是一個 stack==，所以 `git stash pop` 拿到的會是最近一次 `git stash push` 的物件。
+Git ==存放 stashes 的資料結構是 stack==，所以 `git stash pop` 拿到的會是最近一次 `git stash push` 的物件。
 
 如果你要 apply & drop 的不是最近一個 stash，就必須透過 stash 的編號來指定：
 

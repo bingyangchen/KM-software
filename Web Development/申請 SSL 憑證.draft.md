@@ -2,14 +2,14 @@
 
 # 有哪些解決方案？
 
-- 手動申請
-- 自動申請
-    - 使用 certbot
-    - 使用 acme.sh
-- 使用 Caddy
-- 使用 CloudFlare
+本文將逐一介紹以下解決方案：
 
-接下來將逐一介紹這些解決方案的實行方法。
+- 手動申請憑證
+- 自動申請憑證
+    - [[#使用 certbot 自動申請]]
+    - [[#使用 acme.sh 自動申請]]
+- Web-server solution: Caddy
+- Third-party solution: CloudFlare
 
 # 手動申請
 
@@ -17,17 +17,16 @@
 
 # 使用 certbot 自動申請
 
-[certbot](https://certbot.eff.org/) 是一款可以幫我們申請 SSL 憑證與定期更新憑證的套件，它會向 Let's Encrypt（其中一個 certificate authority）請求免費簽署。
+Certbot（[官網](https://certbot.eff.org/)｜[文件](https://eff-certbot.readthedocs.io/en/stable/)）是一款可以幫我們申請 SSL 憑證與定期更新憑證的套件，它會向 Let's Encrypt（其中一個 certificate authority）請求免費簽署。
 
-### Step1: 安裝必要套件 (On Linux Ubuntu)
+### Step1: Install Certbot (On Linux Ubuntu)
 
 ```bash
 sudo apt-get update
-sudo apt-get install certbot
-sudo apt-get install python3-certbot-nginx
+sudo apt-get install certbot python3-certbot-nginx
 ```
 
-### Step2: 取得並安裝憑證
+### Step2: Acquire & Install the Certificate
 
 假設我要為 my-domain.com 申請憑證，且使用的 web server 為 nginx：
 
@@ -66,7 +65,9 @@ If you like Certbot, please consider supporting our work by:
 - 幫你申請到 SSL 憑證
 - 在 /etc/nginx/sites-available/ 底下的 server block config file 中，幫你加上 port 443（https 用的 port）的 config，並填入憑證位置、private key 的位置等
 
-### Step4: Test config files & Reload Nginx
+### Step3: Reload the Web Server
+
+一樣假設我們使用的 web server 是 Nginx：
 
 ```bash
 sudo nginx -t && sudo nginx -s reload
@@ -74,26 +75,26 @@ sudo nginx -t && sudo nginx -s reload
 
 Done!
 
->[!Note] 自動更新憑證
->由 Let's Encrypt 簽署的憑證會在 90 天後到期，但 certbot 有幫我們設定一個定時 auto renew 憑證的 cron job 或 systemd timer。
->
->如果你擔心 auto renew 會失敗，可以 dry run 看看 renew 的指令：
->
->```bash
->sudo certbot renew --dry-run
->```
+### 自動更新憑證
+
+由 Let's Encrypt 簽署的憑證會在 90 天後到期，但 certbot 有幫我們設定一個定時 auto renew 憑證的 cronjob 或 systemd timer。
+
+如果你擔心 auto renew 會失敗，可以 dry run 看看 renew 的指令：
+
+```bash
+sudo certbot renew --dry-run
+```
+
+---
 
 >[!Warning] Rate Limit
->向 Let's Encrypt 申請 SSL 憑證是有 rate limit 的，所以不要短時間在同一台機器上頻繁地 renew 或重新申請憑證。
-
->[!Note]
->其它細節請見 [certbot 官方文件](https://certbot.eff.org/)。
+>向 Let's Encrypt 申請 SSL 憑證是有 rate limit 的，所以要避免短時間在同一個 host 上頻繁地 renew 或重新申請憑證。
 
 # 使用 acme.sh 自動申請
 
-[acme.sh](https://github.com/acmesh-official/acme.sh) 是一個與 certbot 類似，但更輕量的 Shell script（甚至稱不上是套件），它也是向 Let's Encrypt 請求憑證。
+[acme.sh](https://github.com/acmesh-official/acme.sh) 是一個與 certbot 類似，但更輕量的 Shell script（甚至稱不上是套件）它也是向 Let's Encrypt 請求憑證。
 
-### Step1: 安裝 acme.sh (On Linux Ubuntu)
+### Step1: Install acme.sh (On Linux Ubuntu)
 
 ```bash
 curl https://get.acme.sh | sh -s email={YOUR_EMAIL_ADDRESS}
@@ -114,7 +115,7 @@ exec "$SHELL"
 
 這個步驟的目的是讓剛剛設定的 alias 生效。
 
-### Step3: 申請並安裝憑證
+### Step3: Acquire & Install the Certificate
 
 假設我要為 my-domain.com 申請憑證，且使用的 web server 為 nginx：
 
@@ -157,7 +158,20 @@ CloudFlare 除了提供 CDN 服務外，也提供 SSL 加密服務。其提供�
 
 使用 CloudFlare 還有一個額外的好處是它內建了防禦 [[DDoS Attack.canvas|DDoS attack]] 的機制。
 
-![[cloudflare-ssl-service.png]]
+```mermaid
+architecture-beta
+    service client(internet)[Clients]
+    service cloudflare(cloud)[CloudFlare]
+    service server(server)[Server]
+    client:R <-- L:cloudflare
+    cloudflare:R --> L:server
+```
+
+# 同場加映：自己簽署憑證
+
+在開發環境中，若只是想模擬正式環境中的 SSL 通訊方式，則可以自己簽署
+
+#TODO 
 
 # 參考資料
 

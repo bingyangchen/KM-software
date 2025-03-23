@@ -20,7 +20,7 @@ type Child = {
 }
 ```
 
-- Class 可以 implements interface 也可以 implements type
+- Class 可以 implements interface 也可以 implements type。
 
 ### `interface` 做得到但 `type` 做不到的事
 
@@ -70,7 +70,7 @@ const myDog: Dog = {
 ```
 
 >[!Note]
->Interface 甚至可以 extends 多個 classes、interfaces 與 types（反之，一個 class 只能 extends 最多一個 class）。
+>Interface 甚至可以 extends 多個 classes、interfaces 與 types（Recall: 一個 class 只能 extends 最多一個 class）。
 
 ### `type` 做得到但 `interface` 做不到的事
 
@@ -94,11 +94,11 @@ const num: c = 3;
 
 ##### Tuple Type
 
-詳見[[Typing 小技巧#Literal Tuple Type]]。
+詳見 [[Typing 小技巧#Literal Tuple Type]]。
 
 ##### Mapped Type
 
-詳見[[Typing 小技巧#Mapped Type]]。
+詳見 [[Typing 小技巧#Mapped Type]]。
 
 ##### Conditional Type
 
@@ -135,11 +135,11 @@ class Human implements Child {
 }
 ```
 
-### 特色
+### （複習）OOP 中的 Interface 有哪些特色？
 
 - 一個 class 可以 implements 多個 interfaces
-- 定義 interface 時，attributs/methods 前面不能加上 `public`、`protected` 或 `private`，因為一定是 `public`
-- 當 class A implements interface B 時，A 一定要實作所有 B 定義的 methods，以及 assign value 給 B 定義的 attributes
+- 定義 interface 時，attributes/methods 前面不能加上 `public`、`protected` 或 `private`，因為一定是 `public`
+- 當 class A implements interface B 時，A 一定要實作所有 B 定義的所有 methods，以及 assign value 給 B 定義的所有 attributes
 
 # Abstract Class
 

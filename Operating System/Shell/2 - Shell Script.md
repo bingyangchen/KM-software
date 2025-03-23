@@ -30,7 +30,7 @@ echo "${db}"
 
 ### Environment Variables
 
-Environment variable（環境變數）與一般變數（又叫 local variable）的差別在於：
+Environment variable（環境變數）與一般變數的差別在於：
 
 - **定義的方式**
 
@@ -94,8 +94,6 @@ echo '$a world'  # $a world
 
 ### 具有特殊意義的變數名稱
 
-具有特殊意義的變數名稱都會以 `$` 開頭：
-
 |Variable|Description|
 |:-:|---|
 |`$_`|上一個指令的最後一個參數值。|
@@ -119,27 +117,41 @@ echo foo  # /Users/bob
 ```
 
 >[!Note]
->也可以使用 `<()` 將一個指令的輸出存進 virtual file，如果須要把某個指令的輸出餵給「只接收 file 作為 argument」的指令時，這個指令可以派上用場，比如：
+>也可以使用 `<()` 將一個指令的輸出存進一個 pseudo file，如果須要把某個指令的輸出餵給「只接收 file 作為 argument」的指令時，這個指令可以派上用場，比如：
 >
 >```bash
 >cat <(echo hello)  # hello
 >```
+>
+> 詳見 [[3 - Operators#Process Substitution|Process Substitution]]。
 
 # Control Flow
 
 ```bash
 if [ {CONDITION} ]; then
     {ACTION}
+elif [ {CONDITION} ]; then
+    {ACTION}
 else
     {ACTION}
 fi
 ```
 
-常用的判斷式：
+條件式須用 `[ ]` 包住。
+
+### 常用的判斷式
 
 - `-n {STR}`: 字串 `{STR}` 的長度是否不為 0
-- `-z {STR}`: 字串 `{STR}` 的長度是否為 0
+- `-z {STR}`: 字串 `{STR}` 的長度是否為 0，等價於 `! -n {STR}`
 - `{STR} -ge {NUM}`: 字串 `{STR}` 的長度是否大於等於數字 `{NUM}`
+
+# While Loop
+
+```bash
+while {CONDITION} ; do
+    {ACTION}
+done
+```
 
 # Functions
 
@@ -158,7 +170,7 @@ fi
 Hashbang 的功能是提示 Shell 要使用哪個 interpreter 執行這個檔案。以上面的例子來說就是要使用 /bin 底下的 bash 來執行這份檔案。
 
 >[!Note]
->之所以會需要用 hashbang 來提示 Shell 要使用哪個 interpreter 執行這個檔案，是因為執行[[File System#一般檔案 vs 執行檔|執行檔]]的時候並不會在指令的開頭寫要使用哪個程式執行。
+>之所以會需要用 hashbang 來提示 Shell 要使用哪個 interpreter 執行這個檔案，是因為執行 [[File System#一般檔案 vs 執行檔|executables]] 時並不會在指令的開頭寫要使用哪個程式執行。
 
 `#! /bin/bash` 這個寫法的 portability 其實還不夠好，因為萬一某台電腦的 bash 程式不是放在 /bin/bash 這個 path，就無法直接執行這個檔案。所以更好的寫法應該是「指定要用來執行此檔案的 program name，讓電腦自己從[[Operating System/Shell/1 - Introduction#`PATH`|環境變數 PATH]] 中搜尋這個程式放在哪裡」：
 
@@ -169,7 +181,7 @@ Hashbang 的功能是提示 Shell 要使用哪個 interpreter 執行這個檔案
 /usr/bin/env 這個程式接收一個 argument，這個 argument 須為一個指令的名稱，/usr/bin/env 的功能就是去環境變數 `PATH` 中尋找以這個 argument 為名的執行檔。
 
 >[!Note]
->應該比較少有電腦的 bash 的位置不是 /bin/bash，不過如果是其它 interpreter program 像是 python 就不好說了。
+>應該比較少有電腦的 bash 的位置不是 /bin/bash，不過如果是其它 interpreter program 像是 `python` 就不好說了。
 
 # 註解
 

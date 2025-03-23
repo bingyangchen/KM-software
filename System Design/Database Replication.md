@@ -53,7 +53,7 @@ Database replication 的系統架構主要有三種：
 
 # Sync vs. Async
 
-Replication 可以依照 leader DB 發生資料變動後，是否等待 follower DB 回應 (ACK) 才 commit [[Database/0 - Introduction#Database Transaction|transaction]] 並 ACK client，分為 synchronous approach 與 asynchronous approach。
+Replication 可以依照 leader DB 發生資料變動後，是否等待 follower DB 回應 (ACK) 才 commit [[Introduction to Database#Database Transaction|transaction]] 並 ACK client，分為 synchronous approach 與 asynchronous approach。
 
 ### Synchronous Approach
 

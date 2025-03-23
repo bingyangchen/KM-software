@@ -4,13 +4,13 @@ nvm 是 Node Version Manager 的縮寫，讓我們可以透過 CLI 在同一台�
 
 # 在 MacOS 上安裝 nvm
 
-### Step1: 打開 terminal 使用 `curl` 安裝
+### Step1: Use `curl`
 
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 ```
 
-### Step2: 重啟 terminal
+### Step2: Restart Terminal
 
 透過以下指令檢查是否成功安裝 nvm：
 

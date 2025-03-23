@@ -45,7 +45,7 @@ docker [image] build [{OPTIONS}] {PATH_TO_DOCKERFILE}|{URL}
 
 |Option|Short|Description|
 |:-:|:-:|---|
-|`--tag`|`-t`|爲 image 取名，格式為 `[{HOST}[:{PORT_NUMBER}]/]{PATH}[:{TAG}]`，其中 `{PATH}` 可以再拆解為 `[{NAMESPACE}/]{REPOSITORY}`。|
+|`--tag`|`-t`|爲 image 取名，格式為 `[{HOST}[:{PORT_NUMBER}]/]{PATH}[:{TAG}]`。|
 |`--target {STAGE}`| |要 build 的 stage（詳見 [[3 - Dockerfile, Image & Container#Multi-Stage Builds\|multi-stage builds]]）。|
 |`--platform={P1}[,{P2},...]`| |為一到多個指定平台 build 該平台可用的 image。|
 |`--no-cache`| |從頭開始重新 build，不使用過去的 cache。|
@@ -55,7 +55,7 @@ docker [image] build [{OPTIONS}] {PATH_TO_DOCKERFILE}|{URL}
 e.g.
 
 ```bash
-docker build -t my_image --platform=linux/arm64,linux/amd64 .
+docker build -t my_image:latest --platform=linux/arm64,linux/amd64 .
 ```
 
 請注意這個指令的最後有一個 `.`，意思是使用目前下指令的這層目錄的 Dockerfile
@@ -76,13 +76,24 @@ docker image history [{OPTIONS}] {IMAGE_ID}
 
 ---
 
+### 為 Image 新增 Tag
+
+```bash
+docker tag {IMAGE}:{EXISTING_TAG} {IMAGE}:{NEW_TAG}
+```
+
+---
+
 ### 刪除 Image
 
 ```bash
-docker image rm [{OPTIONS}] {IMAGE_ID} [{IMAGE_ID} ...]
+docker image rm [{OPTIONS}] {IMAGE}[:{TAG}] [{IMAGE}[:{TAG}] ...]
 # or
-docker rmi [{OPTIONS}] {IMAGE_ID} [{IMAGE_ID} ...]
+docker rmi [{OPTIONS}] {IMAGE}[:{TAG}] [{IMAGE}[:{TAG}] ...]
 ```
+
+- 若沒有提供 `{TAG}`，則預設為 `latest`。
+- 若指定的 `{IMAGE}` 只有目前要刪除的這個 `{TAG}`，則這個指令會將 `{IMAGE}` 本體刪除；反之，若 `{IMAGE}` 還有其它 tags，則這個指令只會將 `{TAG}` 從 `{IMAGE}` 上移除而已。
 
 **常用的 Options**
 
@@ -457,6 +468,26 @@ docker search redis
 
 ---
 
+### Login to Registry
+
+```bash
+docker login [{OPTIONS}] [{SERVER}]
+```
+
+- 在沒有提供 `{SERVER}` 的情況下，預設是登入 [[4 - Docker Hub.draft|Docker Hub]]。
+- 若要向私有的 Docker registry push/pull image，就須要先登入該 registry。
+- 登出的指令為 `docker logout [{SERVER}]`。
+
+**常用的 Options**
+
+|Option|Short|Description|
+|---|:-:|---|
+|`--username`|`-u`|Username.|
+|`--password`|`-p`|Password or Personal Access Token (PAT).|
+|`--password-stdin`| |Take the password or PAT from stdin.|
+
+---
+
 ### 從 Registry 下載 Image
 
 ```bash
@@ -476,13 +507,11 @@ docker pull ubuntu:14.04
 ### 將 Image 上傳到 Registry
 
 ```bash
-docker [image] push [{HOST}[:{PORT}]/]{PATH}[:{TAG}]
+docker [image] push [{SERVER}[:{PORT}]/]{PATH}[:{TAG}]
 ```
 
-- `{HOST}` 預設是 Docker Hub 的 public registry (`registry-1.docker.io`)，若要上傳到 self-host registry 就須要額外寫
-- `{PATH}` 可以再分解為 `[{NAMESPACE}/]{REPOSITORY}`
-    - `{NAMESPACE}` 預設為 `library`，通常會寫公司或組織的名稱
-    - `{REPOSITORY}` 沒有預設值，必填
+- 不提供 `{SERVER}` 的話，預設是 Docker Hub 的 public registry (`registry-1.docker.io`)，若要上傳到 self-hosted registry，就須要額外寫。
+- 有些 registry 服務的 `{PATH}` 會不只一層。
 
 e.g.
 

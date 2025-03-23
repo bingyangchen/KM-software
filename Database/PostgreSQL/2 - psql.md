@@ -3,19 +3,26 @@ psql 是 PostgreSQL 的 CLI。
 # 進入 psql
 
 ```bash
-psql {DB_NAME}
-
-# 若沒有指定 {DB_NAME}，就會連到預設的 DB
-psql
+psql [{OPTIONS}] [{DB_NAME}]
 ```
 
-在 MacOS 中的 `~/.zprofile` 與 `~/.zshrc` 中加入 environment variable 可以設定預設要連到哪個 database，比如：
+**常用 Options**
+
+|Option|Description|
+|---|---|
+|`-U {DB_USER}`|以指定的 database user 身份進入（若為指定則為 OS 的 username）。|
+
+- 若沒有指定 `{DB_NAME}`，就會連到預設的 DB。
+
+可以透過設定 environment variable 來設定預設要連到哪個 DB、預設使用哪個 user：
 
 ```bash
-export PGDATABASE=hello
+export PGDATABASE=my_db
+export PGUSER=myuser
+export POSTGRES_PASSWORD=MyPassword
 ```
 
-這樣就會預設連到名為 `hello` 的 database。
+這樣就會預設連到名為 `my_db` 的 database，並且預設使用 `myuser`。
 
 >[!Note]
 >剛安裝 PostgreSQL 時，DBMS 中只會有一個 default user 叫 `postgres`，這個 user 的密碼為 `postgres`，另外也會有一個 default DB 叫 `postgres`。
@@ -33,7 +40,7 @@ export PGDATABASE=hello
 ### `\q` 離開 psql
 
 >[!Note]
->離開 psql 並不等於停止 PostgreSQL server，若要停止 server，請參考[[Database/PostgreSQL/0 - Installation#關閉背景執行的 PostgreSQL Server|這裡]]。
+>離開 psql 並不等於停止 PostgreSQL server，若要停止 server，請參考[[0 - Get Started#關閉背景執行的 PostgreSQL Server|這裡]]。
 
 ### `\l` 列出所有 Databases
 

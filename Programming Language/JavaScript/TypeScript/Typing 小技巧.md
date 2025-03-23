@@ -1,4 +1,4 @@
-### Custom Type Guard
+# Custom Type Guard
 
 ```TypeScript
 interface Square {
@@ -18,9 +18,7 @@ if (isSquare()) // ...
 else // ...
 ```
 
----
-
-### Mapped Type
+# Mapped Type
 
 ```TypeScript
 type Getters<T> = {
@@ -40,14 +38,12 @@ type clientGetter = Getters<Client>;
 // }
 ```
 
----
-
-### Literal Tuple Type
+# Literal Tuple Type
 
 ```TypeScript
 const sizeOptions = ["s", "m", "l"] as const;
 type SizeOption = (typeof sizeOptions)[number];
 ```
 
-- 型別被定義為 `SizeOption` 的變數，其值只能是 `"s"` 或 `"m"` 或 `"l"`
-- 如果 `const sizeOptions = ["s", "m", "l"]` 後面沒有加上 `as const`，`type SizeOption` 其實就只是 `string` 而已
+- 型別被定義為 `SizeOption` 的變數，其值只能是 `"s"` 或 `"m"` 或 `"l"`。
+- ==重點是 `as const`==，如果 `const sizeOptions = ["s", "m", "l"]` 後面沒有 `as const`，那 `type SizeOption` 其實就只是 `string` 而已。

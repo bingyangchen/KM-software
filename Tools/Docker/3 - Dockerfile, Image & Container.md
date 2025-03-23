@@ -131,10 +131,10 @@ WORKDIR {PATH}
 COPY {SOURCE} [{MORE_SOURCE} ...] {DESTINATION}
 ```
 
-將 host filesystem 中的檔案複製到 image 內的 filesystem 中（連同檔案的 metadata，如 permission）。也可以用來複製不同 build stages 間的 image（詳見 [[#Multi-Stage Builds]]）。
+將 host's filesystem 中的檔案複製到 image 內的 filesystem 中（連同檔案的 metadata，如 permission）也可以用來複製不同 build stages 間的 image（詳見 [[#Multi-Stage Builds]]）。
 
 - 若 `{DESTINATION}` 是目錄但該目錄本來並不存在，則會先建立出該目錄再將檔案複製進去。
-- 當 `{SOURCE}` 是目錄時，是將目錄底下的所有內容複製到 `{DESTINATION}` 這個目錄底下，不是複製 `{SOURCE}` 目錄本身。
+- 當 `{SOURCE}` 是目錄，且 `{DESTINATION}` 是 `.` 時，是將目錄底下的所有內容複製到 `{DESTINATION}` 這個目錄底下，不是複製 `{SOURCE}` 目錄本身。
 - 複製目錄時，有寫在 .dockerignore 裡的檔案會自動被排除。
 
     >[!Note]

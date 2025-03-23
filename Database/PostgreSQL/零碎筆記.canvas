@@ -1,0 +1,6 @@
+{
+	"nodes":[
+		{"id":"6131850dc1d81a9e","x":-276,"y":-148,"width":433,"height":159,"type":"text","text":"#### `LIMIT`\n\nSQL standard 中的 `FETCH FIRST n ROWS ONLY` 在 PostgreSQL 可以簡寫為 `LIMIT n`。"}
+	],
+	"edges":[]
+}

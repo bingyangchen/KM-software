@@ -40,6 +40,8 @@ flowchart
 
 然而，container 並不會之道它所使用的 network 是哪一種，也不會知道 network 另外一邊的溝通對向是誰，對 container 來說，它只會看到一堆 network interfaces，每個 interface 上面的資訊只有可連線對向的 IP address、routing table、gateway、DNS service 這些資訊。
 
+#TODO 
+
 # Publishing Ports
 
 如果你希望不只 containers 間可以互相溝通，user 也可以透過 host 和 container 溝通，那麼就須要將 container 身上的 port "publish" 到 host 身上的某個 port。
@@ -58,3 +60,5 @@ flowchart
 |`-p 8080:80/tcp -p 8080:80/udp`|Map TCP port `8080` on the Docker host to TCP port `80` in the container, and map UDP port `8080` on the Docker host to UDP port `80` in the container.|
 
 ### 在 compose.ymal 中
+
+#TODO 

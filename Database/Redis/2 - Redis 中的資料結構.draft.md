@@ -66,6 +66,9 @@ e.g.
 
 # Stream
 
+>[!Note]
+>關於 Redis Stream 的詳細介紹，請看[[Redis Stream.draft|這篇]]。
+
 Redis stream 是 Redis 5.0 後新增的資料結構，行為像是一個 append-only log，但相較於傳統的 append-only log 有一些優勢，包括：
 
 - 在 Redis stream 中搜尋的時間複雜度是 $O(1)$。
@@ -73,22 +76,9 @@ Redis stream 是 Redis 5.0 後新增的資料結構，行為像是一個 append-
 
 綜合上述優點，可以發現 Redis stream ==是一種適合用來實作 message queue 的資料結構==。
 
-### Entry ID
-
-Redis stream 中的每一筆資料稱為一個 "stream entry"，每個 entry 都會有一個與 timestamp 掛鉤的 unique ID，其結構為：
-
-```plaintext
-{UNIX_TIMESTAMP_IN_MS}-{SEQ_NO}
-```
-
-同一毫秒生成的 entries 的 `{SEQ_NO}` 會從 0 開始遞增，而 `{SEQ_NO}` 有 64 bits（最大可以到 $2^{64} - 1$）所以實務上不可能有相同的 entry ID。
-
 ### Basic Commands
 
 - `XADD`：在指定 stream 中新增一個 entry。
 - `XRANGE`：Query 某兩個時間點間的所有 entries。
 - `XREAD`：訂閱 stream 並取得最新的 entries。
 - `XLEN`：
-
->[!Note]
->關於 Redis Stream 的詳細介紹，請看[[Redis Stream.draft|這篇]]。
