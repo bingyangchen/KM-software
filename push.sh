@@ -42,7 +42,6 @@ print_centered_message "Remote branch 'dev' updated. Recreating master branch...
 
 git branch -D master || true
 git push origin --delete master || true
-
 git switch -c master
 
 print_centered_message "Local branch 'dev' copied to 'master'. Normalizing files..." "${BLUE}"
@@ -51,14 +50,11 @@ python -B summary.py
 python -B normalize_img_links.py
 python -B normalize_internal_links.py
 
-if [[ -n $(git status --porcelain) ]]; then
-    print_centered_message "Files normalized. Updating master branch..." "${BLUE}"
-    git add -A
-    git commit -m Update
-    git push origin master
-else
-    echo "Nothing to commit. Skipping push."
-fi
+print_centered_message "Files normalized. Updating master branch..." "${BLUE}"
+
+git add -A
+git commit -m Update
+git push origin master
 
 print_centered_message "Remote branch 'master' updated. Switching back to dev..." "${BLUE}"
 
